@@ -1,0 +1,36 @@
+// Labels
+@include superclass() {
+  .label {
+    @include label-base();
+    @include label-variant(lighten(getPageColor("text-dark"), 5%), lighten(getPageColor("text-muted"), 10%));
+    display: inline-block;
+
+    // Label rounded
+    &.label-rounded {
+      border-radius: 5rem;
+      padding-left: 0.6rem;
+      padding-right: 0.6rem;
+    }
+
+    // Label colors
+    &.label-primary {
+      @include label-variant();
+    }
+
+    &.label-secondary {
+      @include label-variant(false, $secondary);
+    }
+
+    &.label-success {
+      @include label-variant(false, $success);
+    }
+
+    &.label-warning {
+      @include label-variant(false, $warning);
+    }
+
+    &.label-error {
+      @include label-variant(false, $danger);
+    }
+  }
+}

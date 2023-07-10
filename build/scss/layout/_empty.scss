@@ -1,0 +1,37 @@
+@import "../_frmwrk-api/active-elements";
+
+// Empty states (or Blank slates)
+@include superclass() {
+  .empty {
+    background: getPageColor("bg");
+    border-radius: $border-radius;
+    color: getPageColor("caption");
+    text-align: center;
+    padding: $sz_20 $sz_10;
+
+    .empty-icon {
+      margin-bottom: $control-size-lg;
+    }
+
+    .empty-title,
+    .empty-subtitle {
+      margin: $control-size auto;
+    }
+
+    .empty-action {
+      margin-top: $control-size-lg;
+    }
+  }
+
+  //
+  // Vertical Rhythm Spacing Block Base
+  $enable-vr-block: index($active-api-elements, "vr-block");
+  @if ($enable-vr-block > 0) {
+    .vr-block {
+      display: block;
+      position: relative;
+      width: auto;
+      min-width: 1px;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+$tile-breakpoint: getBreakPoint($breakPointLimit) !default;
+
+@include superclass() {
+  .tile {
+    align-items: stretch;
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: min-content;
+
+    // Modifiers
+    &.tile-ancestor {
+      margin-left: $tile-spacing * -1;
+      margin-right: $tile-spacing * -1;
+      margin-top: $tile-spacing * -1;
+
+      &:last-child {
+        margin-bottom: $tile-spacing * -1;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: $tile-spacing;
+      }
+    }
+
+    &.tile-child {
+      margin: 0 !important;
+    }
+
+    &.tile-parent {
+      padding: $tile-spacing;
+    }
+
+    &.tile-vertical {
+      flex-direction: column;
+
+      & > .tile.tile-child:not(:last-child) {
+        margin-bottom: 1.5rem !important;
+      }
+    }
+
+    // Responsiveness
+    @media screen and (min-width: $tile-breakpoint) {
+      &:not(.tile-child) {
+        display: flex;
+      }
+
+      @for $i from 1 through 12 {
+        &.tile-#{$i} {
+          flex: none;
+          width: math.div($i, 12) * 100%;
+        }
+      }
+    }
+  }
+}

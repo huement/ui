@@ -1,0 +1,46 @@
+//
+//    ┳ ┳┳━┓┳━┓┏┏┓┏━┓o┏━┓  ┏┓┓┓ ┳┳━┓┏━┓┏━┓┳━┓┳━┓┳━┓┳ ┳┓ ┳
+//    ┃━┫┃━┫┃┳┛┃┃┃┃ ┃┃┃     ┃ ┗┏┛┃━┛┃ ┃┃ ┳┃┳┛┃━┫┃━┛┃━┫┗┏┛
+//    ┇ ┻┛ ┇┇┗┛┛ ┇┛━┛┇┗━┛   ┇  ┇ ┇  ┛━┛┇━┛┇┗┛┛ ┇┇  ┇ ┻ ┇
+//    --==xxXX  VERTICAL RHYTHM & MODULAR SCALE  XXxx==--
+//
+
+//
+/// Typography Headings. Modular Rhythm & Vertical Scale across breakpoints
+/// @author Derek Scott
+/// @group typography
+//
+
+// Start by loadins any custom webfonts
+@if global-variable-exists(PrimaryFont) {
+  // prettier-ignore
+  @include Harmonic_LoadFont($PrimaryFont,"paragraph-font-family",$SansStack);
+}
+
+@if global-variable-exists(HeadingFont) {
+  // prettier-ignore
+  @include Harmonic_LoadFont($HeadingFont,"headings-font-family",$SerifStack);
+}
+
+@if global-variable-exists(CodeFont) {
+  // prettier-ignore
+  @include Harmonic_LoadFont($CodeFont,"code-font-family",$MonoStack);
+}
+
+//@import "rfs";
+@import "base";
+
+/** Harmonious Heading Sizes */
+@import "headings";
+@include superclass() {
+  @include Harmonic_Headings_Core();
+  @include Harmonic_Headings_Breakpoints();
+}
+
+@import "title";
+
+/** Typography Extras */
+@import "typesetting";
+@import "quotes";
+@import "pre-code"; // TODO Improve code box stylings
+@import "lists";

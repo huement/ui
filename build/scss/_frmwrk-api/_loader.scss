@@ -1,0 +1,34 @@
+// Loop over each breakpoint & load modules
+@each $breakpoint in map-keys($grid-breakpoints) {
+  // Generate media query if needed
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    // Loop over each utility property
+    @each $key, $class in $classes {
+      // The utility can be disabled with `false`, thus check if the utility is a map first
+      // Only proceed if responsive media queries are enabled or if it's the base media query
+      @if type-of($class) ==
+        "map" and
+        (map-get($class, responsive) or $infix == "")
+      {
+        @include superclass() {
+          @include buildClass($class, $infix);
+        }
+      }
+    }
+  }
+}
+
+// Loop over each breakpoint & load PRINT modules
+@media print {
+  @each $key, $class in $classes {
+    // The utility can be disabled with `false`, thus check if the utility is a map first
+    // Then check if the utility needs print styles
+    @if type-of($class) == "map" and map-get($class, print) == true {
+      @include superclass() {
+        @include buildClass($class, "-print");
+      }
+    }
+  }
+}

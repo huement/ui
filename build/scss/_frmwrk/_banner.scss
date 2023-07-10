@@ -1,0 +1,17 @@
+@mixin printBanner($file:"") {
+  /*!
+   * Mojo #{$file} v#{$version} (https://huement.com/mojo)
+   * All Rights Reserved 2022 Huement.com
+   * Licensed under GPLv3 (https://github.com/huement/mojo/blob/main/LICENSE)
+   * Dedicated to the Gods of sex, drugs, and microchips
+   */
+}
+
+@mixin printHeader($title, $file: "") {
+  $fileString: "";
+  @if ($file != "") {
+    $fileString: " : _#{$file}.scss";
+  }
+  /** #{$title} #{$fileString} */
+  /** __________________________________ */
+}

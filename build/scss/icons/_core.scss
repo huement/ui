@@ -1,0 +1,85 @@
+.#{$ib-prefix}::before,
+.#{$ib-prefix}c::before {
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  vertical-align: -0.125em;
+  content: "";
+}
+
+.#{$ib-prefix}::before {
+  background: currentColor;
+  mask-image: var(--url);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: var(--url);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+.#{$ib-prefix}c::before {
+  background-image: var(--url);
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.#{$ib-prefix} {
+  font-size: $sz_5;
+}
+
+.#{$ib-prefix}-fw::before {
+  width: $sz_5;
+}
+
+.#{$ib-prefix}-sm {
+  font-size: $sz_4;
+}
+
+.#{$ib-prefix}-lg {
+  font-size: $sz_6;
+  line-height: $sz_5;
+  vertical-align: -0.0667rem;
+}
+
+.#{$ib-prefix}-2x {
+  font-size: $sz_7;
+}
+
+.#{$ib-prefix}-3x {
+  font-size: $sz_9;
+}
+
+.#{$ib-prefix}-4x {
+  font-size: $sz_11;
+}
+
+.#{$ib-prefix}-5x {
+  font-size: $sz_13;
+}
+
+.#{$ib-prefix}-flip-horizontal::before {
+  transform: scale(-1, 1);
+}
+
+.#{$ib-prefix}-flip-vertical::before {
+  transform: scale(1, -1);
+}
+
+.#{$ib-prefix}-rotate-90::before {
+  transform: rotate(90deg);
+}
+
+.#{$ib-prefix}-rotate-180::before {
+  transform: rotate(180deg);
+}
+
+.#{$ib-prefix}-rotate-270::before {
+  transform: rotate(270deg);
+}
+
+.#{$ib-prefix}-embed {
+  display: inline-block;
+  height: $font-size-base;
+  width: $font-size-base;
+}

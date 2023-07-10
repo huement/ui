@@ -1,0 +1,79 @@
+:root {
+  // Note: Custom variable values only support SassScript inside `#{}`.
+
+  // Colors
+  //
+  // Generate palettes for full colors, grays, and theme colors.
+
+  @each $color, $value in $Hexidecimal {
+    --#{$color}: #{$value};
+  }
+
+  @each $color, $value in $mediums {
+    --gray-#{$color}: #{$value};
+  }
+
+  @each $color, $value in $ThemeColors {
+    $valMap: map.get($value, "main");
+    --#{$color}: #{$valMap};
+  }
+
+  @each $color, $value in $theme-colors-rgb {
+    --#{$color}-rgb: #{$value};
+  }
+
+  --white-rgb: #{to-rgb($light)};
+  --black-rgb: #{to-rgb($dark)};
+  --body-color-rgb: #{to-rgb($body)};
+  --body-bg-rgb: #{to-rgb($background)};
+
+  // Fonts
+
+  // Note: Use `inspect` for lists so that quoted items keep the quotes.
+  // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
+  $font-family-sans-serif: map.get($PrimaryFont, "family");
+  $font-family-headings: map.get($HeadingFont, "family");
+  $font-family-monospace: map.get($CodeFont, "family");
+  --font-sans-serif: #{inspect($font-family-sans-serif)};
+  --font-headings: #{inspect($font-family-headings)};
+  --font-monospace: #{inspect($font-family-monospace)};
+
+  --gradient: #{$gradient};
+
+  // Root and body
+  // scss-docs-start root-body-variables
+  @if $font-size-root != null {
+    --root-font-size: #{$font-size-root};
+  }
+  --body-font-family: #{$font-family-base};
+  //@include rfs($font-size-base, --body-font-size);
+  --body-font-weight: #{$font-weight-base};
+  --body-line-height: #{$line-height-base};
+  --body-color: #{$body};
+  @if $body-text-align != null {
+    --body-text-align: #{$body-text-align};
+  }
+  --body-bg: #{$background};
+  // scss-docs-end root-body-variables
+
+  // scss-docs-start root-border-var
+  --border-width: #{$border-width};
+  --border-style: #{$border-style};
+  --border-color: #{$border-color};
+  --border-color-translucent: #{$border-color-translucent};
+
+  --border-radius: #{$border-radius};
+  --border-radius-sm: #{$border-radius-sm};
+  --border-radius-lg: #{$border-radius-lg};
+  --border-radius-xl: #{$border-radius-xl};
+  --border-radius-2xl: #{$border-radius-2xl};
+  --border-radius-pill: #{$border-radius-pill};
+  // scss-docs-end root-border-var
+
+  --link-color: #{$link-color};
+  --link-hover-color: #{$link-hover};
+
+  --code-color: #{$code};
+
+  --highlight-bg: #{$blue_light};
+}

@@ -1,0 +1,38 @@
+$section-padding: 3rem 1.5rem !default;
+$section-padding-desktop: 3rem 3rem !default;
+$section-padding-medium: 9rem 4.5rem !default;
+$section-padding-large: 18rem 6rem !default;
+
+@include cssvars(
+  (
+    section-padding: $section-padding,
+    section-padding-desktop: $section-padding-desktop,
+    section-padding-medium: $section-padding-medium,
+    section-padding-large: $section-padding-large,
+  )
+);
+
+@include superclass() {
+  .section {
+    padding: cssvar(section-padding);
+
+    // Responsiveness
+    @include breakpoint("desktop") {
+      padding: cssvar(section-padding-desktop);
+
+      // Sizes
+      &.is-medium {
+        padding: cssvar(section-padding-medium);
+      }
+
+      &.is-large {
+        padding: cssvar(section-padding-large);
+      }
+    }
+  }
+
+  .hidden {
+    height: 0 !important;
+    opacity: 0 !important;
+  }
+}

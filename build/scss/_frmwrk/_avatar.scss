@@ -1,0 +1,6 @@
+// Avatar mixin
+@mixin avatar-base($size: $sz_7) {
+  font-size: math.div($size, 2);
+  height: $size;
+  width: $size;
+}

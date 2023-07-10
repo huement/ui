@@ -1,0 +1,185 @@
+// =============================================================================
+// TYPESET PLUGIN
+// =============================================================================
+
+// TODO Update This to actually work
+// @include cssvars(
+//   (
+
+//   )
+// );
+
+@include superclass() {
+  .fraction {
+    font-kerning: normal;
+    font-variant-ligatures: common-ligatures, contextual;
+    font-variant-numeric: diagonal-fractions;
+    font-feature-settings: "kern", "liga", "clig", "calt", "frac";
+  }
+
+  .fn {
+    font-kerning: normal;
+    font-variant-ligatures: common-ligatures, contextual;
+    font-variant-position: sub;
+    font-feature-settings: "kern", "liga", "clig", "calt", "subs";
+  }
+
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+      .text#{$infix}-left {
+        text-align: left !important;
+      }
+      .text#{$infix}-right {
+        text-align: right !important;
+      }
+      .text#{$infix}-center {
+        text-align: center !important;
+      }
+    }
+  }
+
+  .text-justified {
+    text-align: justify;
+  }
+
+  .text-monospace {
+    font-family: getFontData($CodeFont) !important;
+  }
+
+  .text-wrap {
+    white-space: normal !important;
+  }
+  .text-nowrap {
+    white-space: nowrap !important;
+  }
+
+  .text-lowercase {
+    text-transform: lowercase !important;
+  }
+  .text-uppercase {
+    text-transform: uppercase !important;
+  }
+  .text-capitalize {
+    text-transform: capitalize !important;
+  }
+  .font-weight-light {
+    font-weight: $font-weight-light !important;
+  }
+  .font-weight-lighter {
+    font-weight: $font-weight-lighter !important;
+  }
+  .font-weight-normal {
+    font-weight: $font-weight-normal !important;
+  }
+  .font-weight-bold {
+    font-weight: $font-weight-bold !important;
+  }
+  .font-weight-bolder {
+    font-weight: $font-weight-bolder !important;
+  }
+  .font-italic {
+    font-style: italic !important;
+  }
+
+  .text-break {
+    word-break: break-word !important; // Deprecated, but avoids issues with flex containers
+    word-wrap: break-word !important; // Used instead of `overflow-wrap` for IE & Edge Legacy
+  }
+
+  // Small caps
+  .small-caps {
+    font-variant: small-cap;
+  }
+
+  // Double quote (") marks
+  .pull-double {
+    margin-left: -0.46em;
+  }
+
+  .push-double {
+    margin-right: 0.46em;
+  }
+
+  // Single quote (') marks
+  .pull-single {
+    margin-left: -0.27em;
+  }
+
+  .push-single {
+    margin-right: 0.27em;
+  }
+
+  .pull-double,
+  .push-double,
+  .pull-single,
+  .push-single {
+    display: inline-block;
+  }
+
+  // Optical margin alignment for particular letters
+  .pull-T,
+  .pull-V,
+  .pull-W,
+  .pull-Y {
+    margin-left: -0.07em;
+  }
+
+  .push-T,
+  .push-V,
+  .push-W,
+  .push-Y {
+    margin-right: 0.07em;
+  }
+
+  .pull-O,
+  .pull-C,
+  .pull-o,
+  .pull-c {
+    margin-left: -0.04em;
+  }
+
+  .push-O,
+  .push-C,
+  .push-o,
+  .push-c {
+    margin-right: 0.04em;
+  }
+
+  .pull-A {
+    margin-left: -0.03em;
+  }
+
+  .push-A {
+    margin-right: 0.03em;
+  }
+
+  .drop-cap {
+    @include Harmonic_Dropcap();
+  }
+
+  /* TODO: Fix getPageColor("caption"); */
+  .caption {
+    //color: getPageColor("caption");
+    color: #4f4f4f;
+  }
+
+  .upper {
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+  }
+
+  .small-caps {
+    font-feature-settings: "smcp" 1, "kern" 1;
+    letter-spacing: 0.1rem;
+  }
+
+  .lining-numerals {
+    font-feature-settings: "lnum" 1, "kern" 1;
+  }
+
+  .oldstyle-numerals {
+    font-feature-settings: "onum" 1, "kern" 1;
+  }
+}

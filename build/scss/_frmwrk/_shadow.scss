@@ -1,0 +1,19 @@
+@mixin box-shadow($shadow...) {
+  @if $enable-shadows {
+    box-shadow: $shadow;
+  }
+}
+
+@mixin box-shadow-default {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+// Component focus shadow
+@mixin control-shadow($color: $cyan) {
+  box-shadow: 0 0 0 0.1rem rgba($color, 0.2);
+}
+
+// Shadow mixin
+@mixin shadow-variant($offset: $sz_1) {
+  box-shadow: 0 $offset ($offset + 0.05rem) * 2 rgba($dark, 0.3);
+}

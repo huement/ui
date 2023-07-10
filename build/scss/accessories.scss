@@ -1,0 +1,14 @@
+// Sass Modules
+@use "sass:map";
+@use "sass:list";
+@use "sass:math";
+@use "sass:color";
+@use "sass:meta";
+@use "sass:string";
+
+@import "_frmwrk-config/index";
+@import "_frmwrk/index";
+
+@include printBanner(Accessories);
+
+@import "accessories/index";

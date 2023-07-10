@@ -1,0 +1,70 @@
+// Base class
+//
+// Kickstart any navigation component with a set of style resets. Works with
+// `<nav>`s, `<ul>`s or `<ol>`s.
+@include superclass() {
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+  .nav-link {
+    display: block;
+    padding: $nav-link-padding-y $nav-link-padding-x;
+    text-decoration: if($link-decoration == none, null, none);
+
+    @include hover-focus() {
+      text-decoration: none;
+    }
+
+    // Disabled state lightens text
+    &.disabled {
+      color: rgba($nav-link-disabled-color, 0.75);
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  //
+  // Pills
+  //
+
+  .nav-pills {
+    .nav-link {
+      background: none;
+      border: 0;
+      @include border-radius($nav-pills-border-radius);
+    }
+
+    .nav-link.active,
+    .show > .nav-link {
+      color: findColorInvert($nav-pills-link-active-bg);
+      background-color: $nav-pills-link-active-bg;
+      text-decoration: none !important;
+    }
+  }
+
+  //
+  // Justified variants
+  //
+
+  .nav-fill {
+    > .nav-link,
+    .nav-item {
+      flex: 1 1 auto;
+      text-align: center;
+    }
+  }
+
+  .nav-justified {
+    > .nav-link,
+    .nav-item {
+      flex-basis: 0;
+      flex-grow: 1;
+      text-align: center;
+    }
+  }
+}

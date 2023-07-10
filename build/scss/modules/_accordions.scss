@@ -1,0 +1,57 @@
+// Accordion Menus
+//
+
+@include superclass() {
+  .accordion {
+    input:checked ~,
+    &[open] {
+      & .accordion-header > {
+        .rif:first-child {
+          transform: rotate(90deg);
+        }
+      }
+
+      & .accordion-body {
+        max-height: $accordion-max-height;
+      }
+    }
+
+    .accordion-header {
+      display: block;
+      padding: $sz_1 $sz_2;
+      color: getPageColor("heading");
+      transition: $transition-color;
+      letter-spacing: 1px;
+      cursor: pointer;
+
+      &:hover {
+        color: lighten(getPageColor("heading"), 20%);
+      }
+
+      &.accordion-header-alt {
+        color: getPageColor("text-alt");
+        &:hover {
+          color: darken(getPageColor("text-alt"), 20%);
+        }
+      }
+
+      .rif {
+        transition: transform 0.35s;
+      }
+    }
+
+    .accordion-body {
+      margin-bottom: $sz_2;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s;
+    }
+  }
+
+  // Remove default details marker in Webkit
+  summary.accordion-header {
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+}

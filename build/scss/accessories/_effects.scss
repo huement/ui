@@ -1,0 +1,52 @@
+// TODO FIX THIS!! ADD IN BUTTON EFFECTS CORRECTLY
+// @include superclass() {
+//   &:not(.no-effects) {
+
+//     button, [class*="btn-"] {
+//       &.focus, &:focus,
+//       &.hover, &:hover {
+//         opacity: .8;
+//       }
+//       &:active {
+//         transform: translateY(2px);
+//       }
+//     }
+
+//     button, [class*="btn-"],
+//     input, textarea, select {
+//       &:focus {
+//         transition: .1s;
+//       }
+//     }
+
+//     input[type="radio"], input[type="checkbox"] {
+//       &::before, &::after {
+//         transition: .1s;
+//       }
+//     }
+
+//     input[type="reset"],
+//     input[type="button"],
+//     input[type="submit"] {
+//       &:active {
+//         transform: translateY(2px);
+//       }
+//       &:hover {
+//         opacity: .8;
+//       }
+//     }
+
+//     @each $state in (success, error, warning, info) {
+//       [data-#{$state}]:not([data-#{$state}=""]) {
+//         &::after {
+//           animation: slide-down .3s ease-out;
+//         }
+//       }
+//     }
+
+//     @keyframes slide-down {
+//       0% { opacity: 0; transform: translateY(-100%); }
+//       100% { opacity: 1; transform: translateY(0); }
+//     }
+//   }
+// }

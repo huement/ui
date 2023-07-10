@@ -1,0 +1,79 @@
+///   Superclass
+///  --------------------
+///   The superclass is the application root class that
+///   wraps and scope the lib selectors. Use this class
+///   to wrap the modules in a superclass preserving the
+///   outer scope from the lib effects
+
+@mixin superclass() {
+  @if $superclass and str-length($superclass) > 0 {
+    .#{$superclass} {
+      @content;
+    }
+  } @else {
+    body {
+      @content;
+    }
+  }
+}
+
+///   CSS Variables
+///  --------------------
+///   Use this mixin to declare a set of CSS Custom Properties.
+///   The variables in $css_variables will be properly prefixed.
+///   The use of this mixin is encouraged to keep a good scalability.
+
+@mixin cssvars($css_variables) {
+  :root {
+    @each $name, $value in $css_variables {
+      --#{$name}: #{$value};
+    }
+  }
+}
+
+/// This mixin is used to change a CSS property value.
+/// It will change a declared css variable auto-prefixing it.
+@mixin cssvar($name, $value: "") {
+  --#{$name}: #{$value};
+}
+
+/// Retrieve a css variable value with already autoprefixed.
+/// Use the mixin if you want to change the variable value.
+@function cssvar($name) {
+  @return var(--#{$name});
+}
+
+///   Validation
+///  --------------------
+///   This file is used to validate that our variables meet certain standards
+///   and ensure that the library will build correctly.
+///
+
+// Used to evaluate Sass maps like our grid breakpoints.
+@mixin _assert-ascending($map, $map-name) {
+  $prev-key: null;
+  $prev-num: null;
+  @each $key, $num in $map {
+    @if $prev-num == null or unit($num) == "%" or unit($prev-num) == "%" {
+      // Do nothing
+    } @else if not comparable($prev-num, $num) {
+      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    } @else if $prev-num >= $num {
+      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    }
+    $prev-key: $key;
+    $prev-num: $num;
+  }
+}
+
+// Starts at zero
+// Used to ensure the min-width of the lowest breakpoint starts at 0.
+@mixin _assert-starts-at-zero($map, $map-name: "$grid-breakpoints") {
+  @if length($map) > 0 {
+    $values: map-values($map);
+    $first-value: nth($values, 1);
+    @if $first-value != 0 {
+      @warn "First breakpoint in #{$map-name} must start at 0, but starts at #{$first-value}.";
+    }
+  }
+}

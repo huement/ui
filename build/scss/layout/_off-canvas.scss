@@ -1,0 +1,108 @@
+// Off canvas menus
+$off-canvas-breakpoint: getBreakPoint($breakPointLimit) !default;
+//@debug "BP LIMIT: #{$breakPointLimit} SIZE: #{$off-canvas-breakpoint}";
+
+@include cssvars(
+  (
+    sidebar-width: $sidebarWidth,
+    sidebar-background: getPageColor("sidebar"),
+    sidebar-background-alt: getPageColor("sidebar-alt"),
+    sidebar-background-dark: getPageColor("sidebar-dark"),
+    off-canvas-content-padding: $sz_3 $sz_3 $sz_3 4rem,
+  )
+);
+
+@include superclass() {
+  &.off-canvas {
+    display: flex;
+    flex-flow: nowrap;
+    height: 100%;
+    position: relative;
+    width: 100%;
+
+    .off-canvas-toggle {
+      display: block;
+      position: absolute;
+      top: $sz_3;
+      transition: none;
+      z-index: $zindex-0;
+      left: $sz_3;
+    }
+
+    .off-canvas-sidebar {
+      background: cssvar(sidebar-background);
+      bottom: 0;
+      width: cssvar(sidebar-width);
+      overflow-y: auto;
+      position: fixed;
+      top: 0;
+      transition: transform 0.25s;
+      z-index: $zindex-2;
+      left: 0;
+      transform: translateX(-100%);
+
+      &.sidebar-alt {
+        background: cssvar(sidebar-background-alt);
+      }
+
+      &.sidebar-dark {
+        background: cssvar(sidebar-background-dark);
+      }
+    }
+
+    .off-canvas-content {
+      flex: 1 1 auto;
+      height: 100%;
+      padding: cssvar(off-canvas-content-padding);
+    }
+
+    .off-canvas-overlay {
+      background: rgba($dark, 0.1);
+      border-color: transparent;
+      border-radius: 0;
+      bottom: 0;
+      display: none;
+      height: 100%;
+      left: 0;
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 100%;
+    }
+
+    .off-canvas-sidebar {
+      &:target,
+      &.active {
+        transform: translateX(0);
+      }
+
+      &:target ~ .off-canvas-overlay,
+      &.active ~ .off-canvas-overlay {
+        display: block;
+        z-index: $zindex-1;
+      }
+    }
+  }
+}
+
+@media (min-width: $off-canvas-breakpoint) {
+  @include superclass() {
+    &.off-canvas {
+      &.off-canvas-sidebar-show {
+        .off-canvas-toggle {
+          display: none;
+        }
+
+        .off-canvas-sidebar {
+          flex: 0 0 auto;
+          position: relative;
+          transform: none;
+        }
+
+        .off-canvas-overlay {
+          display: none !important;
+        }
+      }
+    }
+  }
+}

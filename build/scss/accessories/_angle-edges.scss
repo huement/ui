@@ -1,0 +1,70 @@
+// Classes
+@if ($enable-angled-edges == true) {
+  @include superclass() {
+    .angle-top-left {
+      @include angle-edge(
+        $angle-edge-size,
+        $angle-position-y: "top",
+        $angle-position-x: "left"
+      );
+    }
+
+    .angle-top-right {
+      @include angle-edge(
+        $angle-edge-size,
+        $angle-position-y: "top",
+        $angle-position-x: "right"
+      );
+    }
+
+    .angle-bottom-left {
+      @include angle-edge(
+        $angle-edge-size,
+        $angle-position-y: "bottom",
+        $angle-position-x: "left"
+      );
+    }
+
+    .angle-bottom-right {
+      @include angle-edge(
+        $angle-edge-size,
+        $angle-position-y: "bottom",
+        $angle-position-x: "right"
+      );
+    }
+
+    .angle-both-left-left {
+      @include angle-edge(
+        $angle-edge-size,
+        $angle-position-y: "both",
+        $angle-position-x: "left"
+      );
+    }
+
+    .angle-both-right-right {
+      @include angle-edge(
+        $angle-edge-size,
+        $angle-position-y: "both",
+        $angle-position-x: "right"
+      );
+    }
+
+    .angle-both-left-right {
+      @include angle-edge(
+        $angle-edge-size,
+        $angle-position-y: "both",
+        $angle-position-x: "left",
+        $angle-position-bottom-x: "right"
+      );
+    }
+
+    .angle-both-right-left {
+      @include angle-edge(
+        $angle-edge-size,
+        $angle-position-y: "both",
+        $angle-position-x: "right",
+        $angle-position-bottom-x: "left"
+      );
+    }
+  }
+}

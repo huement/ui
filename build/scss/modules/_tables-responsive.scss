@@ -1,0 +1,301 @@
+////
+/// RESPONSIVE TABLES
+////
+
+$mBPMap: map-get($chords, xs);
+$mBPWidth: map-get($mBPMap, "width");
+$mBPWidth_rem: map-get($mBPMap, "width_rem");
+$breakpoint-alpha: $mBPWidth;
+
+$baseColor: #398b93 !default;
+$borderRadius: 10px !default;
+$imageBig: 100px !default;
+$imageSmall: 60px !default;
+$padding: 10px !default;
+$M_BorderAltColor: getPageColor("border-alt") !default;
+$M_SelectionColor: opacify($secondary, 0.6) !default;
+
+@mixin mojo_tables() {
+  @include mojo_rwd-table();
+
+  $table-border-width: 1px;
+  $table-border-color: $medium_white;
+
+  .table-reflow {
+    thead {
+      float: left;
+    }
+
+    tbody {
+      display: block;
+      white-space: nowrap;
+    }
+
+    th,
+    td {
+      border-top: $table-border-width solid $table-border-color;
+      border-left: $table-border-width solid $table-border-color;
+
+      &:last-child {
+        border-right: $table-border-width solid $table-border-color;
+      }
+    }
+
+    thead,
+    tbody,
+    tfoot {
+      &:last-child {
+        tr:last-child th,
+        tr:last-child td {
+          border-bottom: $table-border-width solid $table-border-color;
+        }
+      }
+    }
+
+    tr {
+      float: left;
+
+      th,
+      td {
+        display: block !important;
+        border: $table-border-width solid $table-border-color;
+      }
+    }
+  }
+
+  // Scollable tables
+  .table-scroll-box {
+    display: block;
+    overflow-x: auto;
+    padding-bottom: 0.75rem;
+    white-space: nowrap;
+  }
+}
+
+@mixin mojo_rwd-table() {
+  //
+  // Responsive Table One
+  .rwd-table {
+    margin: 1rem 0;
+    width: 100%;
+    min-width: 100%; // adjust to your needs
+
+    tr {
+      border-top: 1px solid $M_BorderAltColor;
+      border-bottom: 1px solid $M_BorderAltColor;
+    }
+
+    th {
+      display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!
+    }
+
+    td {
+      display: block;
+
+      &:first-child {
+        padding-top: 0.5em;
+      }
+      &:last-child {
+        padding-bottom: 0.5em;
+      }
+
+      &:before {
+        content: attr(data-th) ": "; // who knew you could do this? The internet, that's who.
+        font-weight: bold;
+
+        // optional stuff to make it look nicer
+        width: 6.5em; // magic number :( adjust according to your own content
+        display: inline-block;
+        // end options
+
+        @media (min-width: $breakpoint-alpha) {
+          display: none;
+        }
+      }
+    }
+
+    th,
+    td {
+      text-align: left;
+
+      @media (min-width: $breakpoint-alpha) {
+        display: table-cell;
+        padding: 0.25em 0.5em;
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+
+    &.dark {
+      background: $medium_dark;
+      color: #fff;
+      border-radius: 0.4em;
+      overflow: hidden;
+      tr {
+        border-color: lighten($medium_dark, 10%);
+      }
+      th,
+      td {
+        margin: 0.5em 1em;
+        @media (min-width: $breakpoint-alpha) {
+          padding: 1em !important;
+        }
+      }
+      th,
+      td:before {
+        color: $yellow_light;
+      }
+    }
+  }
+}
+
+//
+// Responsive Table Two
+@mixin mojo_rtable() {
+  .rtable {
+    // IE needs inline-block to position scrolling shadows otherwise use:
+    // display: block;
+    // max-width: min-content;
+
+    display: inline-block;
+    vertical-align: top;
+    max-width: 100%;
+
+    overflow-x: auto;
+
+    // optional - looks better for small cell values
+    white-space: nowrap;
+
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    td:last-child {
+      background-image: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      background-repeat: no-repeat;
+      background-position: 100% 0;
+      background-size: 20px 100%;
+    }
+  }
+
+  .rtable,
+  .rtable--flip tbody {
+    // optional - enable iOS momentum scrolling
+    -webkit-overflow-scrolling: touch;
+
+    // scrolling shadows
+    background: radial-gradient(
+          left,
+          ellipse,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(0, 0, 0, 0) 75%
+        )
+        0 center,
+      radial-gradient(
+          right,
+          ellipse,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(0, 0, 0, 0) 75%
+        )
+        100% center;
+    background-size: 10px 100%, 10px 100%;
+    background-attachment: scroll, scroll;
+    background-repeat: no-repeat;
+  }
+
+  // change these gradients from white to your background colour if it differs
+  // gradient on the first cells to hide the left shadow
+  .rtable td:first-child,
+  .rtable--flip tbody tr:first-child {
+    background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 20px 100%;
+  }
+
+  // gradient on the last cells to hide the right shadow
+  .rtable td:last-child,
+  .rtable--flip tbody tr:last-child {
+    background-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    background-size: 20px 100%;
+  }
+
+  .rtable {
+    th {
+      font-size: 11px;
+      text-align: left;
+      text-transform: uppercase;
+      background: $medium_white;
+    }
+    th,
+    td {
+      padding: 6px 12px;
+      border: 1px solid $medium_lightest;
+    }
+
+    .rtable--flip {
+      display: flex;
+      overflow: hidden;
+      background: none;
+      thead {
+        display: flex;
+        flex-shrink: 0;
+        min-width: min-content;
+        th {
+          display: block;
+
+          &:not(:last-child) {
+            border-bottom: 0;
+          }
+        }
+      }
+      tbody {
+        display: flex;
+        position: relative;
+        overflow-x: auto;
+        overflow-y: hidden;
+        tr {
+          display: flex;
+          flex-direction: column;
+          min-width: min-content;
+          flex-shrink: 0;
+          td {
+            display: block;
+            background-image: none !important;
+            // border-collapse is no longer active
+            border-left: 0;
+
+            &:not(:last-child) {
+              border-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@if ($enable-table-classes == true) {
+  @include superclass() {
+    @include mojo_tables();
+    @include mojo_rtable();
+  }
+}

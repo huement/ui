@@ -1,0 +1,5 @@
+//*-- Rewind --*\\
+.#{$iconclass}rewind {
+    @extend .#{$iconclass}forward;
+    transform: rotate(180deg);
+}

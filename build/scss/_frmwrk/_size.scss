@@ -1,0 +1,24 @@
+// width(height, min-width, max-width)
+@mixin width($args...) {
+  @include apply-props($args, width, min-width, max-width);
+}
+
+// fixed-width(width)
+@mixin fixed-width($base) {
+  @include apply-props(($base, $base), min-width, max-width);
+}
+
+// height(height, min-height, max-height)
+@mixin height($args...) {
+  @include apply-props($args, height, min-height, max-height);
+}
+
+// fixed-height(height)
+@mixin fixed-height($base) {
+  @include apply-props(($base, $base), min-height, max-height);
+}
+
+// pseudo(position: absolute, content: '')
+@mixin pseudo($position: absolute, $content: "") {
+  @include apply-props(($position, $content), position, content);
+}

@@ -1,0 +1,45 @@
+//     ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄
+//    ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░▌      ▐░▌▐░░░░░░░░░░░▌
+//     ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░▌░▌     ▐░▌▐░█▀▀▀▀▀▀▀▀▀
+//         ▐░▌     ▐░▌          ▐░▌       ▐░▌▐░▌▐░▌    ▐░▌▐░▌
+//         ▐░▌     ▐░▌          ▐░▌       ▐░▌▐░▌ ▐░▌   ▐░▌▐░█▄▄▄▄▄▄▄▄▄
+//         ▐░▌     ▐░▌          ▐░▌       ▐░▌▐░▌  ▐░▌  ▐░▌▐░░░░░░░░░░░▌
+//         ▐░▌     ▐░▌          ▐░▌       ▐░▌▐░▌   ▐░▌ ▐░▌ ▀▀▀▀▀▀▀▀▀█░▌
+//         ▐░▌     ▐░▌          ▐░▌       ▐░▌▐░▌    ▐░▌▐░▌          ▐░▌
+//     ▄▄▄▄█░█▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░▌     ▐░▐░▌ ▄▄▄▄▄▄▄▄▄█░▌
+//    ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌      ▐░░▌▐░░░░░░░░░░░▌
+//     ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀        ▀▀  ▀▀▀▀▀▀▀▀▀▀▀
+//    __________________________________
+//    ________/                         \\    RIF | RESPONSIVE ICON FONTS
+//                                       \\__________________________________
+//
+
+@use "sass:map";
+@use "sass:list";
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:meta';
+@use 'sass:string';
+
+@import "_frmwrk-config/index";
+@import "_frmwrk/index";
+
+@include printBanner(Icons);
+
+@include superclass() {
+  @import "icons/index";
+
+  @include icon($icons-fa, "search");
+  @include icon($icons-fa, "facebook");
+  @include icon($icons-fa, "twitter");
+  @include icon($icons-fa, "dribbble");
+  @include icon($icons-fa, "linkedin");
+
+  @include icon($icons-ion, "md-arrow-dropleft");
+  @include icon($icons-ion, "md-arrow-dropdown");
+  @include icon($icons-ion, "md-arrow-dropup");
+  @include icon($icons-ion, "md-arrow-dropright");
+  @include icon($icons-ion, "md-menu");
+}
+
+@import "modules/icons";

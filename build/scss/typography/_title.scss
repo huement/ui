@@ -1,0 +1,153 @@
+$title-color: getPageColor("heading") !default;
+$title-family: getFontFamily("heading") !default;
+$title-strong-color: getPageColor("heading-dark") !default;
+$subtitle-color: getPageColor("heading-alt") !default;
+$subtitle-family: getFontFamily("primary") !default;
+$subtitle-strong-color: getPageColor("heading") !default;
+$title-line-height: $ModularRatio !default;
+$subtitle-line-height: $line-height !default;
+
+@include superclass() {
+  .title,
+  .subtitle {
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
+    font-variant-ligatures: common-ligatures, contextual,
+      discretionary-ligatures;
+    font-feature-settings: "kern", "liga", "clig", "calt", "dlig";
+    word-break: break-word;
+
+    em,
+    span {
+      font-weight: inherit;
+    }
+
+    sub {
+      font-size: 75%;
+    }
+
+    sup {
+      font-size: 75%;
+    }
+
+    .tag {
+      vertical-align: middle;
+    }
+  }
+
+  .title {
+    color: $title-color;
+    font-weight: $title-weight;
+    letter-spacing: 0.5px;
+
+    @if $title-family {
+      font-family: $title-family;
+    }
+
+    font-size: $title-size;
+    font-weight: $title-weight;
+    line-height: $title-line-height;
+
+    strong {
+      color: $title-strong-color;
+      font-weight: $title-strong-weight;
+      letter-spacing: 0.75px;
+    }
+
+    // Sizes
+    @each $key, $size in $font-sizes {
+      $modSize: $title-size + $size - $block-spacing;
+      $newTitleSize: control-scale($modSize, $size);
+      &.title-#{$key} {
+        font-size: $newTitleSize;
+      }
+    }
+  }
+
+  .subtitle {
+    color: $subtitle-color;
+    font-weight: $subtitle-weight;
+    letter-spacing: 2px;
+    margin-top: -#{strip_units($subtitle-line-height) * 1rem};
+
+    &.make-spaced {
+      letter-spacing: 3.5px;
+      margin-top: $sz_2;
+    }
+
+    @if $subtitle-family {
+      font-family: $subtitle-family;
+    }
+
+    font-size: $subtitle-size;
+    font-weight: $subtitle-weight;
+    line-height: $subtitle-line-height;
+
+    strong {
+      color: $subtitle-strong-color;
+      font-weight: $subtitle-strong-weight;
+    }
+
+    // Sizes
+    @each $key, $size in $font-sizes {
+      $modSize: $subtitle-size + $size - $block-spacing;
+      $newTitleSize: control-scale($modSize, $size);
+      &.title-#{$key} {
+        font-size: $newTitleSize;
+      }
+    }
+  }
+
+  // [class^="display-*"] {
+  //   font-family: $display-font-family;
+  //   font-style:  $display-font-style;
+  //   font-weight: $display-font-weight;
+  //   line-height: $display-line-height;
+  // }
+
+  @if ($enable-display-sizes) {
+    //$dTarget: "";
+    $base-multi: 1;
+    $multiplier: 0;
+    $count: 0;
+    $total: length($display-font-sizes);
+    @each $name, $width in $grid-breakpoints {
+      $multiplier: if($count > 0, ($count * 0.1) + $base-multi, 1);
+      @include media-breakpoint-up($name, $grid-breakpoints) {
+        @each $display, $font-size in $display-font-sizes {
+          //@debug "#{$multiplier} times #{$font-size}";
+          .display#{breakpoint-infix($name, $grid-breakpoints)}-#{$display} {
+            $resp-font-size: #{$font-size * $multiplier};
+            @include font-size($resp-font-size);
+          }
+          // $dTarget: $dTarget +
+          //   ".display#{breakpoint-infix($name, $grid-breakpoints)}-#{$display},";
+        }
+      }
+      $count: $count + 1;
+    }
+
+    // #{unquote($dTarget)} {
+    //   font-family: $display-font-family;
+    //   font-style: $display-font-style;
+    //   font-weight: $display-font-weight;
+    //   line-height: $display-line-height;
+    // }
+    [class^="display-*"] {
+      font-family: $display-font-family;
+      font-style: $display-font-style;
+      font-weight: $display-font-weight;
+      line-height: $display-line-height;
+    }
+  }
+  // // Type display classes
+  // @each $display, $font-size in $display-font-sizes {
+  //   .display-#{$display} {
+  //     @include font-size($font-size);
+  //     font-family: $display-font-family;
+  //     font-style: $display-font-style;
+  //     font-weight: $display-font-weight;
+  //     line-height: $display-line-height;
+  //   }
+  // }
+}

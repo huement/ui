@@ -1,0 +1,28 @@
+//*-- Frown --*\\
+.#{$iconclass}frown {
+    @extend .#{$iconclass}smile;
+    &:before {
+        border-radius: 50%;
+        box-shadow: $U8 0 0 0, 0 0 0 $U2 inset;
+        height: $U4;
+        width: $U4;
+        left: $U7;
+        position: absolute;
+        top: 27%;
+    }
+    &:after {
+        border-radius: 50%;
+        transform: translateX(-50%);
+        @extend %#{$iconclass}stroke;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        height: $U16;
+        left: 50%;
+        position: absolute;
+        top: 6%;
+        width: $U16;
+        transform: translateX(-50%) rotate(180deg);
+        transform-origin: center 85%;
+    }
+}

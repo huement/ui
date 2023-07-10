@@ -1,0 +1,11 @@
+// CSS Icons
+
+// TODO Load these w/ config vars like social
+// @import "icons/core";
+// @import "icons/navigation";
+// @import "icons/action";
+// @import "icons/object";
+
+@include superclass() {
+  @import "icons/social";
+}

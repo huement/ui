@@ -1,0 +1,419 @@
+//
+//  ■■■■■■■■■■■■■■■■■■▶ HUEMENT PRESENTS ◀■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+//                                        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+//                                          _palette.scss
+//                                          DEC 03 2022
+//                                          VER 0.0.16
+//                                          Design Tokens Color Palette. Generated via '$> node cli/bin/mojo.js'
+//                                        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+//
+
+$red: #ec174c !default;
+$red_black: #9c0027 !default;
+$red_darkest: #b0002c !default;
+$red_darker: #c40031 !default;
+$red_dark: #d90338 !default;
+$red_light: #ff2b60 !default;
+$red_lighter: #ff4070 !default;
+$red_lightest: #ff547f !default;
+$red_white: #ff698e !default;
+
+$reds: (
+  100: #9c0027,
+  200: #b0002c,
+  300: #c40031,
+  400: #d90338,
+  500: #ec174c,
+  600: #ff2b60,
+  700: #ff4070,
+  800: #ff547f,
+  900: #ff698e,
+) !default;
+
+$orange: #fd8046 !default;
+$orange_black: #ab3600 !default;
+$orange_darkest: #bf4208 !default;
+$orange_darker: #d4561c !default;
+$orange_dark: #e86b30 !default;
+$orange_light: #ff8e59 !default;
+$orange_lighter: #ff9c6e !default;
+$orange_lightest: #ffaa82 !default;
+$orange_white: #ffb896 !default;
+
+$oranges: (
+  100: #ab3600,
+  200: #bf4208,
+  300: #d4561c,
+  400: #e86b30,
+  500: #fd8046,
+  600: #ff8e59,
+  700: #ff9c6e,
+  800: #ffaa82,
+  900: #ffb896,
+) !default;
+
+$yellow: #fbfe12 !default;
+$yellow_black: #abad00 !default;
+$yellow_darkest: #bfc200 !default;
+$yellow_darker: #d3d600 !default;
+$yellow_dark: #e7eb00 !default;
+$yellow_light: #fbff26 !default;
+$yellow_lighter: #fcff3b !default;
+$yellow_lightest: #fcff4f !default;
+$yellow_white: #fcff63 !default;
+
+$yellows: (
+  100: #abad00,
+  200: #bfc200,
+  300: #d3d600,
+  400: #e7eb00,
+  500: #fbfe12,
+  600: #fbff26,
+  700: #fcff3b,
+  800: #fcff4f,
+  900: #fcff63,
+) !default;
+
+$green: #24fc2d !default;
+$green_black: #00ab06 !default;
+$green_darkest: #00bf06 !default;
+$green_darker: #00d407 !default;
+$green_dark: #0fe817 !default;
+$green_light: #38ff3f !default;
+$green_lighter: #4dff52 !default;
+$green_lightest: #61ff66 !default;
+$green_white: #75ff7a !default;
+
+$greens: (
+  100: #00ab06,
+  200: #00bf06,
+  300: #00d407,
+  400: #0fe817,
+  500: #24fc2d,
+  600: #38ff3f,
+  700: #4dff52,
+  800: #61ff66,
+  900: #75ff7a,
+) !default;
+
+$cyan: #028aa6 !default;
+$cyan_black: #004654 !default;
+$cyan_darkest: #005769 !default;
+$cyan_darker: #00687d !default;
+$cyan_dark: #007991 !default;
+$cyan_light: #179fba !default;
+$cyan_lighter: #2bb3cf !default;
+$cyan_lightest: #40c8e3 !default;
+$cyan_white: #54dcf7 !default;
+
+$cyans: (
+  100: #004654,
+  200: #005769,
+  300: #00687d,
+  400: #007991,
+  500: #028aa6,
+  600: #179fba,
+  700: #2bb3cf,
+  800: #40c8e3,
+  900: #54dcf7,
+) !default;
+
+$blue: #41ead4 !default;
+$blue_black: #009985 !default;
+$blue_darkest: #03ad97 !default;
+$blue_darker: #17c2ab !default;
+$blue_dark: #2bd6bf !default;
+$blue_light: #54ffe8 !default;
+$blue_lighter: #69ffeb !default;
+$blue_lightest: #7dffee !default;
+$blue_white: #91fff0 !default;
+
+$blues: (
+  100: #009985,
+  200: #03ad97,
+  300: #17c2ab,
+  400: #2bd6bf,
+  500: #41ead4,
+  600: #54ffe8,
+  700: #69ffeb,
+  800: #7dffee,
+  900: #91fff0,
+) !default;
+
+$ultra: #3e0097 !default;
+$ultra_black: #1d0045 !default;
+$ultra_darkest: #250059 !default;
+$ultra_darker: #2e006e !default;
+$ultra_dark: #360082 !default;
+$ultra_light: #5314ab !default;
+$ultra_lighter: #6729bf !default;
+$ultra_lightest: #7c3dd4 !default;
+$ultra_white: #9052e8 !default;
+
+$ultras: (
+  100: #1d0045,
+  200: #250059,
+  300: #2e006e,
+  400: #360082,
+  500: #3e0097,
+  600: #5314ab,
+  700: #6729bf,
+  800: #7c3dd4,
+  900: #9052e8,
+) !default;
+
+$dark: #1f1f1f !default;
+$dark_black: #000000 !default;
+$dark_darkest: #000000 !default;
+$dark_darker: #000000 !default;
+$dark_dark: #0a0a0a !default;
+$dark_light: #333333 !default;
+$dark_lighter: #474747 !default;
+$dark_lightest: #5c5c5c !default;
+$dark_white: #707070 !default;
+
+$darks: (
+  100: #000000,
+  200: #000000,
+  300: #000000,
+  400: #0a0a0a,
+  500: #1f1f1f,
+  600: #333333,
+  700: #474747,
+  800: #5c5c5c,
+  900: #707070,
+) !default;
+
+$medium: #4c4c4c !default;
+$medium_black: #000000 !default;
+$medium_darkest: #0f0f0f !default;
+$medium_darker: #242424 !default;
+$medium_dark: #383838 !default;
+$medium_light: #616161 !default;
+$medium_lighter: #757575 !default;
+$medium_lightest: #8a8a8a !default;
+$medium_white: #9e9e9e !default;
+
+$mediums: (
+  100: #000000,
+  200: #0f0f0f,
+  300: #242424,
+  400: #383838,
+  500: #4c4c4c,
+  600: #616161,
+  700: #757575,
+  800: #8a8a8a,
+  900: #9e9e9e,
+) !default;
+
+$light: #f0f0f0 !default;
+$light_black: #9e9e9e !default;
+$light_darkest: #b3b3b3 !default;
+$light_darker: #c7c7c7 !default;
+$light_dark: #dbdbdb !default;
+$light_light: #ffffff !default;
+$light_lighter: #ffffff !default;
+$light_lightest: #ffffff !default;
+$light_white: #ffffff !default;
+
+$lights: (
+  100: #9e9e9e,
+  200: #b3b3b3,
+  300: #c7c7c7,
+  400: #dbdbdb,
+  500: #f0f0f0,
+  600: #ffffff,
+  700: #ffffff,
+  800: #ffffff,
+  900: #ffffff,
+) !default;
+
+$primary: #2bb3cf !default;
+$primary_black: #00687d !default;
+$primary_darkest: #007991 !default;
+$primary_darker: #038ba6 !default;
+$primary_dark: #179fba !default;
+$primary_light: #40c8e3 !default;
+$primary_lighter: #54dcf7 !default;
+$primary_lightest: #69e6ff !default;
+$primary_white: #7de9ff !default;
+
+$primarys: (
+  100: #00687d,
+  200: #007991,
+  300: #038ba6,
+  400: #179fba,
+  500: #2bb3cf,
+  600: #40c8e3,
+  700: #54dcf7,
+  800: #69e6ff,
+  900: #7de9ff,
+) !default;
+
+$secondary: #f99157 !default;
+$secondary_black: #a83e05 !default;
+$secondary_darkest: #bd531a !default;
+$secondary_darker: #d1672e !default;
+$secondary_dark: #e67b42 !default;
+$secondary_light: #ff9f6b !default;
+$secondary_lighter: #ffac80 !default;
+$secondary_lightest: #ffb994 !default;
+$secondary_white: #ffc7a8 !default;
+
+$secondarys: (
+  100: #a83e05,
+  200: #bd531a,
+  300: #d1672e,
+  400: #e67b42,
+  500: #f99157,
+  600: #ff9f6b,
+  700: #ffac80,
+  800: #ffb994,
+  900: #ffc7a8,
+) !default;
+
+$heading: #333333 !default;
+$heading_black: #000000 !default;
+$heading_darkest: #000000 !default;
+$heading_darker: #0a0a0a !default;
+$heading_dark: #1f1f1f !default;
+$heading_light: #474747 !default;
+$heading_lighter: #5c5c5c !default;
+$heading_lightest: #707070 !default;
+$heading_white: #858585 !default;
+
+$headings: (
+  100: #000000,
+  200: #000000,
+  300: #0a0a0a,
+  400: #1f1f1f,
+  500: #333333,
+  600: #474747,
+  700: #5c5c5c,
+  800: #707070,
+  900: #858585,
+) !default;
+
+$body: #232323 !default;
+$body_black: #000000 !default;
+$body_darkest: #000000 !default;
+$body_darker: #000000 !default;
+$body_dark: #0f0f0f !default;
+$body_light: #383838 !default;
+$body_lighter: #4d4d4d !default;
+$body_lightest: #616161 !default;
+$body_white: #757575 !default;
+
+$bodys: (
+  100: #000000,
+  200: #000000,
+  300: #000000,
+  400: #0f0f0f,
+  500: #232323,
+  600: #383838,
+  700: #4d4d4d,
+  800: #616161,
+  900: #757575,
+) !default;
+
+$code: #404040 !default;
+$code_black: #000000 !default;
+$code_darkest: #030303 !default;
+$code_darker: #171717 !default;
+$code_dark: #2b2b2b !default;
+$code_light: #545454 !default;
+$code_lighter: #696969 !default;
+$code_lightest: #7d7d7d !default;
+$code_white: #919191 !default;
+
+$codes: (
+  100: #000000,
+  200: #030303,
+  300: #171717,
+  400: #2b2b2b,
+  500: #404040,
+  600: #545454,
+  700: #696969,
+  800: #7d7d7d,
+  900: #919191,
+) !default;
+
+$caption: #4f4f4f !default;
+$caption_black: #000000 !default;
+$caption_darkest: #121212 !default;
+$caption_darker: #262626 !default;
+$caption_dark: #3b3b3b !default;
+$caption_light: #636363 !default;
+$caption_lighter: #787878 !default;
+$caption_lightest: #8c8c8c !default;
+$caption_white: #a1a1a1 !default;
+
+$captions: (
+  100: #000000,
+  200: #121212,
+  300: #262626,
+  400: #3b3b3b,
+  500: #4f4f4f,
+  600: #636363,
+  700: #787878,
+  800: #8c8c8c,
+  900: #a1a1a1,
+) !default;
+
+$background: #fcfcfc !default;
+$background_black: #ababab !default;
+$background_darkest: #bfbfbf !default;
+$background_darker: #d4d4d4 !default;
+$background_dark: #e8e8e8 !default;
+$background_light: #ffffff !default;
+$background_lighter: #ffffff !default;
+$background_lightest: #ffffff !default;
+$background_white: #ffffff !default;
+
+$backgrounds: (
+  100: #ababab,
+  200: #bfbfbf,
+  300: #d4d4d4,
+  400: #e8e8e8,
+  500: #fcfcfc,
+  600: #ffffff,
+  700: #ffffff,
+  800: #ffffff,
+  900: #ffffff,
+) !default;
+
+$base00: #1f1f1f !default;
+$base01: #232323 !default;
+$base02: #333333 !default;
+$base03: #4c4c4c !default;
+$base04: #a0a0a0 !default;
+$base05: #bfbfbf !default;
+$base06: #e0e0e0 !default;
+$base07: #f0f0f0 !default;
+$base08: #ec174c !default;
+$base09: #24fc2d !default;
+$base0A: #fbfe12 !default;
+$base0B: #41ead4 !default;
+$base0C: #3e0097 !default;
+$base0D: #028aa6 !default;
+$base0E: #fe445f !default;
+$base0F: #fd8046 !default;
+
+$Hexidecimal: (
+  base00: #1f1f1f,
+  base01: #232323,
+  base02: #333333,
+  base03: #4c4c4c,
+  base04: #a0a0a0,
+  base05: #bfbfbf,
+  base06: #e0e0e0,
+  base07: #f0f0f0,
+  base08: #ec174c,
+  base09: #24fc2d,
+  base0A: #fbfe12,
+  base0B: #41ead4,
+  base0C: #3e0097,
+  base0D: #028aa6,
+  base0E: #fe445f,
+  base0F: #fd8046,
+) !default;

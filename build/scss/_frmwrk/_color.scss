@@ -1,0 +1,185 @@
+// TODO This file needs to do the following:
+// TODO   1. Get Page (body, bg etc), Theme (primary etc) colors
+// TODO   2. Get opposite color. ie for bg get good text color
+// TODO   3. For given color, get lighter, darker colors
+// TODO   4. build map of theme colors
+
+@function theme-color($key: "primary", $type: "main") {
+  @return getStatusColor($key, $type);
+}
+
+@function gray($key: 100) {
+  @if map-has-key($mediums, $key) {
+    $grayColor: map.get($mediums, $key);
+    @return $grayColor;
+  } @else {
+    @warn "Invalid Key #{$key} given for gray";
+    @return false;
+  }
+}
+
+// Request a theme color level
+@function theme-color-level($color-name: "primary", $level: 0) {
+  $color: theme-color($color-name);
+  $color-base: if($level > 0, $dark, $light);
+  $level: abs($level);
+
+  @return mix($color-base, $color, $level * $theme-color-interval);
+}
+
+// Colors
+@function to-rgb($value) {
+  @return red($value), green($value), blue($value);
+}
+
+// stylelint-disable scss/dollar-variable-pattern
+@function rgba-css-var($identifier, $target) {
+  @if $identifier == "body" and $target == "bg" {
+    @return rgba(var(--#{$prefix}#{$identifier}-bg-rgb), var(--#{$prefix}#{$target}-opacity));
+  }
+  @if $identifier == "body" and $target == "text" {
+    @return rgba(var(--#{$prefix}#{$identifier}-color-rgb), var(--#{$prefix}#{$target}-opacity));
+  } @else {
+    @return rgba(var(--#{$prefix}#{$identifier}-rgb), var(--#{$prefix}#{$target}-opacity));
+  }
+}
+
+@function validRgba($color, $alpha) {
+  @if type-of($color) != "color" {
+    @return $color;
+  }
+
+  @return rgba($color, $alpha);
+}
+
+/// Grab Base (or other given) color from Global Base16 map
+@function getB16($color) {
+  $bMap: map.get($Hexadecimal, "base16");
+  @if ($color == 0) {
+    $term: "base08";
+  }
+  @return map.get($bMap, $color);
+}
+
+@function getStatus($color, $type: "main") {
+  @if map-has-key($ThemeColors, $color) {
+    $colorMap: map.get($ThemeColors, $color);
+    $result: map.get($colorMap, $type);
+    @return $result;
+  } @else {
+    @warn "Status Color Not Found!";
+    @return false;
+  }
+}
+
+@function getStatusColor($color, $type: "main") {
+  @return getStatus($color, $type);
+}
+
+/// Grab Base (or other given) color from Global color colors map
+@function getPageColor($color) {
+  @if map-has-key($PageColors, $color) {
+    @return map.get($PageColors, $color);
+  } @else {
+    @warn "Page Color Not Found!";
+    @return false;
+  }
+}
+
+//
+//    GET CONTRASTING COLOR FOR TEXT ACCESSIBILITY (WCAG 2.0 AA+)
+//
+//    usage:
+//        // text for the base color
+//        findTextColor(primary);
+//
+//        // for variations of a color
+//        findTextColor(primary, lighter);
+//        findTextColor(primary, light);
+//        findTextColor(primary, dark);
+//        findTextColor(primary, darker);
+
+@function findTextColor($name: "primary", $variant: "base", $opacity: 1) {
+  //$color: color($name, $variant, $opacity);2
+  $color: rgba($name, $opacity);
+  @return get-contrast-color($color);
+}
+
+@function findColorInvert($color) {
+  @if luminance($color) > 0.55 {
+    @return rgba(#000, 0.7);
+  } @else {
+    @return #fff;
+  }
+}
+
+@function findLightColor($color, $l: 96%) {
+  @if type-of($color) == "color" {
+    $l: 96%;
+
+    @if lightness($color) > 96% {
+      $l: lightness($color);
+    }
+
+    @return change-color($color, $lightness: $l);
+  }
+
+  @return $background;
+}
+
+@function findDarkColor($color, $base-l: 29%) {
+  @if type-of($color) == "color" {
+    $luminance: luminance($color);
+    $luminance-delta: 0.53 - $luminance;
+    $target-l: round($base-l + $luminance-delta * 53);
+
+    @return change-color($color, $lightness: max($base-l, $target-l));
+  }
+
+  @return $text-strong;
+}
+
+@function getDarkThemeColor($color) {
+  @if variable-exists(#{$color}_dark) {
+    @return #{$color}_dark;
+    @debug "we got the color: `#{#{$color}_dark}` ";
+  } @else {
+    @return darken($color, 5%);
+  }
+}
+
+@function getDarkOrLight($color) {
+  @if (lightness($color) < 50) {
+    @return "dark";
+  } @else {
+    @return "light";
+  }
+}
+
+// Background color utility mixin
+@mixin bg-color-variant($name: ".bg-primary", $color: $primary) {
+  #{$name} {
+    background: $color !important;
+
+    @if (lightness($color) < 60) {
+      color: $light;
+    }
+  }
+}
+
+// Text color utility mixin
+@mixin text-color-variant($name: ".text-primary", $color: $primary) {
+  #{$name} {
+    color: $color !important;
+  }
+
+  a#{$name} {
+    &:focus,
+    &:hover {
+      color: getDarkThemeColor($color);
+    }
+    &:visited {
+      color: lighten($color, 5%);
+    }
+  }
+}

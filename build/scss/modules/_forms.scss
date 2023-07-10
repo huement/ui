@@ -1,0 +1,599 @@
+// Forms
+@include superclass() {
+  .form-group {
+    &:not(:last-child) {
+      margin-bottom: _rem($VerticalUnit);
+    }
+  }
+
+  fieldset {
+    margin-bottom: _rem($VerticalUnit * 2);
+  }
+
+  legend {
+    font-size: getFontSize("md");
+    font-weight: 600;
+    margin-bottom: _rem($VerticalUnit * 2);
+  }
+
+  // Form element: Label
+  .form-label {
+    display: block;
+    line-height: getFontLineSize("sm");
+    padding: $control-padding-y + $border-width 0;
+
+    &.label-sm {
+      font-size: getFontSize("xs");
+      padding: $control-padding-y-sm + $border-width 0;
+    }
+
+    &.label-lg {
+      font-size: getFontSize("lg");
+      padding: $control-padding-y-lg + $border-width 0;
+    }
+  }
+
+  // Form element: Input
+  .form-input {
+    appearance: none;
+    background: getPageColor("bg");
+    background-image: none;
+    border: $border-width solid getPageColor("border");
+    border-radius: $border-radius;
+    color: getPageColor("text");
+    display: block;
+    font-size: getFontSize("md");
+    height: $control-size;
+    line-height: getFontLineSize("md");
+    max-width: 100%;
+    outline: none;
+    padding: $control-padding-y $control-padding-x;
+    position: relative;
+    transition: background 0.2s, border 0.2s, box-shadow 0.2s, color 0.2s;
+    width: 100%;
+    &:focus {
+      @include control-shadow();
+      border-color: $cyan;
+    }
+    &::placeholder {
+      color: $medium;
+    }
+
+    // Input sizes
+    &.input-sm {
+      font-size: getFontSize("xs");
+      height: $control-size-sm;
+      padding: $control-padding-y-sm $control-padding-x-sm;
+    }
+
+    &.input-lg {
+      font-size: getFontSize("lg");
+      height: $control-size-lg;
+      padding: $control-padding-y-lg $control-padding-x-lg;
+    }
+
+    &.input-inline {
+      display: inline-block;
+      vertical-align: middle;
+      width: auto;
+    }
+
+    // Input types
+    &[type="file"] {
+      height: auto;
+    }
+  }
+
+  // Form element: Textarea
+  textarea.form-input {
+    &,
+    &.input-lg,
+    &.input-sm {
+      height: auto;
+    }
+  }
+
+  // Form element: Input hint
+  .form-input-hint {
+    color: $medium;
+    font-size: getFontSize("sm");
+    margin-top: $sz_1;
+
+    &.has-success,
+    &.is-success {
+      color: getStatus("success") !important;
+    }
+
+    &.has-error,
+    &.is-error {
+      color: getStatus("danger") !important;
+    }
+  }
+
+  // Form element: Select
+  .form-select {
+    appearance: none;
+    border: $border-width solid getPageColor("border-alt");
+    border-radius: $border-radius;
+    color: inherit;
+    font-size: getFontSize("md");
+    height: $control-size;
+    line-height: getFontSize("md");
+    outline: none;
+    padding: $control-padding-y $control-padding-x;
+    vertical-align: middle;
+    width: 100%;
+    background: getPageColor("bg-alt");
+    &:focus {
+      @include control-shadow();
+      border-color: $cyan;
+    }
+    &::-ms-expand {
+      display: none;
+    }
+
+    // Select sizes
+    &.select-sm {
+      font-size: getFontSize("sm");
+      height: $control-size-sm;
+      padding: $control-padding-y-sm
+        ($control-icon-size + $control-padding-x-sm) $control-padding-y-sm
+        $control-padding-x-sm;
+    }
+
+    &.select-lg {
+      font-size: getFontSize("lg");
+      height: $control-size-lg;
+      padding: $control-padding-y-lg
+        ($control-icon-size + $control-padding-x-lg) $control-padding-y-lg
+        $control-padding-x-lg;
+    }
+
+    // Multiple select
+    &[size],
+    &[multiple] {
+      height: auto;
+      padding: $control-padding-y $control-padding-x;
+
+      option {
+        padding: $VerticalUnit $sz_1;
+      }
+    }
+    &:not([multiple]):not([size]) {
+      background: getPageColor("bg-alt")
+        url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%205'%3E%3Cpath%20fill='%23667189'%20d='M2%200L0%202h4zm0%205L0%203h4z'/%3E%3C/svg%3E")
+        no-repeat right 0.35rem center / 0.4rem 0.5rem;
+      padding-right: $control-icon-size + $control-padding-x;
+    }
+  }
+
+  // Form Icons
+  .has-icon-left,
+  .has-icon-right {
+    position: relative;
+
+    .form-icon {
+      height: $control-icon-size;
+      margin: 0 $control-padding-y;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: $control-icon-size;
+      z-index: $zindex-0 + 1;
+    }
+  }
+
+  .has-icon-left {
+    .form-icon {
+      left: $border-width;
+    }
+
+    .form-input {
+      padding-left: $control-icon-size + $control-padding-y * 2;
+    }
+  }
+
+  .has-icon-right {
+    .form-icon {
+      right: $border-width;
+    }
+
+    .form-input {
+      padding-right: #{($control-icon-size + $control-padding-y) * 2};
+    }
+  }
+
+  // Form element: Checkbox and Radio
+  $crsPad: $control-size-sm - getFontLineSize("md");
+  .form-checkbox,
+  .form-radio,
+  .form-switch {
+    display: block;
+    line-height: getFontLineSize("md");
+    margin: math.div(($control-size - $control-size-sm), 2) 0;
+    min-height: $control-size-sm;
+    padding: #{$crsPad * 0.5} $control-padding-x #{$crsPad * 0.5} #{$control-icon-size +
+      $control-padding-x};
+    position: relative;
+
+    input {
+      clip: rect(0, 0, 0, 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      position: absolute;
+      width: 1px;
+      &:focus + .form-icon {
+        @include control-shadow();
+        border-color: $cyan;
+      }
+      &:checked + .form-icon {
+        background: $cyan;
+        border-color: $cyan;
+      }
+    }
+
+    .form-icon {
+      border: $border-width solid getPageColor("border-dark");
+      cursor: pointer;
+      display: inline-block;
+      position: absolute;
+      transition: background 0.2s, border 0.2s, box-shadow 0.2s, color 0.2s;
+    }
+
+    // Input checkbox, radio and switch sizes
+    &.input-sm {
+      font-size: getFontSize("sm");
+      margin: 0;
+    }
+
+    &.input-lg {
+      font-size: getFontSize("lg");
+      margin: math.div(($control-size-lg - $control-size-sm), 2) 0;
+    }
+  }
+
+  .form-checkbox,
+  .form-radio {
+    .form-icon {
+      background: getPageColor("bg-alt");
+      height: $control-icon-size;
+      left: 0;
+      top: math.div(($control-size-sm - $control-icon-size), 2);
+      width: $control-icon-size;
+    }
+
+    input {
+      &:active + .form-icon {
+        background: getPageColor("bg-dark");
+      }
+    }
+  }
+  .form-checkbox {
+    .form-icon {
+      border-radius: $border-radius;
+    }
+
+    input {
+      &:checked + .form-icon {
+        &::before {
+          background-clip: padding-box;
+          border: $border-width-lg solid getPageColor("border-alt");
+          border-left-width: 0;
+          border-top-width: 0;
+          content: "";
+          height: 9px;
+          left: 50%;
+          margin-left: -3px;
+          margin-top: -6px;
+          position: absolute;
+          top: 50%;
+          transform: rotate(45deg);
+          width: 6px;
+        }
+      }
+      &:indeterminate + .form-icon {
+        background: $cyan;
+        border-color: $cyan;
+        &::before {
+          background: getPageColor("bg-alt");
+          content: "";
+          height: 2px;
+          left: 50%;
+          margin-left: -5px;
+          margin-top: -1px;
+          position: absolute;
+          top: 50%;
+          width: 10px;
+        }
+      }
+    }
+  }
+  .form-radio {
+    .form-icon {
+      border-radius: 50%;
+    }
+
+    input {
+      &:checked + .form-icon {
+        &::before {
+          background: getPageColor("bg-alt");
+          border-radius: 50%;
+          content: "";
+          height: 6px;
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: 6px;
+        }
+      }
+    }
+  }
+
+  // Form element: Switch
+  .form-switch {
+    padding-left: ($sz_8 + $control-padding-x);
+
+    .form-icon {
+      background: $medium;
+      background-clip: padding-box;
+      border-radius: $sz_2 + $border-width;
+      height: $sz_4 + $border-width * 2;
+      left: 0;
+      top: math.div(($control-size-sm - $sz_4), 2) - $border-width;
+      width: $sz_7;
+      &::before {
+        background: getPageColor("bg-alt");
+        border-radius: 50%;
+        content: "";
+        display: block;
+        height: $sz_4;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transition: background 0.2s, border 0.2s, box-shadow 0.2s, color 0.2s,
+          left 0.2s;
+        width: $sz_4;
+      }
+    }
+
+    input {
+      &:checked + .form-icon {
+        &::before {
+          left: 14px;
+        }
+      }
+      &:active + .form-icon {
+        &::before {
+          background: getPageColor("bg");
+        }
+      }
+    }
+  }
+
+  // Form element: Input groups
+  // $sizeMap: map.get($MojoButtons, "sizes");
+  // $smSize: map.get($sizeMap, "sm");
+  // $smSize: map.get($sizeMap, "lg");
+
+  .input-group {
+    display: flex;
+
+    .input-group-addon {
+      background: getPageColor("bg");
+      border: $border-width solid getPageColor("border");
+      border-radius: $border-radius;
+      line-height: 1;
+      padding: $control-padding-y $control-padding-x;
+      white-space: nowrap;
+
+      &.addon-sm {
+        font-size: getFontSize("xs");
+        padding: $control-padding-y-sm $control-padding-x-sm;
+      }
+
+      &.addon-lg {
+        font-size: getFontSize("md");
+        padding: $control-padding-y-lg $control-padding-x-lg;
+      }
+    }
+
+    .form-input,
+    .form-select {
+      flex: 1 1 auto;
+      width: 1%;
+    }
+
+    .input-group-btn {
+      z-index: $zindex-0;
+
+      &.flag-left {
+        overflow: visible;
+
+        &:before {
+          content: "";
+          position: absolute;
+          border-width: 12px 12px 12px 0;
+          border-style: solid solid solid none;
+          border-color: transparent $primary transparent;
+          top: 25%;
+          left: -10px;
+        }
+
+        &.btn-sm {
+          &:before {
+            border-width: 8px 8px 8px 0;
+            top: 25%;
+            left: -7px;
+          }
+        }
+        &.btn-lg {
+          &:before {
+            border-width: 16px 16px 16px 0;
+            top: 25%;
+            left: -14px;
+          }
+        }
+      }
+    }
+
+    .form-input,
+    .form-select,
+    .input-group-addon,
+    .input-group-btn {
+      &:first-child:not(:last-child) {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+      &:not(:first-child):not(:last-child) {
+        border-radius: 0;
+        margin-left: -$border-width;
+      }
+      &:last-child:not(:first-child) {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        margin-left: -$border-width;
+      }
+      &:focus {
+        z-index: $zindex-0 + 1;
+      }
+    }
+
+    .form-select {
+      width: auto;
+    }
+
+    &.input-inline {
+      display: inline-flex;
+    }
+  }
+
+  // Form validation states
+  .form-input,
+  .form-select {
+    &.has-success,
+    &.is-success {
+      background: lighten(getStatus("success"), 53%);
+      border-color: getStatus("success");
+      &:focus {
+        @include control-shadow(getStatus("success"));
+      }
+    }
+
+    &.has-error,
+    &.is-error {
+      background: lighten(getStatus("danger"), 53%);
+      border-color: getStatus("danger");
+      &:focus {
+        @include control-shadow(getStatus("danger"));
+      }
+    }
+  }
+
+  .form-checkbox,
+  .form-radio,
+  .form-switch {
+    &.has-error,
+    &.is-error {
+      .form-icon {
+        border-color: getStatus("danger");
+      }
+
+      input {
+        &:checked + .form-icon {
+          background: getStatus("danger");
+          border-color: getStatus("danger");
+        }
+
+        &:focus + .form-icon {
+          @include control-shadow(getStatus("danger"));
+          border-color: getStatus("danger");
+        }
+      }
+    }
+  }
+
+  .form-checkbox {
+    &.has-error,
+    &.is-error {
+      input {
+        &:indeterminate + .form-icon {
+          background: getStatus("danger");
+          border-color: getStatus("danger");
+        }
+      }
+    }
+  }
+
+  // validation based on :placeholder-shown (Edge doesn't support it yet)
+  .form-input {
+    &:not(:placeholder-shown) {
+      &:invalid {
+        border-color: getStatus("danger");
+        &:focus {
+          @include control-shadow(getStatus("danger"));
+          background: lighten(getStatus("danger"), 53%);
+        }
+
+        & + .form-input-hint {
+          color: getStatus("danger");
+        }
+      }
+    }
+  }
+
+  // Form disabled and readonly
+  .form-input,
+  .form-select {
+    &:disabled,
+    &.disabled {
+      background-color: getPageColor("bg-dark");
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  .form-input {
+    &[readonly] {
+      background-color: getPageColor("bg");
+    }
+  }
+
+  input {
+    &:disabled,
+    &.disabled {
+      & + .form-icon {
+        background: getPageColor("bg-dark");
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .form-switch {
+    input {
+      &:disabled,
+      &.disabled {
+        & + .form-icon::before {
+          background: getPageColor("bg-alt");
+        }
+      }
+    }
+  }
+
+  // Form horizontal
+  .form-horizontal {
+    padding: $sz_2 0;
+
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  // Form inline
+  .form-inline {
+    display: inline-block;
+  }
+}

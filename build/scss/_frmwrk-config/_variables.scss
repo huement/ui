@@ -1,0 +1,630 @@
+@use "sass:map";
+@use "sass:list";
+@use "sass:math";
+@use "sass:color";
+@use "sass:meta";
+
+///
+///   CORE FRAMEWORK VARIABLES
+///   oxoxoxoxoxoxoxoxoxoxoxoxoxoxoxoxoxoxoxoxoxoxoxoxoxoxoxox
+///
+///   TODO This file needs to be cleaned up. It should be comprised of two main sections
+///        Section 1: Global Framework Variables. Typography vars, global size & spacing
+///        Section 2: Non-Dynamic Module Variables. Modules use CSSVars for things like colors
+///                   so anything that is not adjustable is housed here.
+///
+
+// TODO FIX START
+// Typography
+$MainUnit: rem !default;
+$MainIndent: 0.24rem !default;
+$line-height: 1.2rem !default;
+$line-height-sm: 1.125rem !default;
+$line-height-lg: 1.6rem !default;
+$block-spacing: 1.5rem !default;
+$figure-caption-font-size: 90% !default;
+$figure-caption-color: $medium !default;
+
+$ModularRatio: $MAJOR_THIRD !default;
+$MainLineHeight: 1.6 !default;
+$MainLineMultiple: 4 !default;
+$MainFontSize: 16px !default;
+$RootFontSize: 16 !default;
+$VerticalUnit: 8px !default;
+$GridPoints: 8 !default;
+$MainIndent: 0.24rem !default;
+
+$font-size-root: null !default; // Assumes the browser default, typically `16px`
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-sm: $font-size-base * 0.875 !default;
+$font-size-lg: $font-size-base * 1.25 !default;
+
+$line-height-base: 1.5 !default;
+$line-height-sm: 1.25 !default;
+$line-height-lg: 2 !default;
+
+// Font Weights
+$weight-lighter: 200 !default;
+$weight-light: 200 !default;
+$weight-normal: 300 !default;
+$weight-semibold: 500 !default;
+$weight-bold: 600 !default;
+$weight-bolder: 400 !default;
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+$font-weight-bolder: bolder !default;
+
+$font-weight-base: $font-weight-normal !default;
+
+$font-family-base: var(--font-sans-serif) !default;
+$font-family-code: var(--font-monospace) !default;
+
+$body-text-align: null !default;
+// TODO FIX END
+
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+) !default;
+
+$gutters: $spacers !default;
+
+// Unit Sizes
+// ============================================================================
+// Shortcuts to use along side or inplace of the 'toolbox/_rhythm.scss' code
+// Caution: Using a large number of various spacings will complicate having a
+// vertical or horizontal rhythm. consider adjusting the maps instead of trying
+// to keep track of what sizes are in play.
+$sz_1: 0.2rem !default; //1.6px
+$sz_2: 0.5rem !default; //8px
+$sz_3: 1rem !default; //16px
+$sz_4: 1.5rem !default; //24px
+$sz_5: 2rem !default; //32px
+$sz_6: 2.5rem !default;
+$sz_7: 3rem !default; //48px
+$sz_8: 3.5rem !default;
+$sz_9: 4rem !default; //64px
+$sz_10: 5rem !default; //80px
+$sz_11: 6rem !default; //96px
+$sz_12: 7rem !default;
+$sz_13: 8rem !default; //128px
+$sz_14: 9rem !default;
+$sz_15: 10rem !default; //160px
+$sz_20: 20rem !default; //320px
+$sz_30: 30rem !default; //480px
+$sz_40: 40rem !default; //640px
+$sz_50: 50rem !default; //800px
+$sz_60: 60rem !default; //960px
+$sz_70: 70rem !default; //1280px
+
+$scale-small: 0.75 !default;
+$scale-large: $GOLDEN_SECTION !default;
+
+// Configuration Variables
+// ===========================================================================
+
+$enable-table-classes: true !default;
+
+// Theme Style
+$enable-shadows: true !default;
+$enable-rounded: true !default;
+$enable-angled-edges: true !default;
+
+// Mojo Grid
+$enable-container-classes: true !default;
+$enable-grid-classes: true !default;
+$enable-cssgrid: false !default;
+$enable-negative-margins: true !default;
+$enable-deprecation-messages: true !default;
+$enable-important-utilities: true !default;
+
+$include-column-box-sizing: true !default;
+
+$enable-display-sizes: true !default;
+
+$enable-css-icons-core: true !default;
+$enable-css-icons-navigation: true !default;
+$enable-css-icons-action: true !default;
+$enable-css-icons-object: true !default;
+
+$enable-icon-font: false !default;
+
+// Typography Variables
+// ============================================================================
+// Font Sizes
+$font-sizes: (
+  xs: 0.875rem,
+  // 14px
+  sm: 1rem,
+  // 16px
+  md: 1.25rem,
+  // 30px
+  lg: 1.5rem,
+  // 24px
+  xl: 2rem,
+  // 32px
+) !default;
+
+$font-line-sizes: (
+  xs: map.get($font-sizes, "xs") * $line-height-base,
+  sm: map.get($font-sizes, "sm") * $line-height-base,
+  md: map.get($font-sizes, "md") * $line-height-base,
+  lg: map.get($font-sizes, "lg") * $line-height-base,
+  xl: map.get($font-sizes, "xl") * $line-height-base,
+) !default;
+
+//
+// Font Maps
+//
+$PrimaryFont: (
+  family: "Jost",
+  src: "jost-variablefont_wght-webfont",
+  ext: "woff",
+  weight: 400,
+  style: normal,
+  selector: "html, body, p, li, b, i, strong, a, mark, td, th, button",
+  important: true,
+  stack: $SansStack,
+) !default;
+
+$HeadingFont: (
+  family: "Saira",
+  src: "saira-variablefont_wght-webfont",
+  ext: "woff",
+  weight: 700,
+  style: bold,
+  selector: "h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6",
+  important: true,
+  stack: $SansStack,
+) !default;
+
+$CodeFont: (
+  family: "Space Mono",
+  src: "spacegrotesk-variablefont_wght-webfont",
+  ext: "woff",
+  weight: 400,
+  style: normal,
+  selector: "code, pre, samp, kbd, caption, blockquote, cite, .code-block, .code-block p, aside, label, legend, .quote",
+  important: true,
+  stack: $MonoStack,
+) !default;
+
+$CodeStyle: (
+  background: $code_dark,
+  color: $code_white,
+  height: "20rem",
+  prePadding: "0.5rem",
+  codePadding: "0.0667rem 0.25rem",
+  border: "1px solid #ccc",
+) !default;
+
+$display-font-sizes: if(
+  $enable-display-sizes,
+  (
+    1: 5rem,
+    2: 4.5rem,
+    3: 4rem,
+    4: 3.5rem,
+    5: 3rem,
+    6: 2.5rem,
+  ),
+  null
+) !default;
+
+//
+// Title, Subtitle, Display Font Variables
+//
+$title-size: 3.5rem !default;
+$title-weight: 700 !default;
+$title-strong-weight: inherit !default;
+
+$subtitle-size: 2rem !default;
+$subtitle-weight: 400 !default;
+$subtitle-strong-weight: 500 !default;
+
+$display-font-family: null !default;
+$display-font-style: null !default;
+$display-font-weight: 300 !default;
+$display-line-height: 1.2 !default;
+
+//
+// Links
+//
+$link-color: $primary !default;
+$link-decoration: underline !default;
+$link-shade-percentage: 20% !default;
+$link-hover-color: shift-color($link-color, $link-shade-percentage) !default;
+$link-hover-decoration: null !default;
+
+$stretched-link-pseudo-element: after !default;
+$stretched-link-z-index: 1 !default;
+
+// Borders
+// ============================================================================
+$borderWidth: 0.0625rem !default; // 1.5px
+$border-width: 0.0625rem !default;
+
+$border-width-lg: 0.188rem !default;
+$borderWidthLg: 0.188rem !default;
+$border-width-sm: 0.031rem !default;
+$borderWidthSm: 0.031rem !default;
+
+$border-widths: (
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px,
+) !default;
+
+$border-style: solid !default;
+$borderColor: $background_darker !default;
+$border-color: $background_darker !default;
+$border-color-translucent: rgba($dark, 0.175) !default;
+
+$border-radius: 0.25rem !default;
+$borderRadius: 0.25rem !default;
+$border-radius-lg: 0.5rem !default;
+$border-radius-sm: 0.125rem !default;
+$border-radius-xl: 1rem !default;
+$border-radius-2xl: 2rem !default;
+$border-radius-pill: 50rem !default;
+
+$enable-shadows: true !default;
+$enable-rounded: true !default;
+$enable-gradients: false !default;
+$enable-transitions: true !default;
+$enable-reduced-motion: false !default;
+
+//
+// Lines & Edges
+//
+$angle-edge-size: 3 !default;
+
+$hr-margin-y: $spacer !default;
+$hr-color: inherit !default;
+
+// fusv-disable
+$hr-bg-color: null !default; // Deprecated in v5.2.0
+$hr-height: null !default; // Deprecated in v5.2.0
+// fusv-enable
+
+$hr-border-color: null !default; // Allows for inherited colors
+$hr-border-width: $border-width !default;
+$hr-opacity: 0.25 !default;
+
+$box-shadow: 0 0.5rem 1rem rgba($dark, 0.15) !default;
+$box-shadow-sm: 0 0.125rem 0.25rem rgba($dark, 0.075) !default;
+$box-shadow-lg: 0 1rem 3rem rgba($dark, 0.175) !default;
+$box-shadow-inset: inset 0 1px 2px rgba($dark, 0.075) !default;
+
+// Animations
+// ============================================================================
+$transition-base: all 0.2s ease-in-out !default;
+$transition-color: color 0.3s ease-in-out !default;
+$transition-bg: background-color 0.3s ease-in-out !default;
+$transition-fade: opacity 0.15s linear !default;
+$transition-collapse: height 0.35s ease !default;
+
+// Images & Icons
+// ============================================================================
+// Image thumbnails
+$thumbnail-padding: 0.25rem !default;
+$thumbnail-bg: $light !default;
+$thumbnail-border-width: $border-width !default;
+$thumbnail-border-color: $border-color !default;
+$thumbnail-border-radius: $border-radius !default;
+$thumbnail-box-shadow: 0 1px 2px rgba($dark, 0.075) !default;
+
+// Icon variables
+$icon-border-width: $border-width-lg !default;
+$icon-prefix: "icon" !default;
+$icon-socials: facebook, twitter, linkedin, dribbble !default;
+$icon-base-size: 2rem !default;
+
+// UI Element Sizing
+// ============================================================================
+
+$control-size: $sz_8 !default;
+$control-size-sm: $sz_6 !default;
+$control-size-lg: $sz_12 !default;
+
+$cbl: $control-size - $line-height - $border-width;
+$cbl-sm: $control-size-sm - $line-height - $border-width;
+$cbl-lg: $control-size-lg - $line-height - $border-width;
+
+$control-padding-x: $sz_3 !default;
+$control-padding-x-sm: $sz_3 * 0.75 !default;
+$control-padding-x-lg: $sz_3 * 1.5 !default;
+$control-padding-y: ($cbl * 0.5) - $border-width !default;
+$control-padding-y-sm: ($cbl-sm * 0.5) - $border-width !default;
+$control-padding-y-lg: ($cbl-lg * 0.5) - $border-width !default;
+$control-icon-size: $sz_3 !default;
+
+$control-width-xs: $sz_15 !default;
+$control-width-sm: $sz_20 !default;
+$control-width-md: $sz_40 !default;
+$control-width-lg: $sz_60 !default;
+$control-width-xl: $sz_70 !default;
+
+$breakPointLimit: "medium" !default;
+$sidebarWidth: $sz_20 !default;
+
+// Layout & Grid & Position
+// ============================================================================
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 1.5rem !default;
+$grid-row-columns: 6 !default;
+$container-padding-x: $grid-gutter-width !default;
+
+// Position
+//
+// Define the edge positioning anchors of the position utilities.
+
+$position-values: (
+  0: 0,
+  50: 50%,
+  100: 100%,
+) !default;
+
+// Utils
+$positions: static, relative, absolute, fixed, sticky !default;
+$user-selects: all, auto, none !default;
+
+// Ratios & Intervals & Thresholds
+// ============================================================================
+
+$aspect-ratios: (
+  "1x1": 100%,
+  "4x3": calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+  "21x9": calc(9 / 21 * 100%),
+) !default;
+
+// Set a specific jump point for requesting color jumps
+$theme-color-interval: 8% !default;
+
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$yiq-contrasted-threshold: 150 !default;
+
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-text-dark: $medium_darker !default;
+$yiq-text-light: $light !default;
+
+// BUTTONS
+// ============================================================================
+
+//
+// CAUTION: removing any items will likely break things.
+// TODO flesh out defaults for things like animation & variants
+//
+$MojoButtons: (
+  "margin-bottom": $VerticalUnit,
+  "radius": $borderRadius,
+  "padding": $VerticalUnit,
+  "back": $light_dark,
+  "text": $dark_light,
+  "text-light": $light_white,
+  "border": $borderWidth + " solid",
+  "font-size": map.get($font-sizes, "md"),
+  "line-height": map.get($font-line-sizes, "md"),
+  "font-weight": 400,
+  "font-family": map.get($PrimaryFont, "family"),
+  "text-transform": "uppercase",
+  "letter-spacing": "0.5px",
+  "sizes": (
+    "sm": (
+      "padding": $sz_2 0,
+      "font": $sz_3,
+      "height": $sz_6,
+      "width": $sz_6,
+    ),
+    "lg": (
+      "padding": $sz_6 0,
+      "font": $sz_6,
+      "height": $sz_10,
+      "width": $sz_10,
+    ),
+  ),
+  "variants": (
+    "link": (
+      "text": $cyan,
+    ),
+    "outline": (
+      "text": $dark_white,
+      "border": $light_black,
+      "back": "transparent !important",
+      "colors": "primary" "secondary" "promote",
+    ),
+    "action": (
+      "width": $sz_9,
+      "font-size": 1.4rem,
+    ),
+  ),
+  "transition": "all 180ms linear",
+  "animations": (
+    "pulse": (
+      "background": $light,
+    ),
+  ),
+) !default;
+
+$DerivedVariable: power(5, 3) !default;
+$DVR: resolve(16) !default;
+
+// Mojo Tables
+// --------------------------
+$table-cell-padding: 0.75rem !default;
+$table-cell-padding-sm: 0.3rem !default;
+
+$table-color: $medium_lightest !default;
+$table-bg: null !default;
+$table-accent-bg: rgba($dark, 0.05) !default;
+$table-hover-color: $table-color !default;
+$table-hover-bg: rgba($dark, 0.075) !default;
+$table-active-bg: $table-hover-bg !default;
+
+$table-border-width: $border-width !default;
+$table-border-color: $border-color !default;
+
+$table-head-bg: $medium_light !default;
+$table-head-color: $medium_darker !default;
+$table-th-font-weight: null !default;
+
+$table-dark-color: $light !default;
+$table-dark-bg: $medium_darker !default;
+$table-dark-accent-bg: rgba($light, 0.05) !default;
+$table-dark-hover-color: $table-dark-color !default;
+$table-dark-hover-bg: rgba($light, 0.075) !default;
+$table-dark-border-color: lighten($table-dark-bg, 7.5%) !default;
+
+$table-striped-order: odd !default;
+
+$table-caption-color: $medium !default;
+
+$table-bg-level: -9 !default;
+$table-border-level: -6 !default;
+
+// Accordions
+// ============================================================================
+$accordion-max-height: 50rem !default;
+
+// Alerts
+// ============================================================================
+// Define alert colors, border radius, and padding.
+$alert-bg-scale: -70% !default;
+$alert-border-scale: -60% !default;
+$alert-color-scale: 40% !default;
+
+// Masonry Tiles
+// ============================================================================
+$tile-spacing: 0.75rem !default;
+
+// Panels
+// ============================================================================
+$panel-default-height: 75vh;
+
+// Cards
+// ============================================================================
+$card-inner-border-radius: subtract($border-radius, $border-width) !default;
+$card-img-overlay-padding: 1.25rem !default;
+$card-group-margin: $grid-gutter-width * 0.5 !default;
+$card-deck-margin: $card-group-margin !default;
+
+// Modals
+// ============================================================================
+$modal-inner-padding: $spacer !default;
+
+$modal-footer-margin-between: 0.5rem !default;
+
+$modal-dialog-margin: 0.5rem !default;
+$modal-dialog-margin-y-sm-up: 3.75rem !default;
+
+$modal-title-line-height: $line-height !default;
+
+$modal-content-color: null !default;
+$modal-content-bg: $light_white !default;
+$modal-content-border-color: var(--#{$prefix}border-color-translucent) !default;
+$modal-content-border-width: $border-width !default;
+$modal-content-border-radius: $border-radius-lg !default;
+$modal-content-inner-border-radius: subtract($modal-content-border-radius, $modal-content-border-width) !default;
+$modal-content-box-shadow-xs: $box-shadow-sm !default;
+$modal-content-box-shadow-sm-up: $box-shadow !default;
+
+$modal-backdrop-bg: $medium_dark !default;
+$modal-backdrop-opacity: 0.5 !default;
+
+$modal-header-border-color: var(--#{$prefix}border-color) !default;
+$modal-header-border-width: $modal-content-border-width !default;
+$modal-header-padding-y: $modal-inner-padding !default;
+$modal-header-padding-x: $modal-inner-padding !default;
+$modal-header-padding: $modal-header-padding-y $modal-header-padding-x !default;
+
+$modal-footer-bg: null !default;
+$modal-footer-border-color: $modal-header-border-color !default;
+$modal-footer-border-width: $modal-header-border-width !default;
+
+$modal-sm: 300px !default;
+$modal-md: 500px !default;
+$modal-lg: 800px !default;
+$modal-xl: 1140px !default;
+
+$modal-fade-transform: translate(0, -50px) !default;
+$modal-show-transform: none !default;
+$modal-transition: transform 0.3s ease-out !default;
+$modal-scale-transform: scale(1.02) !default;
+
+// Navigation Elements + Bars + Menus
+// ============================================================================
+// Navs
+$nav-link-padding-y: 0.5rem !default;
+$nav-link-padding-x: 1rem !default;
+$nav-link-disabled-color: map.get($mediums, 600) !default;
+
+$nav-tabs-border-color: map.get($mediums, 300) !default;
+$nav-tabs-border-width: $border-width !default;
+$nav-tabs-border-radius: $border-radius !default;
+$nav-tabs-link-hover-border-color: map.get($mediums, 200) map.get($mediums, 200) $nav-tabs-border-color !default;
+$nav-tabs-link-active-color: map.get($mediums, 700) !default;
+$nav-tabs-link-active-bg: $background !default;
+$nav-tabs-link-active-border-color: map.get($mediums, 300) map.get($mediums, 300) $nav-tabs-link-active-bg !default;
+
+$nav-pills-border-radius: $border-radius !default;
+$nav-pills-link-active-color: $primary !default;
+$nav-pills-link-active-bg: $primary !default;
+
+$nav-divider-color: map.get($mediums, 200) !default;
+$nav-divider-margin-y: $spacer * 0.5 !default;
+
+// Navbar
+$navbar-padding-y: $spacer * 0.5 !default;
+$navbar-padding-x: $spacer !default;
+
+$navbar-nav-link-padding-x: 0.5rem !default;
+
+$navbar-brand-font-size: $font-size-lg !default;
+// Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
+$nav-link-height: $font-size-base * $line-height-base + $nav-link-padding-y * 2 !default;
+$navbar-brand-height: $navbar-brand-font-size * $line-height-base !default;
+$navbar-brand-padding-y: ($nav-link-height - $navbar-brand-height) * 0.5 !default;
+
+$navbar-toggler-padding-y: 0.25rem !default;
+$navbar-toggler-padding-x: 0.75rem !default;
+$navbar-toggler-font-size: $font-size-lg !default;
+$navbar-toggler-border-radius: $border-radius !default;
+
+$navbar-nav-scroll-max-height: 75vh !default;
+
+$navbar-dark-color: rgba($light, 0.5) !default;
+$navbar-dark-hover-color: rgba($light, 0.75) !default;
+$navbar-dark-active-color: $light !default;
+$navbar-dark-disabled-color: rgba($light, 0.25) !default;
+$navbar-dark-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='#{$navbar-dark-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
+$navbar-dark-toggler-border-color: rgba($light, 0.1) !default;
+
+$navbar-light-color: rgba($dark, 0.5) !default;
+$navbar-light-hover-color: rgba($dark, 0.7) !default;
+$navbar-light-active-color: rgba($dark, 0.9) !default;
+$navbar-light-disabled-color: rgba($dark, 0.3) !default;
+$navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='#{$navbar-light-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
+$navbar-light-toggler-border-color: rgba($dark, 0.1) !default;
+
+$navbar-light-brand-color: $navbar-light-active-color !default;
+$navbar-light-brand-hover-color: $navbar-light-active-color !default;
+$navbar-dark-brand-color: $navbar-dark-active-color !default;
+$navbar-dark-brand-hover-color: $navbar-dark-active-color !default;
