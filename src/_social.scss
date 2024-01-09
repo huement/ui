@@ -1,0 +1,106 @@
+@use "sass:map";
+@use "sass:list";
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:meta';
+
+//@import "../../config/globals";
+
+@mixin makeSocialIcon($name) {
+  $color: getSocialColor($name);
+  $test: lightOrDark($color);
+
+  .#{$name} {
+    background-color: getSocialColor($name);
+    transition: $transition-base;
+    border: 2px solid getSocialColor($name);
+
+    &:hover {
+      @if ($test== "light") {
+        background-color: color.adjust($color, $lightness: -20%);
+      } @else {
+        background-color: color.adjust($color, $lightness: 20%);
+      }
+    }
+  }
+}
+
+@function getSocialColor($name) {
+  @if (map-has-key($SocialColors, $name)) {
+    @return map.get($SocialColors, $name);
+  } @else {
+    @warn "Invalid Social color requested: #{$name}";
+  }
+}
+
+@if ($enable-icons-social==true) {
+  $color_1: map.get($mono, 600);
+  $color_2: map.get($mono, 200);
+  $color_3: map.get($mono, 400);
+
+  .social-icons {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    li {
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+    li.title {
+      margin-right: 15px;
+      text-transform: uppercase;
+      color: $color_1;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    a {
+      background-color: map.get($mono, 300);
+      color: $color_2;
+      font-size: 16px;
+      display: inline-block;
+      line-height: 44px;
+      width: 44px;
+      height: 44px;
+      text-align: center;
+      margin-right: 8px;
+      border-radius: 100%;
+      -webkit-transition: all 0.2s linear;
+      -o-transition: all 0.2s linear;
+      transition: all 0.2s linear;
+      &:active {
+        color: $color_3;
+        background-color: map.get($mono, 200);
+      }
+      &:focus {
+        color: $color_3;
+        background-color: map.get($mono, 200);
+      }
+      &:hover {
+        color: $color_3;
+        background-color: map.get($mono, 200);
+      }
+    }
+
+    @each $social in $icon-socials {
+      @include makeSocialIcon($social);
+    }
+  }
+  .social-icons.size-sm {
+    a {
+      line-height: 34px;
+      height: 34px;
+      width: 34px;
+      font-size: 14px;
+    }
+  }
+
+  @include media-breakpoint-up(md, $grid-breakpoints) {
+    .social-icons {
+      li.title {
+        display: block;
+        margin-right: 0;
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -26,6 +26,9 @@
 // CONTAINS MOJO LIBRARY, VARIABLES, AND CONFIG OPTIONS
 @import "framework";
 $debug: false;
+// Dyanmicly Declared
+$icon-socials: facebook, twitter, linkedin, dribbble !default;
+$enable-icons-social: if(length($icon-socials) > 0, true, false) !default;
 
 //
 // INITIAL OUTPUT : ROOT VARS : NORMALIZE + RESET
@@ -86,6 +89,7 @@ $include-column-box-sizing: true;
 @import "../node_modules/bootstrap/scss/transitions";
 @import "transitions";
 @import "angle-edges";
+@import "social";
 
 // NAVIGATION ELEMENTS
 @import "../node_modules/bootstrap/scss/nav";
