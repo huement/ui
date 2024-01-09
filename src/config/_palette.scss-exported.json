@@ -1,0 +1,232 @@
+{
+  "variables": [
+    {
+      "name": "$mojo-cyan",
+      "value": "( hex: #00f5d4, light: #2ef9de, dark: #07b099, )",
+      "mapValue": [
+        {
+          "name": "hex",
+          "value": "#00f5d4",
+          "compiledValue": "#00f5d4"
+        },
+        {
+          "name": "light",
+          "value": "#2ef9de",
+          "compiledValue": "#2ef9de"
+        },
+        {
+          "name": "dark",
+          "value": "#07b099",
+          "compiledValue": "#07b099"
+        }
+      ],
+      "compiledValue": "(hex: #00f5d4, light: #2ef9de, dark: #07b099)"
+    },
+    {
+      "name": "$mojo-ocean",
+      "value": "( hex: #0fb2aa, light: #19dad1, dark: #0f746f, )",
+      "mapValue": [
+        {
+          "name": "hex",
+          "value": "#0fb2aa",
+          "compiledValue": "#0fb2aa"
+        },
+        {
+          "name": "light",
+          "value": "#19dad1",
+          "compiledValue": "#19dad1"
+        },
+        {
+          "name": "dark",
+          "value": "#0f746f",
+          "compiledValue": "#0f746f"
+        }
+      ],
+      "compiledValue": "(hex: #0fb2aa, light: #19dad1, dark: #0f746f)"
+    },
+    {
+      "name": "$mojo-blue",
+      "value": "( hex: #1982c4, light: #319bde, dark: #185c87, )",
+      "mapValue": [
+        {
+          "name": "hex",
+          "value": "#1982c4",
+          "compiledValue": "#1982c4"
+        },
+        {
+          "name": "light",
+          "value": "#319bde",
+          "compiledValue": "#319bde"
+        },
+        {
+          "name": "dark",
+          "value": "#185c87",
+          "compiledValue": "#185c87"
+        }
+      ],
+      "compiledValue": "(hex: #1982c4, light: #319bde, dark: #185c87)"
+    },
+    {
+      "name": "$mojo-violet",
+      "value": "( hex: #520099, light: #6c05c6, dark: #300358, )",
+      "mapValue": [
+        {
+          "name": "hex",
+          "value": "#520099",
+          "compiledValue": "#520099"
+        },
+        {
+          "name": "light",
+          "value": "#6c05c6",
+          "compiledValue": "#6c05c6"
+        },
+        {
+          "name": "dark",
+          "value": "#300358",
+          "compiledValue": "#300358"
+        }
+      ],
+      "compiledValue": "(hex: #520099, light: #6c05c6, dark: #300358)"
+    },
+    {
+      "name": "$mojo-red",
+      "value": "( hex: #ff0054, light: #f93877, dark: #ba0742, )",
+      "mapValue": [
+        {
+          "name": "hex",
+          "value": "#ff0054",
+          "compiledValue": "#ff0054"
+        },
+        {
+          "name": "light",
+          "value": "#f93877",
+          "compiledValue": "#f93877"
+        },
+        {
+          "name": "dark",
+          "value": "#ba0742",
+          "compiledValue": "#ba0742"
+        }
+      ],
+      "compiledValue": "(hex: #ff0054, light: #f93877, dark: #ba0742)"
+    },
+    {
+      "name": "$mojo-coral",
+      "value": "( hex: #fd7e47, light: #faa27c, dark: #f25714, )",
+      "mapValue": [
+        {
+          "name": "hex",
+          "value": "#fd7e47",
+          "compiledValue": "#fd7e47"
+        },
+        {
+          "name": "light",
+          "value": "#faa27c",
+          "compiledValue": "#faa27c"
+        },
+        {
+          "name": "dark",
+          "value": "#f25714",
+          "compiledValue": "#f25714"
+        }
+      ],
+      "compiledValue": "(hex: #fd7e47, light: #faa27c, dark: #f25714)"
+    },
+    {
+      "name": "$mojo-yellow",
+      "value": "( hex: #fbff12, light: #f7fa49, dark: #c8cb08, )",
+      "mapValue": [
+        {
+          "name": "hex",
+          "value": "#fbff12",
+          "compiledValue": "#fbff12"
+        },
+        {
+          "name": "light",
+          "value": "#f7fa49",
+          "compiledValue": "#f7fa49"
+        },
+        {
+          "name": "dark",
+          "value": "#c8cb08",
+          "compiledValue": "#c8cb08"
+        }
+      ],
+      "compiledValue": "(hex: #fbff12, light: #f7fa49, dark: #c8cb08)"
+    },
+    {
+      "name": "$mojo-green",
+      "value": "( hex: #3bfc43, light: #70f976, dark: #0dec16, )",
+      "mapValue": [
+        {
+          "name": "hex",
+          "value": "#3bfc43",
+          "compiledValue": "#3bfc43"
+        },
+        {
+          "name": "light",
+          "value": "#70f976",
+          "compiledValue": "#70f976"
+        },
+        {
+          "name": "dark",
+          "value": "#0dec16",
+          "compiledValue": "#0dec16"
+        }
+      ],
+      "compiledValue": "(hex: #3bfc43, light: #70f976, dark: #0dec16)"
+    },
+    {
+      "name": "$mono",
+      "value": "( 100: #1f1f1f, 200: #242424, 300: #3d3d3d, 400: #4c4c4c, 500: #757575, 600: #8a8a8a, 700: #b3b3b3, 800: #dbdbdb, 900: #f0f0f0, )",
+      "mapValue": [
+        {
+          "name": "100",
+          "value": "#1f1f1f",
+          "compiledValue": "#1f1f1f"
+        },
+        {
+          "name": "200",
+          "value": "#242424",
+          "compiledValue": "#242424"
+        },
+        {
+          "name": "300",
+          "value": "#3d3d3d",
+          "compiledValue": "#3d3d3d"
+        },
+        {
+          "name": "400",
+          "value": "#4c4c4c",
+          "compiledValue": "#4c4c4c"
+        },
+        {
+          "name": "500",
+          "value": "#757575",
+          "compiledValue": "#757575"
+        },
+        {
+          "name": "600",
+          "value": "#8a8a8a",
+          "compiledValue": "#8a8a8a"
+        },
+        {
+          "name": "700",
+          "value": "#b3b3b3",
+          "compiledValue": "#b3b3b3"
+        },
+        {
+          "name": "800",
+          "value": "#dbdbdb",
+          "compiledValue": "#dbdbdb"
+        },
+        {
+          "name": "900",
+          "value": "#f0f0f0",
+          "compiledValue": "#f0f0f0"
+        }
+      ],
+      "compiledValue": "(100: #1f1f1f, 200: #242424, 300: #3d3d3d, 400: #4c4c4c, 500: #757575, 600: #8a8a8a, 700: #b3b3b3, 800: #dbdbdb, 900: #f0f0f0)"
+    }
+  ]
+}

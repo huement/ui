@@ -1,0 +1,94 @@
+@use "sass:map";
+@use "sass:list";
+@use "sass:math";
+@use "sass:color";
+@use "sass:meta";
+@use "sass:string";
+
+@import "framework/animate";
+@import "framework/functions";
+@import "framework/color-functions";
+@import "framework/props";
+@import "framework/rfs";
+@import "framework/typography";
+@import "framework/rhythm";
+@import "framework/math-functions";
+
+@import "config/globals"; // CONSTANTS & RATIOS
+@import "config/tokens"; // GENERATED TYPOGRAPHY SIZES
+@import "config/palette"; // DMT PALETTE [UPDATED]
+@import "config/theme"; // FINAL TWEAKS
+
+//
+// CONFIG VARS & ASSEMBLE MAIN FUNCTIONALITY
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+@import "variables";
+@import "variables-dark";
+
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/utilities";
+@import "mixins";
+
+///   Superclass
+///  --------------------
+///   The superclass is the application root class that
+///   wraps and scope the lib selectors. Use this class
+///   to wrap the modules in a superclass preserving the
+///   outer scope from the lib effects
+
+@mixin superclass() {
+  @if $superclass and str-length($superclass) > 0 {
+    .#{$superclass} {
+      @content;
+    }
+  } @else {
+    body {
+      @content;
+    }
+  }
+}
+
+///   CSS Variables
+///  --------------------
+///   Use this mixin to declare a set of CSS Custom Properties.
+///   The variables in $css_variables will be properly prefixed.
+///   The use of this mixin is encouraged to keep a good scalability.
+
+@mixin cssvars($css_variables) {
+  :root {
+    @each $name, $value in $css_variables {
+      --#{$name}: #{$value};
+    }
+  }
+}
+
+/// This mixin is used to change a CSS property value.
+/// It will change a declared css variable auto-prefixing it.
+@mixin cssvar($name, $value: "") {
+  --#{$name}: #{$value};
+}
+
+/// Retrieve a css variable value with already autoprefixed.
+/// Use the mixin if you want to change the variable value.
+@function cssvar($name) {
+  @return var(--#{$name});
+}
+
+@mixin mojoBanner($file, $version) {
+  /**!
+   * Mojo #{$file} v#{$version} (https://github.com/huement/mojo/)
+   * Copyright 2023-* Huement (https://huement.com)
+   * Licensed under Mozilla Public License 2 [MPL-2.0] (https://github.com/huement/mojo/blob/main/LICENSE)
+   *  Based on:
+   *    Shards v3.0.0 (https://github.com/DesignRevision/shards-ui)
+   *    Bootstrap v5.3.2 (https://getbootstrap.com/)
+   */
+}
+
+@mixin debugMessage($string) {
+  @if ($debug == true) {
+    @debug "#{$string}";
+  }
+}

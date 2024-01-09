@@ -1,0 +1,176 @@
+// =============================================================================
+// GENERAL TYPOGRAPHY
+// =============================================================================
+
+/// TypographyBodyBase Loads the relative font size + line height combos
+/// for a given breakpoint.
+@mixin TypographyBodyBase($mMap) {
+  @debug "Setting Font Base for #{map.get($mMap, name)}";
+
+  $scale: map.get($mMap, scale);
+  $lH: map.get($mMap, lineHeight);
+  $lHpx: map.get($mMap, lineHeight_px);
+  $fS: map.get($mMap, fontSize);
+  $mt: map.get($mMap, vertical);
+  $whiteSpace: px_rem(($fS - $mt), strip-units($fS));
+  $leadSize: calc(strip-units($fS) + $mt) * $scale;
+  $lead: decimal_round(px_rem($leadSize * 1px, strip-units($fS)), 2);
+
+  html {
+    font-size: #{$fS};
+    line-height: #{$lHpx};
+  }
+
+  body,
+  .size-fluid {
+    font-size: px_rem($fS, strip-units($fS));
+    line-height: #{$lH * 1rem};
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: #{$lH * 1rem};
+
+    a {
+      //line-height: #{$lH + "rem"};
+      margin-left: decimal_round(($whiteSpace * 0.5), 0);
+      margin-right: decimal_round(($whiteSpace * 0.5), 0);
+    }
+
+    &.lead {
+      margin-top: vr-block(0.5);
+      margin-bottom: vr-block(1);
+      font-size: $lead;
+      letter-spacing: -0.05rem;
+    }
+  }
+}
+
+// TODO Update This to actually work
+// @include cssvars(
+//   (
+//     paragraph-font-size: 1em,
+//     paragraph-margin-bottom: 24px,
+//     link-color: cssvar(primary-color),
+//     link-text-transform: none,
+//     link-text-decoration: none,
+//     link-font-weight: normal,
+//   )
+// );
+
+// HTML+BODY Font Styles
+$minBP: nth(map-keys($chords), 1);
+$firstMap: map.get($chords, $minBP);
+@include TypographyBodyBase($firstMap);
+
+//  Skip smallest breakpoint b/c size is 0.
+$maxBP: calc(length(map-keys($chords)) - 1);
+@debug "Total Breakpoints: #{$maxBP + 1}";
+@each $mapKey, $c in $chords {
+  @if (map.get($c, abrev) != $minBP) {
+    @include media-breakpoint-up(map.get($c, abrev)) {
+      @include TypographyBodyBase($c);
+    }
+  }
+}
+
+//
+//  HYPERLINKS
+a {
+  text-decoration: none;
+  color: getPageColor("link");
+  outline-style: none;
+  // @TODO Animate
+
+  &.underline {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: getPageColor("link-hover");
+    @include animate-css(pulse);
+  }
+
+  &:link {
+    color: getPageColor("link");
+  }
+
+  &:visited {
+    color: getPageColor("link-visited");
+  }
+
+  small {
+    text-decoration: none;
+    font-variant: small-caps;
+  }
+}
+
+//
+//  Paragraph Styles
+p {
+  word-break: break-word; //non-standard css for webkit
+  word-wrap: break-word; // cleaning up the ragged lines and breaks
+  overflow-wrap: break-word;
+  hyphens: none; // sets a minimum number of characters before and after the break
+  -webkit-hyphenate-before: 2;
+  -webkit-hyphenate-after: 3;
+  hyphenate-lines: 3;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures, contextual;
+  font-variant-numeric: oldstyle-nums, proportional-nums;
+  font-feature-settings: "kern", "liga", "clig", "calt", "onum", "pnum";
+}
+
+p abbr,
+p span {
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures, contextual;
+  font-variant-numeric: oldstyle-nums, proportional-nums;
+  font-variant-caps: all-small-caps;
+  font-feature-settings: "kern", "liga", "clig", "calt", "onum", "pnum", "smcp", "c2sc";
+}
+
+p + p {
+  text-indent: $main-indent;
+
+  // No indent for drop caps
+  + .drop-cap {
+    text-indent: 0;
+  }
+}
+
+abbr {
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures, contextual;
+  font-variant-numeric: oldstyle-nums, proportional-nums;
+  font-variant-caps: all-small-caps;
+  font-feature-settings: "kern", "liga", "clig", "calt", "onum", "pnum", "smcp", "c2sc";
+}
+
+td {
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures, contextual;
+  font-variant-numeric: lining-nums, tabular-nums;
+  font-feature-settings: "kern", "liga", "clig", "calt", "lnum", "tnum";
+}
+
+strong,
+b {
+  font-weight: 600;
+}
+
+// Highlight
+mark {
+  background: $info;
+  color: $dark;
+  padding: 0 0.2rem;
+}
+
+disabled {
+  color: rgba($dark, 0.5);
+}

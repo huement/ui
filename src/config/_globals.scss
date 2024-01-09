@@ -1,0 +1,135 @@
+//
+//   HUEMENT PRESENTS:
+//   ┏━┓┳  ┏━┓┳━┓┳━┓┳  ┓━┓
+//   ┃ ┳┃  ┃ ┃┃━┃┃━┫┃  ┗━┓
+//   ┇━┛┇━┛┛━┛┇━┛┛ ┇┇━┛━━┛
+//
+
+//============================================================
+// Ratios
+//============================================================
+$MINOR_SECOND: 1.067 !default;
+$MAJOR_SECOND: 1.125 !default;
+$MINOR_THIRD: 1.2 !default;
+$MAJOR_THIRD: 1.25 !default;
+$PERFECT_FOURTH: 1.333 !default;
+$AUGMENTED_FOURTH: 1.414 !default;
+$PERFECT_FIFTH: 1.5 !default;
+$MINOR_SIXTH: 1.6 !default;
+$GOLDEN_SECTION: 1.618 !default;
+$MAJOR_SIXTH: 1.667 !default;
+$MINOR_SEVENTH: 1.778 !default;
+$MAJOR_SEVENTH: 1.875 !default;
+$OCTAVE: 2 !default;
+$MAJOR_TENTH: 2.5 !default;
+$MAJOR_ELEVENTH: 2.667 !default;
+$MAJOR_TWELFTH: 3 !default;
+$DOUBLE_OCTAVE: 4 !default;
+
+$aspect-ratios: (
+  "1x1": 100%,
+  "4x3": calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+  "21x9": calc(9 / 21 * 100%),
+);
+
+$position-values: (
+  0: 0,
+  50: 50%,
+  100: 100%,
+);
+
+//============================================================
+// Fonts
+//============================================================
+// prettier-ignore
+$SansStack:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
+// prettier-ignore
+$MonoStack: SFMono-Regular, Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace !default;
+
+// prettier-ignore
+$SerifStack: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
+$not-integer-txt: " value breaks vertical rhythm. Use an integer (whole number) for $lines." !default;
+
+// Social Media Colorcodes
+$SocialColors: (
+  adn: #504e54,
+  apple: #aeb5c5,
+  android: #a5c63b,
+  bitbucket: #003366,
+  bitcoin: #f7931a,
+  css3: #1572b7,
+  dribbble: #f46899,
+  dropbox: #018bd3,
+  facebook: #3c599f,
+  flickr: #ff0084,
+  foursquare: #0086be,
+  github: #070709,
+  google: #cf3d2e,
+  html5: #e54d26,
+  instagram: #a1755c,
+  linkedin: #0085ae,
+  linux: #fbc002,
+  maxcdn: #f6ae1c,
+  pagelines: #241e20,
+  pinterest: #cc2127,
+  renren: #025dac,
+  skype: #01aef2,
+  stack-exchange: #245590,
+  stack-overflow: #ff7300,
+  trello: #265a7f,
+  tumblr: #314e6c,
+  twitter: #32ccfe,
+  vimeo: #229acc,
+  vk: #375474,
+  weibo: #d72b2b,
+  windows: #12b6f3,
+  xing: #00555c,
+  youtube: #c52f30,
+) !default;
+
+//============================================================
+// UI Requires
+//============================================================
+
+// Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+
+// scss-docs-start zindex-stack
+$zindex-0: 1 !default;
+$zindex-1: 100 !default;
+$zindex-2: 200 !default;
+$zindex-3: 300 !default;
+$zindex-4: 400 !default;
+$zindex-dropdown: 1000;
+$zindex-sticky: 1020;
+$zindex-fixed: 1030;
+$zindex-offcanvas-backdrop: 1040;
+$zindex-offcanvas: 1045;
+$zindex-modal-backdrop: 1050;
+$zindex-modal: 1055;
+$zindex-navbar: 600 !default;
+$zindex-popover: 1070;
+$zindex-toast: 1090;
+$zindex-tooltip: 1080;
+$zindex-sticky: 900 !default;
+// scss-docs-end zindex-stack
+
+// scss-docs-start zindex-levels-map
+$zindex-levels: (
+  n1: -1,
+  0: 0,
+  1: 1,
+  2: 2,
+  3: 3,
+);
+// scss-docs-end zindex-levels-map
+
+// =======================================================================
+// Extras
+// =======================================================================
+$debug: false !default;

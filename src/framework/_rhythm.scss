@@ -1,0 +1,103 @@
+///
+/// GENERAL SPACING
+//  This file controls the Units used to keep everything spaced in a nice way.
+//  It supports spacing across breakpoints.
+// Sass Modules
+@use "sass:map";
+@use "sass:list";
+@use "sass:math";
+@use "sass:color";
+@use "sass:meta";
+
+///
+/// VERTICAL RHYTHM
+///
+//@import "globals";
+
+/// Returns a "vertical unit". Useful for specifying the height and margins of non-text elements like images and such.
+///
+/// @param {number} $units [1] - Number of units. Accepts floated numbers as well.
+/// @param {number} $px-offset [false] - A positive or negative number of pixels to offset the grid by. Useful for lining the bottom of the gridlines up with your text. Since this doesn't compute a literal pixel you may need to use a floated number (multiples of .25 work well) to keep your rhythm on track.
+///
+/// @example
+///   img {
+///     height: vr-block(5); // 8rem or 120px
+///     margin-bottom: vr-block(.25);
+///   }
+/// vr-block(1): 1.6rem or 24px
+/// vr-block(2): 3.2rem or 50px
+/// vr-block(3): 4.8rem or 76px
+
+@function vr-block($units: 1, $px-offset: false, $font-size: $font-size-base) {
+  @if ($px-offset) {
+    @return (
+        math.div(($MainLineHeight * strip-units($font-size)), math.div(strip-units($font-size), 2)) *
+          math.div($units, 2) * (1 + math.div($px-offset, strip-units($font-size)))
+      ) + rem;
+  } @else {
+    $vVal: $line-height-base * strip-units($font-size);
+    $vDiv: strip-units($font-size) * 0.5;
+    $vTot: math.div($vVal, $vDiv);
+
+    $vRes: ($vTot * ($units * 0.5)) + rem;
+    @return $vRes;
+  }
+}
+
+/// A function to add Vertical Padding (y axis)
+///
+/// @param {number} $size [1] - The amount of padding to add
+/// @param {number} $borderWidth [0] - Optional border-width to account for
+///
+/// @example
+///   img {
+///     padding-top: vr-padding(10px, 2px);
+///     border: 2px solid #000;
+///   }
+@function vr-padding($size: 1, $borderWidth: 0) {
+  $spacing-amt: bs($size * $modular-ratio);
+  $amt: "md";
+  @if ($size==1) {
+    $amt: "md";
+  }
+  $border-width: $borderWidth;
+  @if ($borderWidth !=0) and ($borderWidth != "0px") {
+    $border-width: strip-units($borderWidth);
+  }
+  $line-height: getFontLineSize($amt);
+  @debug "PaddingY Spacing Amt: #{$spacing-amt}";
+  @debug "PaddingY Line Height: #{$line-height}";
+  $control-padding-y: math.div($spacing-amt, 2);
+  $padding-result: $control-padding-y;
+  @if ($border-width !=0) and ($border-width != "0px") {
+    $padding-result: $control-padding-y - _rem($border-width);
+  }
+  @return $padding-result;
+}
+
+/// vertRem
+/// @param {*} $amt
+@function vert-rem($amt) {
+  @return _rem($vertical-unit * $amt);
+}
+
+@function getSpacing($size, $important: false) {
+  @if map-has-key($spacers, $size) {
+    @if ($important == true) {
+      @return map.get($spacers, $size) !important;
+    } @else {
+      @return map.get($spacers, $size);
+    }
+  } @else {
+    @error "Invalid Spacings Size: '#{$size}'.";
+  }
+}
+
+@function getSpacingRem($size: "md") {
+  @if map-has-key($spacers, $size) {
+    $result: map.get($spacers, $size);
+    @return _rem($result);
+  } @else {
+    @error "Invalid Spacing Size: '#{$size}'.";
+  }
+}

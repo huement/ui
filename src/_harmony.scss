@@ -1,0 +1,39 @@
+//
+//    ┳ ┳┳━┓┳━┓┏┏┓┏━┓o┏━┓  ┏┓┓┓ ┳┳━┓┏━┓┏━┓┳━┓┳━┓┳━┓┳ ┳┓ ┳
+//    ┃━┫┃━┫┃┳┛┃┃┃┃ ┃┃┃     ┃ ┗┏┛┃━┛┃ ┃┃ ┳┃┳┛┃━┫┃━┛┃━┫┗┏┛
+//    ┇ ┻┛ ┇┇┗┛┛ ┇┛━┛┇┗━┛   ┇  ┇ ┇  ┛━┛┇━┛┇┗┛┛ ┇┇  ┇ ┻ ┇
+//    --==xxXX  VERTICAL RHYTHM & MODULAR SCALE  XXxx==--
+//
+/// @author Derek Scott
+/// @group typography
+/// This file is nearly identical to the type.scss file. The former is used in the library while the latter is used to develope the typography portion of the library.
+/// TODO: find someone to not repeat code between this and type.scss
+//
+
+@if global-variable-exists(PrimaryFont) {
+  @include fontFaceSelector($PrimaryFont, "paragraph-font-family");
+}
+
+@if global-variable-exists(HeadingFont) {
+  @include fontFaceSelector($HeadingFont, "headings-font-family");
+}
+
+@if global-variable-exists(CodeFont) {
+  @include fontFaceSelector($CodeFont, "code-font-family");
+}
+
+@import "harmony/base";
+
+/** Harmonious Heading Sizes */
+@import "harmony/headings";
+@include Harmonic_Headings_Core();
+@include Harmonic_Headings_Breakpoints();
+
+@import "harmony/title";
+
+/** Typography Extras */
+@import "harmony/typesetting";
+// @import "harmony/quotes"; TODO: This needs HTML docs / examples to confirm working
+@import "harmony/code";
+@import "harmony/content";
+@import "harmony/hero";

@@ -1,0 +1,81 @@
+//        ___          ___                     ___
+//       /  /\        /  /\         ___       /  /\
+//      /  /::\      /  /::\       /__/\     /  /::\
+//     /  /:/\:\    /  /:/\:\      \__\:\   /  /:/\:\
+//    /  /:/  \:\  /  /::\ \:\     /  /::\ /  /:/  \:\
+//   /__/:/_\_ \:\/__/:/\:\_\:\ __/  /:/\//__/:/ \__\:|
+//   \  \:\__/\_\/\__\/~|::\/://__/\/:/~~ \  \:\ /  /:/
+//    \  \:\ \:\     |  |:|::/ \  \::/     \  \:\  /:/
+//     \  \:\/:/     |  |:|\/   \  \:\      \  \:\/:/
+//      \  \::/      |__|:|~     \__\/       \  \::/
+//       \__\/        \__\|                   \__\/
+//
+@use "sass:map";
+@use "sass:list";
+@use "sass:math";
+@use "sass:color";
+@use "sass:meta";
+@use "sass:string";
+
+//
+// SUPER CLASSY SETUP
+@import "framework";
+$debug: false;
+
+$include-column-box-sizing: true !default;
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/mixins/breakpoints";
+@import "../node_modules/bootstrap/scss/mixins/container";
+@import "../node_modules/bootstrap/scss/mixins/grid";
+@import "../node_modules/bootstrap/scss/mixins/utilities";
+
+@include mojoBanner("GRID Framework", "0.6.0");
+@import "root";
+
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
+
+@import "../node_modules/bootstrap/scss/utilities";
+// Only use the utilities we need
+// stylelint-disable-next-line scss/dollar-variable-default
+$utilities: map-get-multiple(
+  $utilities,
+  (
+    "display",
+    "order",
+    "flex",
+    "flex-direction",
+    "flex-grow",
+    "flex-shrink",
+    "flex-wrap",
+    "justify-content",
+    "align-items",
+    "align-content",
+    "align-self",
+    "margin",
+    "margin-x",
+    "margin-y",
+    "margin-top",
+    "margin-end",
+    "margin-bottom",
+    "margin-start",
+    "negative-margin",
+    "negative-margin-x",
+    "negative-margin-y",
+    "negative-margin-top",
+    "negative-margin-end",
+    "negative-margin-bottom",
+    "negative-margin-start",
+    "padding",
+    "padding-x",
+    "padding-y",
+    "padding-top",
+    "padding-end",
+    "padding-bottom",
+    "padding-start"
+  )
+);
+
+@import "../node_modules/bootstrap/scss/utilities/api";

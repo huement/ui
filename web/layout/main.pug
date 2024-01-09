@@ -1,0 +1,36 @@
+include ../config
+block config
+include ../mixins/global
+
+append config
+    - var cssFile = "mojo"
+
+doctype html
+html(lang= lang)
+    head
+        include ../partials/meta
+        include ../partials/head
+        if highlight
+            link(rel="stylesheet", href=path+"demo/css/highlight.css", type="text/css" id="highlight_css")
+
+    body(class='no-javascript')
+        script document.body.classList.remove('no-javascript');
+
+        div(class= superClass)
+            div.container-fluid.mojoWebsite.no-gutters
+                .container
+                    .row
+                        .col-12
+                            +navbar(pages)
+                block content
+
+                include ../partials/footer
+
+
+        if highlight
+            script(src=path+"demo/js/highlight.js")
+
+        block scriptsJS
+
+        if showDebug
+            include ../partials/debugger

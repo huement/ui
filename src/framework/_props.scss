@@ -1,0 +1,41 @@
+///
+/// Apply Properties
+/// Maps given Arguments to the CSS Properties
+///
+@mixin apply-props($args, $props...) {
+  @for $i from 1 through length($args) {
+    $val: nth($args, $i);
+
+    @if $val != null {
+      #{nth($props, $i)}: $val;
+    }
+  }
+}
+
+
+/// modifiers quickly generate classes from a map
+/// @example
+///   .text {
+///     @include modifiers($mapItems, "item", $separator: ":");
+///   }
+@mixin modifiers(
+  $map,
+  $attribute,
+  $prefix: "-",
+  $separator: "-",
+  $base: "base"
+) {
+  @each $key, $value in $map {
+    &#{if($key != $base, #{$prefix}#{$key},
+        '') } {
+      @if type-of($value) == "map" {
+        @include modifiers($value, $attribute, $separator);
+      } @else {
+        #{$attribute}: $value;
+      }
+    }
+  }
+}
+
+
+

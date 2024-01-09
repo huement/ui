@@ -1,0 +1,156 @@
+//============================================================
+// COLOR SHORTCUTS test
+//============================================================
+// scss-docs-start theme-color-variables
+$link-color: map.get($mojo-blue, hex);
+$link-hover: map.get($mojo-blue, dark);
+$primary: map.get($mojo-violet, hex);
+$secondary: map.get($mojo-ocean, hex);
+$success: map.get($mojo-green, hex);
+$info: map.get($mojo-cyan, hex);
+$warning: map.get($mojo-yellow, hex);
+$danger: map.get($mojo-red, hex);
+$light: map.get($mono, 900);
+$dark: map.get($mono, 100);
+// scss-docs-end theme-color-variables
+
+$mojo-colors: ();
+$mojo-colors: map-merge(
+  (
+    "cyan": map.get($mojo-cyan, hex),
+    "ocean": map.get($mojo-ocean, hex),
+    "blue": map.get($mojo-blue, hex),
+    "violet": map.get($mojo-violet, hex),
+    "red": map.get($mojo-red, hex),
+    "coral": map.get($mojo-coral, hex),
+    "yellow": map.get($mojo-yellow, hex),
+    "green": map.get($mojo-green, hex),
+  ),
+  $mojo-colors
+);
+
+$theme-colors: ();
+$theme-colors: map-merge(
+  (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark,
+  ),
+  $theme-colors
+);
+
+$white: #fff;
+$gray-100: map.get($mono, 900);
+$gray-200: map.get($mono, 800);
+$gray-300: map.get($mono, 700);
+$gray-400: map.get($mono, 600);
+$gray-500: map.get($mono, 500);
+$gray-600: map.get($mono, 400);
+$gray-700: map.get($mono, 300);
+$gray-800: map.get($mono, 200);
+$gray-900: map.get($mono, 100);
+$black: #000;
+
+$grays: ();
+$grays: map-merge(
+  (
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900,
+  ),
+  $grays
+);
+
+$google-fonts-import: false;
+//
+// Font Maps
+//
+$PrimaryFont: (
+  family: "Jost",
+  src: "jost-variablefont_wght-webfont",
+  ext: "woff",
+  weight: 400,
+  style: normal,
+  selector: "html, body, p, li, b, i, strong, a, mark, td, th, button",
+  stack: $SansStack,
+  display: swap
+);
+
+$HeadingFont: (
+  family: "Saira",
+  src: "saira-variablefont_wght-webfont",
+  ext: "woff",
+  weight: 700,
+  style: bold,
+  selector: "h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6",
+  stack: $SansStack,
+  display: swap
+);
+
+$CodeFont: (
+  family: "Space Mono",
+  src: "spacegrotesk-variablefont_wght-webfont",
+  ext: "woff",
+  weight: 400,
+  style: normal,
+  selector: "code, pre, samp, kbd, caption, blockquote, cite, .code-block, .code-block p, aside, label, legend, .quote",
+  stack: $MonoStack,
+  display: swap
+);
+
+// $theme-colors: (
+//   "primary": $primary,
+//   "secondary": $secondary,
+//   "success": $success,
+//   "info": $info,
+//   "warning": $warning,
+//   "danger": $danger,
+//   "light": $light,
+//   "dark": $dark,
+// );
+
+// Gradient
+//
+// The gradient which is added to components if `$enable-gradients` is `true`
+// This gradient is also added to elements with `.bg-gradient`
+// scss-docs-start variable-gradient
+$gradient: linear-gradient(180deg, rgba(map.get($mono, 600), 0.15), rgba(map.get($mono, 800), 0));
+
+// Unit Sizes
+// ============================================================================
+// Shortcuts to use along side or inplace of the 'toolbox/_rhythm.scss' code
+// Caution: Using a large number of various spacings will complicate having a
+// vertical or horizontal rhythm. consider adjusting the maps instead of trying
+// to keep track of what sizes are in play.
+$sz_1: 0.2rem; //1.6px
+$sz_2: 0.5rem; //8px
+$sz_3: 1rem; //16px
+$sz_4: 1.5rem; //24px
+$sz_5: 2rem; //32px
+$sz_6: 2.5rem;
+$sz_7: 3rem; //48px
+$sz_8: 3.5rem;
+$sz_9: 4rem; //64px
+$sz_10: 5rem; //80px
+$sz_11: 6rem; //96px
+$sz_12: 7rem;
+$sz_13: 8rem; //128px
+$sz_14: 9rem;
+$sz_15: 10rem; //160px
+$sz_20: 20rem; //320px
+$sz_30: 30rem; //480px
+$sz_40: 40rem; //640px
+$sz_50: 50rem; //800px
+$sz_60: 60rem; //960px
+$sz_70: 70rem; //1280px
