@@ -1,6 +1,0 @@
-//*-- Previous --*\\
-.#{$iconclass}previous {
-    @extend .#{$iconclass}next;
-    transform: rotate(180deg);
-    margin: $U7 $U10 $U7 $U14;
-}
