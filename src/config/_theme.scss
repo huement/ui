@@ -78,35 +78,35 @@ $google-fonts-import: false;
 //
 $PrimaryFont: (
   family: "Jost",
-  src: "jost-variablefont_wght-webfont",
+  src: "Jost/jost-variablefont_wght-webfont",
   ext: "woff",
   weight: 400,
   style: normal,
   selector: "html, body, p, li, b, i, strong, a, mark, td, th, button",
   stack: $SansStack,
-  display: swap
+  display: swap,
 );
 
 $HeadingFont: (
   family: "Saira",
-  src: "saira-variablefont_wght-webfont",
+  src: "Saira/saira-variablefont_wdthwght-webfont",
   ext: "woff",
   weight: 700,
   style: bold,
   selector: "h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6",
   stack: $SansStack,
-  display: swap
+  display: swap,
 );
 
 $CodeFont: (
-  family: "Space Mono",
-  src: "spacegrotesk-variablefont_wght-webfont",
+  family: "Space Grotesk",
+  src: "Space_Grotesk/spacegrotesk-variablefont_wght-webfont",
   ext: "woff",
   weight: 400,
   style: normal,
   selector: "code, pre, samp, kbd, caption, blockquote, cite, .code-block, .code-block p, aside, label, legend, .quote",
   stack: $MonoStack,
-  display: swap
+  display: swap,
 );
 
 // $theme-colors: (

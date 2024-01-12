@@ -42,22 +42,7 @@ $enable-icons-social: if(length($icon-socials) > 0, true, false) !default;
 $include-column-box-sizing: true;
 @import "../node_modules/bootstrap/scss/containers";
 @import "../node_modules/bootstrap/scss/grid";
-// Remove the negative margin from default .row, then the horizontal padding
-// from all immediate children columns (to prevent runaway style inheritance).
-.no-gutters {
-  margin-right: 0;
-  margin-left: 0;
-
-  > .col,
-  > [class*="col-"] {
-    padding-right: 0;
-    padding-left: 0;
-  }
-}
-.container-fluid {
-  padding-left: 0;
-  padding-right: 0;
-}
+@import "container-grid";
 
 //
 // HARMONIC TYPOGRAPHY & ARTICLE CONTENT
@@ -96,6 +81,7 @@ $include-column-box-sizing: true;
 @import "nav";
 @import "../node_modules/bootstrap/scss/navbar";
 @import "navbar";
+@import "off-canvas";
 
 // TODO: consider adding these files
 // @import "../node_modules/bootstrap/scss/accordion";

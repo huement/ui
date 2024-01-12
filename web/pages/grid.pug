@@ -443,3 +443,29 @@ block content
           .col
               p.p-3
                   | The key to more success is to get a massage once a week, very important, major key, cloth talk.
+
+  .container
+    h2 Mobile and desktop
+    //  Stack the columns on mobile by making one full-width and the other half-width
+    .row
+      .col-xs-12.col-md-8 .col-xs-12 .col-md-8
+      .col-xs-6.col-md-4 .col-xs-6 .col-md-4
+    //  Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop
+    .row
+      .col-xs-6.col-md-4 .col-xs-6 .col-md-4
+      .col-xs-6.col-md-4 .col-xs-6 .col-md-4
+      .col-xs-6.col-md-4 .col-xs-6 .col-md-4
+    //  Columns are always 50% wide, on mobile and desktop
+    .row
+      .col-xs-6 .col-xs-6
+      .col-xs-6 .col-xs-6
+    h2 Mobile, tablet, desktop
+    .row
+      .col-xs-12.col-sm-6.col-md-8 .col-xs-12 .col-sm-6 .col-md-8
+      .col-xs-6.col-md-4 .col-xs-6 .col-md-4
+    .row
+      .col-xs-6.col-sm-4 .col-xs-6 .col-sm-4
+      .col-xs-6.col-sm-4 .col-xs-6 .col-sm-4
+      //  Optional: clear the XS cols if their content doesn't match in height
+      .clearfix.visible-xs-block
+      .col-xs-6.col-sm-4 .col-xs-6 .col-sm-4

@@ -1,0 +1,59 @@
+include ../config
+include ../docsConfig
+block config
+include ../mixins/docsUI
+include ../mixins/global
+include ../mixins/form
+
+append config
+    - var prismjs = prismjs || false
+    - var showDebug = showDebug || false
+    - var themeBuilder = themeBuilder || false
+    - var vendorJS = vendorJS || false
+    - var contentClass = contentClass || ''
+
+doctype html
+html(lang= lang)
+    head
+        include ../partials/meta
+        include ../partials/head-docs
+
+        link(rel="preconnect", href="https://fonts.googleapis.com")
+        link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&family=Saira:wght@500;600&family=Space+Mono&display=swap", rel="stylesheet")
+
+        link(rel="stylesheet", href=path+"demo/css/docs.css?stamp="+ stamp, type="text/css" id="docs_css")
+
+        if prismjs
+            link(rel="stylesheet", href=path+"demo/css/prism.css", type="text/css" id="prism_css")
+
+        if highlight
+            link(rel="stylesheet", href=path+"demo/css/highlight.css", type="text/css" id="highlight_css")
+
+    body(class='no-javascript')
+        script document.body.classList.remove('no-javascript');
+
+        div(class= superClass + " " +"docs-container main-content docPage off-canvas off-canvas-sidebar-show")
+            #sidebar.docs-sidebar.off-canvas-sidebar
+                +sideNavLogo(tokens)
+                .docs-nav
+                    .accordion-container
+                        +sideNavMenu(pages)
+
+            .off-canvas-content
+                #content(class="container " + contentClass + " docs-content")
+                    .main-area.px-xs-0.px-sm-0.px-md-2.px-lg-3.px-xl-3.px-xx-4
+                        +topNavBar(topSearch,topLinks)
+                        block content
+                include ../partials/footer-docs
+
+        <!-- URL #{envData.url} -->
+
+        block scriptsJS
+            if highlight
+                script(src=path+"demo/js/highlight.js")
+            if prismjs
+                script(src=path+"demo/js/prism.js")
+
+        if showDebug
+            include ../partials/debugger

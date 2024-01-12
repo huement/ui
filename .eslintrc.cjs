@@ -11,7 +11,7 @@ module.exports = {
                 "node": true
             },
             "files": [
-                "!.eslintrc.{js,cjs}", "!bump.{js,cjs}"
+                "!.eslintrc.{js,cjs}"
             ],
             "parserOptions": {
                 "sourceType": "script"

@@ -15,7 +15,7 @@ module.exports = {
   ui: {
     port: 8101
   },
-  files: ['dist/*.css', 'dist/css/*.css'],
+  files: ['dist/*.{css, html}', 'dist/css/*.css'],
   watchEvents: [
     'change'
   ],

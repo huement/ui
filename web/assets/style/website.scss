@@ -25,6 +25,23 @@ body {
   padding: 0 !important;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+.demo {
+  .row {
+    margin-bottom: 15px;
+  }
+
+  [class^="col-"] {
+    // border: 1px solid #738290;
+    background-color: #e3f2f7;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
 // This works but its not being used yet...
 // @include superclass() {
 // }

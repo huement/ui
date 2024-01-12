@@ -9,6 +9,7 @@ lerna-debug.log*
 
 dist/
 node_modules/
+node_modules1/
 dist-ssr
 *.local
 
@@ -25,3 +26,7 @@ dist-ssr
 
 # Mojo Files
 .env
+node_modules
+tsconfig 2.json
+package 2.json
+README-shards.md

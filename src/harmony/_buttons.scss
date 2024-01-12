@@ -1,0 +1,248 @@
+// Buttons
+$variantMap: map.get($MojoButtons, "variants");
+$linkMap: map.get($variantMap, "link");
+$outlineMap: map.get($variantMap, "outline");
+$actionMap: map.get($variantMap, "action");
+
+@include cssvars(
+  (
+    button-primary-text-color: #ffffff,
+    button-secondary-text-color: #ffffff,
+    button-padding: 0 20px,
+    button-font-size: 14px,
+    button-min-width: 140px,
+    button-min-height: 40px,
+    button-font-weight: 600,
+    button-box-shadow: none,
+    button-margin-bottom: 24px,
+    button-border-radius: 4px,
+    button-border-style: solid,
+    button-border-width: 1px,
+    button-rounded-size: 52px,
+  )
+);
+
+@include superclass() {
+  .btn {
+    // border-color: cssvar(button-border-color);
+    // border-radius: cssvar(button-border-radius);
+    // border-style: cssvar(button-border-style);
+    // border-width: cssvar(button-border-width);
+    //display: inline-block;
+    //line-height: cssvar(button-min-height);
+    //min-height: cssvar(button-min-height);
+    //padding: $control-padding-y $control-padding-x;
+    //text-align: center;
+    align-items: center;
+    appearance: none;
+    background: getStatus("muted");
+    border-radius: $borderRadius;
+    border: unquote(getButtonData("border")) getStatus("muted");
+    color: getButtonData("text");
+    cursor: pointer;
+    display: inline-flex;
+    font-family: getFontData($PrimaryFont);
+    font-size: getButtonData("font-size");
+    font-weight: getButtonData("font-weight");
+    height: $control-size;
+    justify-content: center;
+    letter-spacing: unquote(getButtonData("letter-spacing"));
+    //line-height: $line-height;
+    line-height: getButtonData("line-height");
+    outline: 0;
+    overflow: hidden;
+    padding: cssvar(button-padding);
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: unquote(getButtonData("text-transform"));
+    transition: unquote(getButtonData("transition"));
+    //transition: background 0.2s, border 0.2s, box-shadow 0.2s, color 0.2s;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    zoom: 1;
+    @include buttonBoxShadow();
+
+    @include buttonHoverFocusActive(getStatus("muted"), getStatus("muted"), true);
+
+    // Button Action Variant
+    &.btn-action {
+      width: $sz_9;
+      font-size: $sz_4;
+      padding-left: 0;
+      padding-right: 0;
+
+      .rif {
+        @include button-icon($sz_4);
+      }
+
+      @each $sizeName, $sizeMap in map.get($MojoButtons, "sizes") {
+        &.btn-#{$sizeName} {
+          width: map.get($sizeMap, "width");
+          font-size: map.get($sizeMap, "font");
+
+          .rif {
+            @include button-icon(map.get($sizeMap, "font"));
+          }
+        }
+      }
+    }
+
+    &.btn-outline {
+      box-shadow: none;
+      $ocolor: getButtonData("text");
+      $obg: transparent;
+      @include button-outline-variant($ocolor, $obg);
+      @each $colorName, $colorMap in $ThemeColors {
+        $vtc: map.get($colorMap, "text");
+        $vbg: map.get($colorMap, "main");
+        $vrg: map.get($colorMap, "main");
+        &.btn-#{$colorName} {
+          @include button-outline-variant($vbg, $obg);
+        }
+      }
+    }
+
+    // Button Clear
+    &.btn-clear {
+      background: transparent;
+      border: 0;
+      color: currentColor;
+      height: _rem($MainFontSize);
+      line-height: _rem($MainFontSize);
+      margin-left: $sz_1;
+      margin-right: -2px;
+      opacity: 1;
+      padding: _rem($VerticalUnit);
+      text-decoration: none;
+      width: _rem($MainFontSize);
+
+      &:focus,
+      &:hover {
+        background: rgba(getStatus("muted"), 0.5);
+        opacity: 0.95;
+      }
+
+      &::before {
+        content: "\2715";
+      }
+    }
+
+    &.btn-block {
+      display: flex;
+      width: 100%;
+    }
+
+    // Button Link
+    &.btn-link {
+      background: transparent;
+      border-color: transparent;
+      //color: $cyan;
+      color: map.get($linkMap, "text");
+      box-shadow: none !important;
+      &:focus,
+      &:hover,
+      &:active,
+      &.active {
+        color: darken(map.get($linkMap, "text"), 15);
+      }
+    }
+
+    // COLOR BUTTONS
+    @each $colorName, $colorMap in $ThemeColors {
+      $vtc: map.get($colorMap, "text");
+      $vbg: map.get($colorMap, "main");
+      $vrg: map.get($colorMap, "main");
+      &.btn-#{$colorName} {
+        @include button-variant($vbg, $vtc);
+        //@include button-hover-focus-active(getStatus("primary"), "dark");
+        @include buttonHoverFocusActive($vbg, $vrg, $vtc);
+      }
+    }
+
+    // Button Size Variants
+    @each $sizeName, $sizeMap in map.get($MojoButtons, "sizes") {
+      &.btn-#{$sizeName} {
+        font-size: map.get($sizeMap, "font");
+        height: map.get($sizeMap, "height");
+        padding-left: map.get($sizeMap, "font");
+        padding-right: map.get($sizeMap, "font");
+
+        .rif {
+          @include button-icon(#{map.get($sizeMap, "font") + 1rem});
+          // font-size: #{map.get($sizeMap, "font") + 1rem};
+          // padding-left: map.get($sizeMap, "font");
+          // padding-right: 0px;
+
+          &.icon-first {
+            //padding-left: 0;
+            padding-right: map.get($sizeMap, "font") !important;
+          }
+        }
+      }
+    }
+
+    .rif {
+      @include button-icon($sz_6);
+      padding-left: $sz_3 !important;
+      &.icon-first {
+        padding-right: $sz_3 !important;
+      }
+    }
+    // TODO Add in Variant Loop
+    // @each $variantName, $variantMap in map.get($MojoButtons, "variants") {
+    //   &.btn-#{$variantName} {
+
+    //   }
+    // }
+  }
+
+  // Button groups
+  .btn-group {
+    display: inline-flex;
+    flex-wrap: wrap;
+
+    .btn {
+      flex: 1 0 auto;
+      &:first-child:not(:last-child) {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+      &:not(:first-child):not(:last-child) {
+        border-radius: 0;
+        margin-left: -$border-width;
+      }
+      &:last-child:not(:first-child) {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        margin-left: -$border-width;
+      }
+      &:focus,
+      &:hover,
+      &:active,
+      &.active {
+        z-index: $zindex-0;
+      }
+    }
+
+    &.btn-group-block {
+      display: flex;
+
+      .btn {
+        flex: 1 0 0;
+      }
+    }
+  }
+
+  a.btn,
+  .btn-group a {
+    text-decoration: none;
+    &:focus,
+    &:hover,
+    &:active,
+    &.active {
+      text-decoration: none;
+    }
+  }
+}
