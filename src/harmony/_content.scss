@@ -1,9 +1,9 @@
 $tile-breakpoint: getBreakPoint($break-point-limit) !default;
 
 .empty {
-  background: getPageColor("bg");
+  background: $body;
   border-radius: $border-radius;
-  color: getPageColor("caption");
+  color: $caption;
   text-align: center;
   padding: $sz_20 $sz_10;
 

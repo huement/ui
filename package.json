@@ -6,7 +6,7 @@
   "license": "MPL-2.0",
   "author": "Derek Scott <derek@huement.com>",
   "homepage": "https://github.com/huement/mojo",
-  "buildNumber": 376,
+  "buildNumber": 755,
   "buildDate": "2024-01-15",
   "bundlesize": [
     {
@@ -15,22 +15,23 @@
     }
   ],
   "scripts": {
-    "bump": "node ./bin/bump.cjs",
     "clean": "rimraf dist",
+    "bump": "node ./bin/bump.cjs",
     "copy": "node ./bin/copy.cjs",
+    "pug": "node bin/build.cjs",
     "build": "yarn css && yarn demo",
-    "dev": "nodemon -x \"yarn build\" & browser-sync start --config bs-config.cjs",
-    "watch": "nodemon -x \"yarn css\" & browser-sync start --config bs-config.cjs",
+    "dev": "nodemon -x \"yarn build\" & browser-sync start --config web/bs-config.cjs",
+    "watch": "nodemon -x \"yarn css\" & browser-sync start --config web/bs-config.cjs",
     "css": "sass --verbose --no-quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css src:dist/css && yarn bump",
     "publish": "yarn css && yarn prefix && yarn minify",
     "lint": "stylelint src/**/*.{css,scss} --cache --cache-location .cache/.stylelintcache",
     "lintjs": "eslint src/**/*.{ts,js}",
     "prefix": "postcss --config postcss.config.cjs --replace dist/css/mojo.css",
     "minify": "cleancss -O01 --source-map --source-map-inline-sources --output dist/mojo.min.css --format 'breaks:afterBlockBegins=on;spaces:aroundSelectorRelation=on' dist/css/mojo.css",
-    "pug": "node bin/build.cjs",
     "demo": "yarn demo:pug && yarn demo:css",
     "demo:pug": "yarn pug && yarn copy",
     "demo:css": "sass --quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css web/assets/style/website.scss dist/demo/css/website.css",
+    "docs:css": "sass --quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css web/assets/style/docs.scss dist/demo/css/docsTODO.css",
     "sass:render": "npx build-scss src dev -s -d -x",
     "sass:publish": "npx build-scss src dev -p"
   },

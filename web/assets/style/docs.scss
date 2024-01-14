@@ -27,7 +27,7 @@
 @import "styleguide";
 
 @include superclass() {
-  //background-color: getPageColor("bg");
+  //background-color: $body;
   .headingDebug {
     @include Harmonic_Headings_Breakpoints(true);
   }

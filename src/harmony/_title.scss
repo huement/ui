@@ -1,11 +1,11 @@
-$title-color: getPageColor("heading") !default;
-$title-family: getFontFamily("heading") !default;
-$title-strong-color: getPageColor("heading-dark") !default;
-$subtitle-color: getPageColor("heading-alt") !default;
-$subtitle-family: getFontFamily("primary") !default;
-$subtitle-strong-color: getPageColor("heading") !default;
-$title-line-height: $modular-ratio !default;
-$subtitle-line-height: $line-height-base !default;
+$title-color: $heading;
+$title-family: getFontFamily("heading");
+$title-strong-color: $heading-dark;
+$subtitle-color: $gray-400;
+$subtitle-family: getFontFamily("primary");
+$subtitle-strong-color: $gray-500;
+$title-line-height: $modular-ratio;
+$subtitle-line-height: $line-height-base;
 
 .title,
 .subtitle {

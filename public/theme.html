@@ -4,13 +4,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mojo v0.6.0 'Kitchen Sink' Testbed</title>
+  <title>Mojo 'Kitchen Sink' Testbed</title>
   <link rel="stylesheet" href="css/mojo.css">
   <link rel="stylesheet" href="css/icons.css">
   <style>
-    /* .container-xxl {
-      max-width: 1320px;
-    } */
+    html,
+    body {
+      overflow-x: hidden;
+      /* Prevent scroll on narrow devices */
+    }
+
+    body {
+      padding-top: 56px;
+    }
+
+    /* navbar hide on scroll down */
+    .nav-up {
+      top: -80px;
+    }
+
+    .navbar {
+      transition: top 0.4s ease-in-out;
+    }
+
+    .sidebar,
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+    }
+
+    .sidebar {
+      left: -100%;
+      max-width: 300px;
+      transition: all ease 0.25s;
+      overflow-y: auto;
+      z-index: 1032;
+    }
+
+    .overlay {
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.50);
+      visibility: hidden;
+      z-index: 1031;
+    }
+
+    .main-navigation.active .sidebar {
+      left: 0;
+    }
+
+    .main-navigation.active .overlay {
+      visibility: visible;
+    }
+
+    @media (min-width: 992px) {
+      .sidebar {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        flex-direction: row;
+        max-width: 100%;
+        transform: none;
+        transition: none;
+        overflow-y: visible;
+        z-index: auto;
+      }
+
+    }
+
+    .main-heading {
+      position: relative;
+      z-index: 100;
+    }
+
+    @media (max-width: 991.98px) {
+      .navbar-nav {
+        padding-top: 5rem;
+        padding-left: 1.5rem;
+      }
+    }
+
+    #list-example {
+      margin: 2rem auto;
+    }
 
   </style>
   <link rel="icon" type="image/png" href="./favicon/favicon-32x32.png" sizes="32x32">
@@ -19,15 +99,17 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <!-- based on Mojo v0.6.0 -->
+  <nav class="navbar navbar-light navbar-expand-lg bg-primary fixed-top main-navigation" id="navbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <div class="overlay d-flex d-lg-none"></div>
+      <div class="order-lg-2 bg-primary d-lg-flex w-100 sidebar pb-3 pb-lg-0" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-lg-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
@@ -60,13 +142,13 @@
           </li>
         </ul>
         <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
     </div>
   </nav>
-  <div class="container-fluid">
+  <div class="container-xxl">
     <div class="row mt-3">
       <div class="col-4">
         <div class="mt-3 mb-3">
@@ -226,69 +308,25 @@
           <h1 class="display-5">Display 5</h1>
           <h1 class="display-6">Display 6</h1>
         </div>
-        <div class="mt-3 mb-3">
-          <div class="accordion" id="accordionPanelsStayOpenExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                  aria-controls="panelsStayOpen-collapseOne">
-                  Accordion Item #1
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                aria-labelledby="panelsStayOpen-headingOne">
-                <div class="accordion-body">
-                  <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
-                  plugin adds the appropriate classes that we use to style each element. These classes control the
-                  overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
-                  with custom CSS or overriding our default variables. It's also worth noting that just about any HTML
-                  can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                  aria-controls="panelsStayOpen-collapseTwo">
-                  Accordion Item #2
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
-                aria-labelledby="panelsStayOpen-headingTwo">
-                <div class="accordion-body">
-                  <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse
-                  plugin adds the appropriate classes that we use to style each element. These classes control the
-                  overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
-                  with custom CSS or overriding our default variables. It's also worth noting that just about any HTML
-                  can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                  aria-controls="panelsStayOpen-collapseThree">
-                  Accordion Item #3
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
-                aria-labelledby="panelsStayOpen-headingThree">
-                <div class="accordion-body">
-                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse
-                  plugin adds the appropriate classes that we use to style each element. These classes control the
-                  overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
-                  with custom CSS or overriding our default variables. It's also worth noting that just about any HTML
-                  can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                </div>
-              </div>
+        <div class="my-3">
+          <p class="my-3">Accordion Example</p>
+          <div class="accordion">
+            <input id="accordion-getting-started" type="checkbox" name="docs-accordion-checkbox" hidden="" />
+            <label class="accordion-header c-hand" for="accordion-getting-started"><i
+                class="mi mi-radio_button_checked mr-1"></i>getting-started</label>
+            <div class="accordion-body">
+              <ul class="menu menu-nav">
+                <li class="menu-item"><a href="../docs/installation.html">Installation</a></li>
+                <li class="menu-item"><a href="../docs/tokens.html">Tokens</a></li>
+                <li class="menu-item"><a href="../docs/type-heading.html">Type-heading</a></li>
+                <li class="menu-item"><a href="../docs/typography.html">Typography</a></li>
+                <li class="menu-item"><a href="../docs/vert-rhythm.html">Vert-rhythm</a></li>
+              </ul>
             </div>
           </div>
 
-          <div id="list-example">
-            <ul class="list-group">
+          <div id="list-example" class="my-3">
+            <ul class="list-group my-3">
               <li class="list-group-item active">Cras justo odio</li>
               <li class="list-group-item">Dapibus ac facilisis in</li>
               <li class="list-group-item">Morbi leo risus</li>
@@ -296,7 +334,7 @@
               <li class="list-group-item">Vestibulum at eros</li>
             </ul>
 
-            <div class="list-group">
+            <div class="list-group my-3">
               <a href="#" class="list-group-item list-group-item-action active">
                 Cras justo odio
               </a>
@@ -475,14 +513,37 @@
       </p>
     </div>
   </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"
+    integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
+    integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    // Hide Navbar on scroll down
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if ( prevScrollpos > currentScrollPos ) {
+        document.getElementById( "navbar" ).style.top = "0";
+      } else {
+        document.getElementById( "navbar" ).style.top = "-80px"; /* width horizontal navbar */
+      }
+      prevScrollpos = currentScrollPos;
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
-    integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-    integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
-    crossorigin="anonymous"></script>
-  <!-- <script src="assets/js/popper.min.js"></script> -->
+    }
+
+    const mainNavigation = document.querySelector( ".main-navigation" );
+    const overlay = mainNavigation.querySelector( ".overlay" );
+    const toggler = mainNavigation.querySelector( ".navbar-toggler" );
+
+    const openSideNav = () => mainNavigation.classList.add( "active" );
+    const closeSideNav = () => mainNavigation.classList.remove( "active" );
+    toggler.addEventListener( "click", openSideNav );
+    overlay.addEventListener( "click", closeSideNav );
+
+
+  </script>
 </body>
 
 </html>

@@ -1,8 +1,8 @@
 @use "sass:map";
 @use "sass:list";
-@use 'sass:math';
-@use 'sass:color';
-@use 'sass:meta';
+@use "sass:math";
+@use "sass:color";
+@use "sass:meta";
 
 //@import "../../config/globals";
 
@@ -34,8 +34,8 @@
 }
 
 @if ($enable-icons-social==true) {
-  $color_1: map.get($mono, 600);
-  $color_2: map.get($mono, 200);
+  $color_1: $gray-400;
+  $color_2: $gray-800;
   $color_3: map.get($mono, 400);
 
   .social-icons {
@@ -54,7 +54,7 @@
       font-size: 13px;
     }
     a {
-      background-color: map.get($mono, 300);
+      background-color: $gray-700;
       color: $color_2;
       font-size: 16px;
       display: inline-block;
@@ -69,15 +69,15 @@
       transition: all 0.2s linear;
       &:active {
         color: $color_3;
-        background-color: map.get($mono, 200);
+        background-color: $gray-800;
       }
       &:focus {
         color: $color_3;
-        background-color: map.get($mono, 200);
+        background-color: $gray-800;
       }
       &:hover {
         color: $color_3;
-        background-color: map.get($mono, 200);
+        background-color: $gray-800;
       }
     }
 

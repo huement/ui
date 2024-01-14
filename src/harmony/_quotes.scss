@@ -74,7 +74,7 @@ blockquote.styled {
 
     &:before,
     &:after {
-      background-color: getPageColor("bg");
+      background-color: $body;
       content: "";
       left: 2em;
       position: absolute;
@@ -161,14 +161,14 @@ blockquote.styled {
   font-weight: 300;
 
   blockquote {
-    background-color: getPageColor("bg");
-    border: solid 2px getPageColor("border");
+    background-color: $body;
+    border: solid 2px $border;
     display: inline-block;
     margin: 0;
     padding: 1em;
     position: relative;
     &:before {
-      background-color: getPageColor("bg-alt");
+      background-color: $body-dark;
       bottom: -10%;
       content: "";
       left: 0;

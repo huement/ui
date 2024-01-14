@@ -22,7 +22,7 @@
   }
 
   .hljs-comment {
-    color: map.get($mono, 500);
+    color: $gray-500;
   }
 
   .hljs-title,
@@ -51,7 +51,7 @@
 .documentation-content {
   @include block-box($sz_5, 5rem);
 
-  background: getPageColor("bg");
+  background: $body;
 
   .mojo-docblock {
     position: relative;
@@ -76,9 +76,9 @@
 
       padding: $sz_2;
 
-      color: map.get($mono, 600);
+      color: $gray-400;
       border-radius: $sz_2;
-      background: getPageColor("bg");
+      background: $body;
     }
 
     // HTML Preview
@@ -126,14 +126,14 @@
         margin-bottom: 0;
         margin-top: 0;
 
-        background: map.get($mono, 200);
+        background: $gray-800;
       }
     }
   }
 
   .docs-content {
     pre.code {
-      background: map.get($mono, 200);
+      background: $gray-800;
     }
   }
 

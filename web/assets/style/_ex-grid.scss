@@ -84,19 +84,13 @@ $breakpoint-lg: map.get($grid-breakpoints, "lg");
 }
 
 $block-colors: ($primary, $secondary, $info, $warning, map.get($mojo-violet, hex));
-$block-colors-lt: (
-  map.get($mono, 700),
-  map.get($mono, 600),
-  map.get($mono, 300),
-  map.get($mono, 400),
-  map.get($mono, 500)
-);
+$block-colors-lt: (map.get($mono, 700), $gray-400, $gray-700, map.get($mono, 400), $gray-500);
 
 @for $i from 1 through 5 {
   .example > div:nth-of-type(5n + #{$i}) {
     background-color: nth($block-colors, $i);
     h4 {
-      color: map.get($mono, 200);
+      color: $gray-800;
     }
   }
 }
@@ -105,7 +99,7 @@ $block-colors-lt: (
   .example > div > div > div:nth-of-type(5n + #{$i}) {
     background-color: nth($block-colors-lt, $i);
     h4 {
-      color: map.get($mono, 800);
+      color: $gray-200;
     }
   }
 }

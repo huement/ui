@@ -249,4 +249,4 @@ async function buildDocumentation (searchDir = 'web/pages/docs') {
 
 // startUp();
 void buildMojo()
-// void buildDocumentation()
+void buildDocumentation()

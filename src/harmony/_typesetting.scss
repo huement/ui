@@ -92,9 +92,9 @@
   @include Harmonic_Dropcap();
 }
 
-/* TODO: Fix getPageColor("caption"); */
+/* TODO: Fix $caption; */
 .caption {
-  //color: getPageColor("caption");
+  //color: $caption;
   color: #4f4f4f;
 }
 

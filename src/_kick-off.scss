@@ -1,25 +1,29 @@
 // scss-lint:disable QualifyingElement, DuplicateProperty
 
-// Reboot Adjustments
+// KICK OFF | This is the first file that starts the library off on the right foot.
 
 //
 // HTML (element)
 //
 html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: $font-size-base; // makes 1 rem a base 10 multiple
+
   @include media-breakpoint-down(xs) {
-    font-size: 15px;
+    font-size: $font-size-sm; // makes 1 rem a base 8 multiple
   }
 }
 
 //
 // Body
 //
-
 body {
   font-size: $font-size-base;
   font-weight: $font-weight-base;
-  color: $body-color;
-  background-color: $body-bg;
+  color: $text;
+  background-color: $body;
   margin: 0;
   padding: 0;
 }

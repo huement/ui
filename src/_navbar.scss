@@ -1,4 +1,9 @@
 // Navbar adjustments
+@include cssvars(
+  (
+    icon-size: $icon-size,
+  )
+);
 
 // Navbar
 .navbar {
@@ -51,10 +56,16 @@
   }
 }
 
+.nav-item .#{$icon-prefix} {
+  margin-top: calc(cssvar(icon-size) * 0.5);
+}
+
 // Navbar themes
 
 // Dark links against a light background
 .navbar-light {
+  background: $gray-500;
+
   .navbar-brand {
     color: $navbar-light-active-color;
 
@@ -110,6 +121,8 @@
 
 // White links against a dark background
 .navbar-dark {
+  background: $gray-800;
+
   .navbar-brand {
     color: $navbar-dark-active-color;
 

@@ -5,9 +5,16 @@
 //
 
 .btn {
+  appearance: none;
+  align-items: center;
   font-weight: $btn-font-weight;
   font-family: $btn-font-family;
   border: $input-btn-border-width solid transparent;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  zoom: 1;
+  justify-content: center;
 
   @include button-size-mojo($btn-padding-y, $btn-padding-x, $btn-font-size, $input-btn-line-height, $btn-border-radius);
 
@@ -39,6 +46,14 @@
 
   &.btn-pill {
     border-radius: $btn-pill-border-radius;
+  }
+
+  // Button Action Variant
+  &.btn-action {
+    min-width: $sz_9;
+    font-size: $sz_3;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 

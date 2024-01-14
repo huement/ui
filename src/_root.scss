@@ -48,7 +48,7 @@
 
   --#{$prefix}link-color: #{$link-color};
   --#{$prefix}link-hover-color: #{$link-hover};
-  --#{$prefix}code-color: #{map.get($mono, 300)};
+  --#{$prefix}code-color: #{$gray-700};
   --#{$prefix}highlight-bg: #{map.get($mojo-cyan, hex)};
 
   // Note: Use `inspect` for lists so that quoted items keep the quotes.
@@ -99,7 +99,7 @@
   --#{$prefix}link-hover-color: #{$link-hover-color};
   --#{$prefix}link-hover-color-rgb: #{to-rgb($link-hover-color)};
 
-  @if $link-hover-decoration != null {
+  @if $link-hover-decoration != none {
     --#{$prefix}link-hover-decoration: #{$link-hover-decoration};
   }
 

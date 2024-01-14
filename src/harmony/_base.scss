@@ -78,7 +78,7 @@ $maxBP: calc(length(map-keys($chords)) - 1);
 //  HYPERLINKS
 a {
   text-decoration: none;
-  color: getPageColor("link");
+  color: $link-color;
   outline-style: none;
   // @TODO Animate
 
@@ -89,21 +89,29 @@ a {
   &:hover {
     cursor: pointer;
     text-decoration: underline;
-    color: getPageColor("link-hover");
+    color: $link-hover;
     @include animate-css(pulse);
   }
 
   &:link {
-    color: getPageColor("link");
+    color: $link-color;
   }
 
   &:visited {
-    color: getPageColor("link-visited");
+    color: $link-visited;
   }
 
   small {
     text-decoration: none;
     font-variant: small-caps;
+  }
+}
+
+// Fix button stylings
+a.btn {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
   }
 }
 

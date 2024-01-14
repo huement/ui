@@ -17,7 +17,7 @@ body {
   margin: 0;
   overflow: auto !important;
   overflow-x: hidden;
-  //background: getPageColor("bg");
+  background: $body;
   &.sidebar-visible > .#{$superclass}.docs-container {
     transform: translateX(200px);
   }
@@ -347,7 +347,7 @@ body > .#{$superclass}.docs-container {
 
       .docs-navbar {
         backdrop-filter: blur(5px);
-        background: rgba(getPageColor("navbar"), 0.65);
+        background: rgba($navbar, 0.65);
         left: 0;
       }
 

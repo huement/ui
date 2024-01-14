@@ -2,8 +2,6 @@
 // COLOR SHORTCUTS test
 //============================================================
 // scss-docs-start theme-color-variables
-$link-color: map.get($mojo-blue, hex);
-$link-hover: map.get($mojo-blue, dark);
 $primary: map.get($mojo-violet, hex);
 $secondary: map.get($mojo-ocean, hex);
 $success: map.get($mojo-green, hex);
@@ -12,7 +10,43 @@ $warning: map.get($mojo-yellow, hex);
 $danger: map.get($mojo-red, hex);
 $light: map.get($mono, 900);
 $dark: map.get($mono, 100);
+$white: #fff;
+$gray-100: map.get($mono, 900);
+$gray-200: map.get($mono, 800);
+$gray-300: map.get($mono, 700);
+$gray-400: map.get($mono, 600);
+$gray-500: map.get($mono, 500);
+$gray-600: map.get($mono, 400);
+$gray-700: map.get($mono, 300);
+$gray-800: map.get($mono, 200);
+$gray-900: map.get($mono, 100);
+$black: #000;
 // scss-docs-end theme-color-variables
+
+// scss-docs-start page-color-variables
+$heading: $gray-200;
+$heading-dark: $gray-800;
+$text: $light;
+$text-dark: $gray-100;
+$body: darken(map.get($mono, 100), 3);
+$body-dark: $gray-100;
+$link-color: map.get($mojo-blue, hex);
+$link-hover: map.get($mojo-blue, dark);
+$link-visited: map.get($mojo-violet, hex);
+$link-color-dark: map.get($mojo-blue, light);
+$link-hover-dark: map.get($mojo-ocean, light);
+$link-visited-dark: map.get($mojo-violet, light);
+$caption: $gray-500;
+$caption-dark: $gray-400;
+$code-body: $gray-700;
+$code-body-dark: map.get($mono, 700);
+$code-text: map.get($mono, 700);
+$code-text-dark: $gray-700;
+$navbar: map.get($mojo-violet, hex);
+$navbar-dark: $dark;
+$border: map.get($mono, 400);
+$border-dark: $gray-400;
+// scss-docs-end page-color-variables
 
 $mojo-colors: ();
 $mojo-colors: map-merge(
@@ -43,18 +77,6 @@ $theme-colors: map-merge(
   ),
   $theme-colors
 );
-
-$white: #fff;
-$gray-100: map.get($mono, 900);
-$gray-200: map.get($mono, 800);
-$gray-300: map.get($mono, 700);
-$gray-400: map.get($mono, 600);
-$gray-500: map.get($mono, 500);
-$gray-600: map.get($mono, 400);
-$gray-700: map.get($mono, 300);
-$gray-800: map.get($mono, 200);
-$gray-900: map.get($mono, 100);
-$black: #000;
 
 $grays: ();
 $grays: map-merge(
@@ -125,7 +147,7 @@ $CodeFont: (
 // The gradient which is added to components if `$enable-gradients` is `true`
 // This gradient is also added to elements with `.bg-gradient`
 // scss-docs-start variable-gradient
-$gradient: linear-gradient(180deg, rgba(map.get($mono, 600), 0.15), rgba(map.get($mono, 800), 0));
+$gradient: linear-gradient(180deg, rgba($gray-400, 0.15), rgba($gray-200, 0));
 
 // Unit Sizes
 // ============================================================================

@@ -36,7 +36,7 @@ $enable-icons-social: if(length($icon-socials) > 0, true, false) !default;
 @import "root";
 @import "../node_modules/bootstrap/scss/reboot";
 // @import "../node_modules/normalize-scss/sass/normalize";
-@import "reboot";
+@import "kick-off";
 
 // LAYOUT GRID SECTIONS
 $include-column-box-sizing: true;
@@ -52,6 +52,7 @@ $include-column-box-sizing: true;
 // MOJOIFIED BOOTSTRAP COMPONENTS
 @import "../node_modules/bootstrap/scss/alert";
 @import "alert";
+@import "accordions";
 @import "badge"; // BS version not needed
 @import "../node_modules/bootstrap/scss/buttons";
 @import "buttons";
@@ -71,7 +72,7 @@ $include-column-box-sizing: true;
 @import "pagination";
 @import "../node_modules/bootstrap/scss/tables";
 @import "tables";
-@import "../node_modules/bootstrap/scss/transitions";
+// @import "../node_modules/bootstrap/scss/transitions";
 @import "transitions";
 @import "angle-edges";
 @import "social";
@@ -81,7 +82,7 @@ $include-column-box-sizing: true;
 @import "nav";
 @import "../node_modules/bootstrap/scss/navbar";
 @import "navbar";
-@import "off-canvas";
+// @import "off-canvas";
 
 // TODO: consider adding these files
 // @import "../node_modules/bootstrap/scss/accordion";
@@ -98,4 +99,61 @@ $include-column-box-sizing: true;
 @import "framework/bs-helpers";
 
 // FINAL UTILITY CLASS API
+// modified to put back bootstrap 4 classes and forego RTL mode
+// https://gist.github.com/FelipeVa/6e5c2857c6c1bed0fe8647ea0bfa7478
+$utilities: map-merge(
+  $utilities,
+  (
+    "position":
+      map-merge(
+        map-get($utilities, "position"),
+        (
+          class: position,
+          responsive: true,
+        )
+      ),
+    "margin-start":
+      map-merge(
+        map-get($utilities, "margin-start"),
+        (
+          class: ml,
+        )
+      ),
+    "margin-end":
+      map-merge(
+        map-get($utilities, "margin-end"),
+        (
+          class: mr,
+        )
+      ),
+    "negative-margin-start":
+      map-merge(
+        map-get($utilities, "negative-margin-start"),
+        (
+          class: ml,
+        )
+      ),
+    "negative-margin-end":
+      map-merge(
+        map-get($utilities, "negative-margin-end"),
+        (
+          class: mr,
+        )
+      ),
+    "padding-start":
+      map-merge(
+        map-get($utilities, "padding-start"),
+        (
+          class: pl,
+        )
+      ),
+    "padding-end":
+      map-merge(
+        map-get($utilities, "padding-end"),
+        (
+          class: pr,
+        )
+      ),
+  )
+);
 @import "../node_modules/bootstrap/scss/utilities/api";

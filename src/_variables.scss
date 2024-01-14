@@ -4,6 +4,11 @@ $prefix: $variable-prefix;
 $debug: true;
 
 $font-path: "/fonts/";
+$icon-prefix: mi;
+$icon-size: 24px;
+
+// $superclass: "mojo";
+$superclass: false;
 
 // scss-docs-start theme-text-variables
 $primary-text-emphasis: shade-color($primary, 60%);
@@ -93,8 +98,8 @@ $spacer: 1.5rem; // ~ 24px
 
 // Body
 
-$body-bg: $dark;
-$body-color: $light;
+$body-bg: $body;
+$body-color: $text;
 
 // Links
 $link-decoration: none;
@@ -156,8 +161,8 @@ $enable-gradients: false;
 $enable-transitions: true;
 $enable-reduced-motion: false;
 $border-style: solid;
-$border-color: map.get($mono, 300);
-$border-color-translucent: rgba(map.get($mono, 300), 0.175);
+$border-color: $gray-700;
+$border-color-translucent: rgba($gray-700, 0.175);
 $enable-angled-edges: true;
 $angle-edge-size: 3;
 
@@ -253,7 +258,7 @@ $display-font-sizes: if(
 );
 
 // Fonts
-
+// TODO: sort out the font variables!!!
 $google-fonts-import: "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600|Roboto+Mono"; // Includes: Poppins: Light, Regular, Medium, Semi-bold; Roboto Mono: Regular
 
 $font-family-poppins-first: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
@@ -270,6 +275,7 @@ $font-family-base: $font-family-sans-serif;
 
 // Typography Variables
 // ============================================================================
+// TODO: sort out the heading variables!!!
 $font-weight-base: $font-weight-normal;
 
 $font-size-root: strip-units(map.get($font-sizes, "sm"));
@@ -356,6 +362,10 @@ $hr-margin-y: 1.125rem;
 $mark-padding: 0.2em;
 $mark-bg: #fff09e;
 
+// Accordions
+$accordion-max-height: 20rem;
+$transition-color: #3f3f3f;
+
 // Tables
 //
 // Customizes the `.table` component with basic values, each used across all table variations.
@@ -426,8 +436,8 @@ $btn-border-radius-sm: $border-radius-sm;
 
 $btn-border-width: 1px;
 
-$btn-transition: $transition-base;
-
+// $btn-transition: $transition-base;
+$btn-transition: "all 180ms linear";
 // Forms
 
 $input-padding-y: $input-btn-padding-y;
@@ -741,16 +751,16 @@ $navbar-dark-toggler-icon-bg: str-replace(
 );
 $navbar-dark-toggler-border-color: rgba($white, 0.1);
 
-$navbar-light-color: rgba($black, 0.5);
-$navbar-light-hover-color: rgba($black, 0.7);
-$navbar-light-active-color: rgba($black, 0.9);
-$navbar-light-disabled-color: rgba($black, 0.3);
+$navbar-light-color: $gray-200;
+$navbar-light-hover-color: rgba($navbar-light-color, 0.7);
+$navbar-light-active-color: rgba($navbar-light-color, 0.9);
+$navbar-light-disabled-color: rgba($navbar-light-color, 0.3);
 $navbar-light-toggler-icon-bg: str-replace(
   url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"),
   "#",
   "%23"
 );
-$navbar-light-toggler-border-color: rgba($black, 0.1);
+$navbar-light-toggler-border-color: rgba($navbar-light-color, 0.1);
 
 // Pagination
 
@@ -794,8 +804,8 @@ $card-footer-spacer-y: calc($card-spacer-y / 2);
 $card-border-radius: 0.625rem;
 $card-inner-border-radius: $card-border-radius;
 
-$card-cap-bg: rgba($dark, 0.06);
-$card-bg: $white;
+$card-cap-bg: rgba($dark, 0.6);
+$card-bg: $gray-200;
 
 $card-title-font-weight: 500;
 $card-title-margin-bottom: 0.75rem;
@@ -951,7 +961,7 @@ $list-group-active-color: $component-active-color;
 $list-group-active-bg: $component-active-bg;
 $list-group-active-border-color: $list-group-active-bg;
 
-$list-group-disabled-color: $gray-600;
+$list-group-disabled-color: $gray-300;
 $list-group-disabled-bg: $list-group-bg;
 
 $list-group-action-color: $dark;
@@ -998,8 +1008,8 @@ $nested-kbd-font-weight: $font-weight-bold;
 $pre-color: $gray-900;
 $pre-scrollable-max-height: 340px;
 $pre-code-border-radius: 4px;
-$pre-code-background-color: map.get($mono, 300);
-$pre-color: map.get($mono, 900);
+$pre-code-background-color: $gray-700;
+$pre-color: $gray-100;
 $pre-font-size: 0.9em;
 $pre-max-height: 460px;
 $pre-margin-bottom: 24px;
