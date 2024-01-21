@@ -10,3 +10,5 @@ module.exports = (context) => ({
     }
   }
 })
+
+// module.exports = config
