@@ -6,11 +6,11 @@
   "license": "MPL-2.0",
   "author": "Derek Scott <derek@huement.com>",
   "homepage": "https://github.com/huement/mojo",
-  "buildNumber": 757,
+  "buildNumber": 758,
   "buildDate": "2024-01-15",
   "bundlesize": [
     {
-      "path": "./dist/mojo.min.css",
+      "path": "./dist/mojo.css",
       "maxSize": "14.5 kB"
     }
   ],
@@ -18,7 +18,7 @@
     "clean": "rimraf dist",
     "bump": "node ./bin/bump.cjs",
     "copy": "node ./bin/copy.cjs",
-    "pug": "node bin/build.cjs",
+    "pug": "node bin/pug.cjs",
     "build": "yarn css && yarn demo",
     "dev": "nodemon -x \"yarn build\" & browser-sync start --config web/bs-config.cjs",
     "watch": "nodemon -x \"yarn css\" & browser-sync start --config web/bs-config.cjs",
