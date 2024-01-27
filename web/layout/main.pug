@@ -11,7 +11,7 @@ html(lang= lang)
         include ../partials/meta
         include ../partials/head
         if highlight
-            link(rel="stylesheet", href=path+"demo/css/highlight.css", type="text/css" id="highlight_css")
+            link(rel="stylesheet", href=path+"demo/css/highlight.css" type="text/css" id="highlight_css")
 
     body(class='no-javascript')
         script document.body.classList.remove('no-javascript');
@@ -27,10 +27,10 @@ html(lang= lang)
                 include ../partials/footer
 
 
-        if highlight
-            script(src=path+"demo/js/highlight.js")
+            if highlight
+                script(src=path+"demo/js/highlight.js")
 
-        block scriptsJS
+            block scriptsJS
 
-        if showDebug
-            include ../partials/debugger
+            if showDebug
+                include ../partials/debugger

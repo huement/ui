@@ -1,22 +1,17 @@
 [
   {
-    "name": "Download",
-    "url": "/download"
+    "name": "Home",
+    "url": "/index.html",
+    "file": "index.pug"
   },
   {
-    "name": "Index",
-    "url": "/index"
+    "name": "Layout Builder",
+    "url": "/grid.html",
+    "file": "grid.pug"
   },
   {
-    "name": "Jollybar",
-    "url": "/jollybar"
-  },
-  {
-    "name": "Template",
-    "url": "/template"
-  },
-  {
-    "name": "Typography",
-    "url": "/typography"
+    "name": "Mojo",
+    "url": "/mojo.html",
+    "file": "mojo.pug"
   }
 ]

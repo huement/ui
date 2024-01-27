@@ -7,7 +7,15 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-dist/
+# Built Items to ignore
+dist/demo
+dist/docs
+dist/favicon
+dist/fonts
+dist/*.html
+dist/*.png
+dist/*.svg
+
 node_modules/
 node_modules1/
 dist-ssr

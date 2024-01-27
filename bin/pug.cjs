@@ -91,28 +91,34 @@ const pugMojo = {
   }
 }
 
-async function buildMojo () {
+async function buildMojo (searchDir = 'web/pages/') {
   console.log('')
   console.log(c.white.bold('TRANSFORMING PUG -> HTML...'))
-  await buildWebpages('index')
-  await buildWebpages('mojo')
-  await buildWebpages('grid')
+
+  const pageList = require('../web/pages/webpages.json')
+
+  for (pObj of pageList) {
+    pObj.path = searchDir
+    console.log('Target: ' + searchDir + pObj.file)
+    await buildWebpages(pObj)
+  }
+
   console.log('', '', '')
 }
 
-async function buildWebpages (pageName) {
-  const html = pug.compileFile('./web/pages/' + pageName + '.pug', pugMojo)({
+async function buildWebpages (pageData) {
+  const html = pug.compileFile(pageData.path + pageData.file, pugMojo)({
     pages: require('../web/pages/webpages'),
     package: packData
   })
 
-  fs.writeFile('dist/' + pageName + '.html', html, err => {
+  fs.writeFile('dist' + pageData.url, html, err => {
     if (err !== null && err !== undefined) {
       console.error(err)
     }
 
     // file written successfully
-    console.log(c.green.bold('dist/' + pageName + '.html'), c.green(' created successfully!'))
+    console.log(c.green.bold('dist' + pageData.url), c.green(' created successfully!'))
   })
 }
 
@@ -188,7 +194,7 @@ async function buildDocumentation (searchDir = 'web/pages/docs') {
   // Get a list of all the pages to build
   // Load the required global pug vars
   // Compile each page
-  const baseDir = path.resolve(process.cwd())
+  // const baseDir = path.resolve(process.cwd())
   const searchPath = path.resolve(process.cwd(), searchDir)
   const outputDir = 'dist/docs/'
 
@@ -249,4 +255,4 @@ async function buildDocumentation (searchDir = 'web/pages/docs') {
 
 // startUp();
 void buildMojo()
-void buildDocumentation()
+// void buildDocumentation()
