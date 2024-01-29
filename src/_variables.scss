@@ -84,8 +84,10 @@ $enable-deprecation-messages: true;
 $enable-important-utilities: true;
 $enable-display-sizes: true;
 
-$enable-dark-mode: false;
+$enable-dark-mode: false; // dark is the new default
 $color-mode-type: data; // `data` or `media-query`
+
+// TODO: add $enable-light-mode: true; functionality
 
 // Forms
 
@@ -155,11 +157,7 @@ $border-radius-sm: 0.35rem;
 $border-radius-xl: 1rem;
 $border-radius-2xl: 2rem;
 $border-radius-pill: 50rem;
-$enable-shadows: true;
-$enable-rounded: true;
-$enable-gradients: false;
-$enable-transitions: true;
-$enable-reduced-motion: false;
+
 $border-style: solid;
 $border-color: $gray-700;
 $border-color-translucent: rgba($gray-700, 0.175);
@@ -188,6 +186,7 @@ $transition-duration: 250ms;
 $transition-base: all $transition-duration $ease-in-out-circ;
 $transition-fade: opacity 200ms ease-in-out;
 $transition-collapse: height 350ms ease-in-out;
+$transition-move: 420ms $ease-in-out-circ;
 
 // Harmony
 $modular-ratio: $MAJOR_THIRD;
@@ -686,7 +685,6 @@ $dropdown-small-divider-margin-x: 0;
 $dropdown-small-divider-margin-y: 0.25rem;
 
 // Z-index master list
-//
 // Warning: Avoid customizing these values. They're used for a bird's eye view
 // of components dependent on the z-axis and are designed to all work together.
 
@@ -699,6 +697,7 @@ $zindex-popover: 1060;
 $zindex-tooltip: 1070;
 
 // Navs
+$navbar-height: 3.75rem;
 
 $nav-transition: $transition-base;
 $nav-font-family: $font-family-poppins-first;
@@ -728,6 +727,9 @@ $navbar-padding-y: calc($spacer / 2);
 $navbar-padding-x: $spacer;
 
 $navbar-brand-font-size: 1rem;
+$navbar-icon-size: 1rem;
+
+$navbar-sidebar-width: 300px;
 
 // Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
 $nav-link-height: $navbar-brand-font-size * $line-height-base;

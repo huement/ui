@@ -1,26 +1,26 @@
 ```shell
-        █         █             █
-    ███ █         █
-    █ █ ███ ███ ███ ███ ███ ███ █ ███
-    ██  █ █ █ █ █ █ █ █ █ █ █   █ █ █
-    █ █ █ █ █ █ █ █ █ █ █ █   █ █ █ █
-    █ █ █ █ ███ ███ ███ ███ ███ █ █ █
-                        █
- ⏥⏥  ⏥⏥  ⏥⏥⏥⏥⏥⏥⏥█⏥⏥ ⏥⏥ ⏥⏥⏥ ⏥ ⏥
-   ❮❰❬ HARMONIC TYPOGRAPHY FRONTEND ❭❱❯
+
+██╗  ██╗██╗   ██╗███████╗███╗   ███╗███████╗███╗   ██╗████████╗    ██╗   ██╗██╗
+██║  ██║██║   ██║██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝    ██║   ██║██║
+███████║██║   ██║█████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║       ██║   ██║██║
+██╔══██║██║   ██║██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║       ██║   ██║██║
+██║  ██║╚██████╔╝███████╗██║ ╚═╝ ██║███████╗██║ ╚████║   ██║       ╚██████╔╝██║
+╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝        ╚═════╝ ╚═╝
+
+             ❮ ❰ ❬  HARMONIC TYPOGRAPHY FOCUSED 'CONTENT UI'  ❭ ❱ ❯
 ```
 <br />
 
 <p align="center">
-  <a href="https://huement.com/demo/rhodopsin/">Components Demo</a> •
-  <a href="https://huement.com/demo/rhodopsin/#extras">Templates Demo</a> •
-  <a href="https://huement.com/docs/rhodopsin">Documentation</a> •
-  <a href="https://huement.com/downloads/rhodopsin/">Official Page</a>
+  <a href="https://huement.com/demo/ui/">Components Demo</a> •
+  <a href="https://huement.com/demo/ui/#extras">Templates Demo</a> •
+  <a href="https://huement.com/docs/ui">Documentation</a> •
+  <a href="https://huement.com/downloads/ui/">Official Page</a>
 </p>
 
 <br />
 
-This is a web frontend framework, with an emphasis on creating a ''visually pleasing'' typographic system. When used in a text heavy setting, such as a blog page, this greatly improves the overall reading experience, experienced by the end users. Got it? Good.
+@huement/ui is a minimal front end, with an emphasis on creating a 'visually pleasing' typographic system. When used in a text heavy content setting, such as a blog page, this greatly improves the overall reading experience, experienced by the end users. Got it? Good.
 Thats the 10,000 ft overview. Zooming into the project, it is made up a few easily configured options, that will then produce a customized CSS file that you can drop into any HTML application.
 
 ### Getting Started

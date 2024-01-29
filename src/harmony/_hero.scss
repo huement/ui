@@ -111,7 +111,7 @@ $mobile: map-get($grid-breakpoints, "sm");
       align-items: center;
       display: flex;
 
-      & > .container {
+      > .container {
         flex-grow: 1;
         flex-shrink: 1;
       }

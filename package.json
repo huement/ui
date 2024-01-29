@@ -1,17 +1,18 @@
 {
-  "name": "mojo",
+  "name": "@huement/ui",
+  "codeName": "mojo",
   "private": false,
-  "version": "0.6.9",
+  "version": "0.0.6",
   "type": "module",
   "license": "MPL-2.0",
   "author": "Derek Scott <derek@huement.com>",
-  "homepage": "https://github.com/huement/mojo",
-  "buildNumber": 760,
-  "buildDate": "2024-01-15",
+  "homepage": "https://github.com/huement/ui",
+  "buildNumber": 29,
+  "buildDate": "2024-01-28",
   "bundlesize": [
     {
       "path": "./dist/mojo.css",
-      "maxSize": "14.5 kB"
+      "maxSize": "350 kB"
     }
   ],
   "scripts": {
@@ -19,20 +20,18 @@
     "bump": "node ./bin/bump.cjs",
     "copy": "node ./bin/copy.cjs",
     "pug": "node bin/pug.cjs",
-    "build": "npx npm-run-all -lsc css pug copy demo:css",
+    "build": "npx npm-run-all -l -s -c css pug copy demo:css",
     "watch": "nodemon -x \"yarn build\" & browser-sync start --config web/bs-config.cjs",
     "watch:css": "nodemon -x \"yarn css\" & browser-sync start --config web/bs-config.cjs",
     "css": "sass --verbose --no-quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css src:dist/css && yarn bump",
-    "finish": "npx npm-run-all -lsc css minify prefix",
+    "finish": "npx npm-run-all -l -s -c lint css minify postfix",
     "lint": "stylelint src/**/*.{css,scss} --cache --cache-location .cache/.stylelintcache",
     "lintjs": "eslint src/**/*.{ts,js}",
-    "prefix": "postcss --config postcss.config.cjs -o dist/mojo.css dist/mojo-icons.min.css",
-    "minify": "cleancss -O01 --source-map --source-map-inline-sources --output dist/mojo-icons.min.css --format 'breaks:afterBlockBegins=on;spaces:aroundSelectorRelation=on' dist/css/mojo.css  dist/css/icons.css",
+    "postfix": "postcss --config postcss.config.cjs -o dist/mojo.css dist/mojo-icons.min.css",
+    "minify": "cleancss -O01 --output dist/mojo-icons.min.css --format 'breaks:afterBlockBegins=on;spaces:aroundSelectorRelation=on' dist/css/mojo.css dist/css/icons.css",
     "demo": "npx npm-run-all -lsc pug copy demo:css",
     "demo:css": "sass --quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css web/assets/style/website.scss dist/demo/css/website.css",
-    "docs:css": "sass --quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css web/assets/style/docs.scss dist/demo/css/docsTODO.css",
-    "sass:render": "npx build-scss src dev -s -d -x",
-    "sass:publish": "npx build-scss src dev -p"
+    "docs:css": "sass --quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css web/assets/style/docs.scss dist/demo/css/docsTODO.css"
   },
   "files": [
     "dist/{css,js}/*.{css,js,map}",
@@ -42,13 +41,14 @@
   "nodemonConfig": {
     "verbose": true,
     "watch": [
-      "src"
+      "src",
+      "public"
     ],
-    "ext": "scss",
+    "ext": "scss,pug,js,json,mjs",
     "ignore": [
-      "*.css"
+      ".cache/**"
     ],
-    "delay": 2500
+    "delay": 1500
   },
   "devDependencies": {
     "@squirrel-forge/build-scss": "^0.8.4",

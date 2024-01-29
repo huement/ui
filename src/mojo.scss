@@ -61,6 +61,8 @@ $include-column-box-sizing: true;
 @import "../node_modules/bootstrap/scss/breadcrumb";
 @import "../node_modules/bootstrap/scss/card";
 @import "card";
+@import "../node_modules/bootstrap/scss/close";
+@import "close";
 @import "../node_modules/bootstrap/scss/dropdown";
 @import "dropdown";
 @import "../node_modules/bootstrap/scss/forms";
@@ -68,6 +70,8 @@ $include-column-box-sizing: true;
 @import "input-group";
 @import "../node_modules/bootstrap/scss/list-group";
 @import "list-group";
+@import "../node_modules/bootstrap/scss/modal";
+@import "modal";
 @import "../node_modules/bootstrap/scss/pagination";
 @import "pagination";
 @import "../node_modules/bootstrap/scss/tables";
@@ -87,8 +91,7 @@ $include-column-box-sizing: true;
 // TODO: consider adding these files
 // @import "../node_modules/bootstrap/scss/accordion";
 // @import "progress";
-// @import "close";
-// @import "modal";
+
 // @import "tooltip";
 // @import "popover";
 // @import "custom-forms";

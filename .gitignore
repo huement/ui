@@ -24,6 +24,9 @@ dist-ssr
 .cache/
 .cache/.stylelintcache/
 
+modular-scale.scss
+src/modular-scale.scss
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
