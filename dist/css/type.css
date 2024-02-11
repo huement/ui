@@ -6,6 +6,634 @@
  *    Shards v3.0.0 (https://github.com/DesignRevision/shards-ui)
  *    Bootstrap v5.3.2 (https://getbootstrap.com/)
  */
+:root,
+[data-bs-theme=light] {
+  --bs-mojo-cyan: #00f5d4;
+  --bs-mojo-ocean: #0fb2aa;
+  --bs-mojo-blue: #1982c4;
+  --bs-mojo-violet: #520099;
+  --bs-mojo-red: #ff0054;
+  --bs-mojo-coral: #fd7e47;
+  --bs-mojo-yellow: #fbff12;
+  --bs-mojo-green: #3bfc43;
+  --bs-gray-100: #1f1f1f;
+  --bs-gray-200: #242424;
+  --bs-gray-300: #3d3d3d;
+  --bs-gray-400: #4c4c4c;
+  --bs-gray-500: #757575;
+  --bs-gray-600: #8a8a8a;
+  --bs-gray-700: #b3b3b3;
+  --bs-gray-800: #dbdbdb;
+  --bs-gray-900: #f0f0f0;
+  --bs-primary: #520099;
+  --bs-secondary: #0fb2aa;
+  --bs-success: #3bfc43;
+  --bs-info: #00f5d4;
+  --bs-warning: #fbff12;
+  --bs-danger: #ff0054;
+  --bs-light: #f0f0f0;
+  --bs-dark: #1f1f1f;
+  --bs-primary-rgb: 82, 0, 153;
+  --bs-secondary-rgb: 15, 178, 170;
+  --bs-success-rgb: 59, 252, 67;
+  --bs-info-rgb: 0, 245, 212;
+  --bs-warning-rgb: 251, 255, 18;
+  --bs-danger-rgb: 255, 0, 84;
+  --bs-light-rgb: 240, 240, 240;
+  --bs-dark-rgb: 31, 31, 31;
+  --bs-primary-text-emphasis: #21003d;
+  --bs-secondary-text-emphasis: #064744;
+  --bs-success-text-emphasis: #18651b;
+  --bs-info-text-emphasis: #006255;
+  --bs-warning-text-emphasis: #646607;
+  --bs-danger-text-emphasis: #660022;
+  --bs-light-text-emphasis: #3d3d3d;
+  --bs-dark-text-emphasis: #3d3d3d;
+  --bs-primary-bg-subtle: #dccceb;
+  --bs-secondary-bg-subtle: #cff0ee;
+  --bs-success-bg-subtle: #d8fed9;
+  --bs-info-bg-subtle: #ccfdf6;
+  --bs-warning-bg-subtle: #feffd0;
+  --bs-danger-bg-subtle: #ffccdd;
+  --bs-light-bg-subtle: #f8f8f8;
+  --bs-dark-bg-subtle: #8a8a8a;
+  --bs-primary-border-subtle: #ba99d6;
+  --bs-secondary-border-subtle: #9fe0dd;
+  --bs-success-border-subtle: #b1feb4;
+  --bs-info-border-subtle: #99fbee;
+  --bs-warning-border-subtle: #fdffa0;
+  --bs-danger-border-subtle: #ff99bb;
+  --bs-light-border-subtle: #dbdbdb;
+  --bs-dark-border-subtle: #757575;
+  --bs-white-rgb: 255, 255, 255;
+  --bs-black-rgb: 0, 0, 0;
+  --bs-link-color: #1982c4;
+  --bs-link-hover-color: #185c87;
+  --bs-code-color: #3d3d3d;
+  --bs-highlight-bg: #00f5d4;
+  --bs-font-headings: "Saira";
+  --bs-font-sans-serif: "Jost";
+  --bs-font-monospace: "Space Grotesk";
+  --bs-gradient: linear-gradient(180deg, rgba(138, 138, 138, 0.15), rgba(219, 219, 219, 0));
+  --bs-root-font-size: 1;
+  --bs-body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bs-body-font-size: 1rem;
+  --bs-body-font-weight: 400;
+  --bs-body-line-height: 1.5;
+  --bs-body-color: #f0f0f0;
+  --bs-body-color-rgb: 240, 240, 240;
+  --bs-body-bg: #171717;
+  --bs-body-bg-rgb: 23, 23, 23;
+  --bs-emphasis-color: #000;
+  --bs-emphasis-color-rgb: 0, 0, 0;
+  --bs-secondary-color: rgba(31, 31, 31, 0.75);
+  --bs-secondary-color-rgb: 31, 31, 31;
+  --bs-secondary-bg: #dbdbdb;
+  --bs-secondary-bg-rgb: 219, 219, 219;
+  --bs-tertiary-color: rgba(31, 31, 31, 0.5);
+  --bs-tertiary-color-rgb: 31, 31, 31;
+  --bs-tertiary-bg: #f0f0f0;
+  --bs-tertiary-bg-rgb: 240, 240, 240;
+  --bs-heading-color: #f0f0f0;
+  --bs-link-color: #1982c4;
+  --bs-link-color-rgb: 25, 130, 196;
+  --bs-link-decoration: none;
+  --bs-link-hover-color: #14689d;
+  --bs-link-hover-color-rgb: 20, 104, 157;
+  --bs-code-color: #d63384;
+  --bs-highlight-color: #1f1f1f;
+  --bs-highlight-bg: #fff09e;
+  --bs-border-width: 0.0625rem;
+  --bs-border-style: solid;
+  --bs-border-color: #3d3d3d;
+  --bs-border-color-translucent: rgba(61, 61, 61, 0.175);
+  --bs-border-radius: 0.375rem;
+  --bs-border-radius-sm: 0.35rem;
+  --bs-border-radius-lg: 0.5rem;
+  --bs-border-radius-xl: 1rem;
+  --bs-border-radius-xxl: 2rem;
+  --bs-border-radius-2xl: var(--bs-border-radius-xxl);
+  --bs-border-radius-pill: 50rem;
+  --bs-box-shadow: 0 0.5rem 1rem rgba(31, 31, 31, 0.15);
+  --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(31, 31, 31, 0.075);
+  --bs-box-shadow-lg: 0 1rem 3rem rgba(31, 31, 31, 0.175);
+  --bs-box-shadow-inset: inset 0 1px 2px rgba(31, 31, 31, 0.075);
+  --bs-focus-ring-width: 0.25rem;
+  --bs-focus-ring-opacity: 0.25;
+  --bs-focus-ring-color: rgba(82, 0, 153, 0.25);
+  --bs-form-valid-color: #3bfc43;
+  --bs-form-valid-border-color: #3bfc43;
+  --bs-form-invalid-color: #ff0054;
+  --bs-form-invalid-border-color: #ff0054;
+}
+
+/*! normalize-scss | MIT/GPLv2 License | bit.ly/normalize-scss */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  font-size: 100%;
+  line-height: 1.5em;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2rem;
+  line-height: 3rem;
+  /* Set 1 unit of vertical rhythm on the top and bottom margins. */
+  margin: 1.5rem 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 3rem;
+  margin: 1.5rem 0;
+}
+
+h3 {
+  font-size: 1.17rem;
+  line-height: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+h4 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+h5 {
+  font-size: 0.83rem;
+  line-height: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+h6 {
+  font-size: 0.67rem;
+  line-height: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Set 1 unit of vertical rhythm on the top and bottom margin.
+ */
+blockquote {
+  margin: 1.5rem 40px;
+}
+
+dl,
+ol,
+ul {
+  margin: 1.5rem 0;
+}
+
+/**
+ * Turn off margins on nested lists.
+ */
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin: 0;
+}
+
+dd {
+  margin: 0 0 0 40px;
+}
+
+ol,
+ul {
+  padding: 0 0 0 40px;
+}
+
+figure {
+  margin: 1.5rem 40px;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/**
+ * Add the correct display in IE.
+ */
+main {
+  display: block;
+}
+
+/**
+ * Set 1 unit of vertical rhythm on the top and bottom margin.
+ */
+p,
+pre {
+  margin: 1.5rem 0;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp, pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known issues:
+ * - `select`:
+ *   By default, Chrome on OS X and Safari on OS X allow very limited styling of
+ *   select, unless a border property is set. The default font weight on
+ *   optgroup elements cannot safely be changed in Chrome on OSX and Safari on
+ *   OS X.
+ * - `[type="checkbox"]`:
+ *   It is recommended that you do not style checkbox and radio inputs as
+ *   Firefox's implementation does not respect box-sizing, padding, or width.
+ * - `[type="number"]`:
+ *   Certain font size values applied to number inputs cause the cursor style of
+ *   the decrement button to change from `default` to `text`.
+ * - `[type="search"]`:
+ *   The search input is not fully stylable by default. In Chrome and Safari on
+ *   OSX/iOS you can't control `font`, `padding`, `border`, or `background`. In
+ *   Chrome and Safari on Windows you can't control `border` properly. It will
+ *   apply `border-width` but will only show a border color (which cannot be
+ *   controlled) for the outer 1px of that border. Applying
+ *   `-webkit-appearance: textfield` addresses these issues without removing the
+ *   benefits of search inputs (e.g. showing past searches). Safari (but not
+ *   Chrome) will clip the cancel button on when it has padding (and `textfield`
+ *   appearance).
+ * - `::placeholder`:
+ *   In Edge, placeholders will disappear on `relative` or `absolute` positioned
+ *   `<input>` elements if you use `opacity` less than `1` due to a
+ *   [bug](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/3901363/).
+ */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  line-height: 1.5rem;
+  /* 1 */
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ */
+button {
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  /**
+   * Remove the inner border and padding in Firefox.
+   */
+  /**
+   * Restore the focus styles unset by the previous rule.
+   */
+}
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+button:-moz-focusring,
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Show the overflow in Edge.
+ */
+input {
+  overflow: visible;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type=search] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+  /**
+   * Remove the inner padding in Chrome and Safari on macOS.
+   */
+}
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  color: inherit;
+  /* 2 */
+  white-space: normal;
+  /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+
+menu {
+  /*
+   * 1. Set 1 unit of vertical rhythm on the top and bottom margin.
+   * 2. Set consistent space for the list style image.
+   */
+  margin: 1.5rem 0;
+  /* 1 */
+  padding: 0 0 0 40px;
+  /* 2 */
+  /**
+   * Turn off margins on nested lists.
+   */
+}
+menu menu, ol menu, ul menu {
+  margin: 0;
+}
+
+/* Misc
+   ========================================================================== */
+/**
+ * Add the correct display in IE.
+ */
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none;
+}
+
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 1rem;
+  font-size: 0.875rem;
+}
+
+body {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #f0f0f0;
+  background-color: #171717;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #1982c4;
+  text-decoration: none;
+}
+a:hover {
+  color: #185c87;
+  text-decoration: none;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
 @font-face {
   font-family: "Jost";
   src: url("/fonts/Jost/jost-variablefont_wght-webfont.woff") format("truetype");

@@ -1,6 +1,71 @@
 //============================================================
-// COLOR SHORTCUTS test
+// COLOR SYSTEM
 //============================================================
+
+// Color system
+
+// scss-docs-start gray-color-variables
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+// scss-docs-end gray-color-variables
+
+// fusv-disable
+// scss-docs-start gray-colors-map
+$grays: (
+  '100': $gray-100,
+  '200': $gray-200,
+  '300': $gray-300,
+  '400': $gray-400,
+  '500': $gray-500,
+  '600': $gray-600,
+  '700': $gray-700,
+  '800': $gray-800,
+  '900': $gray-900,
+) !default;
+// scss-docs-end gray-colors-map
+// fusv-enable
+
+// scss-docs-start color-variables
+$blue: #0d6efd !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #d63384 !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green: #198754 !default;
+$teal: #20c997 !default;
+$cyan: #0dcaf0 !default;
+// scss-docs-end color-variables
+
+// scss-docs-start colors-map
+$colors: (
+  'blue': $blue,
+  'indigo': $indigo,
+  'purple': $purple,
+  'pink': $pink,
+  'red': $red,
+  'orange': $orange,
+  'yellow': $yellow,
+  'green': $green,
+  'teal': $teal,
+  'cyan': $cyan,
+  'black': $black,
+  'white': $white,
+  'gray': $gray-600,
+  'gray-dark': $gray-800,
+) !default;
+// scss-docs-end colors-map
+
 // scss-docs-start theme-color-variables
 $primary: map.get($mojo-violet, hex);
 $secondary: map.get($mojo-ocean, hex);
@@ -51,14 +116,14 @@ $border-dark: $gray-400;
 $mojo-colors: ();
 $mojo-colors: map-merge(
   (
-    "cyan": map.get($mojo-cyan, hex),
-    "ocean": map.get($mojo-ocean, hex),
-    "blue": map.get($mojo-blue, hex),
-    "violet": map.get($mojo-violet, hex),
-    "red": map.get($mojo-red, hex),
-    "coral": map.get($mojo-coral, hex),
-    "yellow": map.get($mojo-yellow, hex),
-    "green": map.get($mojo-green, hex),
+    'cyan': map.get($mojo-cyan, hex),
+    'ocean': map.get($mojo-ocean, hex),
+    'blue': map.get($mojo-blue, hex),
+    'violet': map.get($mojo-violet, hex),
+    'red': map.get($mojo-red, hex),
+    'coral': map.get($mojo-coral, hex),
+    'yellow': map.get($mojo-yellow, hex),
+    'green': map.get($mojo-green, hex),
   ),
   $mojo-colors
 );
@@ -66,14 +131,14 @@ $mojo-colors: map-merge(
 $theme-colors: ();
 $theme-colors: map-merge(
   (
-    "primary": $primary,
-    "secondary": $secondary,
-    "success": $success,
-    "info": $info,
-    "warning": $warning,
-    "danger": $danger,
-    "light": $light,
-    "dark": $dark,
+    'primary': $primary,
+    'secondary': $secondary,
+    'success': $success,
+    'info': $info,
+    'warning': $warning,
+    'danger': $danger,
+    'light': $light,
+    'dark': $dark,
   ),
   $theme-colors
 );
@@ -81,15 +146,15 @@ $theme-colors: map-merge(
 $grays: ();
 $grays: map-merge(
   (
-    "100": $gray-100,
-    "200": $gray-200,
-    "300": $gray-300,
-    "400": $gray-400,
-    "500": $gray-500,
-    "600": $gray-600,
-    "700": $gray-700,
-    "800": $gray-800,
-    "900": $gray-900,
+    '100': $gray-100,
+    '200': $gray-200,
+    '300': $gray-300,
+    '400': $gray-400,
+    '500': $gray-500,
+    '600': $gray-600,
+    '700': $gray-700,
+    '800': $gray-800,
+    '900': $gray-900,
   ),
   $grays
 );
@@ -99,34 +164,34 @@ $google-fonts-import: false;
 // Font Maps
 //
 $PrimaryFont: (
-  family: "Jost",
-  src: "Jost/jost-variablefont_wght-webfont",
-  ext: "woff",
+  family: 'Jost',
+  src: 'Jost/jost-variablefont_wght-webfont',
+  ext: 'woff',
   weight: 400,
   style: normal,
-  selector: "html, body, p, li, b, i, strong, a, mark, td, th, button",
+  selector: 'html, body, p, li, b, i, strong, a, mark, td, th, button',
   stack: $SansStack,
   display: swap,
 );
 
 $HeadingFont: (
-  family: "Saira",
-  src: "Saira/saira-variablefont_wdthwght-webfont",
-  ext: "woff",
+  family: 'Saira',
+  src: 'Saira/saira-variablefont_wdthwght-webfont',
+  ext: 'woff',
   weight: 700,
   style: bold,
-  selector: "h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6",
+  selector: 'h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6',
   stack: $SansStack,
   display: swap,
 );
 
 $CodeFont: (
-  family: "Space Grotesk",
-  src: "Space_Grotesk/spacegrotesk-variablefont_wght-webfont",
-  ext: "woff",
+  family: 'Space Grotesk',
+  src: 'Space_Grotesk/spacegrotesk-variablefont_wght-webfont',
+  ext: 'woff',
   weight: 400,
   style: normal,
-  selector: "code, pre, samp, kbd, caption, blockquote, cite, .code-block, .code-block p, aside, label, legend, .quote",
+  selector: 'code, pre, samp, kbd, caption, blockquote, cite, .code-block, .code-block p, aside, label, legend, .quote',
   stack: $MonoStack,
   display: swap,
 );

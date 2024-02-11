@@ -3,7 +3,7 @@ mixin topNavBar(search,links)
     .docbar.docbar-dark
         .docbar-section
             a.off-canvas-toggle.btn.btn-link.btn-action(href='#sidebar')
-                i.icon.icon-menu
+                i.hui.hui-bacon-cheeseburger
             p#firstnav
         .docbar-section(style="flex: 2 0 0")
             if search
@@ -13,20 +13,20 @@ mixin topNavBar(search,links)
                     a(href=link.url, target="_blank" class="btn btn-sm mr-2 ml-1 btn-"+link.color)
                         | #{link.text}
                     if link.icon
-                        i(class= link.icon + ' icon')
+                        i(class= link.icon + ' hui')
     div.vr-block &nbsp;
 
 //- Side Nav Logo + Build Data
 mixin sideNavLogo(data)
-  div.side-container
-    div.logo-container
-        img(src=imgPath+"Logo.png" class="logo")
+    div.side-container
+        div.logo-container
+            img(src=imgPath+"Logo.png" class="logo")
 
-    div.build-container
-        .row.g-0.mx-0.text-center
-            .col
-                p.build-label Latest Build
-                p.build-version #{package.version} #{package.buildDate}
+        div.build-container
+            .row.g-0.mx-0.text-center
+                .col
+                    p.build-label Latest Build
+                    p.build-version #{package.version} #{package.buildDate}
 
 
 //- Side Nav Accordions
@@ -35,7 +35,7 @@ mixin sideNavMenu(groups)
         .accordion
             input(id='accordion-' + key type='checkbox' name='docs-accordion-checkbox' hidden='' checked=(parent === key ? true : false))
             label.accordion-header.c-hand(for='accordion-' + key)
-                i.rif.ion-md-arrow-dropright.mr-1
+                i.hui.hui-document-down.mr-1
                 | #{key}
             .accordion-body
                 ul.menu.menu-nav
@@ -80,7 +80,7 @@ mixin docs-icons(data)
             .col-1
                 .iprev.p-4
                     span
-                        i(class="rif-"+icon.name)
+                        i(class="hui hui-"+icon.name)
                     p.text-center.text-small.text-muted.mt-2
                         | #{icon.name}
 

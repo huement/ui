@@ -7,7 +7,7 @@ mixin navbar(menu_items)
       .navbar-section.pr-1
         each menu_item in menu_items
           a.text-bold.pull-right.btn.btn-dark.btn-action.btn-sm.mr-3(href= menu_item.url) #{menu_item.name}
-            i.icon.icon-apps
+            i.hui.hui-beaker
         .clearfix
 
 mixin menu(menu_items)
@@ -20,7 +20,7 @@ mixin menu(menu_items)
 //-   svg(class= iconClass)
 //-     use(xlink:href="#spriteIcon-"+iconHref)
 mixin icon(iClass)
-  span(class="rif-"+iClass)
+  span(class="hui "+iClass)
 
 mixin img(fileName)
   - const url = `upload/${fileName}`
@@ -54,7 +54,7 @@ mixin loop(count)
     - n++
 
 mixin docs-heading(id, name)
-    .head-block(id=id)
-        h1.s-title
-            | #{name}
-            a.anchor(href='#'+id aria-hidden='true') #
+  .head-block(id=id)
+    h1.s-title
+      | #{name}
+      a.anchor(href='#'+id aria-hidden='true') #

@@ -1,4 +1,7 @@
 {
+	"extends": [
+    "stylelint-config-twbs-bootstrap"
+  ],
 	"customSyntax": "postcss-scss",
 	"reportInvalidScopeDisables": true,
   "reportNeedlessDisables": true,

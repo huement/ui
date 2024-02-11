@@ -39,9 +39,20 @@ src/modular-scale.scss
 *.sw?
 
 # Mojo Files
+_assets
 .env
 node_modules
 tsconfig 2.json
 package 2.json
 README-shards.md
 .cache/.stylelintcache
+
+# Mojo Icons
+# tokens/**/*.svg
+tokens/icons/raw/*.svg
+tokens/icons/raw/**/*.svg
+
+!*.gitkeep
+!./**/*.gitkeep
+!tokens/icons/raw/.gitkeep
+!tokens/icons/clean/.gitkeep

@@ -29,7 +29,7 @@
 @import "root";
 
 // Helper Classes
-// @import "../node_modules/bootstrap/scss/helpers";
+// @import "bootstrap/scss/helpers";
 @import "framework/bs-helpers";
 
 // Only use the utilities we need
@@ -73,4 +73,4 @@ $utilities: map-get-multiple(
 );
 
 // Utilities
-@import "../node_modules/bootstrap/scss/utilities/api";
+@import "bootstrap/scss/utilities/api";

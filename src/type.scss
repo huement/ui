@@ -11,39 +11,42 @@
 //
 //
 
-@use "sass:map";
-@use "sass:list";
-@use "sass:math";
-@use "sass:color";
-@use "sass:meta";
-@use "sass:string";
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:meta';
+@use 'sass:string';
 
-@import "framework";
-@include mojoBanner("Harmonic Typography", "0.6.0");
+@import 'framework';
+@include mojoBanner('Harmonic Typography', '0.6.0');
+@import 'root';
+@import 'normalize/normalize';
+@import 'kick-off';
 
 @if global-variable-exists(PrimaryFont) {
-  @include fontFaceSelector($PrimaryFont, "paragraph-font-family");
+  @include fontFaceSelector($PrimaryFont, 'paragraph-font-family');
 }
 
 @if global-variable-exists(HeadingFont) {
-  @include fontFaceSelector($HeadingFont, "headings-font-family");
+  @include fontFaceSelector($HeadingFont, 'headings-font-family');
 }
 
 @if global-variable-exists(CodeFont) {
-  @include fontFaceSelector($CodeFont, "code-font-family");
+  @include fontFaceSelector($CodeFont, 'code-font-family');
 }
 // @import "harmony";
-@import "harmony/base";
+@import 'harmony/base';
 
 /** Harmonious Heading Sizes */
-@import "harmony/headings";
+@import 'harmony/headings';
 @include Harmonic_Headings_Core();
 @include Harmonic_Headings_Breakpoints();
-@import "harmony/title";
+@import 'harmony/title';
 
 /** Typography Extras */
-@import "harmony/typesetting";
+@import 'harmony/typesetting';
 // @import "harmony/quotes"; TODO: This needs HTML docs / examples to confirm working
-@import "harmony/code";
-@import "harmony/content";
-@import "harmony/hero";
+@import 'harmony/code';
+@import 'harmony/content';
+@import 'harmony/hero';

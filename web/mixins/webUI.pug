@@ -6,9 +6,9 @@ mixin navbar()
           img.oversized-logo(src=imgPath+"mojo_logo_color.svg" alt="JollyRobot")
       .navbar-section.pr-1
         a.text-bold.pull-right.btn.btn-dark.btn-action.btn-sm.mr-3(href="./download.html")
-          i.icon.icon-apps
+          i.hui.hui-bacon-cheeseburger
         a.text-bold.pull-right.btn.btn-primary.btn-action.btn-sm.mr-3(href="https://github.com/huement/mojo")
-          i.icon.icon-arrow-down
+          i.hui.hui-bacon-cheeseburger
         a.text-bold.pull-right.btn.btn-secondary.btn-sm.mr-1(href="./docs/") Docs
         .clearfix
 
@@ -38,10 +38,10 @@ mixin sectionTitle(color)
     block
 
 mixin docs-heading(id, name)
-    .head-block(id=id)
-        h1.s-title
-            | #{name}
-            a.anchor(href='#'+id aria-hidden='true') #
+  .head-block(id=id)
+    h1.s-title
+      | #{name}
+      a.anchor(href='#'+id aria-hidden='true') #
 
 mixin codeRow()
   .row
@@ -50,7 +50,7 @@ mixin codeRow()
 
 
 mixin linebreak()
-    .vr-block.site-spacer
+  .vr-block.site-spacer
 
 //- USAGE
 //- +loop(10)
@@ -67,13 +67,13 @@ mixin headerNav(PrimaryNavItems)
   - var PrimaryNavItems = PrimaryNavItems || [{'url':'home','title':'Home','img':'nav','key':'home'},{'url':'inputs','title':'Inputs','img':'nav','key':'inputs'},{'url':'buttons','title':'Buttons','img':'nav','key':'buttons'},{'url':'cards','title':'Cards','img':'nav','key':'cards'},{'url':'icons','title':'Icons','img':'nav','key':'icons'},{'url':'collapse','title':'Collapse','img':'nav','key':'collapse'}]
 
   each page,i in PrimaryNavItems
-      if currentPage === page.url
-          a(class="active", href= page.url + '.html')
-              svg(class='nav-icon', aria-hidden="true")
-                  use(xlink:href= 'img/sprites/nav.svg#' + page.key, xmlns:xlink="http://www.w3.org/1999/xlink")
-              span.title= page.title
-      else
-          a(href= page.url + '.html')
-              svg(class='nav-icon', aria-hidden="true")
-                  use(xlink:href= 'img/sprites/nav.svg#' + page.key, xmlns:xlink="http://www.w3.org/1999/xlink")
-              span.title= page.title
+    if currentPage === page.url
+      a(class="active", href= page.url + '.html')
+        svg(class='nav-icon' aria-hidden="true")
+          use(xlink:href= 'img/sprites/nav.svg#' + page.key, xmlns:xlink="http://www.w3.org/1999/xlink")
+        span.title= page.title
+    else
+      a(href= page.url + '.html')
+        svg(class='nav-icon' aria-hidden="true")
+          use(xlink:href= 'img/sprites/nav.svg#' + page.key, xmlns:xlink="http://www.w3.org/1999/xlink")
+        span.title= page.title

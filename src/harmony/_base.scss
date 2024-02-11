@@ -5,7 +5,7 @@
 /// TypographyBodyBase Loads the relative font size + line height combos
 /// for a given breakpoint.
 @mixin TypographyBodyBase($mMap) {
-  @debug "Setting Font Base for #{map.get($mMap, name)}";
+  @debug 'Setting Font Base for #{map.get($mMap, name)}';
 
   $scale: map.get($mMap, scale);
   $lH: map.get($mMap, lineHeight);
@@ -66,7 +66,7 @@ $firstMap: map.get($chords, $minBP);
 
 //  Skip smallest breakpoint b/c size is 0.
 $maxBP: calc(length(map-keys($chords)) - 1);
-@debug "Total Breakpoints: #{$maxBP + 1}";
+@debug 'Total Breakpoints: #{$maxBP + 1}';
 @each $mapKey, $c in $chords {
   @if (map.get($c, abrev) != $minBP) {
     @include media-breakpoint-up(map.get($c, abrev)) {
@@ -130,7 +130,7 @@ p {
   font-kerning: normal;
   font-variant-ligatures: common-ligatures, contextual;
   font-variant-numeric: oldstyle-nums, proportional-nums;
-  font-feature-settings: "kern", "liga", "clig", "calt", "onum", "pnum";
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'onum', 'pnum';
 }
 
 p abbr,
@@ -140,7 +140,7 @@ p span {
   font-variant-ligatures: common-ligatures, contextual;
   font-variant-numeric: oldstyle-nums, proportional-nums;
   font-variant-caps: all-small-caps;
-  font-feature-settings: "kern", "liga", "clig", "calt", "onum", "pnum", "smcp", "c2sc";
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'onum', 'pnum', 'smcp', 'c2sc';
 }
 
 p + p {
@@ -158,14 +158,14 @@ abbr {
   font-variant-ligatures: common-ligatures, contextual;
   font-variant-numeric: oldstyle-nums, proportional-nums;
   font-variant-caps: all-small-caps;
-  font-feature-settings: "kern", "liga", "clig", "calt", "onum", "pnum", "smcp", "c2sc";
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'onum', 'pnum', 'smcp', 'c2sc';
 }
 
 td {
   font-kerning: normal;
   font-variant-ligatures: common-ligatures, contextual;
   font-variant-numeric: lining-nums, tabular-nums;
-  font-feature-settings: "kern", "liga", "clig", "calt", "lnum", "tnum";
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'lnum', 'tnum';
 }
 
 strong,
