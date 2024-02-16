@@ -1,19 +1,19 @@
 $title-color: $heading;
-$title-family: getFontFamily("heading");
+$title-family: getfontfamily("heading");
 $title-strong-color: $heading-dark;
 $subtitle-color: $gray-400;
-$subtitle-family: getFontFamily("primary");
+$subtitle-family: getfontfamily("primary");
 $subtitle-strong-color: $gray-500;
 $title-line-height: $modular-ratio;
 $subtitle-line-height: $line-height-base;
 
 .title,
 .subtitle {
-  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern", "liga", "clig", "calt", "dlig";
   font-kerning: normal;
   font-variant-ligatures: common-ligatures, contextual, discretionary-ligatures;
-  font-feature-settings: "kern", "liga", "clig", "calt", "dlig";
   word-break: break-word;
+  text-rendering: optimizelegibility;
 
   em,
   span {
@@ -34,22 +34,21 @@ $subtitle-line-height: $line-height-base;
 }
 
 .title {
-  color: $title-color;
+
+  font-size: $title-size;
   font-weight: $title-weight;
-  letter-spacing: 0.5px;
+  line-height: $title-line-height;
+  color: $title-color;
+  letter-spacing: .5px;
 
   @if $title-family {
     font-family: $title-family;
   }
 
-  font-size: $title-size;
-  font-weight: $title-weight;
-  line-height: $title-line-height;
-
   strong {
-    color: $title-strong-color;
     font-weight: $title-strong-weight;
-    letter-spacing: 0.75px;
+    color: $title-strong-color;
+    letter-spacing: .75px;
   }
 
   // Sizes
@@ -63,27 +62,26 @@ $subtitle-line-height: $line-height-base;
 }
 
 .subtitle {
-  color: $subtitle-color;
-  font-weight: $subtitle-weight;
-  letter-spacing: 2px;
   margin-top: -#{strip_units($subtitle-line-height) * 1rem};
 
+  font-size: $subtitle-size;
+  font-weight: $subtitle-weight;
+  line-height: $subtitle-line-height;
+  color: $subtitle-color;
+  letter-spacing: 2px;
+
   &.make-spaced {
-    letter-spacing: 3.5px;
     margin-top: $sz_2;
+    letter-spacing: 3.5px;
   }
 
   @if $subtitle-family {
     font-family: $subtitle-family;
   }
 
-  font-size: $subtitle-size;
-  font-weight: $subtitle-weight;
-  line-height: $subtitle-line-height;
-
   strong {
-    color: $subtitle-strong-color;
     font-weight: $subtitle-strong-weight;
+    color: $subtitle-strong-color;
   }
 
   // Sizes
@@ -110,7 +108,7 @@ $subtitle-line-height: $line-height-base;
   $count: 0;
   $total: length($display-font-sizes);
   @each $name, $width in $grid-breakpoints {
-    $multiplier: if($count > 0, ($count * 0.1) + $base-multi, 1);
+    $multiplier: if($count > 0, ($count * .1) + $base-multi, 1);
     @include media-breakpoint-up($name, $grid-breakpoints) {
       @each $display, $font-size in $display-font-sizes {
         //@debug "#{$multiplier} times #{$font-size}";

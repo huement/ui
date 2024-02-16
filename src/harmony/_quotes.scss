@@ -1,8 +1,8 @@
 $quote-text-color: #4f4f4f !default;
 $quote-bg-color: #ededed !default;
-$quote-border-color: #cccccc !default;
+$quote-border-color: #ccc !default;
 $quote-accent-color: #78c0a8 !default;
-$page-bg: #ffffff;
+$page-bg: #fff;
 
 @include cssvars(
   (
@@ -14,46 +14,46 @@ $page-bg: #ffffff;
 );
 
 blockquote.styled {
-  font-size: 1.4em;
+  position: relative;
   width: 60%;
+  padding: 1.2rem;
   margin: 3rem auto;
+  font-size: 1.4em;
+  line-height: 1.6;
   //font-family: $SerifStack;
   color: cssvar(quote-text-color);
-  padding: 1.2rem;
-  line-height: 1.6;
-  position: relative;
 
   cite {
     display: block;
-    color: cssvar(quote-text-color);
-    font-style: normal;
-    font-weight: bold;
-    text-align: center;
     margin-top: 1em;
+    font-style: normal;
+    font-weight: 700;
+    color: cssvar(quote-text-color);
+    text-align: center;
     text-transform: uppercase;
-    letter-spacing: 0.1rem;
+    letter-spacing: .1rem;
   }
 
   &.bubble {
-    font-style: italic;
     padding: 1.2em 30px 1.2em 1.6em;
-    border-left: 1em solid cssvar(quote-accent-color);
+    font-style: italic;
     background: cssvar(quote-bg-color);
+    border-left: 1em solid cssvar(quote-accent-color);
 
     &::before {
-      font-family: $SansStack;
-      content: "\201C";
-      color: #fff;
-      background: cssvar(quote-accent-color);
-      width: 0.6em;
-      height: 0.6em;
-      line-height: 1.1em;
-      font-size: 4em;
       position: absolute;
-      left: -0.42em;
       top: 42%;
-      border-radius: 50%;
+      left: -.42em;
       z-index: 99;
+      width: .6em;
+      height: .6em;
+      font-family: $SansStack;
+      font-size: 4em;
+      line-height: 1.1em;
+      color: #fff;
+      content: "\201C";
+      background: cssvar(quote-accent-color);
+      border-radius: 50%;
     }
 
     &::after {
@@ -66,41 +66,41 @@ blockquote.styled {
   }
 
   &.brackets {
-    border: solid 1em #ccc;
+    position: relative;
     display: block;
     padding: 1em;
     background-color: cssvar(quote-bg-color);
-    position: relative;
+    border: solid 1em #ccc;
 
-    &:before,
-    &:after {
-      background-color: $body;
-      content: "";
-      left: 2em;
+    &::before,
+    &::after {
       position: absolute;
       right: 2em;
+      left: 2em;
       z-index: 0;
       height: 1em;
+      content: "";
+      background-color: $body;
     }
 
-    &:before {
-      bottom: -1em;
+    &::before {
       top: -1em;
+      bottom: -1em;
     }
 
-    &:after {
-      bottom: -1em;
+    &::after {
       top: 100%;
+      bottom: -1em;
     }
 
     cite {
-      color: #757575;
       display: block;
       font-size: small;
       font-style: normal;
+      color: #757575;
       text-align: right;
       text-transform: uppercase;
-      letter-spacing: 0.13rem;
+      letter-spacing: .13rem;
     }
 
     > * {
@@ -113,7 +113,7 @@ blockquote.styled {
     font-size: 1em;
 
     cite {
-      font-size: 0.8em;
+      font-size: .8em;
     }
   }
 
@@ -122,28 +122,28 @@ blockquote.styled {
     line-height: 1.6;
 
     cite {
+      font-size: .8em;
       line-height: 1.6;
-      font-size: 0.8em;
-      letter-spacing: 0.1em;
       color: lighten($quote-text-color, 25);
+      letter-spacing: .1em;
     }
   }
 
   &.type2 {
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.15rem;
     background-color: #f5f5f5;
     border-left: 5px solid #dbdbdb;
     border-radius: 3px;
-    font-size: 1.15rem;
-    margin-bottom: 1rem;
-    padding: 1rem 2rem;
 
     p {
       margin: 0;
-      font-size: 0.95rem;
+      font-size: .95rem;
     }
 
     cite {
-      opacity: 0.7;
+      opacity: .7;
     }
   }
 }
@@ -161,27 +161,27 @@ blockquote.styled {
   font-weight: 300;
 
   blockquote {
+    position: relative;
+    display: inline-block;
+    padding: 1em;
+    margin: 0;
     background-color: $body;
     border: solid 2px $border;
-    display: inline-block;
-    margin: 0;
-    padding: 1em;
-    position: relative;
-    &:before {
-      background-color: $body-dark;
-      bottom: -10%;
-      content: "";
-      left: 0;
+    &::before {
       position: absolute;
-      right: 0;
       top: -10%;
+      right: 0;
+      bottom: -10%;
+      left: 0;
+      content: "";
+      background-color: $body-dark;
       transform: rotate(-15deg) skew(5deg);
     }
     cite {
       display: block;
       font-style: italic;
       text-align: right;
-      &:before {
+      &::before {
         content: "- ";
       }
     }

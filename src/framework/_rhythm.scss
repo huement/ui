@@ -31,15 +31,15 @@
 @function vr-block($units: 1, $px-offset: false, $font-size: $font-size-base) {
   @if ($px-offset) {
     @return (
-        math.div(($MainLineHeight * strip-units($font-size)), math.div(strip-units($font-size), 2)) *
-          math.div($units, 2) * (1 + math.div($px-offset, strip-units($font-size)))
+      math.div(($MainLineHeight * strip-units($font-size)), math.div(strip-units($font-size), 2)) *
+      math.div($units, 2) * (1 + math.div($px-offset, strip-units($font-size)))
       ) + rem;
   } @else {
     $vVal: $line-height-base * strip-units($font-size);
-    $vDiv: strip-units($font-size) * 0.5;
+    $vDiv: strip-units($font-size) * .5;
     $vTot: math.div($vVal, $vDiv);
 
-    $vRes: ($vTot * ($units * 0.5)) + rem;
+    $vRes: ($vTot * ($units * .5)) + rem;
     @return $vRes;
   }
 }
@@ -64,7 +64,7 @@
   @if ($borderWidth !=0) and ($borderWidth != "0px") {
     $border-width: strip-units($borderWidth);
   }
-  $line-height: getFontLineSize($amt);
+  $line-height: getfontlinesize($amt);
   @debug "PaddingY Spacing Amt: #{$spacing-amt}";
   @debug "PaddingY Line Height: #{$line-height}";
   $control-padding-y: math.div($spacing-amt, 2);

@@ -5,7 +5,7 @@
 //
 
 @if $enable-fonts-import {
-  @import url($google-fonts-import);
+  @import "$google-fonts-import";
 }
 
 // Typography
@@ -188,15 +188,15 @@ h6,
 h1,
 .h1 {
   font-size: $h1-font-size;
-  letter-spacing: $headings-letter-spacing;
   line-height: $h1-line-height;
+  letter-spacing: $headings-letter-spacing;
 }
 
 h2,
 .h2 {
   font-size: $h2-font-size;
-  letter-spacing: $headings-letter-spacing;
   line-height: $h2-line-height;
+  letter-spacing: $headings-letter-spacing;
 }
 
 h3,

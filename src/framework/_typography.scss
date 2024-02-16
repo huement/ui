@@ -20,11 +20,11 @@
   @if (unit($size) == "rem") {
     font-size: rem_px($size);
     font-size: $size;
-  } @else if(unit($size) == "px") {
+  } @else if (unit($size) == "px") {
     font-size: $size;
     font-size: px_rem($size);
   } @else {
-    @error '#{$size} is an invalid value for mixin `font-size`. Use `rem` or `px` only.';
+    @error "#{$size} is an invalid value for mixin `font-size`. Use `rem` or `px` only.";
   }
 }
 
@@ -92,11 +92,11 @@
   $fam: "";
 
   @if ($fontType == "code") or ($fontType == "mono") {
-    $fam: getFontData($CodeFont);
+    $fam: getfontdata($CodeFont);
   } @else if ($fontType == "heading") {
-    $fam: getFontData($HeadingFont);
+    $fam: getfontdata($HeadingFont);
   } @else if ($fontType == "primary") {
-    $fam: getFontData($PrimaryFont);
+    $fam: getfontdata($PrimaryFont);
   } @else {
     @error "Invalid font param sent: #{$fontType}";
   }
@@ -129,7 +129,7 @@ $fonts: () !default;
   //       is going to be a good experience on their admittedly older browser.
   //
 
-  $selector: unquote(map.get($font-data, selector));
+  $selector: map.get($font-data, selector);
   $family: map.get($font-data, family);
   $stack: map.get($font-data, stack);
   $style: map.get($font-data, style);
@@ -142,10 +142,10 @@ $fonts: () !default;
   }
   @font-face {
     font-family: $family;
+    font-style: $style;
+    font-weight: $weight;
     // Add font types here
     src: url($font-path + $file + "." + $ext) format("truetype");
-    font-weight: $weight;
-    font-style: $style;
     font-display: $display;
   }
   @include cssvars((#{unquote($cssVar)}: #{$family, $stack}));
@@ -183,47 +183,44 @@ $fonts: () !default;
 // @details Form input placeholder text
 @mixin placeholder {
   // scss-lint:disable VendorPrefix
-  &::-moz-placeholder {
+  &::placeholder {
     @content;
   } // Firefox 19+
-  &:-ms-input-placeholder {
+  &:input-placeholder {
     @content;
   } // IE 10+
-  &::-ms-input-placeholder {
+  &::input-placeholder {
     @content;
   } // Edge
-  &::-webkit-input-placeholder {
+  &::input-placeholder {
     @content;
   } // Safari and Chrome
 }
 
 @mixin text-hide($height: false, $width: false) {
-  border: 0;
-  text-shadow: none;
   color: transparent;
+  text-shadow: none;
   background-color: transparent;
+  border: 0;
   @if ($height != false) {
-    height: 0px;
+    height: 0;
   }
   @if ($width != false) {
-    width: 0px;
+    width: 0;
   }
 }
 
 @mixin text-hyphen($type: none) {
-  -webkit-hyphens: $type;
-  -moz-hyphens: $type;
-  -ms-hyphens: $type;
   hyphens: $type;
 }
 
-@mixin text-shadow($distance: 2px, $blur: 2px, $colour: fade-out(#000, 0.5), $angle: 0px) {
+@mixin text-shadow($distance: 2px, $blur: 2px, $colour: fade-out(#000, .5), $angle: 0) {
   text-shadow: $angle $distance $blur $colour;
 }
 
 @mixin text-wrap($wrap: break-word) {
-  overflow-wrap: $wrap;
   word-wrap: $wrap;
+  overflow-wrap: $wrap;
   @if $wrap==break-word {
     word-break: break-all;
   } @else {
@@ -249,8 +246,8 @@ $fonts: () !default;
   max-width: $width;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
   word-wrap: normal;
+  white-space: nowrap;
 }
 
 @mixin reset-text() {
@@ -297,14 +294,14 @@ $fonts: () !default;
   $bg: transparent
 ) {
   &::first-letter {
-    background: $bg;
-    color: $color;
     float: $float-position;
-    font-family: $font-family;
-    @include rem-font-size($font-size);
-    line-height: $line-height;
-    margin: $margin;
     padding: $padding;
+    margin: $margin;
+    font-family: $font-family;
+    line-height: $line-height;
+    color: $color;
     text-indent: $text-indent;
+    background: $bg;
+    @include rem-font-size($font-size);
   }
 }

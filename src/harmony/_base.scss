@@ -5,7 +5,7 @@
 /// TypographyBodyBase Loads the relative font size + line height combos
 /// for a given breakpoint.
 @mixin TypographyBodyBase($mMap) {
-  @debug 'Setting Font Base for #{map.get($mMap, name)}';
+  @debug "Setting Font Base for #{map.get($mMap, name)}";
 
   $scale: map.get($mMap, scale);
   $lH: map.get($mMap, lineHeight);
@@ -32,17 +32,17 @@
     margin-bottom: #{$lH * 1rem};
 
     a {
+      margin-right: decimal_round(($whiteSpace * .5), 0);
       //line-height: #{$lH + "rem"};
-      margin-left: decimal_round(($whiteSpace * 0.5), 0);
-      margin-right: decimal_round(($whiteSpace * 0.5), 0);
+      margin-left: decimal_round(($whiteSpace * .5), 0);
     }
 
     &.lead {
-      margin-top: vr-block(0.5);
+      margin-top: vr-block(.5);
       margin-bottom: vr-block(1);
       font-size: $lead;
-      letter-spacing: -0.05rem;
       line-height: $lead-line-height;
+      letter-spacing: -.05rem;
     }
   }
 }
@@ -66,7 +66,7 @@ $firstMap: map.get($chords, $minBP);
 
 //  Skip smallest breakpoint b/c size is 0.
 $maxBP: calc(length(map-keys($chords)) - 1);
-@debug 'Total Breakpoints: #{$maxBP + 1}';
+@debug "Total Breakpoints: #{$maxBP + 1}";
 @each $mapKey, $c in $chords {
   @if (map.get($c, abrev) != $minBP) {
     @include media-breakpoint-up(map.get($c, abrev)) {
@@ -78,8 +78,8 @@ $maxBP: calc(length(map-keys($chords)) - 1);
 //
 //  HYPERLINKS
 a {
-  text-decoration: none;
   color: $link-color;
+  text-decoration: none;
   outline-style: none;
   // @TODO Animate
 
@@ -88,9 +88,9 @@ a {
   }
 
   &:hover {
-    cursor: pointer;
-    text-decoration: underline;
     color: $link-hover;
+    text-decoration: underline;
+    cursor: pointer;
     @include animate-css(pulse);
   }
 
@@ -103,8 +103,8 @@ a {
   }
 
   small {
-    text-decoration: none;
     font-variant: small-caps;
+    text-decoration: none;
   }
 }
 
@@ -119,28 +119,28 @@ a.btn {
 //
 //  Paragraph Styles
 p {
-  word-break: break-word; //non-standard css for webkit
-  word-wrap: break-word; // cleaning up the ragged lines and breaks
-  overflow-wrap: break-word;
-  hyphens: none; // sets a minimum number of characters before and after the break
-  -webkit-hyphenate-before: 2;
-  -webkit-hyphenate-after: 3;
-  hyphenate-lines: 3;
-  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern", "liga", "clig", "calt", "onum", "pnum";
   font-kerning: normal;
   font-variant-ligatures: common-ligatures, contextual;
   font-variant-numeric: oldstyle-nums, proportional-nums;
-  font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'onum', 'pnum';
+  hyphens: none; // sets a minimum number of characters before and after the break
+  word-break: break-word; //non-standard css for webkit
+  word-wrap: break-word; // cleaning up the ragged lines and breaks
+  overflow-wrap: break-word;
+  -webkit-hyphenate-before: 2;
+  -webkit-hyphenate-after: 3;
+  hyphenate-lines: 3;
+  text-rendering: optimizelegibility;
 }
 
 p abbr,
 p span {
-  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern", "liga", "clig", "calt", "onum", "pnum", "smcp", "c2sc";
   font-kerning: normal;
   font-variant-ligatures: common-ligatures, contextual;
-  font-variant-numeric: oldstyle-nums, proportional-nums;
   font-variant-caps: all-small-caps;
-  font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'onum', 'pnum', 'smcp', 'c2sc';
+  font-variant-numeric: oldstyle-nums, proportional-nums;
+  text-rendering: optimizelegibility;
 }
 
 p + p {
@@ -153,19 +153,19 @@ p + p {
 }
 
 abbr {
-  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern", "liga", "clig", "calt", "onum", "pnum", "smcp", "c2sc";
   font-kerning: normal;
   font-variant-ligatures: common-ligatures, contextual;
-  font-variant-numeric: oldstyle-nums, proportional-nums;
   font-variant-caps: all-small-caps;
-  font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'onum', 'pnum', 'smcp', 'c2sc';
+  font-variant-numeric: oldstyle-nums, proportional-nums;
+  text-rendering: optimizelegibility;
 }
 
 td {
+  font-feature-settings: "kern", "liga", "clig", "calt", "lnum", "tnum";
   font-kerning: normal;
   font-variant-ligatures: common-ligatures, contextual;
   font-variant-numeric: lining-nums, tabular-nums;
-  font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'lnum', 'tnum';
 }
 
 strong,
@@ -175,11 +175,11 @@ b {
 
 // Highlight
 mark {
-  background: $info;
+  padding: 0 .2rem;
   color: $dark;
-  padding: 0 0.2rem;
+  background: $info;
 }
 
 disabled {
-  color: rgba($dark, 0.5);
+  color: rgba($dark, .5);
 }

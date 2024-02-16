@@ -18,9 +18,9 @@ $mobile: map-get($grid-breakpoints, "sm");
 
 // Hero
 .hero {
-  align-items: stretch;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   justify-content: space-between;
 
   .navbar {
@@ -35,14 +35,14 @@ $mobile: map-get($grid-breakpoints, "sm");
 
   .title,
   .subtitle {
-    @include block;
+    @include block ();
 
     sub {
-      font-size: 0.75em;
+      font-size: .75em;
     }
 
     sup {
-      font-size: 0.75em;
+      font-size: .75em;
     }
 
     .tag {
@@ -108,8 +108,8 @@ $mobile: map-get($grid-breakpoints, "sm");
   &.hero-fullheight,
   &.hero-fullheight-with-navbar {
     .hero-body {
-      align-items: center;
       display: flex;
+      align-items: center;
 
       > .container {
         flex-grow: 1;
@@ -130,22 +130,22 @@ $mobile: map-get($grid-breakpoints, "sm");
 // Components
 
 .hero-video {
-  @include overlay;
+  @include overlay ();
 
   overflow: hidden;
 
   video {
-    left: 50%;
-    min-height: 100%;
-    min-width: 100%;
     position: absolute;
     top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
     transform: translate3d(-50%, -50%, 0);
   }
 
   // Modifiers
   &.video-transparent {
-    opacity: 0.3;
+    opacity: .3;
   }
 
   // Responsiveness
@@ -163,7 +163,7 @@ $mobile: map-get($grid-breakpoints, "sm");
       display: flex;
 
       &:not(:last-child) {
-        margin-bottom: 0.75rem;
+        margin-bottom: .75rem;
       }
     }
   }

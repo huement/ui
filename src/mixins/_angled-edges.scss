@@ -19,10 +19,10 @@
   // Converts degrees to VW, 100vw = 45deg using this technique
   @if $angle > 45 {
     $angle: 0;
-    @error 'Invalid angle, it must be between 1-45';
+    @error "Invalid angle, it must be between 1-45";
   }
   @if $angle < 46 {
-    $angle: convertDegToVW($angle);
+    $angle: convertdegtovw($angle);
   }
 
   @if $angle-position-bottom-x == "" {
@@ -88,27 +88,27 @@
     @supports not (clip-path: $clip-path) {
       &::before,
       &::after {
-        content: "";
         position: absolute;
         left: 0;
         z-index: 10;
         display: block;
+        content: "";
         border-style: solid;
       }
 
       @if $angle-position-y == "top" or $angle-position-y == "both" {
         &::before {
           top: 0;
-          border-width: $border-width-top;
           border-color: $border-color-top;
+          border-width: $border-width-top;
         }
       }
 
       @if $angle-position-y == "bottom" or $angle-position-y == "both" {
         &::after {
           bottom: 0;
-          border-width: $border-width-bottom;
           border-color: $border-color-bottom;
+          border-width: $border-width-bottom;
         }
       }
     }

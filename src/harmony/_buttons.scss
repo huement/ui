@@ -24,6 +24,8 @@ $actionMap: map.get($variantMap, "action");
 
 @include superclass() {
   .btn {
+    position: relative;
+    display: inline-flex;
     // border-color: cssvar(button-border-color);
     // border-radius: cssvar(button-border-radius);
     // border-style: cssvar(button-border-style);
@@ -34,34 +36,32 @@ $actionMap: map.get($variantMap, "action");
     //padding: $control-padding-y $control-padding-x;
     //text-align: center;
     align-items: center;
-    appearance: none;
-    background: getStatus("muted");
-    border-radius: $borderRadius;
-    border: unquote(getButtonData("border")) getStatus("muted");
-    color: getButtonData("text");
-    cursor: pointer;
-    display: inline-flex;
-    font-family: getFontData($PrimaryFont);
-    font-size: getButtonData("font-size");
-    font-weight: getButtonData("font-weight");
-    height: $control-size;
     justify-content: center;
-    letter-spacing: unquote(getButtonData("letter-spacing"));
-    //line-height: $line-height;
-    line-height: getButtonData("line-height");
-    outline: 0;
-    overflow: hidden;
+    height: $control-size;
     padding: cssvar(button-padding);
-    position: relative;
+    overflow: hidden;
+    font-family: getfontdata($PrimaryFont);
+    font-size: getbuttondata("font-size");
+    font-weight: getbuttondata("font-weight");
+    //line-height: $line-height;
+    line-height: getbuttondata("line-height");
+    color: getbuttondata("text");
     text-align: center;
     text-decoration: none;
-    text-transform: unquote(getButtonData("text-transform"));
-    transition: unquote(getButtonData("transition"));
+    text-transform: getbuttondata("text-transform");
+    letter-spacing: getbuttondata("letter-spacing");
+    white-space: nowrap;
+    vertical-align: middle;
+    appearance: none;
+    cursor: pointer;
+    zoom: 1;
     //transition: background 0.2s, border 0.2s, box-shadow 0.2s, color 0.2s;
     user-select: none;
-    vertical-align: middle;
-    white-space: nowrap;
-    zoom: 1;
+    background: getstatus("muted");
+    border: getbuttondata("border")) getstatus("muted";
+    border-radius: $borderRadius;
+    outline: 0;
+    transition: getbuttondata("transition");
     @include buttonBoxShadow();
 
     @include buttonHoverFocusActive(getStatus("muted"), getStatus("muted"), true);
@@ -69,9 +69,9 @@ $actionMap: map.get($variantMap, "action");
     // Button Action Variant
     &.btn-action {
       width: $sz_9;
-      font-size: $sz_4;
-      padding-left: 0;
       padding-right: 0;
+      padding-left: 0;
+      font-size: $sz_4;
 
       .rif {
         @include button-icon($sz_4);
@@ -91,7 +91,7 @@ $actionMap: map.get($variantMap, "action");
 
     &.btn-outline {
       box-shadow: none;
-      $ocolor: getButtonData("text");
+      $ocolor: getbuttondata("text");
       $obg: transparent;
       @include button-outline-variant($ocolor, $obg);
       @each $colorName, $colorMap in $ThemeColors {
@@ -106,22 +106,22 @@ $actionMap: map.get($variantMap, "action");
 
     // Button Clear
     &.btn-clear {
+      width: _rem($MainFontSize);
+      height: _rem($MainFontSize);
+      padding: _rem($VerticalUnit);
+      margin-right: -2px;
+      margin-left: $sz_1;
+      line-height: _rem($MainFontSize);
+      color: currentcolor;
+      text-decoration: none;
       background: transparent;
       border: 0;
-      color: currentColor;
-      height: _rem($MainFontSize);
-      line-height: _rem($MainFontSize);
-      margin-left: $sz_1;
-      margin-right: -2px;
       opacity: 1;
-      padding: _rem($VerticalUnit);
-      text-decoration: none;
-      width: _rem($MainFontSize);
 
       &:focus,
       &:hover {
-        background: rgba(getStatus("muted"), 0.5);
-        opacity: 0.95;
+        background: rgba(getstatus("muted"), .5);
+        opacity: .95;
       }
 
       &::before {
@@ -136,10 +136,10 @@ $actionMap: map.get($variantMap, "action");
 
     // Button Link
     &.btn-link {
-      background: transparent;
-      border-color: transparent;
       //color: $cyan;
       color: map.get($linkMap, "text");
+      background: transparent;
+      border-color: transparent;
       box-shadow: none !important;
       &:focus,
       &:hover,
@@ -164,10 +164,10 @@ $actionMap: map.get($variantMap, "action");
     // Button Size Variants
     @each $sizeName, $sizeMap in map.get($MojoButtons, "sizes") {
       &.btn-#{$sizeName} {
-        font-size: map.get($sizeMap, "font");
         height: map.get($sizeMap, "height");
-        padding-left: map.get($sizeMap, "font");
         padding-right: map.get($sizeMap, "font");
+        padding-left: map.get($sizeMap, "font");
+        font-size: map.get($sizeMap, "font");
 
         .rif {
           @include button-icon(#{map.get($sizeMap, "font") + 1rem});
@@ -206,17 +206,17 @@ $actionMap: map.get($variantMap, "action");
     .btn {
       flex: 1 0 auto;
       &:first-child:not(:last-child) {
-        border-bottom-right-radius: 0;
         border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
       }
       &:not(:first-child):not(:last-child) {
-        border-radius: 0;
         margin-left: -$border-width;
+        border-radius: 0;
       }
       &:last-child:not(:first-child) {
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
         margin-left: -$border-width;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
       }
       &:focus,
       &:hover,

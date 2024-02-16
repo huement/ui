@@ -7,7 +7,7 @@
   "license": "MPL-2.0",
   "author": "Derek Scott <derek@huement.com>",
   "homepage": "https://github.com/huement/ui",
-  "buildNumber": 38,
+  "buildNumber": 42,
   "buildDate": "2024-01-28",
   "bundlesize": [
     {
@@ -24,11 +24,11 @@
     "watch": "nodemon -x \"yarn build\" & browser-sync start --config web/bs-config.cjs",
     "watch:css": "nodemon -x \"yarn css\" & browser-sync start --config web/bs-config.cjs",
     "css": "sass --verbose --no-quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css src:dist/css && yarn bump",
-    "publish": "npx npm-run-all -l -s -c lint css icons:build minify postfix",
-    "lint": "stylelint src/**/*.{css,scss} --cache --cache-location .cache/.stylelintcache",
-    "lintjs": "eslint src/**/*.{ts,js}",
-    "postfix": "postcss --config postcss.config.cjs -o dist/mojo.css dist/mojo-icons.min.css",
-    "minify": "cleancss -O01 --output dist/mojo-icons.min.css --format 'breaks:afterBlockBegins=on;spaces:aroundSelectorRelation=on' dist/css/mojo.css dist/icons/icons.css",
+    "publish": "npx npm-run-all -l -s -c lint css icons:build copy minify postfix",
+    "lint": "stylelint --fix src/**/*.{css,scss} --formatter verbose --config .stylelintrc.json --cache --cache-location .cache/.stylelintcache",
+    "lintjs": "eslint --fix src/**/*.ts ./*.cjs",
+    "postfix": "postcss --config postcss.config.cjs --replace dist/mojo.css",
+    "minify": "cleancss -O01 --output dist/mojo.css --format 'breaks:afterBlockBegins=on;spaces:aroundSelectorRelation=on' dist/css/mojo.css dist/hi/icons.css",
     "icons:clean": "npx svgo -f ./tokens/icons/raw -o ./tokens/icons/clean --config svgo.config.js",
     "icons:build": "mkdir -p dist/icons && node bin/icons.cjs",
     "demo": "npx npm-run-all -lsc pug copy demo:css",
@@ -36,6 +36,7 @@
     "docs:css": "sass --quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css web/assets/style/docs.scss dist/demo/css/docsTODO.css"
   },
   "files": [
+    "dist/fonts/**/*.{ttf,woff,woff2,css,html}",
     "dist/{css,js}/*.{css,js,map}",
     "dist/*.{css,js,map}",
     "src"
@@ -46,12 +47,20 @@
       "src",
       "public"
     ],
-    "ext": "scss,pug,js,json,mjs",
+    "ext": "scss,html,ts,json,cjs",
     "ignore": [
       ".cache/**"
     ],
     "delay": 1500
   },
+  "publish": [
+    "dist/mojo.css",
+    "dist/mojo.css.map",
+    "dist/fonts/icons",
+    "dist/fonts/Jost",
+    "dist/fonts/Saira",
+    "dist/fonts/Space_Grotesk"
+  ],
   "devDependencies": {
     "@ramirezcgn/fantasticon": "^2.0.1",
     "@squirrel-forge/build-scss": "^0.8.4",
@@ -63,15 +72,18 @@
     "asciiart-logo": "^0.2.7",
     "browser-sync": "3.0.2",
     "bundlesize": "^0.18.1",
+    "bunyan": "^1.8.15",
     "chalk": "^4.1.0",
     "clean-css-cli": "^5.6.3",
     "copyfiles": "^2.4.1",
     "crypto": "^1.0.1",
     "dotenv": "^16.3.1",
-    "eslint": "^8.0.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard-with-typescript": "^43.0.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-promise": "^6.0.0",
     "fs-extra": "^11.2.0",
     "fs-jetpack": "^5.1.0",
@@ -88,6 +100,11 @@
     "node-html-parser": "^6.1.12",
     "nodemon": "^3.0.2",
     "npm-run-all": "^4.1.5",
+    "oci-common": "^2.79.1",
+    "oci-identity": "^2.79.1",
+    "oci-objectstorage": "^2.79.1",
+    "prettier": "^3.2.5",
+    "prettier-eslint": "^16.3.0",
     "pug": "^3.0.2",
     "quartz": "^0.0.1",
     "recursive-copy": "^2.0.14",
@@ -106,7 +123,6 @@
     "nouislider": "^15.7.1",
     "postcss": "^8.0.0",
     "postcss-cli": "^11.0.0",
-    "prettier": "^3.2.5",
     "sass": "^1.66.1",
     "sass-loader": "^13.3.2",
     "sass-unused": "^0.5.0",

@@ -14,20 +14,20 @@
 // const chalk = require("chalk");
 // const cliSelect = require("cli-list-select");
 
-const jetpack = require("fs-jetpack");
-const logo = require("asciiart-logo");
-const chalk = require("chalk");
-const crypto = require("crypto");
-const fs = require("fs");
-const cg = require("../package.json");
-const path = require("path");
-const bannerFile = "./_header.txt";
+const jetpack = require("fs-jetpack")
+const logo = require("asciiart-logo")
+const chalk = require("chalk")
+const crypto = require("crypto")
+const fs = require("fs")
+const cg = require("../package.json")
+const path = require("path")
+const bannerFile = "./_header.txt"
 
-const good = chalk.bold.green;
-const info = chalk.bold.cyan;
-const bad = chalk.bold.red;
-const vapor = chalk.bold.magenta;
-const paper = chalk.bold.white;
+const good = chalk.bold.green
+const info = chalk.bold.cyan
+const bad = chalk.bold.red
+const vapor = chalk.bold.magenta
+const paper = chalk.bold.white
 
 /**
  * Brief description of the function here.
@@ -48,13 +48,13 @@ const textUI = {
         margin: 2,
         borderColor: "black",
         logoColor: "bold-cyan",
-        textColor: "bold-magenta",
+        textColor: "bold-magenta"
       })
         .right("ver: " + pc.version)
         .emptyLine()
         .center(pc.description)
         .render()
-    );
+    )
   },
   outputMiniHeader(pc) {
     console.log(
@@ -65,19 +65,19 @@ const textUI = {
         padding: 2,
         margin: 2,
         borderColor: "black",
-        logoColor: "bold-cyan",
+        logoColor: "bold-cyan"
       })
         .emptyLine()
         .render()
-    );
+    )
   },
   headerLog(text, hC = 0) {
     // prettier-ignore
     let headerCount = ["⚀","⚁","⚂","⚃","⚄","⚅","⚀⚅","⚁⚅","⚂⚅","⚃⚅","⚄⚅","⚅⚅"];
 
-    let bSpace = " ";
+    let bSpace = " "
     if (hC < 7) {
-      bSpace = " ◼";
+      bSpace = " ◼"
     }
 
     console.log(
@@ -86,118 +86,119 @@ const textUI = {
           headerCount[hC] +
           " ◼◼◼◼ ◼◼◼◼◼◼◼◼ ◼◼"
       )
-    );
+    )
 
-    console.log(good("   " + text));
+    console.log(good("  " + text))
     console.log(
       info(
-        "  ◼◼◼ ◼◼◼ ◼◼◼◼◼◼◼◼◼◼◼◼ ◼◼ ◼◼◼◼◼◼ ◼◼◼ ◼◼◼◼◼◼" + bSpace + "◼◼◼◼◼◼◼◼ ◼◼◼"
+        "  ◼◼◼ ◼◼◼ ◼◼◼◼◼◼◼◼◼◼◼◼ ◼◼ ◼◼◼◼◼◼ ◼◼◼ ◼◼◼◼◼◼" +
+          bSpace +
+          "◼◼◼◼◼◼◼◼ ◼◼◼"
       )
-    );
-    console.log(" ");
+    )
+    console.log(" ")
   },
   statusTxt(text) {
-    console.log(info("  [INFO]  ") + "  " + vapor(text));
+    console.log(info("  [INFO]  ") + vapor(text))
   },
   taskTxt(text) {
-    console.log(good("  [ OK ]  ") + "  " + good(text));
+    console.log(good("  [ OK ]  ") + good(text))
   },
   errorTxt(text) {
-    console.log(bad("  [FAIL]  ") + "  " + bad(text));
+    console.log(bad("  [FAIL]  ") + bad(text))
   },
   basicMsg(text) {
-    console.log(" ");
-    console.log("  " + paper(text));
+    console.log("  " + paper(text))
   },
   quoteString(string) {
-    return "'" + string + "'";
+    return "'" + string + "'"
   },
   scssVar(name, value, quotes = false) {
-    let scssString = "";
+    let scssString = ""
     if (quotes !== false) {
-      scssString = "$" + name + ': "' + value + '" !default;';
+      scssString = "$" + name + ': "' + value + '" !default;'
     } else {
-      scssString = "$" + name + ": " + value + " !default;";
+      scssString = "$" + name + ": " + value + " !default;"
     }
 
-    return scssString;
+    return scssString
   },
   makeADate() {
     // prettier-ignore
     const monthNames = ["JAN","FEB","MAR","APR","MAY","JUNE","JULY","AUG","SEPT","OCT","NOV","DEC"];
 
-    let date_ob = new Date();
-    let date = ("0" + date_ob.getDate()).slice(-2);
-    let month = monthNames[date_ob.getMonth()];
-    let year = date_ob.getFullYear();
-    let dateString = month + " " + date + " " + year;
+    let date_ob = new Date()
+    let date = ("0" + date_ob.getDate()).slice(-2)
+    let month = monthNames[date_ob.getMonth()]
+    let year = date_ob.getFullYear()
+    let dateString = month + " " + date + " " + year
 
-    return dateString;
+    return dateString
   },
   hashString(string, limit = false) {
     // change to 'md5' if you want an MD5 hash
-    var hash = crypto.createHash("sha256");
+    var hash = crypto.createHash("sha256")
 
     // change to 'binary' if you want a binary hash.
-    hash.setEncoding("hex");
+    hash.setEncoding("hex")
 
     // the text that you want to hash
-    hash.write(string);
+    hash.write(string)
 
     // very important! You cannot read from the stream until you have called end()
-    hash.end();
+    hash.end()
 
     // and now you get the resulting hash
-    let sha256sum = hash.read();
+    let sha256sum = hash.read()
 
     if (limit) {
-      sha256sum = sha256sum.substring(0, limit);
+      sha256sum = sha256sum.substring(0, limit)
     }
 
-    return sha256sum;
+    return sha256sum
   },
   templateNewFile(newFilePath, fileDesc) {
-    let newFileName = path.basename(newFilePath);
-    let tempFilePath = path.resolve(__dirname, "../../.cache/" + newFileName);
-    let bannerFilePath = path.resolve(__dirname, bannerFile);
+    let newFileName = path.basename(newFilePath)
+    let tempFilePath = path.resolve(__dirname, "../../.cache/" + newFileName)
+    let bannerFilePath = path.resolve(__dirname, bannerFile)
 
     //this.statusTxt("Creating New Templated File");
 
     // Setup New File from Template
     //jetpack.copy(bannerFile, tempFilePath, { overwrite: true });
 
-    let fileData = jetpack.read(bannerFilePath);
+    let fileData = jetpack.read(bannerFilePath)
 
-    let dString = this.makeADate();
+    let dString = this.makeADate()
 
-    let result3 = fileData.replace(/<<NAME>>/g, newFileName);
-    let result2 = result3.replace(/<<DATE>>/g, dString);
-    let result1 = result2.replace(/<<DESCRIPTION>>/g, fileDesc);
-    let result0 = result1.replace(/<<VERSION>>/g, cg.version);
+    let result3 = fileData.replace(/<<NAME>>/g, newFileName)
+    let result2 = result3.replace(/<<DATE>>/g, dString)
+    let result1 = result2.replace(/<<DESCRIPTION>>/g, fileDesc)
+    let result0 = result1.replace(/<<VERSION>>/g, cg.version)
 
     // Replace templated data with the real thing
     if (jetpack.exists(tempFilePath)) {
-      jetpack.remove(tempFilePath);
+      jetpack.remove(tempFilePath)
     }
-    jetpack.write(tempFilePath, result0);
+    jetpack.write(tempFilePath, result0)
 
     // Add some space to make room for the actual SASS data
-    jetpack.append(tempFilePath, "\r\n");
+    jetpack.append(tempFilePath, "\r\n")
 
-    jetpack.move(tempFilePath, newFilePath, { overwrite: true });
+    jetpack.move(tempFilePath, newFilePath, { overwrite: true })
   },
   blankNewFile(newFilePath) {
     //let filePath = path.resolve(__dirname, "../../" + newFilePath);
 
     if (jetpack.exists(newFilePath)) {
-      jetpack.remove(newFilePath);
+      jetpack.remove(newFilePath)
     }
 
-    jetpack.write(newFilePath, "");
-  },
-};
+    jetpack.write(newFilePath, "")
+  }
+}
 
 //outputHeader(config);
 
 // export the courses so other modules can use them
-exports.textUI = textUI;
+exports.textUI = textUI

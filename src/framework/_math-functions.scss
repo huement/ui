@@ -92,29 +92,29 @@
 @function strip-units($value, $newUnit: "") {
   //https://www.sitepoint.com/understanding-sass-units/
   $units: (
-    "px": 0px,
-    "cm": 0cm,
-    "mm": 0mm,
+    "px": 0,
+    "cm": 0,
+    "mm": 0,
     "%": 0%,
-    "ch": 0ch,
-    "in": 0in,
-    "em": 0em,
-    "rem": 0rem,
-    "pt": 0pt,
-    "pc": 0pc,
-    "ex": 0ex,
-    "vw": 0vw,
-    "vh": 0vh,
-    "vmin": 0vmin,
-    "vmax": 0vmax,
+    "ch": 0,
+    "in": 0,
+    "em": 0,
+    "rem": 0,
+    "pt": 0,
+    "pc": 0,
+    "ex": 0,
+    "vw": 0,
+    "vh": 0,
+    "vmin": 0,
+    "vmax": 0,
     "deg": 0deg,
     "turn": 0turn,
     "rad": 0rad,
     "grad": 0grad,
     "s": 0s,
     "ms": 0ms,
-    "Hz": 0Hz,
-    "kHz": 0kHz,
+    "Hz": 0hz,
+    "kHz": 0khz,
     "dppx": 0dppx,
     "dpcm": 0dpcm,
     "dpi": 0dpi,
@@ -149,15 +149,15 @@
 @function _rem($value) {
   @if (unit($value) == "rem") {
     @return $value;
-  } @else if(unit($value) == "px") {
+  } @else if (unit($value) == "px") {
     @return px_rem($value);
-  } @else if(unit($value) == "%") {
+  } @else if (unit($value) == "%") {
     @return percent_rem($value);
-  } @else if(unitless($value)) {
-    @warn 'Assuming #{$value} to be in `rem`s';
+  } @else if (unitless($value)) {
+    @warn "Assuming #{$value} to be in `rem`s";
     @return $value * 1rem; // assume rem if unitless
   } @else {
-    @error '#{$value} is an invalid value for function `_rem`. Use `rem`, `px`, `%`, or an unitless number instead.';
+    @error "#{$value} is an invalid value for function `_rem`. Use `rem`, `px`, `%`, or an unitless number instead.";
   }
 }
 
@@ -176,15 +176,15 @@
 @function _px($value) {
   @if (unit($value) == "rem") {
     @return rem_px($value);
-  } @else if(unit($value) == "px") {
+  } @else if (unit($value) == "px") {
     @return $value;
-  } @else if(unit($value) == "%") {
+  } @else if (unit($value) == "%") {
     @return percent_px($value);
-  } @else if(unitless($value)) {
-    @warn 'Assuming #{$value} to be in `rem`s';
+  } @else if (unitless($value)) {
+    @warn "Assuming #{$value} to be in `rem`s";
     @return rem_px($value); // assume rem if unitless
   } @else {
-    @error '#{$value} is an invalid value for function `_px`. Use `rem`, `px`, `%`, or an unitless number instead.';
+    @error "#{$value} is an invalid value for function `_px`. Use `rem`, `px`, `%`, or an unitless number instead.";
   }
 }
 
@@ -203,15 +203,15 @@
 @function _percent($value) {
   @if (unit($value) == "rem") {
     @return percent_px($value);
-  } @else if(unit($value) == "px") {
+  } @else if (unit($value) == "px") {
     @return percent_px($value);
-  } @else if(unit($value) == "%") {
+  } @else if (unit($value) == "%") {
     @return $value;
-  } @else if(unitless($value)) {
-    @warn 'Assuming #{$value} to be in `rem`s';
+  } @else if (unitless($value)) {
+    @warn "Assuming #{$value} to be in `rem`s";
     @return rem_percent($value); // assume rem if unitless
   } @else {
-    @error '#{$value} is an invalid value for function `_percent`. Use `rem`, `px`, `%`, or an unitless number instead.';
+    @error "#{$value} is an invalid value for function `_percent`. Use `rem`, `px`, `%`, or an unitless number instead.";
   }
 }
 
@@ -235,18 +235,18 @@
 ///   =>0.5turn
 @function unitConvert($value, $unit) {
   $valid-units: (
-    px: 0px,
-    pt: 0pt,
-    pc: 0pc,
-    mm: 0mm,
-    cm: 0cm,
-    in: 0in,
+    px: 0,
+    pt: 0,
+    pc: 0,
+    mm: 0,
+    cm: 0,
+    in: 0,
     deg: 0deg,
     grad: 0grad,
     rad: 0rad,
     turn: 0turn,
-    Hz: 0Hz,
-    kHz: 0kHz,
+    hz: 0hz,
+    khz: 0khz,
     ms: 0ms,
     s: 0s,
   );

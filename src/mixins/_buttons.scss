@@ -9,19 +9,19 @@
   @include gradient-bg($background);
   @include box-shadow($btn-box-shadow);
 
-  @include hover {
+  @include hover () {
     color: color-yiq($hover-background);
     @include gradient-bg($hover-background);
     border-color: $hover-border;
     @if $enable-shadows {
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05), $hover-box-shadow;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, .05), $hover-box-shadow;
     }
   }
 
   &:focus,
   &.focus {
     @if $enable-shadows {
-      box-shadow: 0 0 0 3px rgba($background, .15), 0 3px 15px rgba($background, 0.2), 0 2px 5px rgba($black, .1);
+      box-shadow: 0 0 0 3px rgba($background, .15), 0 3px 15px rgba($background, .2), 0 2px 5px rgba($black, .1);
     }
     @else {
       box-shadow: 0 0 0 3px rgba($background, .5);
@@ -31,19 +31,19 @@
   // Disabled comes first so active can properly restyle
   &.disabled,
   &:disabled {
+    cursor: not-allowed;
     background-color: $background;
     border-color: $border;
     box-shadow: none;
-    cursor: not-allowed;
   }
 
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
-  .show>&.dropdown-toggle {
+  .show > &.dropdown-toggle {
     color: color-yiq($active-background);
     background-color: $active-background;
-    border-color: $active-border;
     background-image: none;
+    border-color: $active-border;
     box-shadow: $active-box-shadow !important;
   }
 }
@@ -54,23 +54,23 @@
   @if ($color==theme-color("light") or $color==$white) {
     $button-text-color: color-yiq($color);
   }
+  color: $button-text-color;
 
   background-color: transparent;
   background-image: none;
   border-color: $color;
-  color: $button-text-color;
 
   &:hover {
     color: color-yiq($color);
     background-color: $active-background;
     border-color: $active-border;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05), 0 4px 10px rgba($color, .25);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .05), 0 4px 10px rgba($color, .25);
   }
 
   &:focus,
   &.focus {
     @if $enable-shadows {
-      box-shadow: 0 0 0 3px rgba($color, .15), 0 3px 15px rgba($color, 0.2), 0 2px 5px rgba($black, .1) !important;
+      box-shadow: 0 0 0 3px rgba($color, .15), 0 3px 15px rgba($color, .2), 0 2px 5px rgba($black, .1) !important;
     }
     @else {
       box-shadow: 0 0 0 3px rgba($color, .5) !important;
@@ -86,7 +86,7 @@
 
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
-  .show>&.dropdown-toggle {
+  .show > &.dropdown-toggle {
     color: color-yiq($active-background);
     background-color: $active-background;
     border-color: $active-border;

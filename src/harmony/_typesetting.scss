@@ -3,17 +3,17 @@
 // =============================================================================
 
 .fraction {
+  font-feature-settings: "kern", "liga", "clig", "calt", "frac";
   font-kerning: normal;
   font-variant-ligatures: common-ligatures, contextual;
   font-variant-numeric: diagonal-fractions;
-  font-feature-settings: "kern", "liga", "clig", "calt", "frac";
 }
 
 .fn {
+  font-feature-settings: "kern", "liga", "clig", "calt", "subs";
   font-kerning: normal;
   font-variant-ligatures: common-ligatures, contextual;
   font-variant-position: sub;
-  font-feature-settings: "kern", "liga", "clig", "calt", "subs";
 }
 
 .text-break {
@@ -28,20 +28,20 @@
 
 // Double quote (") marks
 .pull-double {
-  margin-left: -0.46em;
+  margin-left: -.46em;
 }
 
 .push-double {
-  margin-right: 0.46em;
+  margin-right: .46em;
 }
 
 // Single quote (') marks
 .pull-single {
-  margin-left: -0.27em;
+  margin-left: -.27em;
 }
 
 .push-single {
-  margin-right: 0.27em;
+  margin-right: .27em;
 }
 
 .pull-double,
@@ -56,36 +56,36 @@
 .pull-V,
 .pull-W,
 .pull-Y {
-  margin-left: -0.07em;
+  margin-left: -.07em;
 }
 
 .push-T,
 .push-V,
 .push-W,
 .push-Y {
-  margin-right: 0.07em;
+  margin-right: .07em;
 }
 
 .pull-O,
 .pull-C,
 .pull-o,
 .pull-c {
-  margin-left: -0.04em;
+  margin-left: -.04em;
 }
 
 .push-O,
 .push-C,
 .push-o,
 .push-c {
-  margin-right: 0.04em;
+  margin-right: .04em;
 }
 
 .pull-A {
-  margin-left: -0.03em;
+  margin-left: -.03em;
 }
 
 .push-A {
-  margin-right: 0.03em;
+  margin-right: .03em;
 }
 
 .drop-cap {
@@ -99,13 +99,13 @@
 }
 
 .upper {
-  letter-spacing: 0.1rem;
   text-transform: uppercase;
+  letter-spacing: .1rem;
 }
 
 .small-caps {
   font-feature-settings: "smcp" 1, "kern" 1;
-  letter-spacing: 0.1rem;
+  letter-spacing: .1rem;
 }
 
 .lining-numerals {

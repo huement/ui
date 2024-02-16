@@ -21,12 +21,12 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
     @if global-variable-exists(HeadingFont) {
       font-family: map.get($HeadingFont, "family");
     }
-    font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern", "liga", "clig", "calt", "dlig";
     font-kerning: normal;
     font-variant-ligatures: common-ligatures, contextual, discretionary-ligatures;
-    font-feature-settings: "kern", "liga", "clig", "calt", "dlig";
     word-break: break-word;
+    font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
 
     /* <small> subheadings */
     small,
@@ -34,7 +34,7 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
     .subtitle {
       display: block;
       font-size: 76% !important;
-      line-height: 0.6 !important;
+      line-height: .6 !important;
     }
 
     /* very cool link effect */
@@ -61,7 +61,7 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
   //
   $counter: 0;
   $weights: 300, 500, 700;
-  $weightAdjust: computeDynamicWeight(length($chords), length($weights));
+  $weightAdjust: computedynamicweight(length($chords), length($weights));
   @debug "Every #{$weightAdjust} breakpoints, increase font weight";
   $weightNthCounter: 1;
   $weightCurrent: 0;
@@ -146,7 +146,7 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
 
   @each $hfk, $hfm in $headingFontMap {
     $top: 0;
-    $btm: 0.25;
+    $btm: .25;
 
     // prettier-ignore
     @if ($hfk == "h1"){ $top: 1; $btm: 2; }
@@ -155,7 +155,7 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
     // prettier-ignore
     @if ($hfk == "h3"){ $top: 0; $btm: 1; }
     // prettier-ignore
-    @if ($hfk == "h4"){ $top: 0; $btm: 0.5; }
+    @if ($hfk == "h4"){ $top: 0; $btm: .5; }
 
     $HLH: nth(map-values($headingLineMap), $hLC);
     $HTOP: $top * $bpLineHeight;
@@ -183,8 +183,6 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
         line-height: decimal_round(resolve($HLH), 2);
         line-height: decimal_round(px_rem(resolve($HLH), strip-units($bpFontSize)), 2);
         font-weight: $dynamicFontWeight;
-        margin-top: $HMarginTop;
-        margin-bottom: $HMarginBtm;
         margin-top: $HTOP;
         margin-bottom: $HBTM;
         padding: 0;

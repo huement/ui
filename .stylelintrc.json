@@ -1,14 +1,14 @@
 {
-	"extends": [
+  "extends": [
     "stylelint-config-twbs-bootstrap"
   ],
-	"customSyntax": "postcss-scss",
-	"reportInvalidScopeDisables": true,
+  "customSyntax": "postcss-scss",
+  "reportInvalidScopeDisables": true,
   "reportNeedlessDisables": true,
-  "plugins": ["stylelint-scss"],
+  "plugins": [ "stylelint-scss" ],
   "rules": {
-		"at-rule-no-unknown": null,
-		"scss/at-rule-no-unknown": true,
-		"scss/selector-no-redundant-nesting-selector": true
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "scss/selector-no-redundant-nesting-selector": true
   }
 }

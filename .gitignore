@@ -8,13 +8,15 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Built Items to ignore
-dist/demo
-dist/docs
-dist/favicon
-dist/fonts
-dist/*.html
-dist/*.png
-dist/*.svg
+dist
+# dist/cdn-test
+# dist/demo
+# dist/docs
+# dist/favicon
+# dist/fonts
+# # dist/*.html
+# dist/*.png
+# dist/*.svg
 
 node_modules/
 node_modules1/
@@ -56,3 +58,5 @@ tokens/icons/raw/**/*.svg
 !./**/*.gitkeep
 !tokens/icons/raw/.gitkeep
 !tokens/icons/clean/.gitkeep
+bin/getFiles.cjs
+bin/upload-oc.cjs

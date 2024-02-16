@@ -3,9 +3,9 @@
 
   width: 0;
   height: 0;
-  border-left: $size solid transparent;
   border-right: $size solid transparent;
   border-bottom: $base solid $color;
+  border-left: $size solid transparent;
 }
 
 @mixin getTriangleDown($size, $color) {
@@ -13,9 +13,9 @@
 
   width: 0;
   height: 0;
-  border-left: $size solid transparent;
-  border-right: $size solid transparent;
   border-top: $base solid $color;
+  border-right: $size solid transparent;
+  border-left: $size solid transparent;
 }
 
 @mixin getTriangleRight($size, $color) {
@@ -24,8 +24,8 @@
   width: 0;
   height: 0;
   border-top: $size solid transparent;
-  border-left: $base solid transparent;
   border-bottom: $size solid $color;
+  border-left: $base solid transparent;
 }
 
 @mixin getTriangleLeft($size, $color) {
@@ -42,48 +42,49 @@
   /* Modify size here: */
   --size: $size;
   --quarter-size: calc(var(--size) / 4);
+  position: relative;
+  box-sizing: content-box;
+  width: calc(var(--size) / 2);
+  height: 0;
+  margin: 0 0 calc(var(--size) / 2) 0;
+  border-color: transparent transparent $color transparent;
 
   border-style: solid;
-  border-color: transparent transparent $color transparent;
   border-width: 0 var(--quarter-size) var(--quarter-size) var(--quarter-size);
-  height: 0;
-  width: calc(var(--size) / 2);
-  box-sizing: content-box;
-  position: relative;
-  margin: 0 0 calc(var(--size) / 2) 0;
 
-  &:after {
-    content: "";
+  &::after {
     position: absolute;
     top: var(--quarter-size);
     left: calc(var(--quarter-size) * -1);
     width: 0;
     height: 0;
-    border-style: solid;
+    content: "";
     border-color: $color transparent transparent transparent;
-    border-width: calc(var(--size) * 0.7) calc(var(--size) / 2) 0
+    border-style: solid;
+    border-width:
+      calc(var(--size) * .7) calc(var(--size) / 2) 0
       calc(var(--size) / 2);
   }
 }
 
 @mixin getTVScreen($size, $color, $text: white) {
-  $height: calc($size * 0.8);
+  $height: calc($size * .8);
 
   position: relative;
   width: $size;
   height: $height;
-  background: $color;
-  border-radius: 50% / 10%;
   color: $text;
   text-align: center;
+  background: $color;
+  border-radius: 50% / 10%;
 
-  &:before {
-    content: "";
+  &::before {
     position: absolute;
     top: 10%;
-    bottom: 10%;
     right: -5%;
+    bottom: 10%;
     left: -5%;
+    content: "";
     background: inherit;
     border-radius: 5% / 50%;
   }

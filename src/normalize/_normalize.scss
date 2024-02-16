@@ -1,16 +1,16 @@
 /*! normalize-scss | MIT/GPLv2 License | bit.ly/normalize-scss */
-@use 'sass:math';
+@use "sass:math";
 
-@import 'variables';
-@import 'vertical-rhythm';
+@import "variables";
+@import "vertical-rhythm";
 
 // If we've customized any font variables, we'll need extra properties.
 @if $normalize-vertical-rhythm==null and
   (
     $base-line-height
-      !=24px or
-      $base-unit !=
-      'em' or
+    !=24px or
+    $base-unit !=
+      "em" or
       $h2-font-size
       !=1.5 *
       $base-font-size or
@@ -21,10 +21,10 @@
       !=1 *
       $base-font-size or
       $h5-font-size
-      !=0.83 *
+      !=.83 *
       $base-font-size or
       $h6-font-size
-      !=0.67 *
+      !=.67 *
       $base-font-size
   )
 {
@@ -57,13 +57,16 @@ html {
     // Establish a vertical rhythm unit using $base-font-size and
     // $base-line-height variables.
     line-height: math.div($base-line-height, $base-font-size) * 1em;
+
     /* 1 */
   } @else {
     line-height: 1.15;
+
     /* 1 */
   }
 
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+
   /* 2 */
 }
 
@@ -102,7 +105,7 @@ h1 {
     /* Set 1 unit of vertical rhythm on the top and bottom margins. */
     @include normalize-margin(1 0, $h1-font-size);
   } @else {
-    margin: 0.67em 0;
+    margin: .67em 0;
   }
 }
 
@@ -189,10 +192,13 @@ h1 {
 
 hr {
   box-sizing: content-box;
+
   /* 1 */
   height: 0;
+
   /* 1 */
   overflow: visible;
+
   /* 2 */
 }
 
@@ -222,8 +228,10 @@ main {
 
 %monospace {
   font-family: monospace, monospace;
+
   /* 1 */
   font-size: 1em;
+
   /* 2 */
 }
 
@@ -251,11 +259,13 @@ a {
  */
 
 abbr[title] {
-  border-bottom: none;
   /* 1 */
   text-decoration: underline;
+
   /* 2 */
   text-decoration: underline dotted;
+  border-bottom: none;
+
   /* 2 */
 }
 
@@ -289,18 +299,18 @@ small {
 
 sub,
 sup {
+  position: relative;
   font-size: 75%;
   line-height: 0;
-  position: relative;
   vertical-align: baseline;
 }
 
 sub {
-  bottom: -0.25em;
+  bottom: -.25em;
 }
 
 sup {
-  top: -0.5em;
+  top: -.5em;
 }
 
 /* Embedded content
@@ -358,17 +368,22 @@ select,
 textarea {
   @if $normalize-vertical-rhythm {
     @include normalize-line-height($base-font-size);
+
     /* 1 */
   } @else {
     line-height: 1.15;
+
     /* 1 */
   }
 
-  font-family: inherit;
-  /* 1 */
-  font-size: 100%;
   /* 1 */
   margin: 0;
+
+  font-family: inherit;
+
+  /* 1 */
+  font-size: 100%;
+
   /* 2 */
 }
 
@@ -396,23 +411,23 @@ select {
  */
 
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-  -webkit-appearance: button;
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  appearance: button;
 }
 
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+[type="button"],
+[type="reset"],
+[type="submit"] {
   /**
    * Remove the inner border and padding in Firefox.
    */
 
   &::-moz-focus-inner {
-    border-style: none;
     padding: 0;
+    border-style: none;
   }
 
   /**
@@ -437,11 +452,13 @@ input {
  * 2. Remove the padding in IE 10.
  */
 
-[type='checkbox'],
-[type='radio'] {
+[type="checkbox"],
+[type="radio"] {
   box-sizing: border-box;
+
   /* 1 */
   padding: 0;
+
   /* 2 */
 }
 
@@ -449,8 +466,8 @@ input {
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
 
-[type='number']::-webkit-inner-spin-button,
-[type='number']::-webkit-outer-spin-button {
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -459,10 +476,12 @@ input {
  * 2. Correct the outline style in Safari.
  */
 
-[type='search'] {
-  -webkit-appearance: textfield;
+[type="search"] {
+  appearance: textfield;
+
   /* 1 */
   outline-offset: -2px;
+
   /* 2 */
 
   /**
@@ -470,7 +489,7 @@ input {
    */
 
   &::-webkit-search-decoration {
-    -webkit-appearance: none;
+    appearance: none;
   }
 }
 
@@ -480,9 +499,10 @@ input {
  */
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button;
   /* 1 */
   font: inherit;
+  appearance: button;
+
   /* 2 */
 }
 
@@ -491,7 +511,7 @@ input {
  */
 
 fieldset {
-  padding: 0.35em 0.75em 0.625em;
+  padding: .35em .75em .625em;
 }
 
 /**
@@ -503,16 +523,22 @@ fieldset {
 
 legend {
   box-sizing: border-box;
+
   /* 1 */
   display: table;
+
   /* 1 */
   max-width: 100%;
+
   /* 1 */
   padding: 0;
+
   /* 3 */
   color: inherit;
+
   /* 2 */
   white-space: normal;
+
   /* 1 */
 }
 
@@ -559,8 +585,10 @@ summary {
      */
 
     @include normalize-margin(1 0);
+
     /* 1 */
     padding: 0 0 0 $indent-amount;
+
     /* 2 */
 
     /**

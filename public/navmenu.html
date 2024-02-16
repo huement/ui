@@ -14,8 +14,8 @@
   <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">
   <link href="/favicon/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
-  <link href="/css/mojo.css" rel="stylesheet">
-  <link href="/css/icons.css" rel="stylesheet">
+  <link href="/css/mojo.css?ver=0.0.13" rel="stylesheet">
+  <link href="/hi/icons.css?ver=0.0.13" rel="stylesheet">
   <style>
     @keyframes fadeIn {
       from {
@@ -60,11 +60,10 @@
         <a class="navbar-brand d-none d-lg-block" href="#">HUEMENT</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="hui hui-bacon-cheeseburger"></span>
           <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand d-md-block d-sm-block d-lg-none mx-md-auto mx-sm-auto mx-auto" href="#">HUEMENT</a>
-        <span class="mi mi-search d-md-inline d-sm-inline d-inline d-lg-none"></span>
+        <a class="d-md-inline d-sm-inline d-inline d-lg-none" href="#"><i class="hui hui-search"></i></a>
         <div class="overlay d-flex d-lg-none"></div>
         <div class="order-lg-2 bg-primary d-lg-flex w-100 sidebar pb-3 pb-lg-0" id="navbarSupportedContent">
           <ul class="navbar-nav ml-lg-auto mb-2 mb-lg-0">
@@ -72,7 +71,7 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><i class="mi-fingerprint mi"></i></a>
+              <a class="nav-link" href="#"><i class="hui hui-bacon-cheeseburger"></i></a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -111,7 +110,8 @@
             ...
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="mi-fingerprint mi"></i></button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
+                class="hui hui-bacon-cheeseburger"></i></button>
             <button type="button" class="btn btn-primary">SEARCH</button>
           </div>
         </div>

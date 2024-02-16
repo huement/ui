@@ -43,13 +43,13 @@ $position-values: (
 // Fonts
 //============================================================
 // prettier-ignore
-$SansStack:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$SansStack:  -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 
 // prettier-ignore
-$MonoStack: SFMono-Regular, Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace !default;
+$MonoStack: sfmono-regular, menlo, monaco, consolas, "Andale Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace !default;
 
 // prettier-ignore
-$SerifStack: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$SerifStack: "Iowan Old Style", "Apple Garamond", baskerville, "Times New Roman", "Droid Serif", times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 
 $not-integer-txt: " value breaks vertical rhythm. Use an integer (whole number) for $lines." !default;
 
@@ -58,7 +58,7 @@ $SocialColors: (
   adn: #504e54,
   apple: #aeb5c5,
   android: #a5c63b,
-  bitbucket: #003366,
+  bitbucket: #036,
   bitcoin: #f7931a,
   css3: #1572b7,
   dribbble: #f46899,
