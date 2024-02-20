@@ -23,12 +23,12 @@
  * @version 05/03/2022_09.25
  */
 
-const args = require("yargs").argv
-const { textUI } = require("./tui")
-const TokenColors = require("./colors")
+const args = require('yargs').argv
+const { textUI } = require('./tui')
+const TokenColors = require('./colors')
 // const TokenFonts = require("./fonts");
 // const TokenChords = require("./chords");
-const cg = require("../package.json")
+const cg = require('../package.json')
 
 // TODO implement this instead of "warPig"
 // const gdb = require("../../gdb.json");
@@ -38,20 +38,20 @@ const cg = require("../package.json")
 
 // TODO make an icon script that turns SVGs into icon font, and then into SCSS imports.
 
-process.on("exit", function (code) {
-  return console.log(`Exiting with code: ${code}`)
+process.on('exit', function (code) {
+    return console.log(`Exiting with code: ${code}`)
 })
 
-let colorList = "../tokens/colors.json"
-let colorSCSS = "build/scss/core/_palette.scss"
+let colorList = '../tokens/colors.json'
+let colorSCSS = 'build/scss/core/_palette.scss'
 
 const tc = new TokenColors(colorList, colorSCSS)
 tc.assemblePalette()
 tc.addDefaultSass()
 
 if (args.fonts !== undefined) {
-  const tf = new TokenFonts("fontPath", "fontTarget")
-  tf.assembleFontFiles()
+    const tf = new TokenFonts('fontPath', 'fontTarget')
+    tf.assembleFontFiles()
 }
 
 // Design Token Chords

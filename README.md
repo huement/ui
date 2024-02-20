@@ -1,14 +1,12 @@
 ```shell
 
-██╗  ██╗██╗   ██╗███████╗███╗   ███╗███████╗███╗   ██╗████████╗    ██╗   ██╗██╗
-██║  ██║██║   ██║██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝    ██║   ██║██║
-███████║██║   ██║█████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║       ██║   ██║██║
-██╔══██║██║   ██║██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║       ██║   ██║██║
-██║  ██║╚██████╔╝███████╗██║ ╚═╝ ██║███████╗██║ ╚████║   ██║       ╚██████╔╝██║
-╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝        ╚═════╝ ╚═╝
+ ░▄▀▄░█░█░█░█░█▀▀░█▄█░█▀▀░█▀█░▀█▀░░░█░█░█░▀█▀░
+ ░█▀▀░█▀█░█░█░█▀▀░█░█░█▀▀░█░█░░█░░▄▀░░█░█░░█░░
+ ░░▀░░▀░▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀░░▀░░▀░░░▀▀▀░▀▀▀░
+ @huement/ui            HUEMENT USER INTERFACE
 
-             ❮ ❰ ❬  HARMONIC TYPOGRAPHY FOCUSED 'CONTENT UI'  ❭ ❱ ❯
 ```
+
 <br />
 
 <p align="center">
@@ -20,8 +18,13 @@
 
 <br />
 
-@huement/ui is a minimal front end, with an emphasis on creating a 'visually pleasing' typographic system. When used in a text heavy content setting, such as a blog page, this greatly improves the overall reading experience, experienced by the end users. Got it? Good.
-Thats the 10,000 ft overview. Zooming into the project, it is made up a few easily configured options, that will then produce a customized CSS file that you can drop into any HTML application.
+**@huement/ui [hui]** is a minimal bootstrap 5 sass based front-end framework, with an emphasis on creating a 'visually pleasing' typographic system. When used in a text heavy content setting, such as a blog page, this greatly improves the overall reading experience, experienced by the end users.
+
+@huement/ui is **not** a full featured theme for bootstrap 5, nor is it suitable for building complex applications with intricate ui's that process data and allow end users to perform actions. Instead, use it on a blog, or a simple landing page, a one off project index.html page etc. It really shines when it is used in a **TEXT heavy** environment.
+
+That is the 10,000 ft overview. More specifically, [hui] is easily configured via `$SCSS_Variables`, and when built, produces a customized CSS file _(and optionally a custom SVG based icon font)_. Simply load that resulting CSS file into whatever HTML5 based application you're developing and you're good to go!
+
+Got it? Good.
 
 ### Getting Started
 
@@ -40,16 +43,16 @@ Mileage may very, results not guaranteed. Use at your own risk, and wash your ha
 
 Here is an overview of the major sections
 
-1. **src**  ❱ ...
+1. **src** ❱ ...
 2. **public** ❱ ...
 3. **tokens** ❱ ...
-4. **web**   ❱ ...
+4. **web** ❱ ...
 
-------------------------
+---
 
 ### • src
 
-------------------------
+---
 
 ### ⬦ public
 
@@ -62,10 +65,9 @@ So the directory structure goes like this:
    ━━━▶ fonts
 ```
 
-------------------------
+---
 
 ### • web
-
 
 ## INSTALL
 
