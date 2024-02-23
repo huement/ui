@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 
 //
 // Vertical Rhythm
@@ -13,16 +13,16 @@
   }
   @if $unit == rem {
     @return math.div($value, $base-font-size) * 1rem;
-  }
-  @else if $unit == em {
+  } @else if $unit == em {
     @return math.div($value, $relative-to) * 1em;
-  } @else { // $unit == px
+  } @else {
+    // $unit == px
     @return $value;
   }
 }
 
 @mixin normalize-font-size($value, $relative-to: $base-font-size) {
-  @if unit($value) != "px" {
+  @if unit($value) != 'px' {
     @error "normalize-font-size() only supports px inputs. The typey library is better.";
   }
   font-size: normalize-rhythm($value, $relative-to);
@@ -31,10 +31,9 @@
 @mixin normalize-rhythm($property, $values, $relative-to: $base-font-size) {
   $value-list: $values;
   $sep: space;
-  @if type-of($values) == "list" {
+  @if type-of($values) == 'list' {
     $sep: list-separator($values);
-  }
-  @else {
+  } @else {
     $value-list: append((), $values);
   }
 

@@ -33,7 +33,7 @@
     @return (
       math.div(($MainLineHeight * strip-units($font-size)), math.div(strip-units($font-size), 2)) *
       math.div($units, 2) * (1 + math.div($px-offset, strip-units($font-size)))
-      ) + rem;
+    ) + rem;
   } @else {
     $vVal: $line-height-base * strip-units($font-size);
     $vDiv: strip-units($font-size) * .5;

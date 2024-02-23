@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/no-var-requires */
-
+const { textUI } = require('./tui.cjs')
 const updater = require('jsonfile-updater')
 
 const fs = require('fs')
@@ -20,5 +20,5 @@ updater('./package.json').set('buildNumber', newNumber, function (err) {
         return
     }
     const pkg = getParsedPackage()
-    console.log(pkg.buildNumber)
+    textUI.statusTxt(`Latest Build Number: ${pkg.buildNumber}`)
 })

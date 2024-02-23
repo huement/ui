@@ -40,7 +40,7 @@
     }
 
     // Exception for alerts with a light background.
-    @if $color == "light" {
+    @if $color == 'light' {
       color: color-yiq($value);
 
       .alert-link {

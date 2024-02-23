@@ -61,7 +61,8 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
   //
   $counter: 0;
   $weights: 300, 500, 700;
-  $weightAdjust: computedynamicweight(length($chords), length($weights));
+  // $weightAdjust: computedynamicweight(length($chords), length($weights));
+  $weightAdjust: decimal_round(math.div(6, 3), 0, ceil);
   @debug "Every #{$weightAdjust} breakpoints, increase font weight";
   $weightNthCounter: 1;
   $weightCurrent: 0;

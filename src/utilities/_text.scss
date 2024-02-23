@@ -2,22 +2,30 @@
 // Text utilities adjustments
 //
 
-.text-monospace { font-family: $font-family-monospace; }
+.text-monospace {
+  font-family: $font-family-monospace;
+}
 
 // Weight and italics
-.font-weight-normal { font-weight: $font-weight-normal; }
-.font-weight-bold   { font-weight: $font-weight-bold; }
+.font-weight-normal {
+  font-weight: $font-weight-normal;
+}
+.font-weight-bold {
+  font-weight: $font-weight-bold;
+}
 
 // Contextual colors
 @each $color, $value in $theme-colors {
-  @include text-emphasis-variant(".text-#{$color}", $value);
+  @include text-emphasis-variant('.text-#{$color}', $value);
 }
 
-.text-body { color: $body-color !important; }
+.text-body {
+  color: $body-color !important;
+}
 
 // Anchor white text hover adjustment
 a.text-white {
-  @include hover-focus () {
+  @include hover-focus() {
     color: darken($white, 10%) !important;
   }
 }
@@ -29,10 +37,12 @@ a.text-white {
 
 // Anchor black text hover adjustment
 a.text-black {
-  @include hover-focus () {
+  @include hover-focus() {
     color: darken($black, 10%) !important;
   }
 }
 
 // Text muted
-.text-muted { color: $text-muted !important; }
+.text-muted {
+  color: $text-muted !important;
+}

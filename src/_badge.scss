@@ -56,7 +56,7 @@ a.badge {
     color: $value;
 
     // Fix light outlined badges
-    @if ($value == theme-color("light")) {
+    @if ($value == theme-color('light')) {
       color: color-yiq($value);
     }
   }
