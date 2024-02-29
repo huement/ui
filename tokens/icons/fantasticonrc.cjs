@@ -4,6 +4,7 @@ module.exports = {
   fontTypes: ["ttf", "woff", "woff2"],
   assetTypes: ["css", "json", "html"],
   fontsUrl: "/fonts/icons",
+  normalize: true,
   formatOptions: {
     // Pass options directly to `svgicons2svgfont`
     json: {

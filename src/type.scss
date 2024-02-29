@@ -19,9 +19,9 @@
 @use 'sass:string';
 
 @import 'framework';
-@include mojoBanner('Harmonic Typography', '0.6.0');
+@include mojoBanner('Harmonic Typography', '0.2.1');
 @import 'root';
-@import 'normalize/normalize';
+@import 'thirdparty/normalize/normalize';
 @import 'kick-off';
 
 @if global-variable-exists(PrimaryFont) {

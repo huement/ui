@@ -43,6 +43,19 @@ async function finalize() {
         finalDirectory + '/icons.woff2'
     )
 
+    await copyIconFile(
+        inputDirectory + '/icons-s3.ttf',
+        finalDirectory + '/icons-s3.ttf'
+    )
+    await copyIconFile(
+        inputDirectory + '/icons-s3.woff',
+        finalDirectory + '/icons-s3.woff'
+    )
+    await copyIconFile(
+        inputDirectory + '/icons-s3.woff2',
+        finalDirectory + '/icons-s3.woff2'
+    )
+
     // TODO Make this work
     // jetpack.find("dist/icons").remove()
 }
@@ -54,14 +67,27 @@ async function finalize() {
     )
 })()
 
-const command = 'npx fantasticon -c .fantasticonrc.cjs'
+const command = 'npx fantasticon -c tokens/icons/fantasticonrc.cjs'
 exec(command, async function (error, stdout, stderr) {
     if (error) {
         log.error('exec error: ' + error)
     }
 
-    textUI.statusTxt('ICON Builder Results')
+    textUI.statusTxt('Fantasticon Results')
     log.info(stdout)
 
+    console.log('', '')
+})
+
+const commandS3 = 'npx fantasticon -c tokens/icons/fantasticon-s3.cjs'
+exec(commandS3, async function (error, stdout, stderr) {
+    if (error) {
+        log.error('exec error: ' + error)
+    }
+
+    textUI.statusTxt('Fantasticon S3 Results')
+    log.info(stdout)
+
+    textUI.statusTxt('Fantasticon Finalizing')
     await finalize()
 })

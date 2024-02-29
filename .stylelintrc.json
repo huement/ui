@@ -10,5 +10,20 @@
     "at-rule-no-unknown": null,
     "scss/at-rule-no-unknown": true,
     "scss/selector-no-redundant-nesting-selector": true
-  }
+  },
+  "overrides": [
+    {
+      "files": "**/*.scss",
+      "rules": {
+
+        "scss/dollar-variable-default": [
+          true,
+          {
+            "ignore": "local"
+          }
+        ],
+        "scss/selector-no-union-class-name": true
+      }
+    }
+  ]
 }

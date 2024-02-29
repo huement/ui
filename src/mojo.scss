@@ -22,19 +22,22 @@
 @use 'sass:meta';
 @use 'sass:string';
 
+///  TODO LIST
+///  Bootstrap + CSS GRID: https://codepen.io/dutchwebworks/pen/EvaJdB
+///  Generate _package.scss as a way to import json data
+///  Add in Javascript Library for Modal?
+///  Tokens & Chords need the javascript builders
+///  The 'Jollybar' Debug Toolkit needs to be added
+
 //
 // CONTAINS MOJO LIBRARY, VARIABLES, AND CONFIG OPTIONS
 @import 'framework';
-$debug: false;
-// Dyanmicly Declared
-$icon-socials: facebook, twitter, linkedin, dribbble !default;
-$enable-icons-social: if(length($icon-socials) > 0, true, false) !default;
 
 //
 // INITIAL OUTPUT : ROOT VARS : NORMALIZE + RESET
-@include mojoBanner('', '0.6.0');
+@include mojoBanner('', '0.2.0');
 @import 'root';
-@import 'normalize/normalize';
+@import 'thirdparty/normalize/normalize';
 @import 'kick-off';
 
 //
@@ -105,6 +108,15 @@ $include-column-box-sizing: true;
 $utilities: map-merge(
   $utilities,
   (
+    'opacity': (
+      property: 'opacity',
+      responsive: true,
+      class: vis,
+      values: (
+        0: 0,
+        100: 1,
+      ),
+    ),
     'position':
       map-merge(
         map-get($utilities, 'position'),

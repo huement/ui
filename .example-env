@@ -1,3 +1,4 @@
 # USED FOR DEPLOYMENT ONLY
 AWS_ENDPOINT='nyc3.digitaloceanspaces.com'
 AWS_BUCKETNAME='custom-bucket-name'
+AWS_URL='https://custom-bucket-name.nyc3.digitaloceanspaces.com'

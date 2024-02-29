@@ -101,6 +101,9 @@ const textUI = {
     statusTxt(text) {
         console.log(info('  [INFO]  ') + vapor(text))
     },
+    infoTxt(text) {
+        console.log(info('  [INFO]  ') + vapor(text))
+    },
     taskTxt(text) {
         console.log(good('  [ OK ]  ') + good(text))
     },
@@ -112,6 +115,10 @@ const textUI = {
     },
     quoteString(string) {
         return "'" + string + "'"
+    },
+    // FILE SYSTEM CONFIG
+    getParsedPackage(jsonFile = './package.json') {
+        return JSON.parse(fs.readFileSync(jsonFile))
     },
     scssVar(name, value, quotes = false) {
         let scssString = ''

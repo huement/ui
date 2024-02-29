@@ -1,5 +1,5 @@
 /**!
- * Mojo  v0.6.0 (https://github.com/huement/mojo/)
+ * Mojo  v0.2.0 (https://github.com/huement/mojo/)
  * Copyright 2023-* Huement (https://huement.com)
  * Licensed under Mozilla Public License 2 [MPL-2.0] (https://github.com/huement/mojo/blob/main/LICENSE)
  *  Based on:
@@ -10553,23 +10553,11 @@ button.list-group-item-dark.active {
   object-fit: none !important;
 }
 
-.opacity-0 {
+.vis-0 {
   opacity: 0 !important;
 }
 
-.opacity-25 {
-  opacity: 0.25 !important;
-}
-
-.opacity-50 {
-  opacity: 0.5 !important;
-}
-
-.opacity-75 {
-  opacity: 0.75 !important;
-}
-
-.opacity-100 {
+.vis-100 {
   opacity: 1 !important;
 }
 
@@ -12494,6 +12482,12 @@ button.list-group-item-dark.active {
   .object-fit-sm-none {
     object-fit: none !important;
   }
+  .vis-sm-0 {
+    opacity: 0 !important;
+  }
+  .vis-sm-100 {
+    opacity: 1 !important;
+  }
   .d-sm-inline {
     display: inline !important;
   }
@@ -13058,6 +13052,12 @@ button.list-group-item-dark.active {
   }
   .object-fit-md-none {
     object-fit: none !important;
+  }
+  .vis-md-0 {
+    opacity: 0 !important;
+  }
+  .vis-md-100 {
+    opacity: 1 !important;
   }
   .d-md-inline {
     display: inline !important;
@@ -13624,6 +13624,12 @@ button.list-group-item-dark.active {
   .object-fit-lg-none {
     object-fit: none !important;
   }
+  .vis-lg-0 {
+    opacity: 0 !important;
+  }
+  .vis-lg-100 {
+    opacity: 1 !important;
+  }
   .d-lg-inline {
     display: inline !important;
   }
@@ -14189,6 +14195,12 @@ button.list-group-item-dark.active {
   .object-fit-xl-none {
     object-fit: none !important;
   }
+  .vis-xl-0 {
+    opacity: 0 !important;
+  }
+  .vis-xl-100 {
+    opacity: 1 !important;
+  }
   .d-xl-inline {
     display: inline !important;
   }
@@ -14753,6 +14765,12 @@ button.list-group-item-dark.active {
   }
   .object-fit-xxl-none {
     object-fit: none !important;
+  }
+  .vis-xxl-0 {
+    opacity: 0 !important;
+  }
+  .vis-xxl-100 {
+    opacity: 1 !important;
   }
   .d-xxl-inline {
     display: inline !important;

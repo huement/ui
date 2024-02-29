@@ -8,23 +8,23 @@
 //============================================================
 // Ratios
 //============================================================
-$MINOR_SECOND: 1.067 !default;
-$MAJOR_SECOND: 1.125 !default;
-$MINOR_THIRD: 1.2 !default;
-$MAJOR_THIRD: 1.25 !default;
-$PERFECT_FOURTH: 1.333 !default;
-$AUGMENTED_FOURTH: 1.414 !default;
-$PERFECT_FIFTH: 1.5 !default;
-$MINOR_SIXTH: 1.6 !default;
-$GOLDEN_SECTION: 1.618 !default;
-$MAJOR_SIXTH: 1.667 !default;
-$MINOR_SEVENTH: 1.778 !default;
-$MAJOR_SEVENTH: 1.875 !default;
-$OCTAVE: 2 !default;
-$MAJOR_TENTH: 2.5 !default;
-$MAJOR_ELEVENTH: 2.667 !default;
-$MAJOR_TWELFTH: 3 !default;
-$DOUBLE_OCTAVE: 4 !default;
+$MINOR_SECOND: 1.067;
+$MAJOR_SECOND: 1.125;
+$MINOR_THIRD: 1.2;
+$MAJOR_THIRD: 1.25;
+$PERFECT_FOURTH: 1.333;
+$AUGMENTED_FOURTH: 1.414;
+$PERFECT_FIFTH: 1.5;
+$MINOR_SIXTH: 1.6;
+$GOLDEN_SECTION: 1.618;
+$MAJOR_SIXTH: 1.667;
+$MINOR_SEVENTH: 1.778;
+$MAJOR_SEVENTH: 1.875;
+$OCTAVE: 2;
+$MAJOR_TENTH: 2.5;
+$MAJOR_ELEVENTH: 2.667;
+$MAJOR_TWELFTH: 3;
+$DOUBLE_OCTAVE: 4;
 
 $aspect-ratios: (
   "1x1": 100%,
@@ -43,17 +43,17 @@ $position-values: (
 // Fonts
 //============================================================
 // prettier-ignore
-$SansStack:  -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$SansStack:  -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 // prettier-ignore
-$MonoStack: sfmono-regular, menlo, monaco, consolas, "Andale Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace !default;
+$MonoStack: sfmono-regular, menlo, monaco, consolas, "Andale Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
 
 // prettier-ignore
-$SerifStack: "Iowan Old Style", "Apple Garamond", baskerville, "Times New Roman", "Droid Serif", times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$SerifStack: "Iowan Old Style", "Apple Garamond", baskerville, "Times New Roman", "Droid Serif", times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
-$not-integer-txt: " value breaks vertical rhythm. Use an integer (whole number) for $lines." !default;
+$not-integer-txt: " value breaks vertical rhythm. Use an integer (whole number) for $lines.";
 
-// Social Media Colorcodes
+// Social Media color codes for a lot of sites
 $SocialColors: (
   adn: #504e54,
   apple: #aeb5c5,
@@ -88,7 +88,13 @@ $SocialColors: (
   windows: #12b6f3,
   xing: #00555c,
   youtube: #c52f30,
-) !default;
+);
+
+// only include the icons we want
+$icon-socials: facebook, twitter, linkedin, dribbble;
+
+// only enable if we have said we want at least one
+$enable-icons-social: if(length($icon-socials) > 0, true, false);
 
 //============================================================
 // UI Requires
@@ -100,11 +106,11 @@ $SocialColors: (
 // of components dependent on the z-axis and are designed to all work together.
 
 // scss-docs-start zindex-stack
-$zindex-0: 1 !default;
-$zindex-1: 100 !default;
-$zindex-2: 200 !default;
-$zindex-3: 300 !default;
-$zindex-4: 400 !default;
+$zindex-0: 1;
+$zindex-1: 100;
+$zindex-2: 200;
+$zindex-3: 300;
+$zindex-4: 400;
 $zindex-dropdown: 1000;
 $zindex-sticky: 1020;
 $zindex-fixed: 1030;
@@ -112,11 +118,11 @@ $zindex-offcanvas-backdrop: 1040;
 $zindex-offcanvas: 1045;
 $zindex-modal-backdrop: 1050;
 $zindex-modal: 1055;
-$zindex-navbar: 600 !default;
+$zindex-navbar: 600;
 $zindex-popover: 1070;
 $zindex-toast: 1090;
 $zindex-tooltip: 1080;
-$zindex-sticky: 900 !default;
+$zindex-sticky: 900;
 // scss-docs-end zindex-stack
 
 // scss-docs-start zindex-levels-map
@@ -132,4 +138,4 @@ $zindex-levels: (
 // =======================================================================
 // Extras
 // =======================================================================
-$debug: false !default;
+$debug: false;

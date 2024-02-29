@@ -16,17 +16,17 @@
 
 // Contextual colors
 @each $color, $value in $theme-colors {
-  @include text-emphasis-variant('.text-#{$color}', $value);
+  @include text-emphasis-variant(".text-#{$color}", $value);
 }
 
 .text-body {
-  color: $body-color !important;
+  color: $body-color;
 }
 
 // Anchor white text hover adjustment
-a.text-white {
+.text-white {
   @include hover-focus() {
-    color: darken($white, 10%) !important;
+    color: darken($white, 10%);
   }
 }
 
@@ -36,13 +36,13 @@ a.text-white {
 }
 
 // Anchor black text hover adjustment
-a.text-black {
+.text-black {
   @include hover-focus() {
-    color: darken($black, 10%) !important;
+    color: darken($black, 10%);
   }
 }
 
 // Text muted
 .text-muted {
-  color: $text-muted !important;
+  color: $text-muted;
 }

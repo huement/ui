@@ -1,10 +1,8 @@
-@use "sass:map";
-@use "sass:list";
-@use "sass:math";
-@use "sass:color";
-@use "sass:meta";
-
-//@import "../../config/globals";
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:meta';
 
 @mixin makeSocialIcon($name) {
   $color: getSocialColor($name);
@@ -16,7 +14,7 @@
     border: 2px solid getSocialColor($name);
 
     &:hover {
-      @if ($test== "light") {
+      @if ($test== 'light') {
         background-color: color.adjust($color, $lightness: -20%);
       } @else {
         background-color: color.adjust($color, $lightness: 20%);
