@@ -6,6 +6,9 @@ append config
   - var highlight = true
   - var slug = 'mojo'
 
+append scriptsJS
+  script(src=path+"js/bundle.js?stamp=" + stamp, type="module")
+
 block content
   section.bg-black.positive-top.headBlock
     .vr-block.site-spacer

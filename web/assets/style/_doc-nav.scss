@@ -5,7 +5,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: $navbar;
+    background-color: $primary;
     z-index: $zindex-navbar;
     @if ($border-radius > 0) {
       border-radius: $border-radius;
@@ -20,11 +20,11 @@
     }
 
     &.docbar-alt {
-      background-color: $navbar-dark;
+      background-color: $dark;
     }
 
     &.docbar-dark {
-      background-color: $medium_darker;
+      background-color: $gray-700;
     }
 
     .docbar-section {
@@ -56,22 +56,22 @@
     }
 
     .docbar-brand {
-      font-size: getFontSize("lg");
+      font-size: $sz_5;
       text-decoration: none;
     }
 
     .btn-medium {
-      background-color: $medium;
-      border-color: $medium;
+      background-color: $gray-500;
+      border-color: $gray-500;
 
       &:hover {
-        background-color: $medium_light;
-        border-color: $medium_light;
+        background-color: $gray-700;
+        border-color: $gray-700;
       }
     }
 
-    margin-top: vr-block(0.5);
-    margin-bottom: vr-block(1);
+    margin-top: $sz_3;
+    margin-bottom: $sz_3;
   }
 
   // TOGGLE
@@ -87,7 +87,7 @@
   #sidebar.off-canvas-sidebar {
     width: $SideBarWidth;
     min-width: $SideBarWidth;
-    background-color: $medium_darker !important;
+    background-color: $gray-300 !important;
     box-shadow: 1px 0px 5px 0px rgba(50, 50, 50, 0.95);
     -webkit-box-shadow: 1px 0px 5px 0px rgba(50, 50, 50, 0.95);
     -moz-box-shadow: 1px 0px 5px 0px rgba(50, 50, 50, 0.95);
@@ -113,8 +113,8 @@
           margin: 0.5rem auto 0 auto;
           padding: 0;
           text-align: center;
-          font-size: getFontSize("md");
-          font-family: "Jost";
+          font-size: $sz_4;
+          font-family: 'Jost';
           color: $secondary;
         }
 
@@ -124,17 +124,17 @@
           padding: 0;
           text-align: center;
           color: $primary;
-          font-family: "Saira";
-          font-size: getFontSize("lg");
+          font-family: 'Saira';
+          font-size: $sz_4;
           @include ellipsis-text;
         }
       }
     }
 
     .docs-nav {
-      bottom: vr-block(1);
+      bottom: $sz_3;
       overflow-y: auto;
-      padding: 0 $sz_3 vr-block(0.5) $sz_3;
+      padding: 0 $sz_3 $sz_2b $sz_3;
       position: fixed;
       top: 19rem;
       width: $SideBarWidth;
@@ -146,7 +146,7 @@
         input {
           & ~ .accordion-header {
             color: $light;
-            font-size: getFontSize("lg");
+            font-size: $sz_4;
             font-weight: 600;
             text-transform: uppercase;
           }
@@ -162,16 +162,15 @@
         }
 
         .menu {
-          //margin: vr-block(1) 0 vr-block(1) $sz_3;
           .menu-item {
-            font-size: getFontSize("lg");
+            font-size: $sz_4;
             font-weight: 300;
             padding-left: $sz_2;
             margin-top: 0;
 
             & > a {
               background: transparent;
-              color: $light_darker;
+              color: $gray-400;
               display: inline-block;
             }
 

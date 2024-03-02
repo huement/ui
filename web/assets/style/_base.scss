@@ -1,9 +1,9 @@
 // Sass Modules
-@use "sass:map";
-@use "sass:list";
-@use "sass:math";
-@use "sass:color";
-@use "sass:meta";
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:meta';
 
 /** DOCS CSS */
 
@@ -26,16 +26,16 @@ body {
 @each $mapKey, $mMap in $chords {
   $i: 1;
   $ht: 5;
-  $scale: map-get($mMap, "scale");
-  $lH: map-get($mMap, "lineHeight");
-  $lHpx: map-get($mMap, "lineHeight_px");
-  $fS: map-get($mMap, "fontSize");
+  $scale: map-get($mMap, 'scale');
+  $lH: map-get($mMap, 'lineHeight');
+  $lHpx: map-get($mMap, 'lineHeight_px');
+  $fS: map-get($mMap, 'fontSize');
 
   /**
   * @debug HTML BACKGROUND LINES #{$lH}
   */
 
-  @include breakpoint(#{$mapKey}, min) {
+  @include respond-below(#{$mapKey}) {
     $debugLH_rem: $lH * 1rem;
     $debugLH_px: _px($debugLH_rem);
     $DLH: round((strip_units($lH) * strip_units($fS)) * 1px);
@@ -58,7 +58,7 @@ body {
 
 @include cssvars(
   (
-    active-ratio: $ModularRatio,
+    active-ratio: $modular-ratio,
   )
 );
 
@@ -75,11 +75,11 @@ body {
 body > .#{$superclass}.docs-container {
   a {
     font-weight: 400;
-    color: $blue_dark;
+    color: map.get($mojo-blue, dark);
     transition: $transition-color;
 
     &:hover {
-      color: $blue_light;
+      color: map.get($mojo-blue, light);
     }
   }
 
@@ -137,7 +137,7 @@ body > .#{$superclass}.docs-container {
           padding: $sz_2;
 
           &.make-bg-medium {
-            background: $background_black;
+            background: $gray-500;
           }
         }
 
@@ -169,7 +169,7 @@ body > .#{$superclass}.docs-container {
           padding: 5rem 0.5rem 0.5rem;
 
           .color-subtitle {
-            font-size: getFontSize("sm");
+            font-size: $sz_4;
             opacity: 0.75;
           }
         }
@@ -178,7 +178,7 @@ body > .#{$superclass}.docs-container {
   }
 }
 
-@include breakpoint(lg, max) {
+@include media-breakpoint-down(lg) {
   :root {
     --active-ratio: 1.5;
   }
@@ -226,14 +226,14 @@ body > .#{$superclass}.docs-container {
             .build-label {
               margin: #{$sz_1} 0 0 0;
               padding: 0;
-              font-size: getFontSize("xs");
+              font-size: $sz_3;
             }
 
             .build-version {
               letter-spacing: -0.5px;
               margin: #{$sz_1} 0 $sz_4 0;
               padding: 0;
-              font-size: getFontSize("sm");
+              font-size: $sz_4;
             }
           }
         }
@@ -248,7 +248,7 @@ body > .#{$superclass}.docs-container {
 
             input {
               & ~ .accordion-header {
-                font-size: getFontSize("md");
+                font-size: $sz_5;
                 font-weight: 450;
               }
             }
@@ -256,7 +256,7 @@ body > .#{$superclass}.docs-container {
             .menu {
               //margin: vr-block(1) 0 vr-block(1) $sz_3;
               .menu-item {
-                font-size: getFontSize("sm");
+                font-size: $sz_4;
                 padding-left: $sz_2;
                 margin-bottom: vr-block(0.5);
               }
@@ -347,7 +347,7 @@ body > .#{$superclass}.docs-container {
 
       .docs-navbar {
         backdrop-filter: blur(5px);
-        background: rgba($navbar, 0.65);
+        background: $primary;
         left: 0;
       }
 

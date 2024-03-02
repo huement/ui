@@ -3,9 +3,25 @@ $variable-prefix: bs-; // Deprecated in v5.2.0 for the shorter `$prefix`
 $prefix: $variable-prefix;
 $debug: true;
 
-$font-path: "/fonts/";
-$icon-prefix: mi;
+$font-path: '/fonts/';
+$icon-prefix: hui;
 $icon-size: 24px;
+$icon-size-scale-2xs: 10 !default;
+$icon-size-scale-xs: 12 !default;
+$icon-size-scale-sm: 14 !default;
+$icon-size-scale-base: 16 !default;
+$icon-size-scale-lg: 20 !default;
+$icon-size-scale-xl: 24 !default;
+$icon-size-scale-2xl: 32 !default;
+
+$icon-sizes: (
+  '2xs': $icon-size-scale-2xs,
+  'xs': $icon-size-scale-xs,
+  'sm': $icon-size-scale-sm,
+  'lg': $icon-size-scale-lg,
+  'xl': $icon-size-scale-xl,
+  '2xl': $icon-size-scale-2xl,
+) !default;
 
 // $superclass: "mojo";
 $superclass: false;
@@ -118,7 +134,7 @@ $grid-breakpoints: (
   xxl: 1400px,
 );
 
-@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-ascending($grid-breakpoints, '$grid-breakpoints');
 @include _assert-starts-at-zero($grid-breakpoints);
 
 // Grid containers
@@ -133,13 +149,13 @@ $container-max-widths: (
   xxl: 1320px,
 );
 
-@include _assert-ascending($container-max-widths, "$container-max-widths");
+@include _assert-ascending($container-max-widths, '$container-max-widths');
 
 $grid-columns: 12;
 $grid-gutter-width: 1.5rem;
 $grid-row-columns: 6;
 $container-padding-x: $grid-gutter-width;
-$break-point-limit: "medium";
+$break-point-limit: 'medium';
 $tile-spacing: 0.75rem;
 
 // Components
@@ -176,7 +192,7 @@ $box-shadow-lg: 0 1rem 3rem rgba($dark, 0.175);
 $box-shadow-inset: inset 0 1px 2px rgba($dark, 0.075);
 
 $component-active-color: $white;
-$component-active-bg: theme-color("primary");
+$component-active-bg: theme-color('primary');
 
 // Easings
 $ease-in-out-circ: cubic-bezier(0.27, 0.01, 0.38, 1.06);
@@ -219,11 +235,11 @@ $font-sizes: (
 );
 
 $font-line-sizes: (
-  xs: map.get($font-sizes, "xs") * $line-height-base,
-  sm: map.get($font-sizes, "sm") * $line-height-base,
-  md: map.get($font-sizes, "md") * $line-height-base,
-  lg: map.get($font-sizes, "lg") * $line-height-base,
-  xl: map.get($font-sizes, "xl") * $line-height-base,
+  xs: map.get($font-sizes, 'xs') * $line-height-base,
+  sm: map.get($font-sizes, 'sm') * $line-height-base,
+  md: map.get($font-sizes, 'md') * $line-height-base,
+  lg: map.get($font-sizes, 'lg') * $line-height-base,
+  xl: map.get($font-sizes, 'xl') * $line-height-base,
 );
 
 //
@@ -256,14 +272,15 @@ $display-font-sizes: if(
   null
 );
 
-// Fonts
-// TODO: sort out the font variables!!!
-$google-fonts-import: "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600|Roboto+Mono"; // Includes: Poppins: Light, Regular, Medium, Semi-bold; Roboto Mono: Regular
+// Optionally Load Fonts this way
+// Default theme will turn this off in the theme file unless you remove it
+// which will then fallback to this.
+$google-fonts-import: 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600|Roboto+Mono'; // Includes: Poppins: Light, Regular, Medium, Semi-bold; Roboto Mono: Regular
 
-$font-family-poppins-first: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+$font-family-poppins-first: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
   sans-serif;
-$font-family-system-first: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-$font-family-roboto-mono-first: "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-family-system-first: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-family-roboto-mono-first: 'Roboto Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
 $font-family-sans-serif: $font-family-system-first;
 $font-family-monospace: $font-family-roboto-mono-first;
@@ -277,10 +294,10 @@ $font-family-base: $font-family-sans-serif;
 // TODO: sort out the heading variables!!!
 $font-weight-base: $font-weight-normal;
 
-$font-size-root: strip-units(map.get($font-sizes, "sm"));
-$font-size-base: map.get($font-sizes, "sm");
-$font-size-lg: map.get($font-sizes, "lg");
-$font-size-sm: map.get($font-sizes, "xs");
+$font-size-root: strip-units(map.get($font-sizes, 'sm'));
+$font-size-base: map.get($font-sizes, 'sm');
+$font-size-lg: map.get($font-sizes, 'lg');
+$font-size-sm: map.get($font-sizes, 'xs');
 
 $font-weight-lighter: lighter;
 $font-weight-light: 300;
@@ -436,7 +453,7 @@ $btn-border-radius-sm: $border-radius-sm;
 $btn-border-width: 1px;
 
 // $btn-transition: $transition-base;
-$btn-transition: "all 180ms linear";
+$btn-transition: 'all 180ms linear';
 // Forms
 
 $input-padding-y: $input-btn-padding-y;
@@ -453,9 +470,6 @@ $input-line-height-lg: 1.5;
 
 $input-bg: $white;
 $input-disabled-bg: #f5f6f7;
-$input-color: $body-color;
-$input-border-color: #becad6;
-$input-box-shadow: $box-shadow-inset;
 $input-border-radius: $border-radius;
 $input-border-radius-sm: $border-radius-sm;
 $input-border-radius-lg: $border-radius-lg;
@@ -473,8 +487,8 @@ $input-border-radius-lg: $border-radius-lg;
 $input-border-radius-sm: $border-radius-sm;
 
 $input-focus-bg: $input-bg;
-$input-focus-border-color: theme-color("primary");
-$input-focus-box-shadow: 0 0.313rem 0.719rem rgba(theme-color("primary"), 0.1), 0 0.156rem 0.125rem rgba($black, 0.06);
+$input-focus-border-color: theme-color('primary');
+$input-focus-box-shadow: 0 0.313rem 0.719rem rgba(theme-color('primary'), 0.1), 0 0.156rem 0.125rem rgba($black, 0.06);
 $input-focus-color: $input-color;
 
 $input-hover-border-color: darken(#becad6, 15);
@@ -526,19 +540,19 @@ $custom-control-indicator-disabled-bg: $gray-200;
 $custom-control-description-disabled-color: $gray-600;
 
 $custom-control-indicator-checked-color: $white;
-$custom-control-indicator-checked-bg: theme-color("primary");
+$custom-control-indicator-checked-bg: theme-color('primary');
 $custom-control-indicator-checked-box-shadow: none;
 
 $custom-control-indicator-focus-box-shadow: $input-focus-box-shadow;
 
 $custom-control-indicator-active-color: $white;
-$custom-control-indicator-active-bg: lighten(theme-color("primary"), 35%);
+$custom-control-indicator-active-bg: lighten(theme-color('primary'), 35%);
 $custom-control-indicator-active-box-shadow: none;
 
 // Custom checkbox
 $custom-checkbox-indicator-border-radius: 2px;
 $custom-checkbox-indicator-icon-checked: none;
-$custom-checkbox-indicator-indeterminate-bg: theme-color("primary");
+$custom-checkbox-indicator-indeterminate-bg: theme-color('primary');
 $custom-checkbox-indicator-indeterminate-color: $custom-control-indicator-checked-color;
 $custom-checkbox-indicator-icon-indeterminate: none;
 $custom-checkbox-indicator-indeterminate-box-shadow: none;
@@ -560,15 +574,15 @@ $custom-select-bg-size: 8px 10px; // In pixels because image dimensions
 $custom-select-indicator-color: #333;
 $custom-select-indicator: str-replace(
   url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E"),
-  "#",
-  "%23"
+  '#',
+  '%23'
 );
 $custom-select-border-width: $input-btn-border-width;
 $custom-select-border-color: $input-border-color;
 $custom-select-border-radius: $border-radius;
 
 $custom-select-focus-border-color: $input-focus-border-color;
-$custom-select-focus-box-shadow: 0 0.313rem 0.719rem rgba(theme-color("primary"), 0.1),
+$custom-select-focus-box-shadow: 0 0.313rem 0.719rem rgba(theme-color('primary'), 0.1),
   0 0.156rem 0.125rem rgba($black, 0.06);
 
 $custom-select-font-size-sm: 0.75rem;
@@ -594,7 +608,7 @@ $custom-file-box-shadow: none;
 $custom-file-button-color: $custom-file-color;
 $custom-file-button-bg: $gray-200;
 $custom-file-text: (
-  en: "Browse",
+  en: 'Browse',
 );
 
 // Custom switches (core)
@@ -603,8 +617,8 @@ $custom-switch-padding-left: 2.25rem;
 // Form validation
 $form-feedback-margin-top: $form-text-margin-top;
 $form-feedback-font-size: $small-font-size;
-$form-feedback-valid-color: theme-color("success");
-$form-feedback-invalid-color: theme-color("danger");
+$form-feedback-valid-color: theme-color('success');
+$form-feedback-invalid-color: theme-color('danger');
 
 // Custom toggle
 $custom-toggle-width: 3.125rem;
@@ -614,10 +628,10 @@ $custom-toggle-border: $custom-toggle-border-width solid $input-border-color;
 $custom-toggle-background-color: $white;
 $custom-toggle-border-radius: 100px;
 
-$custom-toggle-focus-box-shadow: 0 0.313rem 0.719rem rgba(theme-color("success"), 0.1),
+$custom-toggle-focus-box-shadow: 0 0.313rem 0.719rem rgba(theme-color('success'), 0.1),
   0 0.156rem 0.125rem rgba($black, 0.06);
 
-$custom-toggle-checked-background: theme-color("success");
+$custom-toggle-checked-background: theme-color('success');
 $custom-toggle-checked-border-color: $custom-toggle-checked-background;
 $custom-toggle-checked-knob-background: $white;
 
@@ -637,14 +651,14 @@ $custom-toggle-knob-active-width-sm: 1rem;
 $custom-toggle-knob-height-sm: 0.75rem;
 
 // Form validation
-$form-feedback-valid-color: theme-color("success");
-$form-feedback-invalid-color: theme-color("danger");
+$form-feedback-valid-color: theme-color('success');
+$form-feedback-invalid-color: theme-color('danger');
 
 // Dropdowns
 //
 // Dropdown menu container and contents.
 
-$dropdown-bg: $white;
+$dropdown-bg: $gray-600;
 $dropdown-min-width: 10rem;
 $dropdown-padding-y: 0.5rem;
 $dropdown-spacer: 0;
@@ -655,7 +669,7 @@ $dropdown-border-radius: $border-radius;
 
 $dropdown-box-shadow: 0 0.5rem 4rem rgba(0, 0, 0, 0.11), 0 10px 20px rgba(0, 0, 0, 0.05), 0 2px 3px rgba(0, 0, 0, 0.06);
 
-$dropdown-link-color: $gray-900;
+$dropdown-link-color: map.get($mojo-blue, hex);
 $dropdown-link-hover-color: darken($gray-900, 5%);
 $dropdown-link-hover-bg: lighten($dark, 55%);
 $dropdown-link-active-color: $component-active-color;
@@ -727,7 +741,7 @@ $navbar-padding-y: calc($spacer / 2);
 $navbar-padding-x: $spacer;
 
 $navbar-brand-font-size: 1rem;
-$navbar-icon-size: 1rem;
+$navbar-icon-size: 2.25rem;
 
 $navbar-sidebar-width: 300px;
 
@@ -748,8 +762,8 @@ $navbar-dark-active-color: rgba($white, 1);
 $navbar-dark-disabled-color: rgba($white, 0.25);
 $navbar-dark-toggler-icon-bg: str-replace(
   url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"),
-  "#",
-  "%23"
+  '#',
+  '%23'
 );
 $navbar-dark-toggler-border-color: rgba($white, 0.1);
 
@@ -759,10 +773,32 @@ $navbar-light-active-color: rgba($navbar-light-color, 0.9);
 $navbar-light-disabled-color: rgba($navbar-light-color, 0.3);
 $navbar-light-toggler-icon-bg: str-replace(
   url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"),
-  "#",
-  "%23"
+  '#',
+  '%23'
 );
 $navbar-light-toggler-border-color: rgba($navbar-light-color, 0.1);
+
+// Navs Quartz
+
+$nav-link-disabled-color: $text-muted !default;
+
+$nav-tabs-border-width: 0 !default;
+$nav-tabs-border-radius: 0 !default;
+$nav-tabs-link-active-color: $gray-800 !default;
+$nav-tabs-link-active-bg: $white !default;
+$nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg !default;
+
+$nav-pills-border-radius: $border-radius-pill !default;
+$nav-pills-link-active-color: $white !default;
+$nav-pills-link-active-bg: $primary !default;
+
+// Navbars Quartz
+
+// Dropdowns Quartz
+
+$dropdown-border-color: $border-color !default;
+$dropdown-link-hover-color: $white !default;
+$dropdown-link-hover-bg: rgba($white, 0.4) !default;
 
 // Pagination
 
@@ -785,8 +821,8 @@ $pagination-hover-bg: lighten($dark, 58%);
 $pagination-hover-border-color: lighten($dark, 50%);
 
 $pagination-active-color: $white;
-$pagination-active-bg: theme-color("primary");
-$pagination-active-border-color: theme-color("primary");
+$pagination-active-bg: theme-color('primary');
+$pagination-active-border-color: theme-color('primary');
 
 $pagination-disabled-color: lighten($dark, 30%);
 $pagination-disabled-bg: $white;
@@ -833,6 +869,47 @@ $card-small-spacer-y: 1rem;
 $card-small-spacer-x: 1rem;
 $card-small-box-shadow: 0 2px 0 rgba($dark, 0.11), 0 4px 8px rgba($dark, 0.12), 0 10px 10px rgba($dark, 0.06),
   0 7px 70px rgba($dark, 0.1);
+
+// Cards
+
+$card-spacer-y: 1.75rem !default;
+$card-spacer-x: 2rem !default;
+$card-border-color: $border-color !default;
+$card-cap-bg: transparent !default;
+$card-cap-color: $white !default;
+$card-color: $white !default;
+$card-bg: transparent !default;
+
+// Accordion
+
+$accordion-button-bg: $secondary !default;
+$accordion-button-active-bg: $primary !default;
+$accordion-button-active-color: $white !default;
+
+// Tooltips
+
+$tooltip-opacity: 0.7 !default;
+
+// Popovers
+
+$popover-header-bg: $card-cap-bg !default;
+
+$popover-body-color: $card-color !default;
+$popover-body-padding-y: $spacer * 0.5 !default;
+
+$popover-arrow-color: $border-color !default;
+
+$popover-arrow-outer-color: transparent !default;
+
+// Toasts
+
+$toast-header-color: $card-color !default;
+$toast-header-background-color: $card-cap-bg !default;
+$toast-header-border-color: $border-color !default;
+
+// Progress bars
+
+$progress-bg: rgba($black, 0.2) !default;
 
 // Tooltips
 
@@ -936,7 +1013,7 @@ $progress-bg: lighten($dark, 58%);
 $progress-border-radius: 1.25rem;
 $progress-box-shadow: inset 0 0.1rem 0.1rem rgba($dark, 0.15);
 $progress-bar-color: $white;
-$progress-bar-bg: theme-color("primary");
+$progress-bar-bg: theme-color('primary');
 $progress-bar-animation-timing: 1s linear infinite;
 $progress-bar-transition: width 0.6s ease;
 $progress-label-font-size: 0.8125rem;

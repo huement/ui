@@ -4,15 +4,15 @@
 
 /* Name: icons */
 /* Prefix: hui */
-/* Source: url("/fonts/icons/icons.ttf?6604442f805994da8c38bf2ce15ae88d") format("truetype"),
-url("/fonts/icons/icons.woff?6604442f805994da8c38bf2ce15ae88d") format("woff"),
-url("/fonts/icons/icons.woff2?6604442f805994da8c38bf2ce15ae88d") format("woff2") */
+/* Source: url("/fonts/icons/icons.ttf?d9a365efbe1a48fa7d3d1d76f4ab0cde") format("truetype"),
+url("/fonts/icons/icons.woff?d9a365efbe1a48fa7d3d1d76f4ab0cde") format("woff"),
+url("/fonts/icons/icons.woff2?d9a365efbe1a48fa7d3d1d76f4ab0cde") format("woff2") */
 
 @font-face {
     font-family: "icons";
-    src: url("/fonts/icons/icons.ttf?6604442f805994da8c38bf2ce15ae88d") format("truetype"),
-url("/fonts/icons/icons.woff?6604442f805994da8c38bf2ce15ae88d") format("woff"),
-url("/fonts/icons/icons.woff2?6604442f805994da8c38bf2ce15ae88d") format("woff2");
+    src: url("/fonts/icons/icons.ttf?d9a365efbe1a48fa7d3d1d76f4ab0cde") format("truetype"),
+url("/fonts/icons/icons.woff?d9a365efbe1a48fa7d3d1d76f4ab0cde") format("woff"),
+url("/fonts/icons/icons.woff2?d9a365efbe1a48fa7d3d1d76f4ab0cde") format("woff2");
     font-style: normal;
     font-weight: 400;
 }

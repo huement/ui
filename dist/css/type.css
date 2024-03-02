@@ -1,5 +1,5 @@
 /**!
- * Mojo Harmonic Typography v0.2.1 (https://github.com/huement/mojo/)
+ * Mojo Harmonic Typography v0.2.88 (https://github.com/huement/mojo/)
  * Copyright 2023-* Huement (https://huement.com)
  * Licensed under Mozilla Public License 2 [MPL-2.0] (https://github.com/huement/mojo/blob/main/LICENSE)
  *  Based on:
@@ -991,8 +991,9 @@ h6 .subtitle, .h1 small,
 .h6 .small,
 .h6 .subtitle {
   display: block;
-  font-size: 76% !important;
-  line-height: 0.6 !important;
+  font-size: 76%;
+  line-height: 1.2;
+  padding-top: 10px;
 }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a {
   text-decoration: underline;

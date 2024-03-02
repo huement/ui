@@ -7,26 +7,15 @@ const updater = require('jsonfile-updater')
 const fs = require('fs')
 
 // Global Functions & Logic
-function getParsedPackage() {
-    return JSON.parse(fs.readFileSync('./package.json'))
-}
-
-function formatBytes(a, b = 2) {
-    if (!+a) return '0 Bytes'
-    const c = 0 > b ? 0 : b,
-        d = Math.floor(Math.log(a) / Math.log(1024))
-    return `${parseFloat((a / Math.pow(1024, d)).toFixed(c))} ${['Bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'][d]}`
-}
-
 const timeElapsed = Date.now()
 const today = new Date(timeElapsed)
 
-const packData = getParsedPackage()
+const packData = textUI.getParsedPackage()
 let newNumber = packData.buildNumber
 let newDate = today.toDateString()
 var stats = fs.statSync('dist/' + packData.codeName + '.css')
 var fileSizeInBytes = stats.size
-let newSize = formatBytes(fileSizeInBytes)
+let newSize = textUI.formatBytes(fileSizeInBytes)
 newNumber++ // Advance the local counter by one
 
 // Each function is responsible for updating a specific value
@@ -38,7 +27,7 @@ function updateBuildSize() {
             console.log(err)
             return
         }
-        const pkg = getParsedPackage()
+        const pkg = textUI.getParsedPackage()
         textUI.statusTxt(`Latest Build Size: ${pkg.buildSize}`)
         setTimeout(() => {
             // console.log('updateBuildNumber()')
@@ -53,7 +42,7 @@ function updateBuildNumber() {
             console.log(err)
             return
         }
-        const pkg = getParsedPackage()
+        const pkg = textUI.getParsedPackage()
         textUI.statusTxt(`Latest Build Number: ${pkg.buildNumber}`)
         setTimeout(() => {
             // console.log('updateBuildDate()')
@@ -68,7 +57,7 @@ function updateBuildDate() {
             console.log(err)
             return
         }
-        const pkg = getParsedPackage()
+        const pkg = textUI.getParsedPackage()
         textUI.statusTxt(`Latest Build Date: ${pkg.buildDate}`)
     })
 }

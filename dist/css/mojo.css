@@ -1,5 +1,5 @@
 /**!
- * Mojo  v0.2.0 (https://github.com/huement/mojo/)
+ * Mojo  v0.2.88 (https://github.com/huement/mojo/)
  * Copyright 2023-* Huement (https://huement.com)
  * Licensed under Mozilla Public License 2 [MPL-2.0] (https://github.com/huement/mojo/blob/main/LICENSE)
  *  Based on:
@@ -991,8 +991,9 @@ h6 .subtitle, .h1 small,
 .h6 .small,
 .h6 .subtitle {
   display: block;
-  font-size: 76% !important;
-  line-height: 0.6 !important;
+  font-size: 76%;
+  line-height: 1.2;
+  padding-top: 10px;
 }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a {
   text-decoration: underline;
@@ -3457,7 +3458,7 @@ kbd kbd {
   color: #999999;
 }
 
-.accordion input:checked ~ .accordion-header > .mi:first-child, .accordion[open] .accordion-header > .mi:first-child {
+.accordion input:checked ~ .accordion-header > .hui:first-child, .accordion[open] .accordion-header > .hui:first-child {
   transform: rotate(90deg);
 }
 .accordion input:checked ~ .accordion-body, .accordion[open] .accordion-body {
@@ -3481,7 +3482,7 @@ kbd kbd {
 .accordion .accordion-header.accordion-header-alt:hover {
   color: #0c0c0c;
 }
-.accordion .accordion-header .mi {
+.accordion .accordion-header .hui {
   transition: transform 0.35s;
 }
 .accordion .accordion-body {
@@ -5119,9 +5120,9 @@ a.badge {
   --bs-card-cap-padding-y: 0.5rem;
   --bs-card-cap-padding-x: 1rem;
   --bs-card-cap-bg: rgba(31, 31, 31, 0.6);
-  --bs-card-cap-color: ;
+  --bs-card-cap-color: #fff;
   --bs-card-height: ;
-  --bs-card-color: ;
+  --bs-card-color: #fff;
   --bs-card-bg: #dbdbdb;
   --bs-card-img-overlay-padding: 1.875rem 2.1875rem;
   --bs-card-group-margin: 0.75rem;
@@ -5553,7 +5554,7 @@ a.badge {
   --bs-dropdown-spacer: 0;
   --bs-dropdown-font-size: 1rem;
   --bs-dropdown-color: var(--bs-body-color);
-  --bs-dropdown-bg: #fff;
+  --bs-dropdown-bg: #4c4c4c;
   --bs-dropdown-border-color: rgba(0, 0, 0, 0.05);
   --bs-dropdown-border-radius: 0.375rem;
   --bs-dropdown-border-width: 0.0625rem;
@@ -5561,7 +5562,7 @@ a.badge {
   --bs-dropdown-divider-bg: #dbdbdb;
   --bs-dropdown-divider-margin-y: 0.5rem;
   --bs-dropdown-box-shadow: 0 0.5rem 4rem rgba(0, 0, 0, 0.11), 0 10px 20px rgba(0, 0, 0, 0.05), 0 2px 3px rgba(0, 0, 0, 0.06);
-  --bs-dropdown-link-color: #1f1f1f;
+  --bs-dropdown-link-color: #1982c4;
   --bs-dropdown-link-hover-color: #121212;
   --bs-dropdown-link-hover-bg: #ababab;
   --bs-dropdown-link-active-color: #fff;
@@ -5837,16 +5838,26 @@ a.badge {
 }
 
 .dropdown-menu {
+  border: none;
+  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(31, 31, 31, 0.15);
+  background-color: transparent;
+  background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
+  backdrop-filter: blur(5px);
   z-index: 1000;
   min-width: 10rem;
   padding: 0.5rem 0;
   margin: 0 0 0;
   font-size: 1rem;
   color: #f0f0f0;
-  background-color: #fff;
   border: 0.0625rem solid rgba(0, 0, 0, 0.05);
   border-radius: 0.375rem;
   box-shadow: 0 0.5rem 4rem rgba(0, 0, 0, 0.11), 0 10px 20px rgba(0, 0, 0, 0.05), 0 2px 3px rgba(0, 0, 0, 0.06);
+}
+.dropdown-menu a {
+  color: #fff;
+}
+.dropdown-menu .text-muted {
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 .dropdown-menu-small {
   box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.11), 0 3px 10px rgba(0, 0, 0, 0.05), 0 2px 3px rgba(0, 0, 0, 0.06);
@@ -5883,7 +5894,7 @@ a.badge {
 .dropdown-item {
   padding: 0.5rem 1.25rem;
   font-weight: 400;
-  color: #1f1f1f;
+  color: #1982c4;
   font-size: 0.9375rem;
   transition: background-color 250ms cubic-bezier(0.27, 0.01, 0.38, 1.06), color 250ms cubic-bezier(0.27, 0.01, 0.38, 1.06);
 }
@@ -5901,6 +5912,9 @@ a.badge {
 .dropdown-item.disabled:hover, .dropdown-item:disabled:hover {
   background: none;
   cursor: not-allowed;
+}
+.dropdown-menu .dropdown-item {
+  width: auto !important;
 }
 
 .dropdown-header {
@@ -9099,52 +9113,55 @@ button.list-group-item-dark.active {
   color: #4c4c4c;
 }
 
-.nav-tabs {
-  border-bottom: 0.0625rem solid #929292;
-}
-.nav-tabs .nav-item {
-  margin-bottom: -0.0625rem;
-}
 .nav-tabs .nav-link {
-  border: 0.0625rem solid transparent;
-  border-top-left-radius: 0.375rem;
-  border-top-right-radius: 0.375rem;
+  transition: none;
 }
 .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
-  border-color: #dbdbdb;
+  color: #fff;
+  isolation: auto;
 }
-.nav-tabs .nav-link.disabled {
-  color: #4c4c4c;
+.nav-tabs .nav-link, .nav-tabs .nav-link.disabled {
+  background-color: #b3b3b3;
 }
-.nav-tabs .nav-link.disabled:hover {
-  cursor: not-allowed;
-  border-color: transparent;
+.nav-tabs .nav-item:first-child > .nav-link {
+  border-radius: 0.375rem 0 0 0.375rem;
 }
-.nav-tabs .nav-link:hover {
-  border-color: #a6a6a6;
+.nav-tabs .nav-item:last-child > .nav-link {
+  border-radius: 0 0.375rem 0.375rem 0;
 }
-.nav-tabs .nav-link.active,
+.nav-tabs .nav-item .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-  color: #3d3d3d;
-  background-color: #171717;
-  border-color: #ddd;
+  border: none;
+  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(31, 31, 31, 0.15);
+  background-color: transparent;
+  background-image: linear-gradient(125deg, white, rgba(255, 255, 255, 0.9) 70%);
+  backdrop-filter: blur(5px);
+  border-radius: 0.375rem;
+  transform: scale(1.1);
+}
+.nav-tabs .nav-item .nav-link.active a,
+.nav-tabs .nav-item.show .nav-link a {
+  color: #fff;
+}
+.nav-tabs .nav-item .nav-link.active .text-muted,
+.nav-tabs .nav-item.show .nav-link .text-muted {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+.nav-tabs .nav-item .nav-link.active:hover, .nav-tabs .nav-item .nav-link.active:focus,
+.nav-tabs .nav-item.show .nav-link:hover,
+.nav-tabs .nav-item.show .nav-link:focus {
+  color: #242424;
 }
 .nav-tabs .dropdown-menu {
-  margin-top: -0.0625rem;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  border-radius: 0.375rem;
 }
 
 .nav-pills .nav-link {
-  border-radius: 0.375rem;
+  transition: none;
 }
-.nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
+.nav-pills .nav-link:hover, .nav-pills .nav-link:focus {
   color: #fff;
-  background-color: #520099;
-}
-.nav-pills:hover {
-  background-color: #bbbbbb;
+  isolation: auto;
 }
 
 .nav-outlined-pills .nav-link {
@@ -10036,12 +10053,15 @@ button.list-group-item-dark.active {
   padding-left: 0.625rem;
 }
 
-.nav-item .mi {
-  margin-top: 0;
-  margin-bottom: -1rem;
+.nav-item .hui {
   white-space: nowrap;
-  height: 1rem;
+  height: 2.25rem;
+  line-height: 1;
+}
+.nav-item .hui:before {
   padding-top: 0;
+  margin-top: -5px;
+  line-height: 1 !important;
 }
 
 .nav-form .form-control,

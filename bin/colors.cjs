@@ -11,7 +11,6 @@
 // Global Variables
 const { textUI } = require('./tui.cjs')
 const cg = require('../package.json')
-const gdb = require('./gdb.json')
 const fs = require('fs')
 const _ = require('lodash')
 const path = require('path')
@@ -32,7 +31,7 @@ class TokenColors {
 
         textUI.statusTxt('Loading template file & preparing to populate')
 
-        let newFile = path.resolve(__dirname, '../../' + this.resultFile)
+        let newFile = path.resolve(__dirname, '../' + this.resultFile)
         textUI.templateNewFile(
             newFile,
             "Design Tokens Color Palette. Generated via '$> node cli/bin/mojo.js'"
@@ -40,7 +39,7 @@ class TokenColors {
 
         textUI.statusTxt('Parsing ' + this.tokenFile + ' file for values')
 
-        let cTokenFile = path.resolve(__dirname, '../../' + this.tokenFile)
+        let cTokenFile = path.resolve(__dirname, '../' + this.tokenFile)
 
         var color_tokens = require(cTokenFile)
 
@@ -59,13 +58,14 @@ class TokenColors {
     saveColorJSONFile(filename, filedata) {
         //textUI.headerLog("Color Palette JSON");
         //console.log(JSON.stringify(filedata));
+        var tokenDir = this.tokenFile.split('/')
 
         //textUI.statusTxt("Building Color theme JSON");
 
         if (Object.keys(filedata).length > 0) {
             let newFile = path.resolve(
                 __dirname,
-                '../../' + gdb.dev.media + '/' + filename + '.json'
+                '../../' + tokenDir[0] + '/' + filename + '.json'
             )
 
             let prettyJSON = JSON.stringify(filedata, null, 4)
@@ -134,7 +134,7 @@ class TokenColors {
                         mapC['800'] = cScale(3)
                         mapC['900'] = cScale(4)
 
-                        let sassData = json2scss(objC)
+                        let sassData = json2scss(mapC)
                         let blankObj = {}
                         blankObj[mKey] = mapC
                         let sassDataMap = json2scss(blankObj)
@@ -155,8 +155,9 @@ class TokenColors {
         this.saveColorJSONFile('stack', MasterJSON)
     }
 
+    // Add !default to any scss file
     addDefaultSass() {
-        let cTokenFile = path.resolve(__dirname, '../../' + this.resultFile)
+        let cTokenFile = path.resolve(__dirname, '../' + this.resultFile)
         let fileData = jetpack.read(cTokenFile)
         let result = fileData.replace(/;/g, ' !default;')
         jetpack.write(cTokenFile, result)

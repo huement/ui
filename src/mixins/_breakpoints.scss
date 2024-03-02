@@ -42,7 +42,7 @@
 //    767.98px
 @function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
   $max: map-get($breakpoints, $name);
-  @return if($max and $max > 0, $max - .02, null);
+  @return if($max and $max > 0, $max - 0.02, null);
 }
 
 // Returns a blank string if smallest breakpoint, otherwise returns the name with a dash in front.
@@ -53,7 +53,7 @@
 //    >> breakpoint-infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px))
 //    "-sm"
 @function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
-  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+  @return if(breakpoint-min($name, $breakpoints) == null, '', '-#{$name}');
 }
 
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
@@ -198,5 +198,73 @@
       // Log a warning.
       @warn "Your upper breakpoint was invalid: #{$upper}.";
     }
+  }
+}
+
+//
+//    MEDIA QUERY SHORTCUT
+//
+//    Usage: @include breakpoint(small, min) { ... }
+//
+@mixin breakpoint($breakpoint, $direction: min, $alert: false) {
+  @if ($alert!=false) or ($debug == true) {
+    @debug 'Breakpoint #{$breakpoint} size #{$direction} requested!';
+  }
+
+  $strln: string.length($breakpoint);
+  @if ($strln > 2) {
+    $breakpoint: unquote(abrevName($breakpoint));
+  }
+
+  @if map-has-key($chords, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-map: map.get($chords, $breakpoint);
+    $breakpoint-value: map.get($breakpoint-map, width);
+
+    @if ($breakpoint-value == 0) {
+      @warn "Breakpoint Error! Sent for 0 size!";
+    }
+
+    @if $direction==max {
+      @media screen and (max-width: ($breakpoint-value - 1)) {
+        @content;
+      }
+    } @else if $direction==min {
+      @media screen and (min-width: $breakpoint-value) {
+        @content;
+      }
+    } @else if $direction==mid {
+      $bp-next: breakpoint-next($breakpoint);
+      @if ($bp-next != null) {
+        @media screen and (min-width: $breakpoint-value) and (max-width: $bp-next) {
+          @content;
+        }
+      } @else {
+        @warn "Invalid Breakpoint Size Requested! Nothing past here!";
+        @media screen and (min-width: $breakpoint-value) {
+          @content;
+        }
+      }
+    } @else {
+      @media screen and ($direction: $breakpoint-value) {
+        @content;
+      }
+    }
+    // If the breakpoint doesn't exist in the map.
+  } @else {
+    @if $direction==max {
+      @media screen and (max-width: $breakpoint) {
+        @content;
+      }
+    } @else if $direction==min {
+      @media screen and (min-width: $breakpoint) {
+        @content;
+      }
+    } @else {
+      @media screen and ($direction: $breakpoint) {
+        @content;
+      }
+    }
+    @warn "Invalid Breakpoint Size Requested!";
   }
 }

@@ -67,11 +67,15 @@
 }
 
 .nav-item .#{$icon-prefix} {
-  margin-top: 0;
-  margin-bottom: -1rem;
   white-space: nowrap;
   height: $navbar-icon-size;
-  padding-top: 0;
+  line-height: 1;
+
+  &:before {
+    padding-top: 0;
+    margin-top: -5px;
+    line-height: 1 !important;
+  }
 }
 
 // TODO: add small & large form control sizes

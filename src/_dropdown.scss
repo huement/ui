@@ -1,12 +1,13 @@
 // The dropdown menu
 .dropdown-menu {
+  @include glass();
   z-index: $zindex-dropdown;
   min-width: $dropdown-min-width;
   padding: $dropdown-padding-y 0;
   margin: $dropdown-spacer 0 0;
   font-size: $font-size-base;
   color: $body-color;
-  background-color: $dropdown-bg;
+  // background-color: $dropdown-bg;
   border: $dropdown-border-width solid $dropdown-border-color;
   @include border-radius($dropdown-border-radius);
   @include box-shadow($dropdown-box-shadow);
@@ -15,7 +16,7 @@
     @include box-shadow($dropdown-small-box-shadow);
     padding: $dropdown-small-padding-y 0;
     font-size: $dropdown-small-font-size;
-    
+
     .dropdown-item {
       padding: $dropdown-small-item-padding-y $dropdown-small-item-padding-x;
       font-size: $dropdown-small-item-font-size;
@@ -36,7 +37,7 @@
 }
 
 .dropleft .dropdown-menu {
-    margin-right: $dropdown-spacer;
+  margin-right: $dropdown-spacer;
 }
 
 // Dividers (basically an `<hr>`) within the dropdown
@@ -68,11 +69,15 @@
   &.disabled,
   &:disabled {
     color: $dropdown-link-disabled-color;
-    
+
     &:hover {
       background: none;
       cursor: not-allowed;
     }
+  }
+
+  @at-root .dropdown-menu #{&} {
+    width: auto !important;
   }
 }
 

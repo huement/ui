@@ -4,33 +4,33 @@
 ///
 
 // Sass Modules
-@use "sass:map";
-@use "sass:list";
-@use "sass:math";
-@use "sass:color";
-@use "sass:meta";
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:meta';
 
 // Global Constants
-@import "../../../build/scss/_frmwrk-config/index";
-@import "../../../build/scss/_frmwrk/index";
-@import "../../../build/scss/typography/headings";
+@import '../../../src/framework';
 
-@import "../../../jollybar/jolly";
+@include mojoBanner('DOCUMENTATION', '0.2.0');
+
+// @import "../../../jollybar/jolly";
 
 // Docs Specific Stylings
-@import "doc-vars";
-@import "base";
-@import "doc-nav";
-@import "footer";
+@import 'doc-vars';
+@import 'base';
+@import 'doc-nav';
+@import 'footer';
 
 // OLD PLUME STYLINGS
-@import "styleguide";
+@import 'styleguide';
 
 @include superclass() {
   //background-color: $body;
-  .headingDebug {
-    @include Harmonic_Headings_Breakpoints(true);
-  }
+  // .headingDebug {
+  //   @include Harmonic_Headings_Breakpoints(true);
+  // }
 
   .testDebug {
     background: #00ddff !important;
@@ -91,14 +91,14 @@
     position: relative;
 
     &:after {
-      content: "test";
+      content: 'test';
       display: block;
       position: relative;
     }
   }
 
   .vr-block.bg-light {
-    background-color: $light_dark;
+    background-color: $gray-300;
   }
 
   .robot-wrapper {
@@ -210,6 +210,6 @@
   }
 
   // IMPORTS
-  @import "code-preview";
-  @import "ex-grid";
+  @import 'code-preview';
+  @import 'ex-grid';
 }

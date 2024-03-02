@@ -1,19 +1,4 @@
-#!/usr/bin/env node
-
 /*jshint esversion: 6 */
-
-/**
- * @file Brief description of the file here
- * @author FirstName LastName <optionalEmail@example.com>
- * @copyright FirstName LastName Year
- * @license LicenseHereIfApplicable
- */
-
-// Libraries
-// const config = require("../package.json");
-// const chalk = require("chalk");
-// const cliSelect = require("cli-list-select");
-
 const jetpack = require('fs-jetpack')
 const logo = require('asciiart-logo')
 const chalk = require('chalk')
@@ -23,8 +8,10 @@ const cg = require('../package.json')
 const path = require('path')
 const bannerFile = './_header.txt'
 
-const good = chalk.bold.green
+const good = chalk.bold.greenBright
+const oktxt = chalk.bold.green
 const info = chalk.bold.cyan
+const infoB = chalk.bold.cyanBright
 const bad = chalk.bold.red
 const vapor = chalk.bold.magenta
 const paper = chalk.bold.white
@@ -99,19 +86,25 @@ const textUI = {
         console.log(' ')
     },
     statusTxt(text) {
-        console.log(info('  [INFO]  ') + vapor(text))
+        console.log(infoB('  [UPDT]  ') + info(text))
     },
     infoTxt(text) {
-        console.log(info('  [INFO]  ') + vapor(text))
+        console.log(info('  [INFO]  ') + paper(text))
     },
     taskTxt(text) {
-        console.log(good('  [ OK ]  ') + good(text))
+        console.log(oktxt('  [ OK ]  ') + oktxt(text))
+    },
+    doneTxt(text) {
+        console.log(good('  [DONE]  ') + good(text))
     },
     errorTxt(text) {
-        console.log(bad('  [FAIL]  ') + bad(text))
+        console.log('', bad('  [FAIL]  ') + bad(text), '')
+    },
+    warnTxt(text) {
+        console.log(bad('  [WARN]  ') + paper(text))
     },
     basicMsg(text) {
-        console.log('  ' + paper(text))
+        console.log('  | ' + paper(text))
     },
     quoteString(string) {
         return "'" + string + "'"
@@ -119,6 +112,12 @@ const textUI = {
     // FILE SYSTEM CONFIG
     getParsedPackage(jsonFile = './package.json') {
         return JSON.parse(fs.readFileSync(jsonFile))
+    },
+    formatBytes(a, b = 2) {
+        if (!+a) return '0 Bytes'
+        const c = 0 > b ? 0 : b,
+            d = Math.floor(Math.log(a) / Math.log(1024))
+        return `${parseFloat((a / Math.pow(1024, d)).toFixed(c))} ${['Bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'][d]}`
     },
     scssVar(name, value, quotes = false) {
         let scssString = ''

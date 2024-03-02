@@ -5,6 +5,9 @@ append config
     - var slug = 'index'
     - var pageCSS = 'demo/css/website'
 
+append scriptsJS
+  script(src=path+"js/bundle.js?stamp=" + stamp, type="module")
+
 block content
     section.angle-bottom-left.positive-top.headBlock
         .container
@@ -12,7 +15,8 @@ block content
                 .col
                     .hero.hero-large
                         .hero-body.text-center
-                            h1.title.text-warning.mt-n3
+                            h1.
+                            title.text-warning.mt-n3
                                 | a sassy prototyping framework
                             .subtitle.subtitle-sm.text-info.mt-3.mb-2
                                 | package based | lightweight | crazy fun

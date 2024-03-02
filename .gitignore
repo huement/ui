@@ -9,6 +9,13 @@ lerna-debug.log*
 
 # Built Items to ignore
 dist
+!dist/js
+!dist/css
+!dist/mojo.css
+!dist/mojo.css.map
+!dist/hi
+!dist/fonts
+
 # dist/cdn-test
 # dist/demo
 # dist/docs

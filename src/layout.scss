@@ -12,79 +12,79 @@
 //
 //
 // This file is mostly used for testing and development of the Grid & Layout
-// parts of the framework. 
+// parts of the framework.
 
-@use "sass:map";
-@use "sass:list";
-@use "sass:math";
-@use "sass:color";
-@use "sass:meta";
-@use "sass:string";
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:meta';
+@use 'sass:string';
 
 //
 // SUPER CLASSY SETUP
-@import "framework";
+@import 'framework';
 $debug: false;
 
 $include-column-box-sizing: true !default;
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/variables-dark";
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/mixins/breakpoints";
-@import "bootstrap/scss/mixins/container";
-@import "bootstrap/scss/mixins/grid";
-@import "bootstrap/scss/mixins/utilities";
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/mixins/breakpoints';
+@import 'bootstrap/scss/mixins/container';
+@import 'bootstrap/scss/mixins/grid';
+@import 'bootstrap/scss/mixins/utilities';
 
-@include mojoBanner("GRID Framework", "0.2.0");
-@import "root";
+@include mojoBanner('GRID Framework', '0.2.88');
+@import 'root';
 @import 'thirdparty/normalize/normalize';
 @import 'kick-off';
 
 // HELPER CLASSES (These might not be needed)
 @import 'framework/bs-helpers';
 
-@import "bootstrap/scss/containers";
-@import "bootstrap/scss/grid";
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
 
-@import "bootstrap/scss/utilities";
+@import 'bootstrap/scss/utilities';
 // Only use the utilities we need
 // stylelint-disable-next-line scss/dollar-variable-default
 $utilities: map-get-multiple(
   $utilities,
   (
-    "display",
-    "order",
-    "flex",
-    "flex-direction",
-    "flex-grow",
-    "flex-shrink",
-    "flex-wrap",
-    "justify-content",
-    "align-items",
-    "align-content",
-    "align-self",
-    "margin",
-    "margin-x",
-    "margin-y",
-    "margin-top",
-    "margin-end",
-    "margin-bottom",
-    "margin-start",
-    "negative-margin",
-    "negative-margin-x",
-    "negative-margin-y",
-    "negative-margin-top",
-    "negative-margin-end",
-    "negative-margin-bottom",
-    "negative-margin-start",
-    "padding",
-    "padding-x",
-    "padding-y",
-    "padding-top",
-    "padding-end",
-    "padding-bottom",
-    "padding-start"
+    'display',
+    'order',
+    'flex',
+    'flex-direction',
+    'flex-grow',
+    'flex-shrink',
+    'flex-wrap',
+    'justify-content',
+    'align-items',
+    'align-content',
+    'align-self',
+    'margin',
+    'margin-x',
+    'margin-y',
+    'margin-top',
+    'margin-end',
+    'margin-bottom',
+    'margin-start',
+    'negative-margin',
+    'negative-margin-x',
+    'negative-margin-y',
+    'negative-margin-top',
+    'negative-margin-end',
+    'negative-margin-bottom',
+    'negative-margin-start',
+    'padding',
+    'padding-x',
+    'padding-y',
+    'padding-top',
+    'padding-end',
+    'padding-bottom',
+    'padding-start'
   )
 );
 
-@import "bootstrap/scss/utilities/api";
+@import 'bootstrap/scss/utilities/api';

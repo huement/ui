@@ -115,7 +115,7 @@ async function loadFiles() {
 // Main Upload Function
 // Simply pass it the file path of what is to be uploaded
 const uploadFile = async (fileName, uploadPath, mimeType) => {
-    textUI.taskTxt(`${fileName} [TO] ${uploadPath} [AS] ${mimeType}`)
+    // textUI.taskTxt(`${fileName} [TO] ${uploadPath} [AS] ${mimeType}`)
 
     const fileContent = fs.readFileSync(fileName)
     // const fileContent = await fs.readFile('./README.md', 'binary')
@@ -133,7 +133,7 @@ const uploadFile = async (fileName, uploadPath, mimeType) => {
         if (err) {
             console.error('Error uploading file:', err)
         } else {
-            console.log(`File uploaded successfully. ${data.Location}`)
+            textUI.taskTxt(`Successful Upload [URL] ${data.Location}`)
         }
     })
 }
