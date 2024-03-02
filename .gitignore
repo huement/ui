@@ -66,3 +66,5 @@ tokens/icons/raw/**/*.svg
 !tokens/icons/clean/.gitkeep
 bin/getFiles.cjs
 bin/upload-oc.cjs
+src/_variables (2).scss
+src/_bootswatch (2).scss
