@@ -2,6 +2,6 @@
 **/dist/
 **/thirdparty/
 web/
-src/js/coverage/
-src/normalize/_normalize.scss
-src/normalize/_normalize.scss
+js/coverage/
+scss/normalize/_normalize.scss
+scss/normalize/_normalize.scss

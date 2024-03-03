@@ -4,20 +4,20 @@
 ///
 
 // Sass Modules
-@use "sass:map";
-@use "sass:list";
-@use "sass:math";
-@use "sass:color";
-@use "sass:meta";
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:meta';
 
 //
 // SUPER CLASSY SETUP
-@import "../../../src/framework";
+@import '../../../scss/framework';
 $debug: false;
 $dark: map.get($mono, 100);
 
 // Required Mojo
-// @import "../../../src/shapes";
+// @import "../../../scss/shapes";
 
 body {
   background-color: $dark !important;
@@ -34,7 +34,7 @@ body {
     margin-bottom: 15px;
   }
 
-  [class^="col-"] {
+  [class^='col-'] {
     // border: 1px solid #738290;
     background-color: #e3f2f7;
     padding-top: 1rem;
@@ -68,7 +68,7 @@ body {
 }
 
 .subtitle {
-  font-family: "Jost";
+  font-family: 'Jost';
   font-weight: 400;
 }
 
@@ -169,5 +169,5 @@ body {
 }
 
 // IMPORTS
-@import "code-preview";
-@import "ex-grid";
+@import 'code-preview';
+@import 'ex-grid';

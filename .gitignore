@@ -33,7 +33,7 @@ dist-ssr
 .cache/
 .cache/.stylelintcache/
 
-src/_modular-scale.scss
+scss/_modular-scale.scss
 
 # Editor directories and files
 .vscode/*
@@ -66,5 +66,5 @@ tokens/icons/raw/**/*.svg
 !tokens/icons/clean/.gitkeep
 bin/getFiles.cjs
 bin/upload-oc.cjs
-src/_variables (2).scss
-src/_bootswatch (2).scss
+scss/_variables (2).scss
+scss/_bootswatch (2).scss

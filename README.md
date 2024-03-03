@@ -48,7 +48,7 @@ hui is designed to be SIMPLE! The folder structure is a testament to that princi
 
 > NOTES:
 > • Everything in the public folder is copied to the /dist/ folder on build.
-> • /dist/ is routinely deleted. Never attempt to make a permanent change to anything in that folder directly. Modify /src/ and rebuild.
+> • /dist/ is routinely deleted. Never attempt to make a permanent change to anything in that folder directly. Modify /scss/ and rebuild.
 
 ---
 

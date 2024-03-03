@@ -4,7 +4,7 @@
 // Using Browserify to create a javascript bundle from the Bootstrap 5 libraries
 // as well as any other third party scripts (such as popper.js)
 // This script only runs browserify. All the code to include and everything
-// that goes into the bundle is found in the ./src/js/index.umd.js file.
+// that goes into the bundle is found in the ./js/index.umd.js file.
 
 const { textUI } = require('./tui.cjs')
 const fs = require('fs')
@@ -15,7 +15,7 @@ const jetpack = require('fs-jetpack')
 // CONFIG VARS
 const packageData = textUI.getParsedPackage()
 
-const inputFileName = './src/js/index.js'
+const inputFileName = './js/index.js'
 const outputFileName = './dist/js/bundle.js'
 
 // START BUNDLING..

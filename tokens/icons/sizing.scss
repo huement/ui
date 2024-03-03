@@ -4,7 +4,7 @@
 // -----------------------------------------------------
 
 // Global Constants
-@import '../../src/framework';
+@import '../../scss/framework';
 
 @function fa-divide($dividend, $divisor, $precision: 10) {
   $sign: if($dividend > 0 and $divisor > 0, 1, -1);

@@ -35,7 +35,7 @@ process.on('exit', function (code) {
 })
 
 let colorList = 'tokens/color_tokens.json'
-let colorSCSS = 'src/config/_palette-test.scss'
+let colorSCSS = 'scss/config/_palette-test.scss'
 
 const tc = new TokenColors(colorList, colorSCSS)
 tc.assemblePalette()

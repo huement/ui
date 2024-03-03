@@ -19,5 +19,5 @@
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true
   },
-  "include": ["vite.config.ts", "postcss.config.cjs", "./*.cjs", "web/*.cjs", "src/main.ts", "bin/*.cjs", "web/bs-config.cjs", "bin/s3sync.cjs"]
+  "include": ["vite.config.ts", "postcss.config.cjs", "./*.cjs", "web/*.cjs", "scss/main.ts", "bin/*.cjs", "web/bs-config.cjs", "bin/s3sync.cjs"]
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@huement/ui",
+  "name": "ui",
   "codeName": "mojo",
   "private": false,
   "version": "0.3.101",
@@ -158,21 +158,5 @@
   },
   "engines": {
     "node": ">=18.19.0"
-  },
-  "description": "<p align=\"center\">   <img src=\"logo.png\" width=\"400\" /> </p>",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/huement/ui.git"
-  },
-  "keywords": [
-    "scss",
-    "framework",
-    "ui",
-    "modular",
-    "scale"
-  ],
-  "bugs": {
-    "url": "https://github.com/huement/ui/issues"
   }
 }

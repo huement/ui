@@ -16,15 +16,15 @@
 
 //
 // HUI FRAMEWORK
-@import '../src/framework';
+@import '../scss/framework';
 
 @include mojoBanner('JOLLYBAR', '0.3.100');
 
 @import '_debug-functions';
 
 // HUI TYPE & HEADING CODE
-@import '../src/harmony/base';
-@import '../src/harmony/headings';
+@import '../scss/harmony/base';
+@import '../scss/harmony/headings';
 
 $black_000: #000000;
 $crimson_ff1453: #ff1453;
