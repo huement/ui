@@ -25,9 +25,8 @@
 ///  TODO LIST
 ///  Bootstrap + CSS GRID: https://codepen.io/dutchwebworks/pen/EvaJdB
 ///  Generate _package.scss as a way to import json data
-///  Add in Javascript Library for Modal?
-///  Tokens & Chords need the javascript builders
-///  The 'Jollybar' Debug Toolkit needs to be added
+///  Tokens & Chords need the javascript builders updated
+///  The 'Jollybar' Debug Toolkit needs to be finished
 
 //
 // CONTAINS HUI LIBRARY, VARIABLES, AND CONFIG OPTIONS
@@ -35,7 +34,7 @@
 
 //
 // INITIAL OUTPUT : ROOT VARS : NORMALIZE + RESET
-@include mojoBanner('', '0.2.88');
+@include mojoBanner('', '0.3.100');
 @import 'root';
 @import 'thirdparty/normalize/normalize';
 @import 'kick-off';
@@ -54,7 +53,7 @@ $include-column-box-sizing: true;
 // COMPONENT LIBRARY [a mix of trad bootstrap & hui]
 @import 'bootstrap/scss/alert';
 @import 'alert';
-@import 'accordions';
+@import 'bootstrap/scss/accordion';
 @import 'badge';
 @import 'bootstrap/scss/buttons';
 @import 'buttons';
@@ -71,8 +70,7 @@ $include-column-box-sizing: true;
 @import 'input-group';
 @import 'bootstrap/scss/list-group';
 @import 'list-group';
-@import 'bootstrap/scss/modal';
-@import 'modal';
+// @import 'modal';
 @import 'bootstrap/scss/pagination';
 @import 'pagination';
 @import 'bootstrap/scss/tables';
@@ -82,20 +80,16 @@ $include-column-box-sizing: true;
 @import 'social';
 
 // NAVIGATION ELEMENTS
+@import 'bootstrap/scss/modal';
 @import 'bootstrap/scss/nav';
 @import 'nav';
 @import 'bootstrap/scss/navbar';
 @import 'navbar';
+@import 'bootstrap/scss/offcanvas';
 
 // TODO: consider adding these files
 // @import "off-canvas";
-// @import "bootstrap/scss/accordion";
-// @import "progress";
-// @import "tooltip";
 // @import "popover";
-// @import "custom-forms";
-// @import "custom-sliders";
-// @import "custom-datepicker";
 
 // OUTPUT HELPER CLASSES
 @import 'framework/bs-helpers';

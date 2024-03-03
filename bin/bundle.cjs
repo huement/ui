@@ -15,7 +15,7 @@ const jetpack = require('fs-jetpack')
 // CONFIG VARS
 const packageData = textUI.getParsedPackage()
 
-const inputFileName = './src/js/index.umd.js'
+const inputFileName = './src/js/index.js'
 const outputFileName = './dist/js/bundle.js'
 
 // START BUNDLING..
@@ -62,7 +62,9 @@ const awaitFinalize = () => {
 }
 
 ;(async () => {
-    jetpack.remove(outputFileName)
+    if (jetpack.exists('dist/js/') !== true) {
+        jetpack.dir('dist/js')
+    }
 
     await buildBundle()
 

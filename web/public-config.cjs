@@ -15,7 +15,12 @@ module.exports = {
     ui: {
         port: 8101,
     },
-    files: ['dist/*.html', 'dist/demo/css/*.css', 'dist/css/*.css'],
+    files: [
+        'public/*.html',
+        'public/**/*.html',
+        'public/**/*.css',
+        'public/**/*.js',
+    ],
     watchEvents: ['change'],
     watch: true,
     ignore: [],
@@ -26,7 +31,7 @@ module.exports = {
     server: {
         baseDir: 'dist/',
         directory: true,
-        index: 'dist/index.html',
+        index: 'dist/theme.html',
     },
     proxy: false,
     port: 8100,
