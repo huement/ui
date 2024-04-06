@@ -8,9 +8,9 @@
   "license": "MPL-2.0",
   "author": "Derek Scott <derek@huement.com>",
   "homepage": "https://github.com/huement/ui",
-  "buildNumber": 101,
-  "buildDate": "Sun Mar 03 2024",
-  "buildSize": "332.3 KiB",
+  "buildNumber": 103,
+  "buildDate": "Sat Apr 06 2024",
+  "buildSize": "331.32 KiB",
   "scripts": {
     "clean": "rimraf dist",
     "bump": "node ./bin/bump.cjs",
@@ -20,7 +20,7 @@
     "watch": "nodemon -x \"npm run build\" & browser-sync start --config web/bs-config.cjs",
     "watch:css": "nodemon -x \"npm run scss\" & browser-sync start --config web/bs-config.cjs",
     "watch:public": "nodemon -x \"npm run copy\" & browser-sync start --config web/public-config.cjs",
-    "scss": "sass --verbose --no-quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css src:dist/css && npm run bump",
+    "scss": "sass --verbose --no-quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css scss:dist/css && npm run bump",
     "build": "npx npm-run-all -lsc scss copy minify minify:S3 postfix postfix:S3 && npx wallace dist/mojo.css",
     "build:js": "node bin/bundle.cjs",
     "deploy": "node bin/s3sync.cjs",
@@ -45,12 +45,12 @@
     "dist/fonts/**/*.{ttf,woff,woff2,css,html}",
     "dist/{css,js}/*.{css,js,map}",
     "dist/*.{css,js,map}",
-    "src"
+    "scss"
   ],
   "nodemonConfig": {
     "verbose": true,
     "watch": [
-      "src",
+      "scss",
       "public"
     ],
     "ext": "scss,html,ts,json,cjs",
