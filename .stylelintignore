@@ -1,7 +1,0 @@
-**/*.min.css
-**/dist/
-**/thirdparty/
-web/
-js/coverage/
-scss/normalize/_normalize.scss
-scss/normalize/_normalize.scss
