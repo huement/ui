@@ -22,6 +22,7 @@
 const args = require('yargs').argv
 const { textUI } = require('./tui.cjs')
 const TokenColors = require('./colors.cjs')
+const FileBuilder = require('./fileBuilder.cjs')
 // const TokenFonts = require("./fonts");
 // const TokenChords = require("./chords");
 const cg = require('../package.json')
@@ -34,12 +35,19 @@ process.on('exit', function (code) {
     return console.log(`Exiting with code: ${code}`)
 })
 
-let colorList = 'tokens/color_tokens.json'
-let colorSCSS = 'scss/config/_palette-test.scss'
+// let colorList = 'tokens/color_tokens.json'
+// let colorSCSS = 'scss/config/_palette-test.scss'
 
-const tc = new TokenColors(colorList, colorSCSS)
-tc.assemblePalette()
-tc.addDefaultSass()
+let globalValues = 'tokens/globals.json'
+let outputFile = 'scss/config/_globals-test.scss'
+
+// const tc = new TokenColors(colorList, colorSCSS)
+// tc.assemblePalette()
+// tc.addDefaultSass()
+
+const fb = new FileBuilder(globalValues, outputFile)
+fb.generateFile()
+fb.addDefaultSass()
 
 // if (args.fonts !== undefined) {
 //     const tf = new TokenFonts('fontPath', 'fontTarget')

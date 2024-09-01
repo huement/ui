@@ -13,8 +13,14 @@ dist
 !dist/css
 !dist/mojo.css
 !dist/mojo.css.map
+!dist/mojo.min.css
+!dist/mojo.min.css.map
 !dist/hi
 !dist/fonts
+!dist/logo.png
+!dist/logo-simple.png
+!dist/logo.svg
+
 
 # dist/cdn-test
 # dist/demo
@@ -25,7 +31,7 @@ dist
 # dist/*.png
 # dist/*.svg
 
-node_modules/
+node_modules
 node_modules1/
 dist-ssr
 *.local
@@ -67,4 +73,3 @@ tokens/icons/raw/**/*.svg
 bin/getFiles.cjs
 bin/upload-oc.cjs
 scss/_variables (2).scss
-scss/_bootswatch (2).scss

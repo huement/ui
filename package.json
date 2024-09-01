@@ -2,14 +2,30 @@
   "name": "@huement/ui",
   "codeName": "mojo",
   "private": false,
-  "version": "0.3.104",
+  "version": "0.3.105",
   "type": "module",
   "sourceType": "module",
   "license": "MPL-2.0",
   "author": "Derek Scott <derek@huement.com>",
   "homepage": "https://github.com/huement/ui",
-  "buildNumber": 103,
-  "buildDate": "Sat Apr 06 2024",
+  "description": "Harmonic UI Framework with responisve typography and a smooth color palette",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huement/ui.git"
+  },
+  "keywords": [
+    "scss",
+    "framework",
+    "ui",
+    "modular",
+    "scale"
+  ],
+  "bugs": {
+    "url": "https://github.com/huement/ui/issues"
+  },
+  "buildNumber": 105,
+  "buildDate": "Wed Aug 21 2024",
   "buildSize": "331.32 KiB",
   "scripts": {
     "clean": "rimraf dist",
@@ -42,6 +58,7 @@
     "scss:icons": "sass --quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css tokens/icons/sizing.scss dist/hi/sizing.css"
   },
   "files": [
+    "dist/hi/*.{css,json,ttf,woff,woff2,map}",
     "dist/fonts/**/*.{ttf,woff,woff2,css,html}",
     "dist/{css,js}/*.{css,js,map}",
     "dist/*.{css,js,map}",
@@ -65,6 +82,7 @@
     "dist/mojo.css.map",
     "dist/mojo.min.css.map",
     "dist/js",
+    "dist/hi",
     "dist/jollybar",
     "dist/fonts/icons",
     "dist/fonts/Jost",
@@ -158,21 +176,5 @@
   },
   "engines": {
     "node": ">=18.19.0"
-  },
-  "description": "<p align=\"center\">   <img src=\"logo.png\" width=\"400\" /> </p>",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/huement/ui.git"
-  },
-  "keywords": [
-    "scss",
-    "framework",
-    "ui",
-    "modular",
-    "scale"
-  ],
-  "bugs": {
-    "url": "https://github.com/huement/ui/issues"
   }
 }

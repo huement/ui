@@ -17,6 +17,10 @@ Based on Bootstrap 5's sass framework, it really shines when used in a text heav
 
 **hui** is easily configured via `$SCSS_Variables` then build with `npm run css` to produce a CSS file _(and optionally a custom SVG based icon font)_. Simply load that resulting CSS file into whatever HTML5 based application you're developing and you're good to go!
 
+## OVERVIEW
+
+**hui** starts by taking in some JSON config values, and turning those into complex SCSS scripts. Those SCSS files are then used to as your web applications theme. There is also an included builder to create compiled CSS files. You can even further inject the webfont SVG icons as inline images, creating a 1 file UI perfect for embedding on a tiny static project.
+
 ## INSTALL
 
 The best way to use **@huement/ui** is to install it via your favorite node package manager (npm, yarn etc) and then import the sass files into your app.

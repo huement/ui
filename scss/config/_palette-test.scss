@@ -20,418 +20,421 @@
 //
 //                                        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 //                                          _palette-test.scss
-//                                          MAR 01 2024
-//                                          VER 0.3.100
+//                                          AUG 31 2024
+//                                          VER 0.3.105
 //                                          Design Tokens Color Palette. Generated via '$> node cli/bin/mojo.js'
 //                                        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //
 
-$100: #9c0027 !default;
-$200: #b0002c !default;
-$300: #c40031 !default;
-$400: #d90338 !default;
-$500: #ec174c !default;
-$600: #ff2b60 !default;
-$700: #ff4070 !default;
-$800: #ff547f !default;
-$900: #ff698e !default;
+$100: #9C0027 !default;
+$200: #B0002C !default;
+$300: #C40031 !default;
+$400: #D90338 !default;
+$500: #EC174C !default;
+$600: #FF2B60 !default;
+$700: #FF4070 !default;
+$800: #FF547F !default;
+$900: #FF698E !default;
 
 $reds: (
-  100: #9c0027,
-  200: #b0002c,
-  300: #c40031,
-  400: #d90338,
-  500: #ec174c,
-  600: #ff2b60,
-  700: #ff4070,
-  800: #ff547f,
-  900: #ff698e,
+100: #9C0027,
+200: #B0002C,
+300: #C40031,
+400: #D90338,
+500: #EC174C,
+600: #FF2B60,
+700: #FF4070,
+800: #FF547F,
+900: #FF698E
 ) !default;
 
-$100: #ab3600 !default;
-$200: #bf4208 !default;
-$300: #d4561c !default;
-$400: #e86b30 !default;
-$500: #fd8046 !default;
-$600: #ff8e59 !default;
-$700: #ff9c6e !default;
-$800: #ffaa82 !default;
-$900: #ffb896 !default;
+$100: #AB3600 !default;
+$200: #BF4208 !default;
+$300: #D4561C !default;
+$400: #E86B30 !default;
+$500: #FD8046 !default;
+$600: #FF8E59 !default;
+$700: #FF9C6E !default;
+$800: #FFAA82 !default;
+$900: #FFB896 !default;
 
 $oranges: (
-  100: #ab3600,
-  200: #bf4208,
-  300: #d4561c,
-  400: #e86b30,
-  500: #fd8046,
-  600: #ff8e59,
-  700: #ff9c6e,
-  800: #ffaa82,
-  900: #ffb896,
+100: #AB3600,
+200: #BF4208,
+300: #D4561C,
+400: #E86B30,
+500: #FD8046,
+600: #FF8E59,
+700: #FF9C6E,
+800: #FFAA82,
+900: #FFB896
 ) !default;
 
-$100: #abad00 !default;
-$200: #bfc200 !default;
-$300: #d3d600 !default;
-$400: #e7eb00 !default;
-$500: #fbfe12 !default;
-$600: #fbff26 !default;
-$700: #fcff3b !default;
-$800: #fcff4f !default;
-$900: #fcff63 !default;
+$100: #ABAD00 !default;
+$200: #BFC200 !default;
+$300: #D3D600 !default;
+$400: #E7EB00 !default;
+$500: #FBFE12 !default;
+$600: #FBFF26 !default;
+$700: #FCFF3B !default;
+$800: #FCFF4F !default;
+$900: #FCFF63 !default;
 
 $yellows: (
-  100: #abad00,
-  200: #bfc200,
-  300: #d3d600,
-  400: #e7eb00,
-  500: #fbfe12,
-  600: #fbff26,
-  700: #fcff3b,
-  800: #fcff4f,
-  900: #fcff63,
+100: #ABAD00,
+200: #BFC200,
+300: #D3D600,
+400: #E7EB00,
+500: #FBFE12,
+600: #FBFF26,
+700: #FCFF3B,
+800: #FCFF4F,
+900: #FCFF63
 ) !default;
 
-$100: #00ab06 !default;
-$200: #00bf06 !default;
-$300: #00d407 !default;
-$400: #0fe817 !default;
-$500: #24fc2d !default;
-$600: #38ff3f !default;
-$700: #4dff52 !default;
-$800: #61ff66 !default;
-$900: #75ff7a !default;
+$100: #00AB06 !default;
+$200: #00BF06 !default;
+$300: #00D407 !default;
+$400: #0FE817 !default;
+$500: #24FC2D !default;
+$600: #38FF3F !default;
+$700: #4DFF52 !default;
+$800: #61FF66 !default;
+$900: #75FF7A !default;
 
 $greens: (
-  100: #00ab06,
-  200: #00bf06,
-  300: #00d407,
-  400: #0fe817,
-  500: #24fc2d,
-  600: #38ff3f,
-  700: #4dff52,
-  800: #61ff66,
-  900: #75ff7a,
+100: #00AB06,
+200: #00BF06,
+300: #00D407,
+400: #0FE817,
+500: #24FC2D,
+600: #38FF3F,
+700: #4DFF52,
+800: #61FF66,
+900: #75FF7A
 ) !default;
 
 $100: #004654 !default;
 $200: #005769 !default;
-$300: #00687d !default;
+$300: #00687D !default;
 $400: #007991 !default;
-$500: #028aa6 !default;
-$600: #179fba !default;
-$700: #2bb3cf !default;
-$800: #40c8e3 !default;
-$900: #54dcf7 !default;
+$500: #028AA6 !default;
+$600: #179FBA !default;
+$700: #2BB3CF !default;
+$800: #40C8E3 !default;
+$900: #54DCF7 !default;
 
 $cyans: (
-  100: #004654,
-  200: #005769,
-  300: #00687d,
-  400: #007991,
-  500: #028aa6,
-  600: #179fba,
-  700: #2bb3cf,
-  800: #40c8e3,
-  900: #54dcf7,
+100: #004654,
+200: #005769,
+300: #00687D,
+400: #007991,
+500: #028AA6,
+600: #179FBA,
+700: #2BB3CF,
+800: #40C8E3,
+900: #54DCF7
 ) !default;
 
 $100: #009985 !default;
-$200: #03ad97 !default;
-$300: #17c2ab !default;
-$400: #2bd6bf !default;
-$500: #41ead4 !default;
-$600: #54ffe8 !default;
-$700: #69ffeb !default;
-$800: #7dffee !default;
-$900: #91fff0 !default;
+$200: #03AD97 !default;
+$300: #17C2AB !default;
+$400: #2BD6BF !default;
+$500: #41EAD4 !default;
+$600: #54FFE8 !default;
+$700: #69FFEB !default;
+$800: #7DFFEE !default;
+$900: #91FFF0 !default;
 
 $blues: (
-  100: #009985,
-  200: #03ad97,
-  300: #17c2ab,
-  400: #2bd6bf,
-  500: #41ead4,
-  600: #54ffe8,
-  700: #69ffeb,
-  800: #7dffee,
-  900: #91fff0,
+100: #009985,
+200: #03AD97,
+300: #17C2AB,
+400: #2BD6BF,
+500: #41EAD4,
+600: #54FFE8,
+700: #69FFEB,
+800: #7DFFEE,
+900: #91FFF0
 ) !default;
 
-$100: #1d0045 !default;
+$100: #1D0045 !default;
 $200: #250059 !default;
-$300: #2e006e !default;
+$300: #2E006E !default;
 $400: #360082 !default;
-$500: #3e0097 !default;
-$600: #5314ab !default;
-$700: #6729bf !default;
-$800: #7c3dd4 !default;
-$900: #9052e8 !default;
+$500: #3E0097 !default;
+$600: #5314AB !default;
+$700: #6729BF !default;
+$800: #7C3DD4 !default;
+$900: #9052E8 !default;
 
 $ultras: (
-  100: #1d0045,
-  200: #250059,
-  300: #2e006e,
-  400: #360082,
-  500: #3e0097,
-  600: #5314ab,
-  700: #6729bf,
-  800: #7c3dd4,
-  900: #9052e8,
+100: #1D0045,
+200: #250059,
+300: #2E006E,
+400: #360082,
+500: #3E0097,
+600: #5314AB,
+700: #6729BF,
+800: #7C3DD4,
+900: #9052E8
 ) !default;
 
 $100: #000000 !default;
 $200: #000000 !default;
 $300: #000000 !default;
-$400: #0a0a0a !default;
-$500: #1f1f1f !default;
+$400: #0A0A0A !default;
+$500: #1F1F1F !default;
 $600: #333333 !default;
 $700: #474747 !default;
-$800: #5c5c5c !default;
+$800: #5C5C5C !default;
 $900: #707070 !default;
 
 $darks: (
-  100: #000000,
-  200: #000000,
-  300: #000000,
-  400: #0a0a0a,
-  500: #1f1f1f,
-  600: #333333,
-  700: #474747,
-  800: #5c5c5c,
-  900: #707070,
+100: #000000,
+200: #000000,
+300: #000000,
+400: #0A0A0A,
+500: #1F1F1F,
+600: #333333,
+700: #474747,
+800: #5C5C5C,
+900: #707070
 ) !default;
 
 $100: #000000 !default;
-$200: #0f0f0f !default;
+$200: #0F0F0F !default;
 $300: #242424 !default;
 $400: #383838 !default;
-$500: #4c4c4c !default;
+$500: #4C4C4C !default;
 $600: #616161 !default;
 $700: #757575 !default;
-$800: #8a8a8a !default;
-$900: #9e9e9e !default;
+$800: #8A8A8A !default;
+$900: #9E9E9E !default;
 
 $mediums: (
-  100: #000000,
-  200: #0f0f0f,
-  300: #242424,
-  400: #383838,
-  500: #4c4c4c,
-  600: #616161,
-  700: #757575,
-  800: #8a8a8a,
-  900: #9e9e9e,
+100: #000000,
+200: #0F0F0F,
+300: #242424,
+400: #383838,
+500: #4C4C4C,
+600: #616161,
+700: #757575,
+800: #8A8A8A,
+900: #9E9E9E
 ) !default;
 
-$100: #9e9e9e !default;
-$200: #b3b3b3 !default;
-$300: #c7c7c7 !default;
-$400: #dbdbdb !default;
-$500: #f0f0f0 !default;
-$600: #ffffff !default;
-$700: #ffffff !default;
-$800: #ffffff !default;
-$900: #ffffff !default;
+$100: #9E9E9E !default;
+$200: #B3B3B3 !default;
+$300: #C7C7C7 !default;
+$400: #DBDBDB !default;
+$500: #F0F0F0 !default;
+$600: #FFFFFF !default;
+$700: #FFFFFF !default;
+$800: #FFFFFF !default;
+$900: #FFFFFF !default;
 
 $lights: (
-  100: #9e9e9e,
-  200: #b3b3b3,
-  300: #c7c7c7,
-  400: #dbdbdb,
-  500: #f0f0f0,
-  600: #ffffff,
-  700: #ffffff,
-  800: #ffffff,
-  900: #ffffff,
+100: #9E9E9E,
+200: #B3B3B3,
+300: #C7C7C7,
+400: #DBDBDB,
+500: #F0F0F0,
+600: #FFFFFF,
+700: #FFFFFF,
+800: #FFFFFF,
+900: #FFFFFF
 ) !default;
 
-$100: #00687d !default;
+$100: #00687D !default;
 $200: #007991 !default;
-$300: #038ba6 !default;
-$400: #179fba !default;
+$300: #038BA6 !default;
+$400: #179FBA !default;
 $500: #2bb3cf !default;
-$600: #40c8e3 !default;
-$700: #54dcf7 !default;
-$800: #69e6ff !default;
-$900: #7de9ff !default;
+$600: #40C8E3 !default;
+$700: #54DCF7 !default;
+$800: #69E6FF !default;
+$900: #7DE9FF !default;
 
 $primarys: (
-  100: #00687d,
-  200: #007991,
-  300: #038ba6,
-  400: #179fba,
-  500: #2bb3cf,
-  600: #40c8e3,
-  700: #54dcf7,
-  800: #69e6ff,
-  900: #7de9ff,
+100: #00687D,
+200: #007991,
+300: #038BA6,
+400: #179FBA,
+500: #2bb3cf,
+600: #40C8E3,
+700: #54DCF7,
+800: #69E6FF,
+900: #7DE9FF
 ) !default;
 
-$100: #a83e05 !default;
-$200: #bd531a !default;
-$300: #d1672e !default;
-$400: #e67b42 !default;
+$100: #A83E05 !default;
+$200: #BD531A !default;
+$300: #D1672E !default;
+$400: #E67B42 !default;
 $500: #f99157 !default;
-$600: #ff9f6b !default;
-$700: #ffac80 !default;
-$800: #ffb994 !default;
-$900: #ffc7a8 !default;
+$600: #FF9F6B !default;
+$700: #FFAC80 !default;
+$800: #FFB994 !default;
+$900: #FFC7A8 !default;
 
 $secondarys: (
-  100: #a83e05,
-  200: #bd531a,
-  300: #d1672e,
-  400: #e67b42,
-  500: #f99157,
-  600: #ff9f6b,
-  700: #ffac80,
-  800: #ffb994,
-  900: #ffc7a8,
+100: #A83E05,
+200: #BD531A,
+300: #D1672E,
+400: #E67B42,
+500: #f99157,
+600: #FF9F6B,
+700: #FFAC80,
+800: #FFB994,
+900: #FFC7A8
 ) !default;
 
 $100: #000000 !default;
 $200: #000000 !default;
-$300: #0a0a0a !default;
-$400: #1f1f1f !default;
+$300: #0A0A0A !default;
+$400: #1F1F1F !default;
 $500: #333333 !default;
 $600: #474747 !default;
-$700: #5c5c5c !default;
+$700: #5C5C5C !default;
 $800: #707070 !default;
 $900: #858585 !default;
 
 $headings: (
-  100: #000000,
-  200: #000000,
-  300: #0a0a0a,
-  400: #1f1f1f,
-  500: #333333,
-  600: #474747,
-  700: #5c5c5c,
-  800: #707070,
-  900: #858585,
+100: #000000,
+200: #000000,
+300: #0A0A0A,
+400: #1F1F1F,
+500: #333333,
+600: #474747,
+700: #5C5C5C,
+800: #707070,
+900: #858585
 ) !default;
 
 $100: #000000 !default;
 $200: #000000 !default;
 $300: #000000 !default;
-$400: #0f0f0f !default;
+$400: #0F0F0F !default;
 $500: #232323 !default;
 $600: #383838 !default;
-$700: #4d4d4d !default;
+$700: #4D4D4D !default;
 $800: #616161 !default;
 $900: #757575 !default;
 
 $bodys: (
-  100: #000000,
-  200: #000000,
-  300: #000000,
-  400: #0f0f0f,
-  500: #232323,
-  600: #383838,
-  700: #4d4d4d,
-  800: #616161,
-  900: #757575,
+100: #000000,
+200: #000000,
+300: #000000,
+400: #0F0F0F,
+500: #232323,
+600: #383838,
+700: #4D4D4D,
+800: #616161,
+900: #757575
 ) !default;
 
 $100: #000000 !default;
 $200: #030303 !default;
 $300: #171717 !default;
-$400: #2b2b2b !default;
+$400: #2B2B2B !default;
 $500: #404040 !default;
 $600: #545454 !default;
 $700: #696969 !default;
-$800: #7d7d7d !default;
+$800: #7D7D7D !default;
 $900: #919191 !default;
 
 $codes: (
-  100: #000000,
-  200: #030303,
-  300: #171717,
-  400: #2b2b2b,
-  500: #404040,
-  600: #545454,
-  700: #696969,
-  800: #7d7d7d,
-  900: #919191,
+100: #000000,
+200: #030303,
+300: #171717,
+400: #2B2B2B,
+500: #404040,
+600: #545454,
+700: #696969,
+800: #7D7D7D,
+900: #919191
 ) !default;
 
 $100: #000000 !default;
 $200: #121212 !default;
 $300: #262626 !default;
-$400: #3b3b3b !default;
-$500: #4f4f4f !default;
+$400: #3B3B3B !default;
+$500: #4F4F4F !default;
 $600: #636363 !default;
 $700: #787878 !default;
-$800: #8c8c8c !default;
-$900: #a1a1a1 !default;
+$800: #8C8C8C !default;
+$900: #A1A1A1 !default;
 
 $captions: (
-  100: #000000,
-  200: #121212,
-  300: #262626,
-  400: #3b3b3b,
-  500: #4f4f4f,
-  600: #636363,
-  700: #787878,
-  800: #8c8c8c,
-  900: #a1a1a1,
+100: #000000,
+200: #121212,
+300: #262626,
+400: #3B3B3B,
+500: #4F4F4F,
+600: #636363,
+700: #787878,
+800: #8C8C8C,
+900: #A1A1A1
 ) !default;
 
-$100: #ababab !default;
-$200: #bfbfbf !default;
-$300: #d4d4d4 !default;
-$400: #e8e8e8 !default;
-$500: #fcfcfc !default;
-$600: #ffffff !default;
-$700: #ffffff !default;
-$800: #ffffff !default;
-$900: #ffffff !default;
+$100: #ABABAB !default;
+$200: #BFBFBF !default;
+$300: #D4D4D4 !default;
+$400: #E8E8E8 !default;
+$500: #FCFCFC !default;
+$600: #FFFFFF !default;
+$700: #FFFFFF !default;
+$800: #FFFFFF !default;
+$900: #FFFFFF !default;
 
 $backgrounds: (
-  100: #ababab,
-  200: #bfbfbf,
-  300: #d4d4d4,
-  400: #e8e8e8,
-  500: #fcfcfc,
-  600: #ffffff,
-  700: #ffffff,
-  800: #ffffff,
-  900: #ffffff,
+100: #ABABAB,
+200: #BFBFBF,
+300: #D4D4D4,
+400: #E8E8E8,
+500: #FCFCFC,
+600: #FFFFFF,
+700: #FFFFFF,
+800: #FFFFFF,
+900: #FFFFFF
 ) !default;
 
-$base00: #1f1f1f !default;
+$base00: #1F1F1F !default;
 $base01: #232323 !default;
 $base02: #333333 !default;
-$base03: #4c4c4c !default;
-$base04: #a0a0a0 !default;
-$base05: #bfbfbf !default;
-$base06: #e0e0e0 !default;
-$base07: #f0f0f0 !default;
-$base08: #ec174c !default;
-$base09: #24fc2d !default;
-$base0A: #fbfe12 !default;
-$base0B: #41ead4 !default;
-$base0C: #3e0097 !default;
-$base0D: #028aa6 !default;
-$base0E: #fe445f !default;
-$base0F: #fd8046 !default;
+$base03: #4C4C4C !default;
+$base04: #A0A0A0 !default;
+$base05: #BFBFBF !default;
+$base06: #E0E0E0 !default;
+$base07: #F0F0F0 !default;
+$base08: #EC174C !default;
+$base09: #24FC2D !default;
+$base0A: #FBFE12 !default;
+$base0B: #41EAD4 !default;
+$base0C: #3E0097 !default;
+$base0D: #028AA6 !default;
+$base0E: #FE445F !default;
+$base0F: #FD8046 !default;
+
 
 $Hexidecimal: (
-  base00: #1f1f1f,
-  base01: #232323,
-  base02: #333333,
-  base03: #4c4c4c,
-  base04: #a0a0a0,
-  base05: #bfbfbf,
-  base06: #e0e0e0,
-  base07: #f0f0f0,
-  base08: #ec174c,
-  base09: #24fc2d,
-  base0A: #fbfe12,
-  base0B: #41ead4,
-  base0C: #3e0097,
-  base0D: #028aa6,
-  base0E: #fe445f,
-  base0F: #fd8046,
+base00: #1F1F1F,
+base01: #232323,
+base02: #333333,
+base03: #4C4C4C,
+base04: #A0A0A0,
+base05: #BFBFBF,
+base06: #E0E0E0,
+base07: #F0F0F0,
+base08: #EC174C,
+base09: #24FC2D,
+base0A: #FBFE12,
+base0B: #41EAD4,
+base0C: #3E0097,
+base0D: #028AA6,
+base0E: #FE445F,
+base0F: #FD8046
 ) !default;
+
+
