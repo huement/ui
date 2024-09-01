@@ -1,0 +1,32 @@
+{
+  "scale": [
+    { "MINOR_SECOND": 1.067 },
+    { "MAJOR_SECOND": 1.125 },
+    { "MINOR_THIRD": 1.2 },
+    { "MAJOR_THIRD": 1.25 },
+    { "PERFECT_FOURTH": 1.333 },
+    { "AUGMENTED_FOURTH": 1.414 },
+    { "PERFECT_FIFTH": 1.5 },
+    { "MINOR_SIXTH": 1.6 },
+    { "GOLDEN_SECTION": 1.618 },
+    { "MAJOR_SIXTH": 1.667 },
+    { "MINOR_SEVENTH": 1.778 },
+    { "MAJOR_SEVENTH": 1.875 },
+    { "OCTAVE": 2 },
+    { "MAJOR_TENTH": 2.5 },
+    { "MAJOR_ELEVENTH": 2.667 },
+    { "MAJOR_TWELFTH": 3 },
+    { "DOUBLE_OCTAVE": 4 }
+  ],
+  "aspect-ratios": [
+    { "1x1": "100%" },
+    { "4x3": "calc(3 / 4 * 100%)" },
+    { "16x9": "calc(9 / 16 * 100%)" },
+    { "21x9": "calc(9 / 21 * 100%)" }
+  ],
+  "position-values": [
+    { "0": "100%" },
+    { "50": "100%" },
+    { "100": "100%" }
+  ]
+}

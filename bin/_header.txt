@@ -1,0 +1,27 @@
+//
+//  ■■■■■■■■■■■■■■■■■■▶ HUEMENT PRESENTS ◀■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+//
+//                  .;,                    ..                      .,.      .
+//     .,,.        .dWK;       ...  'cdOOl            .;coool ... 'cdOOl. :d,
+//     :XNk'       .OWNx.     'kOccoo:;kW0   .:oko';loool:'. 'kOccoowokW0:x;.
+//     'OWN0;      :XNW0,    .dN0d:.  .xWX.;xkcox0Xx:'.    .dN0d:.  .xWXOo
+//      oNNNK:   .cONXNXc   ,xXK:   .:xXNdkxdocxxOWk.     ,xXK:   .:xXNd.
+//      ;KNNNKc .dNNOo0Wd.;doxNk..:dxdkNK;.      ;KNo     oxNk..:dxdkNK;
+//      .xNK0NXloXWX:.xWO'x,.oN0xkd:..xWd.        lNK;  ' ,0;0:   ..xWd.
+//       cNKldNNNNXo  cNX:d:dKNk;.   :X0,   ..';:'.dNk..  xx:k;.   :X0,
+//       '0Nl.oKKd:.  ,0WdOxxXX:    'OXc  xkOkdl:. 'ONl.  xXX:    'OXc
+//       .xWx. ..     .xW0.;O0K,   .dNo.  k0KOd:.   :XK; .,0K,   .dNo.
+//       .dW0,         cNNX00KK,  .oXd.    .':dOKkc'.oNk. ,KK,  .oXd.
+//     kX00NX;         'OWwx;KK, .dKl.         .,o0KxdKNo.;KK, .dKl.
+//     .l0NNX:          oN0l,KNockk,              .;xKNNXc,KNockk,
+//       .d0d.          '0;..dXKkc.                  'oKWK.dXKkc.
+//         .             ,    ..                       .ll'   ..
+//
+//
+//                                        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+//                                          <<NAME>>
+//                                          <<DATE>>
+//                                          VER <<VERSION>>
+//                                          <<DESCRIPTION>>
+//                                        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+//
