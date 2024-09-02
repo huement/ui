@@ -1,0 +1,751 @@
+//
+//                          H U E M E N T ' S
+//      ____ _______ ____    _____  ___  __________ _______ _______
+//   __|    |       |    |__|     ||   ||   |  __  \   _   |   __  \
+//  |       |   -   |       |       \      /   __  <       |       <
+//  |_______|_______|_______|_______||____||_______/___|___|___|____|
+//  =================================================================
+//
+
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:meta';
+@use 'sass:string';
+
+//
+// HUI FRAMEWORK
+@import '../scss/framework';
+
+@include mojoBanner('JOLLYBAR', '0.3.100');
+
+@import '_debug-functions';
+
+// HUI TYPE & HEADING CODE
+@import '../scss/harmony/base';
+@import '../scss/harmony/headings';
+
+$black_000: #000000;
+$crimson_ff1453: #ff1453;
+$tangerine_ec8c69: #ec8c69;
+$darkslategray_3f3f3f: #3f3f3f;
+$lightseagreen_00a897: #00a897;
+$mediumaquamarine_02c59b: #02c59b;
+$palevioletred_ed6ea0: #ed6ea0;
+$silver_bfbfbf: #bfbfbf;
+$steelblue_05688f: #05688f;
+$white_fff: #ffffff;
+$whitesmoke_f5f5f5: #f5f5f5;
+
+/*! @debug Fire:#{$crimson_ff1453} */
+@mixin mojo_jolly-navbar() {
+  .debug_headers {
+    .header-tag {
+      font-size: 11px;
+      line-height: 13px;
+      letter-spacing: -0.05px;
+      color: $darkslategray_3f3f3f;
+      padding: 3px;
+      margin: 2px 0 0 6px;
+      border: 1px solid $silver_bfbfbf;
+      position: absolute;
+      display: inline;
+      clear: none;
+    }
+  }
+
+  // #switcher {
+  //   background: rgba(255, 255, 255, 0.75);
+  //   box-shadow: 0 2px 1px -1px $silver_bfbfbf;
+  //   overflow: hidden;
+  //   padding: 10px 6px 10px 10px;
+  //   position: fixed;
+  //   top: 0;
+  //   width: 97%;
+  //   z-index: 1000;
+  // }
+
+  #jollybar {
+    select {
+      appearance: none;
+      background: $lightseagreen_00a897;
+      background-image: none;
+      border: 0 !important;
+      box-shadow: none;
+      color: $white_fff;
+      cursor: pointer;
+      flex: 1;
+      font-size: 16px !important;
+      outline: 0;
+      padding: 0 0.5rem;
+    }
+
+    .select {
+      position: relative;
+      display: flex;
+      width: 10rem;
+      height: 1.7rem;
+      line-height: 2;
+      font-size: 16px !important;
+      background: $lightseagreen_00a897;
+      overflow: hidden;
+      border-radius: 0.25rem;
+      float: right;
+      margin: -3px 0 -10px 0;
+      padding-top: 5px;
+      &:after {
+        background: $mediumaquamarine_02c59b;
+        content: '\25BC';
+        cursor: pointer;
+        padding: 6px 0.81rem 6px 12px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: 0.25s all ease;
+      }
+      &:hover {
+        &:after {
+          color: $crimson_ff1453;
+        }
+      }
+    }
+
+    .logo {
+      margin: 0 0 0 5px;
+      padding: 0;
+      img {
+        clear: none;
+        display: inline;
+        float: left;
+        height: 50px;
+        margin: 15px 0 -10px 10px;
+        padding-top: 10px;
+        width: 50px;
+      }
+    }
+
+    .wrapper_debug_size_viewer {
+      background: rgba(2, 129, 146, 0.8);
+      border: 1px solid $steelblue_05688f;
+      border-radius: 4px;
+      bottom: 8px;
+      color: $black_000;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+      font-size: 14px;
+      font-weight: normal;
+      padding: 2px 4px;
+      position: fixed;
+      right: 8px;
+      z-index: 999;
+    }
+
+    div {
+      &.debug_size_viewer {
+        display: table;
+        opacity: 0;
+        z-index: -9999;
+        max-height: 0;
+        overflow: hidden;
+        width: 250px;
+        bottom: 42px;
+        position: fixed;
+        border: 1px solid darken($darkslategray_3f3f3f, 10);
+        background: $darkslategray_3f3f3f;
+        padding: 5px 20px 6px 0;
+        margin: 10px 0 0 -55px;
+        transition: all 0.5s;
+        &.showit {
+          max-height: 100px;
+          opacity: 1;
+          overflow: visible;
+          z-index: 9999;
+        }
+        p {
+          display: table-row;
+          font-size: 12px !important;
+          font-weight: normal;
+        }
+        b {
+          display: table-cell;
+          font-weight: normal;
+          padding: 0.15rem;
+          font-size: 12px !important;
+          text-align: right;
+        }
+        span {
+          display: table-cell;
+          font-size: 14px !important;
+          font-weight: normal;
+          line-height: 1;
+          padding: 0.15rem;
+          text-align: right;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .nlogo {
+      padding: 0;
+
+      img {
+        background: transparent;
+        height: auto;
+        margin-top: -3px;
+        width: 50px;
+        z-index: 9998;
+        transition: linear 0.25s all;
+
+        &:hover {
+          //margin-top: -1px;
+          opacity: 0.5;
+          //background: lighten($black_000, 25);
+        }
+      }
+    }
+
+    .toggle-bars {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      cursor: pointer;
+
+      .bar {
+        background-color: $white_fff;
+        height: 2px;
+        margin: 7px 0;
+        width: 35px;
+      }
+    }
+
+    nav {
+      &.av {
+        padding: 0 5px;
+        background-color: $darkslategray_3f3f3f;
+        color: $whitesmoke_f5f5f5;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 40px;
+        overflow: hidden;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9990;
+        &:before {
+          background-image: linear-gradient(to right, $palevioletred_ed6ea0 0%, $tangerine_ec8c69 100%);
+          bottom: 39px;
+          content: ' ';
+          display: block;
+          height: 4px;
+          left: -2px;
+          position: fixed;
+          right: -2px;
+          width: 102%;
+          z-index: -1;
+        }
+
+        .nnav {
+          display: none;
+          ul {
+            list-style-type: none;
+            padding: 0;
+            margin-left: -20px;
+            margin-top: 0;
+            list-style-type: none;
+
+            li {
+              font-size: 0.8rem;
+              min-width: 50px;
+              padding: 0px 5px 0 0;
+              text-transform: uppercase;
+
+              .data-label {
+                float: left;
+                font-size: 16px;
+                min-width: 100px;
+                min-height: 29px;
+                padding: 3px 5px 2px 5px;
+                margin-top: 7px;
+                border-radius: 3px;
+                background: #000;
+                color: $mediumaquamarine_02c59b;
+                text-align: center;
+                transition: linear 0.15s all;
+
+                &:hover {
+                  color: $lightseagreen_00a897;
+                  text-decoration: none;
+                  cursor: pointer;
+                  background: lighten(#000, 10);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .show {
+      display: block !important;
+    }
+
+    @media screen and (min-width: 600px) {
+      nav {
+        &.av {
+          background-color: $darkslategray_3f3f3f;
+          box-shadow: 0 -2px 4px 2px rgba(31, 31, 31, 0.39);
+          color: $whitesmoke_f5f5f5;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 0 2px;
+
+          .toggle-bars {
+            display: none;
+          }
+          .nnav {
+            display: block;
+            ul {
+              display: flex;
+              margin: 0 0 -20px 0;
+              padding: 0 0 0 0;
+              li {
+                padding: 8px 5px 0 0;
+                margin-top: 0;
+                margin-bottom: 0px;
+                &.text-btn-link {
+                  padding-top: 0px;
+                  min-width: 100px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin mojo_jolly-modal() {
+  .modal-window {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.25);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+    &:target {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    & > div {
+      width: 400px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 2em;
+      background: white;
+    }
+    header {
+      font-weight: bold;
+    }
+    h1 {
+      font-size: 150%;
+      margin: 0 0 15px;
+    }
+  }
+
+  .modal-close {
+    color: #aaa;
+    line-height: 50px;
+    font-size: 80%;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 70px;
+    text-decoration: none;
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+//========================================================================================
+//                                                                                      ##
+//    RESPONSIVE DESIGN VIEWPORT LABELS                                                 ##
+//    @title   mediaQueryDebug                                                          ##
+//    @details prints out a text snippet w/ active media query name & size              ##
+//                                                                                      ##
+//========================================================================================
+@mixin mojo_jolly-media($kickFlipMap) {
+  // HTML Elements that will hold our debug content
+  #mq,
+  #scale,
+  #fontSize,
+  #lineHeight,
+  #mq:after,
+  #scale:after,
+  #fontSize:after,
+  #lineHeight:after {
+    display: none;
+  }
+
+  // We fetch the breakpoint values like this:
+  // 1st Loop. Up to Max.
+  // 2+ Loop: From previous up to this loop max val
+  // Last Loop: From this loop max val to infinite
+  $mapCount: 0;
+  $prevLabel: '';
+  @debug '#{index-to-key($mapCount, $kickFlipMap)}';
+  @each $mapKey, $mMap in $kickFlipMap {
+    // -
+    // To get started we setup some variables
+    $totVal: length($kickFlipMap);
+    $totValMinOne: length($kickFlipMap) - 1;
+    $minVal: map-get(map-get($kickFlipMap, index-to-key($mapCount, $kickFlipMap)), 'width');
+    $maxVal: map-get($mMap, 'width');
+    // -
+    // Now we do our conditonal Checks for each run through
+    @if $mapCount==0 {
+      // Debug Area is Between 0 and First key
+      $prevLabel: strip_units(map-get($mMap, 'width'));
+
+      @media screen and (max-width: map-get($mMap, 'width')) {
+        #mq:after {
+          content: 'UNTL #{$prevLabel}';
+        }
+        #scale:after {
+          $scale: map-get($mMap, 'scale_name');
+          content: '#{$scale}';
+        }
+        #fontSize:after {
+          $fontSize: map-get($mMap, 'fontSize');
+          content: '#{$fontSize}';
+        }
+        #lineHeight:after {
+          $lineHeight: map-get($mMap, 'lineHeight');
+          content: '#{$lineHeight}';
+        }
+      }
+    } @else if $mapCount < $totValMinOne {
+      // Debug Area is Between Two Keys
+      @media screen and (min-width: #{$minVal + 1px}) and (max-width: #{$maxVal - 1px}) {
+        #mq:after {
+          content: 'BTWN #{$prevLabel} & #{strip_units(map-get($mMap, width))}';
+        }
+        #scale:after {
+          $scale: map-get($mMap, 'scale_name');
+          content: '#{$scale}';
+        }
+        #fontSize:after {
+          $fontSize: map-get($mMap, 'fontSize');
+          content: '#{$fontSize}';
+        }
+        #lineHeight:after {
+          $lineHeight: map-get($mMap, 'lineHeight');
+          content: '#{$lineHeight}';
+        }
+      }
+
+      // Important. We set prevLabel on this run so the next (last) run its available.
+      $prevLabel: strip_units(map-get($mMap, 'width'));
+    } @else {
+      // Debug Area on Last Key. Go to Infinity & Beyond!
+      // prevLabel is computed on the previous run
+      $mapCount: $mapCount + 1;
+      $maxVal: map-get(map-get($kickFlipMap, index-to-key($mapCount)), width);
+
+      @media screen and (min-width: #{$minVal + 1px}) and (max-width: #{$maxVal - 1px}) {
+        #mq:after {
+          content: 'BTWN #{$prevLabel} & #{strip_units(map-get($mMap, width))}';
+        }
+        #scale:after {
+          $scale: map-get($mMap, 'scale_name');
+          content: '#{$scale}';
+        }
+        #fontSize:after {
+          $fontSize: map-get($mMap, 'fontSize');
+          content: '#{$fontSize}';
+        }
+        #lineHeight:after {
+          $lineHeight: map-get($mMap, 'lineHeight');
+          content: '#{$lineHeight}';
+        }
+      }
+
+      @media screen and (min-width: $maxVal) {
+        #mq:after {
+          content: 'FROM #{strip_units(map-get($mMap, width))}';
+        }
+        #scale:after {
+          $scale: map-get($mMap, 'scale_name');
+          content: '#{$scale}';
+        }
+        #fontSize:after {
+          $fontSize: map-get($mMap, 'fontSize');
+          content: '#{$fontSize}';
+        }
+        #lineHeight:after {
+          $lineHeight: map-get($mMap, 'lineHeight');
+          content: '#{$lineHeight}';
+        }
+      }
+    }
+    // -
+    // Important that we advance the count each loop
+    $mapCount: $mapCount + 1;
+  }
+}
+
+// Creates base type baseline overlay and vertical unit overlay.
+// To use on the body tag for example: body { @include debug-vertical-alignment(); } and add class va-debug to the body tag
+@mixin mojo_jolly-rhythm(
+  $position: 'absolute',
+  $opacity: 0.8,
+  $vertical-unit: $VerticalUnit,
+  $type-base-line-multi: $MainLineMultiple,
+  $type-size: $MainFontSize
+) {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: #{$position};
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    display: none;
+  }
+
+  &::before {
+    z-index: 10;
+    background-image: -webkit-linear-gradient(rgba(233, 0, 0, $opacity) 1px, rgba(0, 0, 0, 0) 1px);
+    background-image: linear-gradient(rgba(233, 0, 0, $opacity) 1px, rgba(0, 0, 0, 0) 1px);
+    background-size: 100% (unitlessRhythm($type-base-line-multi, $type-size) + 0rem);
+  }
+
+  &::after {
+    z-index: 9;
+    background-image: -webkit-linear-gradient(rgba(0, 233, 0, $opacity) 1px, rgba(0, 0, 0, 0) 1px);
+    background-image: linear-gradient(rgba(0, 233, 0, $opacity) 1px, rgba(0, 0, 0, 0) 1px);
+    background-size: 100% $vertical-unit;
+  }
+
+  &.va-debug::before,
+  &.va-debug::after {
+    display: block;
+    pointer-events: none;
+  }
+}
+
+@mixin grid-overlay($color: black, $px-offset: false) {
+  body {
+    background: linear-gradient(to top, rgba($color, 0.1) 5%, white 5%);
+    background-size: 100% ($line-height-ratio) + em;
+    @if ($px-offset) {
+      background-position: 0 $px-offset + px;
+    }
+  }
+}
+
+@mixin mojo_jolly-margins($margin-top, $margin-bottom, $computed-font-size) {
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  &:before {
+    background: hsla(200, 100%, 50%, 0.3)
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40px" height="300px" viewBox="0 0 40 300"><path d="M9.5,1.5 L9.5,298.5" stroke="#1AB3FF"/><polyline stroke="#1AB3FF" fill="none" points="5.5 5.5 9.5 0.5 13.5 5.5"/></svg>')
+      51% top repeat-y;
+    height: $margin-top;
+    top: -$margin-top;
+  }
+
+  &:after {
+    background: hsla(200, 100%, 50%, 0.3)
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40px" height="300px" viewBox="0 0 40 300"><path d="M9.5,1.5 L9.5,298.5" stroke="#1AB3FF"/><polyline stroke="#1AB3FF" fill="none" points="5.5 294.5 9.5 299.5 13.5 294.5"/></svg>')
+      49% bottom repeat-y;
+    bottom: -$margin-bottom;
+    height: $margin-bottom;
+  }
+}
+
+// @mixin mojo_jolly-headings() {
+//   $counter: 1;
+//   $weightCurrent: 1;
+
+//   $weights: 300, 500, 700;
+//   $weightAdjust: computeDynamicWeight(length($chords), length($weights));
+
+//   $weightNthCounter: 1;
+//   $weightNth: nth($weights, $weightNthCounter);
+
+//   @each $bpKey, $bpMap in $chords {
+//     $bpMR: map-get($bpMap, "scale");
+//     $bpLH: map-get($bpMap, "lineHeight");
+//     $bpLM: map-get($bpMap, "multiple");
+//     $bpFS: _rem(map-get($bpMap, "fontSize"));
+//     $bpNM: map-get($bpMap, "name");
+
+//     // Mobile First Sizing. Breakpoints handle all other views
+//     @if ($counter == 1) {
+//       $wF: nth($weights, 1);
+//       @include mojo_jolly-heading-debug($bpMR, $bpFS, $bpLH, $bpLM, true, true, $wF);
+//     }
+
+//     // Slap a breakpoint media query quantifier around the H[1-6] Tags
+//     @include breakpoint(#{$bpKey}, min) {
+//       @include mojo_jolly-heading-debug($bpMR, $bpFS, $bpLH, $bpLM, true, true, $weightNth);
+//     }
+
+//     $counter: $counter + 1;
+//     $weightCurrent: $weightCurrent + 1;
+//     @if ($weightCurrent >= $weightAdjust) {
+//       $weightNthCounter: $weightNthCounter + 1;
+//       $weightCurrent: 1;
+
+//       @if ($weightNthCounter > length($weights)) {
+//         @warn "Weight Counter exceeded available weights...";
+//         $weightNth: nth($weights, length($weights));
+//       } @else {
+//         $weightNth: nth($weights, $weightNthCounter);
+//       }
+//     }
+//   }
+// }
+
+// @mixin mojo_jolly-heading-debug(
+//   $mr: $ModularRatio,
+//   $bfs: 1rem,
+//   $blh: $MainLineHeight,
+//   $blm: $MainLineMultiple,
+//   $am: false,
+//   $al: true,
+//   $wgt: 700
+// ) {
+
+//   $bu: $MainUnit;
+//   $scaleLevel: 5;
+//   $iTotal: 6;
+//   $h: 1;
+
+//   @while $iTotal > 0 {
+
+//     $hSize: $bfs * power($mr, $scaleLevel);
+//     $hLine: $blh * power($mr, $scaleLevel);
+
+//     $top: 1;
+//     $btm: 1;
+//     $weight: $wgt;
+
+//     @if ($h == 1){ $top: 2; $btm: 4; }
+//     @if ($h == 2){ $top: 2; $btm: 3; }
+//     @if ($h == 3){ $top: 1; $btm: 2; }
+
+//     $lH: decimal_round(calculateLineHeight($hSize), 3);
+
+//     h#{$h} {
+//       $dh-fontsize: font-size(decimal_round($hSize, 3));
+//       $dh-lineheight: $lH + $bu;
+//       $dh-mtop: decimal_round(remRhythm($top, $bfs), 3);
+//       $dh-mbottom: decimal_round(remRhythm($btm, $bfs), 3);
+//       @include mojo_jolly-margins($dh-mtop, $dh-mbottom, $dh-fontsize, "rem");
+//     }
+
+//     $scaleLevel: $scaleLevel - 1;
+//     $iTotal: $iTotal - 1;
+//     $h: $h + 1;
+//   }
+// }
+
+@mixin mojo_jolly-html() {
+  @each $mapKey, $mMap in $chords {
+    $i: 1;
+    $ht: 5;
+    $scale: map-get($mMap, 'scale');
+    $lH: map-get($mMap, 'lineHeight');
+    $lHpx: map-get($mMap, 'lineHeight_px');
+    $fS: map-get($mMap, 'fontSize');
+    //$halfSizeLine: px_rem(i($fS * $lH * 0.5), strip_units($fS));
+
+    @include breakpoint(#{$mapKey}, min) {
+      $debugLH_rem: $lH * 1rem;
+      $debugLH_px: _px($debugLH_rem);
+      $DLH: round((strip_units($lH) * strip_units($fS)) * 1px);
+      $DSize: round($fS * $lH);
+
+      /**
+      @debug debugLH_rem #{$debugLH_rem}
+      @debug debugLH_px #{$debugLH_px}
+      @debug DLH #{$DLH}
+      @debug DSize #{$DSize}
+      @debug fontSize #{$fS}
+      @debug lineHeight #{$lH}
+      */
+
+      html {
+        background-image: linear-gradient(hsla(200, 100%, 50%, 0.3) 1px, transparent 1px);
+        background-position: left top;
+        background-size: $DSize $DSize;
+
+        body {
+          box-shadow: 1px 0px 0px hsla(200, 100%, 50%, 0.3), -1px 0px 0px hsla(200, 100%, 50%, 0.3);
+        }
+      }
+    }
+
+    $i: $i + 1;
+    $ht: $ht - 1;
+  }
+}
+
+// $sgl-root-font-size: $RootFontSize !global;
+// $line-height: round($sgl-root-font-size * $MainLineHeight);
+
+// html {
+//   background-image: linear-gradient(
+//     hsla(200, 100%, 50%, 0.3) 1px,
+//     transparent 1px
+//   );
+//   background-position: left top;
+//   background-size: ($line-height * 1px) ($line-height * 1px);
+
+//   body {
+//     box-shadow: 1px 0px 0px hsla(200, 100%, 50%, 0.3),
+//       -1px 0px 0px hsla(200, 100%, 50%, 0.3);
+//   }
+// }
+
+@debug 'Outputting Modal Window';
+@include mojo_jolly-modal();
+
+@debug 'Outputting Jolly Navbar';
+@include mojo_jolly-navbar();
+
+@debug 'Outputting Jolly Media Query Details';
+@include mojo_jolly-media($chords);
+
+@debug 'Outputting Jolly Typography Grid';
+@include mojo_jolly-html();
+//@include mojo_jolly-headings();
+//@include Harmonic_Headings(true);

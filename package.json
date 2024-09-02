@@ -7,52 +7,32 @@
   "license": "MPL-2.0",
   "author": "Derek Scott <derek@huement.com>",
   "homepage": "https://github.com/huement/ui",
-  "buildNumber": 105,
-  "buildDate": "Wed Aug 21 2024",
-  "buildSize": "331.32 KiB",
+  "buildNumber": 13,
+  "buildDate": "Mon Sep 02 2024",
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf css && rimraf js && rimraf docs && rimraf hi",
+    "clean:index": "rimraf ./index.html",
     "bump": "node ./bin/bump.cjs",
-    "copyIDK": "node ./bin/copy.cjs",
+    "move": "node ./bin/move.cjs",
     "pug": "node bin/pug.cjs",
     "watch": "nodemon -x \"npm run build\" & browser-sync start --config web/bs-config.cjs",
-    "scss": "sass --verbose --no-quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css scss:dist/css && npm run bump",
-    "postfix": "postcss --config postcss.config.cjs --replace dist/mojo.css",
-    "minify": "cleancss -O01 --output dist/mojo.min.css --format 'breaks:afterBlockBegins=on;spaces:aroundSelectorRelation=on' dist/css/mojo.css dist/hi/icons-s3.min.css",
-    "build": "npx npm-run-all -lsc pug scss postfix minify"
+    "scss": "sass --verbose --no-quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css web/assets/style:demo/css && npm run bump",
+    "postfix": "postcss --config postcss.config.cjs --replace demo/css/docs.css",
+    "build": "npx npm-run-all -lsc pug move build:css",
+    "build:css": "npx npm-run-all -lsc scss postfix",
+    "build:js": "node bin/bundle.cjs"
   },
-  "files": [
-    "dist/hi/*.{css,json,ttf,woff,woff2,map}",
-    "dist/fonts/**/*.{ttf,woff,woff2,css,html}",
-    "dist/{css,js}/*.{css,js,map}",
-    "dist/*.{css,js,map}",
-    "scss"
-  ],
   "nodemonConfig": {
     "verbose": true,
     "watch": [
-      "scss",
-      "public"
+      "./index.html"
     ],
-    "ext": "scss,html,ts,json,cjs",
+    "ext": "html",
     "ignore": [
       ".cache/**"
     ],
-    "delay": 1500
+    "delay": 5000
   },
-  "publish": [
-    "dist/mojo.css",
-    "dist/mojo.min.css",
-    "dist/mojo.css.map",
-    "dist/mojo.min.css.map",
-    "dist/js",
-    "dist/hi",
-    "dist/jollybar",
-    "dist/fonts/icons",
-    "dist/fonts/Jost",
-    "dist/fonts/Saira",
-    "dist/fonts/Space_Grotesk"
-  ],
   "devDependencies": {
     "@babel/cli": "^7.23.9",
     "@babel/core": "^7.24.0",
@@ -64,6 +44,7 @@
     "@squirrel-forge/sass-package-importer": "^0.11.2",
     "ansi-colors": "^4.1.3",
     "asciiart-logo": "^0.2.7",
+    "async": "^3.2.6",
     "aws-sdk": "^2.1560.0",
     "babelify": "^10.0.0",
     "browser-sync": "3.0.2",
@@ -99,6 +80,7 @@
     "mime": "^4.0.1",
     "mime-types": "^2.1.35",
     "modularscale-sass": "^3.0.10",
+    "move-file": "^3.1.0",
     "multer": "^1.4.5-lts.1",
     "multer-s3": "^3.0.1",
     "node-banner": "^1.4.0",

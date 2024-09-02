@@ -4,9 +4,13 @@ append config
     - var highlight = true
     - var slug = 'index'
     - var pageCSS = 'demo/css/website'
+    - var path = "./"
+    - var imgPath = "demo/imgs/"
+    - var jsPath = "js/"
+    - var cssPath = "css/"
 
 append scriptsJS
-  script(src=path+"js/bundle.js?stamp=" + stamp, type="module")
+    script(src=jsPath+"bundle.js", type="module")
 
 block content
     section.angle-bottom-left.positive-top.headBlock

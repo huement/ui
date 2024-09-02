@@ -1,17 +1,17 @@
 [
   {
     "name": "Home",
-    "url": "/index.html",
+    "url": "pages/index.html",
     "file": "index.pug"
   },
   {
     "name": "Layout Builder",
-    "url": "/grid.html",
+    "url": "pages/grid.html",
     "file": "grid.pug"
   },
   {
     "name": "Mojo",
-    "url": "/mojo.html",
+    "url": "pages/mojo.html",
     "file": "mojo.pug"
   }
 ]

@@ -8,22 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Built Items to ignore
-dist
-!dist/js
-!dist/css
-!dist/mojo.css
-!dist/mojo.css.map
-!dist/hi
-!dist/fonts
-
-# dist/cdn-test
-# dist/demo
-# dist/docs
-# dist/favicon
-# dist/fonts
-# # dist/*.html
-# dist/*.png
-# dist/*.svg
+bootstrap-5.3.3-examples
 
 node_modules/
 node_modules1/
@@ -33,7 +18,9 @@ dist-ssr
 .cache/
 .cache/.stylelintcache/
 
-scss/_modular-scale.scss
+scss
+scss/
+scss/*
 
 # Editor directories and files
 .vscode/*

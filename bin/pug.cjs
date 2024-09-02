@@ -11,61 +11,61 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-const pug = require('pug')
-const packData = require('../package.json')
-const fs = require('fs-extra')
-const c = require('ansi-colors')
-const path = require('path')
-const async = require('async')
-const glob = require('glob')
-const jetpack = require('fs-jetpack')
-require('dotenv').config()
+const pug = require( 'pug' )
+const packData = require( '../package.json' )
+const fs = require( 'fs-extra' )
+const c = require( 'ansi-colors' )
+const path = require( 'path' )
+const async = require( 'async' )
+const glob = require( 'glob' )
+const jetpack = require( 'fs-jetpack' )
+require( 'dotenv' ).config()
 
 const pugMojo = {
     pretty: true,
     filters: {
-        stylus: function (str, opts) {
+        stylus: function ( str, opts ) {
             let ret
-            str = str.replace(/\\n /g, '')
-            const styl = require('stylus')
-            styl(str, opts).render(function (err, css) {
-                if (err) throw err
-                ret = css.replace(/\s/g, '')
-            })
+            str = str.replace( /\\n /g, '' )
+            const styl = require( 'stylus' )
+            styl( str, opts ).render( function ( err, css ) {
+                if ( err ) throw err
+                ret = css.replace( /\s/g, '' )
+            } )
             return '\n<style>' + ret + '</style>'
         },
-        markdownify: function (block) {
-            const jstransformer = require('jstransformer')
-            const marked = jstransformer(require('jstransformer-markdown-it'))
-            const markdownBlock = marked.render(block).body
+        markdownify: function ( block ) {
+            const jstransformer = require( 'jstransformer' )
+            const marked = jstransformer( require( 'jstransformer-markdown-it' ) )
+            const markdownBlock = marked.render( block ).body
             return markdownBlock
         },
-        highlightify: function (block, options) {
-            const jstransformer = require('jstransformer')
-            const highlight = jstransformer(require('jstransformer-highlight'))
+        highlightify: function ( block, options ) {
+            const jstransformer = require( 'jstransformer' )
+            const highlight = jstransformer( require( 'jstransformer-highlight' ) )
 
             const lang = options.lang || 'html'
             const oc = options.class || ''
-            const render = highlight.render(block, { language: lang }).body
+            const render = highlight.render( block, { language: lang } ).body
 
             // prettier-ignore
             const results = "<pre class='code " + oc + "' data-lang='" + lang + "'><code>" + render + '</code></pre>'
             return results
         },
-        prismify: function (block, options) {
-            const jstransformer = require('jstransformer')
-            const prism = jstransformer(require('jstransformer-prismjs'))
+        prismify: function ( block, options ) {
+            const jstransformer = require( 'jstransformer' )
+            const prism = jstransformer( require( 'jstransformer-prismjs' ) )
 
             const lang = options.lang || 'html'
-            const render = prism.render(block, { language: lang }).body
+            const render = prism.render( block, { language: lang } ).body
 
             // prettier-ignore
             const results = "<pre class='code' data-lang='" + lang + "'><code>" + render + '</code></pre>'
             return results
         },
-        codeblock: function (block, option) {
-            const jstransformer = require('jstransformer')
-            const highlight = jstransformer(require('jstransformer-highlight'))
+        codeblock: function ( block, option ) {
+            const jstransformer = require( 'jstransformer' )
+            const highlight = jstransformer( require( 'jstransformer-highlight' ) )
 
             const lang = option.lang || 'html'
             const cName = option.class || ''
@@ -73,13 +73,13 @@ const pugMojo = {
             const fClass = 'documentation-content' + ' ' + cName
 
             let escaped = ''
-            if (lang === 'html') {
+            if ( lang === 'html' ) {
                 escaped = `<div class="preview-wrapper"><div class="mojo-preview ${prevC}">${block}</div></div>`
             }
 
-            const highlightBlock = highlight.render(block, {
+            const highlightBlock = highlight.render( block, {
                 language: lang,
-            }).body
+            } ).body
             const highlighted = `<div class='mojo-highlight'><pre class="code" data-lang="${lang}"><code>${highlightBlock}</code></pre></div>`
 
             const ex = "<span class='mojo-doclabel'>EXAMPLE</span>"
@@ -94,98 +94,98 @@ const pugMojo = {
 
             return final
         },
-        iconify: function (block) {},
+        iconify: function ( block ) { },
     },
 }
 
-async function buildMojo(searchDir = 'web/pages/') {
-    console.log('')
-    console.log(c.white.bold('TRANSFORMING PUG -> HTML...'))
+async function buildMojo( searchDir = 'web/pages/' ) {
+    console.log( '' )
+    console.log( c.white.bold( 'TRANSFORMING PUG -> HTML...' ) )
 
-    const pageList = require('../web/pages/webpages.json')
+    const pageList = require( '../web/pages/webpages.json' )
 
-    for (pObj of pageList) {
+    for ( pObj of pageList ) {
         pObj.path = searchDir
-        console.log('Target: ' + searchDir + pObj.file)
-        await buildWebpages(pObj)
+        console.log( 'Target: ' + searchDir + pObj.file )
+        await buildWebpages( pObj )
     }
 
-    console.log('', '', '')
+    console.log( '', '', '' )
 }
 
-async function buildWebpages(pageData) {
+async function buildWebpages( pageData ) {
     const html = pug.compileFile(
         pageData.path + pageData.file,
         pugMojo
-    )({
-        pages: require('../web/pages/webpages'),
+    )( {
+        pages: require( '../web/pages/webpages' ),
         package: packData,
-    })
+    } )
 
-    fs.writeFile('dist' + pageData.url, html, (err) => {
-        if (err !== null && err !== undefined) {
-            console.error(err)
+    fs.writeFile( pageData.url, html, ( err ) => {
+        if ( err !== null && err !== undefined ) {
+            console.error( err )
         }
 
         // file written successfully
         console.log(
-            c.green.bold('dist' + pageData.url),
-            c.green(' created successfully!')
+            c.green.bold( pageData.url ),
+            c.green( ' created successfully!' )
         )
-    })
+    } )
 }
 
-async function transformPug(pageName, pageOptions) {
+async function transformPug( pageName, pageOptions ) {
     const html = pug.compileFile(
         './web/pages/' + pageName + '.pug',
         pageOptions
-    )({
-        pages: require('../web/pages/docs/pagelist.json'),
+    )( {
+        pages: require( '../web/pages/docs/pagelist.json' ),
         package: packData,
         envData: { url: process.env.API_URL },
-        colorStacks: require('../tokens/stack.json'),
-        colorTokens: require('../tokens/chords.json'),
-        iconList: require('../web/pages/docs/iconlist.json'),
-        templatePages: require('../web/pages/templates/templatelist.json'),
-    })
+        colorStacks: require( '../tokens/stack.json' ),
+        colorTokens: require( '../tokens/chords.json' ),
+        iconList: require( '../web/pages/docs/iconlist.json' ),
+        templatePages: require( '../web/pages/templates/templatelist.json' ),
+    } )
 
     return html
 }
 
-function writeJson(destPath, data, indent) {
+function writeJson( destPath, data, indent ) {
     // FS-EXTRA Write JSON to File
-    fs.writeJson(destPath, data, (err) => {
-        if (err) {
-            console.error(err)
+    fs.writeJson( destPath, data, ( err ) => {
+        if ( err ) {
+            console.error( err )
             return
         }
-        console.log('success!')
-    })
-    console.log(c.green.bold('JSON FILE'))
+        console.log( 'success!' )
+    } )
+    console.log( c.green.bold( 'JSON FILE' ) )
 }
 
 // With async/await:
-async function writeOutFile(f, d) {
+async function writeOutFile( f, d ) {
     try {
-        await fs.outputFile(f, d)
-    } catch (err) {
-        console.error(err)
+        await fs.outputFile( f, d )
+    } catch ( err ) {
+        console.error( err )
     }
 }
 
-function slugify(text) {
+function slugify( text ) {
     return text
         .toString()
         .toLowerCase()
-        .replace(/\s+/g, '-') // Replace spaces with -
-        .replace(/[^\w\-]+/g, '') // Remove all non-word chars
-        .replace(/\-\-+/g, '-') // Replace multiple - with single -
-        .replace(/^-+/, '') // Trim - from start of text
-        .replace(/-+$/, '') // Trim - from end of text
+        .replace( /\s+/g, '-' ) // Replace spaces with -
+        .replace( /[^\w\-]+/g, '' ) // Remove all non-word chars
+        .replace( /\-\-+/g, '-' ) // Replace multiple - with single -
+        .replace( /^-+/, '' ) // Trim - from start of text
+        .replace( /-+$/, '' ) // Trim - from end of text
 }
 
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1)
+function capitalizeFirstLetter( string ) {
+    return string.charAt( 0 ).toUpperCase() + string.slice( 1 )
 }
 
 /**
@@ -194,13 +194,13 @@ function capitalizeFirstLetter(string) {
  * @param {String} regexString - string converted into regex filter
  * @return {String|bool} returns either the first instance of found string or false
  */
-async function findStringInFile(fullPath, regexString) {
-    const data = fs.readFileSync(fullPath).toString('utf8')
-    const dataArr = data.split('\n')
-    const regex = new RegExp(regexString)
-    if (regex.test(data)) {
-        for (const line of dataArr) {
-            if (regex.test(line)) {
+async function findStringInFile( fullPath, regexString ) {
+    const data = fs.readFileSync( fullPath ).toString( 'utf8' )
+    const dataArr = data.split( '\n' )
+    const regex = new RegExp( regexString )
+    if ( regex.test( data ) ) {
+        for ( const line of dataArr ) {
+            if ( regex.test( line ) ) {
                 return line
             }
         }
@@ -209,39 +209,39 @@ async function findStringInFile(fullPath, regexString) {
     return false
 }
 
-async function buildDocumentation(searchDir = 'web/pages/docs') {
+async function buildDocumentation( searchDir = 'web/pages/docs' ) {
     // Get a list of all the pages to build
     // Load the required global pug vars
     // Compile each page
     // const baseDir = path.resolve(process.cwd())
-    const searchPath = path.resolve(process.cwd(), searchDir)
-    const outputDir = 'dist/docs/'
+    const searchPath = path.resolve( process.cwd(), searchDir )
+    const outputDir = 'docs/'
 
     // console.log(searchPath)
 
-    const AllFiles = jetpack.find(searchPath, {
+    const AllFiles = jetpack.find( searchPath, {
         matching: '*.pug',
         recursive: false,
-    })
+    } )
 
-    for (const file of AllFiles) {
-        console.log('Target: ' + file)
+    for ( const file of AllFiles ) {
+        console.log( 'Target: ' + file )
         const pageObj = {}
-        const fname = capitalizeFirstLetter(path.parse(file).name)
-        const fslug = slugify(fname)
+        const fname = capitalizeFirstLetter( path.parse( file ).name )
+        const fslug = slugify( fname )
         const furl = './docs/' + fslug + '.html'
 
         // Grouping
         let fgroup = ''
-        const groupName = await findStringInFile(file, /var\sparent\b/)
-        if (groupName !== 0 && groupName !== undefined) {
+        const groupName = await findStringInFile( file, /var\sparent\b/ )
+        if ( groupName !== 0 && groupName !== undefined ) {
             // Clean Up Match
             fgroup = groupName
-                .replace('- var parent =', '')
-                .replace('"', '')
-                .replace('"', '')
-                .replace("'", '')
-                .replace("'", '')
+                .replace( '- var parent =', '' )
+                .replace( '"', '' )
+                .replace( '"', '' )
+                .replace( "'", '' )
+                .replace( "'", '' )
                 .trim()
         }
         pageObj.group = fgroup
@@ -249,10 +249,10 @@ async function buildDocumentation(searchDir = 'web/pages/docs') {
         pageObj.url = furl
         pageObj.path = outputDir + fslug + '.html'
         // pageObj.html = ''
-        pageObj.html = await transformPug('docs/' + fslug, pugMojo)
+        pageObj.html = await transformPug( 'docs/' + fslug, pugMojo )
 
-        void writeOutFile(pageObj.path, pageObj.html)
-        console.log(c.green.bold(fname + ' WRITTEN'))
+        void writeOutFile( pageObj.path, pageObj.html )
+        console.log( c.green.bold( fname + ' WRITTEN' ) )
 
         // console.log(JSON.stringify(pageObj))
     }
