@@ -1,12 +1,9 @@
 #!/usr/bin/env node
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable @typescript-eslint/no-var-requires */
 const { textUI } = require('./tui.cjs')
 const updater = require('jsonfile-updater')
 const fs = require('fs')
 
-// Global Functions & Logic
+// Global Functions & Logics
 const timeElapsed = Date.now()
 const today = new Date(timeElapsed)
 

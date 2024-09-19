@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Home",
+    "url": "/index.html",
+    "file": "index.pug"
+  },
+  {
+    "name": "Layout Builder",
+    "url": "/grid.html",
+    "file": "grid.pug"
+  },
+  {
+    "name": "Mojo",
+    "url": "/mojo.html",
+    "file": "mojo.pug"
+  }
+]

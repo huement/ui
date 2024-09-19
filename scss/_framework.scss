@@ -1,34 +1,35 @@
-@use 'sass:map';
-@use 'sass:list';
-@use 'sass:math';
-@use 'sass:color';
-@use 'sass:meta';
-@use 'sass:string';
+@use "sass:map";
+@use "sass:list";
+@use "sass:math";
+@use "sass:color";
+@use "sass:meta";
+@use "sass:string";
 
-@import 'framework/functions';
-@import 'framework/color-functions';
-@import 'framework/props';
-@import 'framework/rfs';
-@import 'framework/typography';
-@import 'framework/rhythm';
-@import 'framework/math-functions';
+@import "thirdparty/animate";
+@import "framework/functions";
+@import "framework/color-functions";
+@import "framework/props";
+@import "framework/rfs";
+@import "framework/typography";
+@import "framework/rhythm";
+@import "framework/math-functions";
 
-// DYNAMIC GENERATED FILES (DO NOT EDIT)
-@import 'config';
+@import "config/globals"; // CONSTANTS & RATIOS
+@import "config/tokens"; // GENERATED TYPOGRAPHY SIZES
+@import "config/palette"; // DMT PALETTE [UPDATED]
+@import "config/theme"; // FINAL TWEAKS
 
 //
 // CONFIG VARS & ASSEMBLE MAIN FUNCTIONALITY
-@import 'bootstrap/scss/variables';
-@import 'bootstrap/scss/variables-dark';
-@import 'variables';
-@import 'variables-dark';
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "variables";
+@import "variables-dark";
 
-@import 'bootstrap/scss/maps';
-@import 'bootstrap/scss/mixins';
-@import 'bootstrap/scss/utilities';
-@import 'mixins';
-
-@import 'thirdparty/animate';
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+@import "mixins";
 
 ///   Superclass
 ///  --------------------
@@ -65,7 +66,7 @@
 
 /// This mixin is used to change a CSS property value.
 /// It will change a declared css variable auto-prefixing it.
-@mixin cssvar($name, $value: '') {
+@mixin cssvar($name, $value: "") {
   --#{$name}: #{$value};
 }
 
@@ -88,6 +89,6 @@
 
 @mixin debugMessage($string) {
   @if ($debug == true) {
-    @debug '#{$string}';
+    @debug "#{$string}";
   }
 }

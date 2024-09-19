@@ -2,31 +2,15 @@
   "name": "@huement/ui",
   "codeName": "mojo",
   "private": false,
-  "version": "0.3.105",
+  "version": "0.3.101",
   "type": "module",
   "sourceType": "module",
   "license": "MPL-2.0",
   "author": "Derek Scott <derek@huement.com>",
   "homepage": "https://github.com/huement/ui",
-  "description": "Harmonic UI Framework with responisve typography and a smooth color palette",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/huement/ui.git"
-  },
-  "keywords": [
-    "scss",
-    "framework",
-    "ui",
-    "modular",
-    "scale"
-  ],
-  "bugs": {
-    "url": "https://github.com/huement/ui/issues"
-  },
-  "buildNumber": 105,
-  "buildDate": "Wed Aug 21 2024",
-  "buildSize": "331.32 KiB",
+  "buildNumber": 112,
+  "buildDate": "Wed Aug 28 2024",
+  "buildSize": "358.88 KiB",
   "scripts": {
     "clean": "rimraf dist",
     "bump": "node ./bin/bump.cjs",
@@ -36,21 +20,22 @@
     "watch": "nodemon -x \"npm run build\" & browser-sync start --config web/bs-config.cjs",
     "watch:css": "nodemon -x \"npm run scss\" & browser-sync start --config web/bs-config.cjs",
     "watch:public": "nodemon -x \"npm run copy\" & browser-sync start --config web/public-config.cjs",
-    "scss": "sass --verbose --no-quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css scss:dist/css && npm run bump",
-    "build": "npx npm-run-all -lsc scss copy minify minify:S3 postfix postfix:S3 && npx wallace dist/mojo.css",
+    "scss": "sass --verbose --no-quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css scss:dist && npm run bump",
+    "build": "npm run build:icons && npx npm-run-all -lsc scss copy minify minify:S3 postfix postfix:S3 && npx wallace dist/mojo.css",
+    "build:css": "npx npm-run-all -lsc scss copy minify minify:S3 postfix postfix:S3 && npx wallace dist/mojo.css",
     "build:js": "node bin/bundle.cjs",
+    "build:icons": "npm run scss:icons && node bin/icons.cjs && npm run minify:icon && npm run minify:iconS3",
+    "build:docs": "npx npm-run-all -lsc pug copy scss:demo scss:docs",
     "deploy": "node bin/s3sync.cjs",
     "lint": "stylelint --fix scss/**/*.{css,scss} --formatter verbose --config .stylelintrc.json --cache --cache-location .cache/.stylelintcache",
     "lintjs": "eslint --fix --config .eslintrc.cjs js/*.js js/**/*.js",
-    "postfix": "postcss --config postcss.config.cjs --replace dist/mojo.css",
-    "postfix:S3": "postcss --config postcss.config.cjs --replace dist/mojo.min.css",
-    "minify": "cleancss -O01 --output dist/mojo.css --format 'breaks:afterBlockBegins=on;spaces:aroundSelectorRelation=on' dist/css/mojo.css dist/hi/icons.min.css",
-    "minify:S3": "cleancss -O01 --output dist/mojo.min.css --format 'breaks:afterBlockBegins=on;spaces:aroundSelectorRelation=on' dist/css/mojo.css dist/hi/icons-s3.min.css",
+    "postfix": "postcss --config postcss.config.cjs --replace dist/mojo.min.css",
+    "postfix:S3": "postcss --config postcss.config.cjs --replace dist/mojo-s3.min.css",
+    "minify": "cleancss -O01 --output dist/mojo.min.css --format 'breaks:afterBlockBegins=on;spaces:aroundSelectorRelation=on' dist/mojo.css dist/hi/icons.css",
+    "minify:S3": "cleancss -O01 --output dist/mojo-s3.min.css --format 'breaks:afterBlockBegins=on;spaces:aroundSelectorRelation=on' dist/mojo.css dist/hi/icons-s3.css",
     "minify:icon": "cleancss -O01 --output dist/hi/icons.min.css --format 'breaks:afterBlockBegins=on;spaces:aroundSelectorRelation=on' dist/hi/icons.css dist/hi/sizing.css",
     "minify:iconS3": "cleancss -O01 --output dist/hi/icons-s3.min.css --format 'breaks:afterBlockBegins=on;spaces:aroundSelectorRelation=on' dist/hi/icons-s3.css dist/hi/sizing.css",
     "clean:icons": "npx svgo -f ./tokens/icons/raw -o ./tokens/icons/clean --config svgo.config.js",
-    "build:icons": "node bin/icons.cjs && npm run minify:icon && npm run minify:iconS3",
-    "build:docs": "npx npm-run-all -lsc pug copy scss:demo scss:docs",
     "scss:all": "npx npm-run-all -lsc scss:demo scss:docs scss:jolly scss:icons scss",
     "scss:demo": "sass --quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css web/assets/style/website.scss dist/demo/css/website.css",
     "scss:docs": "sass --quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css web/assets/style/docs.scss dist/demo/css/docsTODO.css",
@@ -58,7 +43,6 @@
     "scss:icons": "sass --quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css tokens/icons/sizing.scss dist/hi/sizing.css"
   },
   "files": [
-    "dist/hi/*.{css,json,ttf,woff,woff2,map}",
     "dist/fonts/**/*.{ttf,woff,woff2,css,html}",
     "dist/{css,js}/*.{css,js,map}",
     "dist/*.{css,js,map}",
@@ -82,7 +66,6 @@
     "dist/mojo.css.map",
     "dist/mojo.min.css.map",
     "dist/js",
-    "dist/hi",
     "dist/jollybar",
     "dist/fonts/icons",
     "dist/fonts/Jost",
@@ -176,5 +159,22 @@
   },
   "engines": {
     "node": ">=18.19.0"
-  }
+  },
+  "description": "@huement/ui is a (bootstrap) based typography framework",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huement/ui.git"
+  },
+  "keywords": [
+    "scss",
+    "framework",
+    "ui",
+    "modular",
+    "scale"
+  ],
+  "bugs": {
+    "url": "https://github.com/huement/ui/issues"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

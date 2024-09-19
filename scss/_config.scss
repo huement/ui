@@ -1,14 +1,8 @@
-@use 'sass:map';
-@use 'sass:list';
-@use 'sass:math';
-@use 'sass:color';
-@use 'sass:meta';
-@use 'sass:string';
+@use "sass:map";
+@use "sass:list";
+@use "sass:math";
+@use "sass:color";
+@use "sass:meta";
+@use "sass:string";
 
-//
-// These are the DYNAMIC Files that are generated via the command line
-// DO NOT MANUALLY EDIT THEM. They are overwritten each time.
-@import 'config/globals'; // CONSTANTS & RATIOS
-@import 'config/tokens'; // GENERATED TYPOGRAPHY SIZES
-@import 'config/palette'; // DMT PALETTE [UPDATED]
-@import 'config/theme'; // FINAL TWEAKS
+
