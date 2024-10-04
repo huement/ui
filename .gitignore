@@ -32,7 +32,8 @@ dist-ssr
 .cache
 .cache/
 .cache/.stylelintcache/
-
+_temp
+_temp/**/*
 scss/_modular-scale.scss
 
 # Editor directories and files

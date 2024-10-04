@@ -33,21 +33,24 @@
 
 // sets relative font-sizing and alignment (in _sizing)
 @mixin fa-size($font-size) {
-  font-size: fa-divide($font-size, $icon-size-scale-base) * 1em; // converts step in sizing scale into an em-based value that's relative to the scale's base
-  line-height: fa-divide(1, $font-size) * 1em; // sets the line-height of the icon back to that of it's parent
-  vertical-align: (fa-divide(6, $font-size) - fa-divide(3, 8)) * 1em; // vertically centers the icon taking into account the surrounding text's descender
+  font-size: fa-divide(
+    2px,
+    $icon-size-scale-base
+  ); // converts step in sizing scale into an em-based value that's relative to the scale's base
+  line-height: fa-divide(1, $font-size); // sets the line-height of the icon back to that of it's parent
+  vertical-align: fa-divide(6, $font-size) - fa-divide(3, 8); // vertically centers the icon taking into account the surrounding text's descender
 }
 
 // literal magnification scale
 @for $i from 1 through 10 {
   .#{$icon-prefix}-#{$i}x {
-    font-size: $i * 1em;
+    font-size: $i * 0.25rem;
   }
 }
 
 // step-based scale (with alignment)
 @each $size, $value in $icon-sizes {
   .#{$icon-prefix}-#{$size} {
-    @include fa-size($value);
+    @include fa-size($value * 0.25rem);
   }
 }

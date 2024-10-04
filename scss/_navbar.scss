@@ -1,7 +1,7 @@
 // Navbar adjustments
 @include cssvars(
   (
-    icon-size: $icon-size,
+    icon-size: $icon-size
   )
 );
 
@@ -56,6 +56,8 @@
     &#{$infix} {
       @include media-breakpoint-up($next) {
         .navbar-nav {
+          margin-top: 0;
+
           .nav-link {
             padding-right: $navbar-nav-link-padding-x;
             padding-left: $navbar-nav-link-padding-x;
@@ -72,9 +74,8 @@
   line-height: 1;
 
   &:before {
-    padding-top: 0;
-    margin-top: -5px;
-    line-height: 1 !important;
+    font-size: $navbar-icon-size;
+    line-height: 0.5;
   }
 }
 

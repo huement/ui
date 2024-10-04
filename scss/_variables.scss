@@ -1,4 +1,4 @@
-// Shards variables
+// @huement/ui variables
 $variable-prefix: bs-; // Deprecated in v5.2.0 for the shorter `$prefix`
 $prefix: $variable-prefix;
 $debug: true;
@@ -20,7 +20,7 @@ $icon-sizes: (
   'sm': $icon-size-scale-sm,
   'lg': $icon-size-scale-lg,
   'xl': $icon-size-scale-xl,
-  '2xl': $icon-size-scale-2xl,
+  '2xl': $icon-size-scale-2xl
 );
 
 // $superclass: "mojo";
@@ -131,7 +131,7 @@ $grid-breakpoints: (
   md: 768px,
   lg: 992px,
   xl: 1200px,
-  xxl: 1400px,
+  xxl: 1400px
 );
 
 @include _assert-ascending($grid-breakpoints, '$grid-breakpoints');
@@ -146,7 +146,7 @@ $container-max-widths: (
   md: 720px,
   lg: 960px,
   xl: 1140px,
-  xxl: 1320px,
+  xxl: 1320px
 );
 
 @include _assert-ascending($container-max-widths, '$container-max-widths');
@@ -217,7 +217,7 @@ $spacers: (
   2: $spacer * 0.5,
   3: $spacer,
   4: $spacer * 1.5,
-  5: $spacer * 3,
+  5: $spacer * 3
 );
 $gutters: $spacers;
 
@@ -239,7 +239,7 @@ $font-line-sizes: (
   sm: map.get($font-sizes, 'sm') * $line-height-base,
   md: map.get($font-sizes, 'md') * $line-height-base,
   lg: map.get($font-sizes, 'lg') * $line-height-base,
-  xl: map.get($font-sizes, 'xl') * $line-height-base,
+  xl: map.get($font-sizes, 'xl') * $line-height-base
 );
 
 //
@@ -267,7 +267,7 @@ $display-font-sizes: if(
     3: 4rem,
     4: 3.5rem,
     5: 3rem,
-    6: 2.5rem,
+    6: 2.5rem
   ),
   null
 );
@@ -277,7 +277,14 @@ $display-font-sizes: if(
 // which will then fallback to this.
 $google-fonts-import: 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600|Roboto+Mono'; // Includes: Poppins: Light, Regular, Medium, Semi-bold; Roboto Mono: Regular
 
-$font-family-poppins-first: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+$font-family-poppins-first:
+  'Poppins',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  'Helvetica Neue',
+  Arial,
   sans-serif;
 $font-family-system-first: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 $font-family-roboto-mono-first: 'Roboto Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
@@ -322,7 +329,7 @@ $font-sizes: (
   3: $h3-font-size,
   4: $h4-font-size,
   5: $h5-font-size,
-  6: $h6-font-size,
+  6: $h6-font-size
 );
 
 $font-weight-normal: 400;
@@ -385,13 +392,49 @@ $transition-color: #3f3f3f;
 // Tables
 //
 // Customizes the `.table` component with basic values, each used across all table variations.
-$table-color: $light;
-$table-bg: $black;
+
+// scss-docs-start table-variables
+$table-cell-padding-y: 0.5rem;
+$table-cell-padding-x: 0.5rem;
+$table-cell-padding-y-sm: 0.25rem;
+$table-cell-padding-x-sm: 0.25rem;
+
+$table-cell-vertical-align: top;
+
+$table-color: $gray-200;
+$table-bg: $gray-700;
+$table-accent-bg: $gray-800;
+
+$table-th-font-weight: null;
+
+$table-striped-color: $gray-100;
+$table-striped-bg-factor: 0.05;
+$table-striped-bg: $gray-900;
+
+$table-active-color: $table-color;
+$table-active-bg-factor: 0.1;
+$table-active-bg: rgba($black, $table-active-bg-factor);
+
+$table-hover-color: $table-color;
+$table-hover-bg-factor: 0.075;
+$table-hover-bg: rgba($black, $table-hover-bg-factor);
+
 $table-active-bg: rgba($primary, 0.075);
 $table-striped-bg: rgba($dark, 0.075);
 $table-hover-bg: rgba($dark, 0.075);
-$table-cell-padding: 0.75rem;
-$table-cell-padding-sm: 0.3rem;
+
+$table-border-factor: 0.1;
+$table-border-width: $border-width;
+$table-border-color: var(--#{$prefix}border-color);
+
+$table-striped-order: odd;
+$table-striped-columns-order: even;
+
+$table-group-separator-color: currentcolor;
+
+$table-caption-color: $text-muted;
+
+$table-bg-scale: -80%;
 
 $table-dark-color: $body-bg;
 $table-dark-bg: $gray-900;
@@ -402,6 +445,7 @@ $table-dark-hover-bg: rgba($light, 0.075);
 $table-head-color: $gray-700;
 $table-head-bg: $gray-200;
 $table-border-color: $gray-300;
+// scss-docs-end table-variables
 
 // Buttons
 //
@@ -488,7 +532,9 @@ $input-border-radius-sm: $border-radius-sm;
 
 $input-focus-bg: $input-bg;
 $input-focus-border-color: theme-color('primary');
-$input-focus-box-shadow: 0 0.313rem 0.719rem rgba(theme-color('primary'), 0.1), 0 0.156rem 0.125rem rgba($black, 0.06);
+$input-focus-box-shadow:
+  0 0.313rem 0.719rem rgba(theme-color('primary'), 0.1),
+  0 0.156rem 0.125rem rgba($black, 0.06);
 $input-focus-color: $input-color;
 
 $input-hover-border-color: darken(#becad6, 15);
@@ -506,7 +552,9 @@ $input-height-sm: calc(#{$input-height-inner-sm} + #{$input-height-border});
 $input-height-inner-lg: calc($font-size-lg * $input-line-height-lg) + calc($input-padding-y-lg * 2);
 $input-height-lg: calc(#{$input-height-inner-lg} + #{$input-height-border});
 
-$input-transition: box-shadow $transition-duration $ease-in-out-circ, border $transition-duration $ease-in-out-circ;
+$input-transition:
+  box-shadow $transition-duration $ease-in-out-circ,
+  border $transition-duration $ease-in-out-circ;
 
 $form-text-margin-top: 0.25rem;
 
@@ -533,7 +581,8 @@ $custom-control-indicator-bg: $white;
 $custom-control-indicator-bg-size: 50% 50%;
 $custom-control-indicator-box-shadow: none;
 $custom-control-indicator-border: 1px solid $border-color;
-$custom-checkbox-indicator-transition: transform $transition-duration $ease-in-out-circ,
+$custom-checkbox-indicator-transition:
+  transform $transition-duration $ease-in-out-circ,
   border $transition-duration $ease-in-out-circ;
 
 $custom-control-indicator-disabled-bg: $gray-200;
@@ -582,7 +631,8 @@ $custom-select-border-color: $input-border-color;
 $custom-select-border-radius: $border-radius;
 
 $custom-select-focus-border-color: $input-focus-border-color;
-$custom-select-focus-box-shadow: 0 0.313rem 0.719rem rgba(theme-color('primary'), 0.1),
+$custom-select-focus-box-shadow:
+  0 0.313rem 0.719rem rgba(theme-color('primary'), 0.1),
   0 0.156rem 0.125rem rgba($black, 0.06);
 
 $custom-select-font-size-sm: 0.75rem;
@@ -608,7 +658,7 @@ $custom-file-box-shadow: none;
 $custom-file-button-color: $custom-file-color;
 $custom-file-button-bg: $gray-200;
 $custom-file-text: (
-  en: 'Browse',
+  en: 'Browse'
 );
 
 // Custom switches (core)
@@ -628,7 +678,8 @@ $custom-toggle-border: $custom-toggle-border-width solid $input-border-color;
 $custom-toggle-background-color: $white;
 $custom-toggle-border-radius: 100px;
 
-$custom-toggle-focus-box-shadow: 0 0.313rem 0.719rem rgba(theme-color('success'), 0.1),
+$custom-toggle-focus-box-shadow:
+  0 0.313rem 0.719rem rgba(theme-color('success'), 0.1),
   0 0.156rem 0.125rem rgba($black, 0.06);
 
 $custom-toggle-checked-background: theme-color('success');
@@ -667,7 +718,10 @@ $dropdown-border-width: $border-width;
 $dropdown-divider-bg: $gray-200;
 $dropdown-border-radius: $border-radius;
 
-$dropdown-box-shadow: 0 0.5rem 4rem rgba(0, 0, 0, 0.11), 0 10px 20px rgba(0, 0, 0, 0.05), 0 2px 3px rgba(0, 0, 0, 0.06);
+$dropdown-box-shadow:
+  0 0.5rem 4rem rgba(0, 0, 0, 0.11),
+  0 10px 20px rgba(0, 0, 0, 0.05),
+  0 2px 3px rgba(0, 0, 0, 0.06);
 
 $dropdown-link-color: map.get($mojo-blue, hex);
 $dropdown-link-hover-color: darken($gray-900, 5%);
@@ -679,7 +733,8 @@ $dropdown-link-disabled-color: $gray-600;
 $dropdown-item-padding-y: 0.5rem;
 $dropdown-item-padding-x: 1.25rem;
 $dropdown-item-font-size: 0.9375rem;
-$dropdown-item-transition: background-color $transition-duration $ease-in-out-circ,
+$dropdown-item-transition:
+  background-color $transition-duration $ease-in-out-circ,
   color $transition-duration $ease-in-out-circ;
 
 $dropdown-header-color: $gray-600;
@@ -687,7 +742,9 @@ $dropdown-header-color: $gray-600;
 // Small dropdowns
 $dropdown-small-padding-y: 0.25rem;
 $dropdown-small-font-size: 0.813rem;
-$dropdown-small-box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.11), 0 3px 10px rgba(0, 0, 0, 0.05),
+$dropdown-small-box-shadow:
+  0 0.5rem 2rem rgba(0, 0, 0, 0.11),
+  0 3px 10px rgba(0, 0, 0, 0.05),
   0 2px 3px rgba(0, 0, 0, 0.06);
 
 $dropdown-small-item-padding-y: 0.375rem;
@@ -741,7 +798,7 @@ $navbar-padding-y: calc($spacer / 2);
 $navbar-padding-x: $spacer;
 
 $navbar-brand-font-size: 1rem;
-$navbar-icon-size: 2.25rem;
+$navbar-icon-size: 20px;
 
 $navbar-sidebar-width: 300px;
 
@@ -811,7 +868,9 @@ $pagination-padding-x-lg: 1.5625rem;
 $pagination-line-height: 1.25;
 $pagination-font-family: $font-family-poppins-first;
 $pagination-font-size: 0.875rem;
-$pagination-box-shadow: 0 0.125rem 0.9375rem rgba($dark, 0.1), 0 0.125rem 0.1875rem rgba($dark, 0.15);
+$pagination-box-shadow:
+  0 0.125rem 0.9375rem rgba($dark, 0.1),
+  0 0.125rem 0.1875rem rgba($dark, 0.15);
 
 $pagination-color: $link-color;
 $pagination-bg: $white;
@@ -852,8 +911,11 @@ $card-link-font-family: $font-family-poppins-first;
 
 $card-paragraph-margin-bottom: 1.5625rem;
 
-$card-box-shadow: 0 0.46875rem 2.1875rem rgba($dark, 0.1), 0 0.9375rem 1.40625rem rgba($dark, 0.1),
-  0 0.25rem 0.53125rem rgba($dark, 0.12), 0 0.125rem 0.1875rem rgba($dark, 0.1);
+$card-box-shadow:
+  0 0.46875rem 2.1875rem rgba($dark, 0.1),
+  0 0.9375rem 1.40625rem rgba($dark, 0.1),
+  0 0.25rem 0.53125rem rgba($dark, 0.12),
+  0 0.125rem 0.1875rem rgba($dark, 0.1);
 
 $card-img-overlay-padding: 1.875rem 2.1875rem;
 $card-deck-margin: 0.9375rem;
@@ -867,7 +929,10 @@ $card-columns-margin: $card-spacer-y;
 
 $card-small-spacer-y: 1rem;
 $card-small-spacer-x: 1rem;
-$card-small-box-shadow: 0 2px 0 rgba($dark, 0.11), 0 4px 8px rgba($dark, 0.12), 0 10px 10px rgba($dark, 0.06),
+$card-small-box-shadow:
+  0 2px 0 rgba($dark, 0.11),
+  0 4px 8px rgba($dark, 0.12),
+  0 10px 10px rgba($dark, 0.06),
   0 7px 70px rgba($dark, 0.1);
 
 // Cards
@@ -921,7 +986,9 @@ $tooltip-padding-y: 7px;
 $tooltip-padding-x: 13px;
 $tooltip-margin: 0;
 $tooltip-font-size: $font-size-sm;
-$tooltip-box-shadow: 0 3px 15px rgba($dark, 0.1), 0 2px 3px rgba($dark, 0.2);
+$tooltip-box-shadow:
+  0 3px 15px rgba($dark, 0.1),
+  0 2px 3px rgba($dark, 0.2);
 
 $tooltip-arrow-width: 5px;
 $tooltip-arrow-height: 5px;
@@ -936,7 +1003,9 @@ $popover-border-radius: $border-radius-lg;
 $popover-border-width: $border-width;
 $popover-border-color: transparent;
 $popover-font-size: $font-size-sm;
-$popover-box-shadow: 0 3px 15px rgba($dark, 0.1), 0 2px 3px rgba($dark, 0.2);
+$popover-box-shadow:
+  0 3px 15px rgba($dark, 0.1),
+  0 2px 3px rgba($dark, 0.2);
 
 $popover-header-bg: lighten($dark, 58%);
 $popover-header-color: $headings-color;
@@ -1140,6 +1209,7 @@ $icon-link-icon-transition: 0.2s ease-in-out transform;
 $icon-link-icon-transform: translate3d(0.25em, 0, 0);
 $stretched-link-pseudo-element: after;
 $stretched-link-z-index: 1;
+
 // // Slider control (nouislider)
 // $slider-base-size: 5px;
 // $slider-base-box-shadow: inset 0 1px 2px rgba($dark, 0.1);

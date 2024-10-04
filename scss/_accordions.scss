@@ -25,7 +25,7 @@
     cursor: pointer;
 
     &:hover {
-      color: lighten($transition-color, 20%);
+      color: color.adjust($transition-color, $lightness: 20%);
     }
 
     &.accordion-header-alt {

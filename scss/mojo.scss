@@ -34,7 +34,8 @@
 
 //
 // INITIAL OUTPUT : ROOT VARS : NORMALIZE + RESET
-@include mojoBanner('', '0.3.100');
+@include mojoBanner('', $version);
+
 @import 'root';
 @import 'thirdparty/normalize/normalize';
 @import 'kick-off';
@@ -91,8 +92,15 @@ $include-column-box-sizing: true;
 // @import "off-canvas";
 // @import "popover";
 
-// OUTPUT HELPER CLASSES
-@import 'framework/bs-helpers';
+@import 'bootswatch';
+@import 'quartz';
+
+// @import "utilities/grid";
+// @import "utilities/clearfix";
+// @import "utilities/display";
+// @import "utilities/flex";
+// @import "utilities/spacing";
+// @import "utilities/visibility";
 
 // UTILITY CLASS API
 // Custom Mods Include:
@@ -108,59 +116,62 @@ $utilities: map-merge(
       class: vis,
       values: (
         0: 0,
-        100: 1,
-      ),
+        100: 1
+      )
     ),
     'position':
       map-merge(
         map-get($utilities, 'position'),
         (
           class: position,
-          responsive: true,
+          responsive: true
         )
       ),
     'margin-start':
       map-merge(
         map-get($utilities, 'margin-start'),
         (
-          class: ml,
+          class: ml
         )
       ),
     'margin-end':
       map-merge(
         map-get($utilities, 'margin-end'),
         (
-          class: mr,
+          class: mr
         )
       ),
     'negative-margin-start':
       map-merge(
         map-get($utilities, 'negative-margin-start'),
         (
-          class: ml,
+          class: ml
         )
       ),
     'negative-margin-end':
       map-merge(
         map-get($utilities, 'negative-margin-end'),
         (
-          class: mr,
+          class: mr
         )
       ),
     'padding-start':
       map-merge(
         map-get($utilities, 'padding-start'),
         (
-          class: pl,
+          class: pl
         )
       ),
     'padding-end':
       map-merge(
         map-get($utilities, 'padding-end'),
         (
-          class: pr,
+          class: pr
         )
-      ),
+      )
   )
 );
 @import 'bootstrap/scss/utilities/api';
+
+// OUTPUT HELPER CLASSES & FINALIZE
+@import 'utilities';

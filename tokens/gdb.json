@@ -1,0 +1,46 @@
+{
+  "superclass": "plume",
+  "mqResponsive": true,
+  "baseFontSize": "16px",
+  "baseLineHeight": 1.5,
+  "binDir": "cli/tasks/run",
+  "harmonyJSONFile": "tokens/_tokens-chords-test.json",
+  "harmonySCSSFile": "scss/config/_tokens-test.scss",
+  "paletteSCSSFile": "build/scss/core/_palette.scss",
+  "cache": ".cache",
+  "chordTokens": "../tokens/chords.json",
+  "colorTokens": "tokens/color_tokens.json",
+  "globalTasks": "cli/tasks/run/cmds.json",
+  "helpItems": "cli/tasks/lib/help.json",
+  "staticMaps": "cli/tasks/lib/maps.json",
+  "taskDir": "cli/tasks",
+  "dev": {
+    "assets": "web/assets",
+    "debug": "jollybar",
+    "docs": "web/pages/docs",
+    "fonts": "tokens/fonts/Webfonts",
+    "media": "tokens",
+    "style": "build/scss",
+    "templates": "web/pages/templates",
+    "url": "lucky.local/dev/mojo_v3/dist/www/",
+    "website": "web"
+  },
+  "prod": {
+    "assets": "dist",
+    "debug": "dist/jollybar",
+    "docs": "dist/docs",
+    "fonts": "dist/www/fonts",
+    "img": "dist/www/imgs",
+    "js": "dist/www/js",
+    "pages": "dist/www",
+    "style": "dist/css",
+    "url": "huement.github.io/mojo/"
+  },
+  "env": {
+    "pug": true,
+    "handlebars": false,
+    "markdown": false,
+    "htmlvars": false,
+    "outputStyle": "expanded"
+  }
+}

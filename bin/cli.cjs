@@ -21,7 +21,9 @@
 
 const args = require('yargs').argv
 const { textUI } = require('./tui.cjs')
+const { fileMGMT } = require('./filemgmt.cjs')
 const TokenColors = require('./colors.cjs')
+const TokenChords = require('./chords.cjs')
 // const TokenFonts = require("./fonts");
 // const TokenChords = require("./chords");
 const cg = require('../package.json')
@@ -41,6 +43,7 @@ const tc = new TokenColors(colorList, colorSCSS)
 tc.assemblePalette()
 tc.addDefaultSass()
 
+// TODO: Yargs setup
 // if (args.fonts !== undefined) {
 //     const tf = new TokenFonts('fontPath', 'fontTarget')
 //     tf.assembleFontFiles()
@@ -49,5 +52,11 @@ tc.addDefaultSass()
 // Design Token Chords
 // Pass in chords.json file path
 // let chordList = gdb.chordTokens
-// const td = new TokenChords(chordList)
-// td.assmebleChordTokens()
+const td = new TokenChords('../tokens/gdb.json')
+td.assmebleChordTokens()
+
+// TODO: icon build
+
+// TODO: pug build
+
+// TODO: s3 bundle

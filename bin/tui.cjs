@@ -163,48 +163,6 @@ const textUI = {
 
         return sha256sum
     },
-    templateNewFile(newFilePath, fileDesc) {
-        let newFileName = path.basename(newFilePath)
-        let tempFilePath = path.resolve(
-            __dirname,
-            '../../.cache/' + newFileName
-        )
-        let bannerFilePath = path.resolve(__dirname, bannerFile)
-
-        //this.statusTxt("Creating New Templated File");
-
-        // Setup New File from Template
-        //jetpack.copy(bannerFile, tempFilePath, { overwrite: true });
-
-        let fileData = jetpack.read(bannerFilePath)
-
-        let dString = this.makeADate()
-
-        let result3 = fileData.replace(/<<NAME>>/g, newFileName)
-        let result2 = result3.replace(/<<DATE>>/g, dString)
-        let result1 = result2.replace(/<<DESCRIPTION>>/g, fileDesc)
-        let result0 = result1.replace(/<<VERSION>>/g, cg.version)
-
-        // Replace templated data with the real thing
-        if (jetpack.exists(tempFilePath)) {
-            jetpack.remove(tempFilePath)
-        }
-        jetpack.write(tempFilePath, result0)
-
-        // Add some space to make room for the actual SASS data
-        jetpack.append(tempFilePath, '\r\n')
-
-        jetpack.move(tempFilePath, newFilePath, { overwrite: true })
-    },
-    blankNewFile(newFilePath) {
-        //let filePath = path.resolve(__dirname, "../../" + newFilePath);
-
-        if (jetpack.exists(newFilePath)) {
-            jetpack.remove(newFilePath)
-        }
-
-        jetpack.write(newFilePath, '')
-    },
 }
 
 //outputHeader(config);

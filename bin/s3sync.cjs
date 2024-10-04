@@ -31,13 +31,13 @@ const s3BucketName = process.env.AWS_BUCKETNAME || packData.s3BucketName
 //VERIFY
 if (s3BucketName == undefined || s3BucketName.length < 2) {
     textUI.errorTxt(
-        'AWS_BUCKETNAME was not found in .env & s3BucketName wasnt in  package.json'
+        'D.O. SPACES ERROR | AWS_BUCKETNAME was not found in .env & s3BucketName wasnt in package.json'
     )
 }
 
 if (!process.env.AWS_ENDPOINT && !packData.awsEndpoint) {
     textUI.errorTxt(
-        'AWS_ENDPOINT was not found in .env file & awsEndpoint wasnt in package.json'
+        'D.O. SPACES ERROR | AWS_ENDPOINT was not found in .env file & awsEndpoint wasnt in package.json'
     )
 }
 // FILE SYSTEM CONFIG END
@@ -139,7 +139,7 @@ const uploadFile = async (fileName, uploadPath, mimeType) => {
 }
 
 const startS3Upload = async () => {
-    textUI.statusTxt('Starting S3 Upload!')
+    textUI.statusTxt('Starting Digital Ocean S3 Upload!')
     // Process in Serial via Reduce
     await finalListOfFiles.reduce(async (a, fileName) => {
         // Wait for the previous item to finish processing
