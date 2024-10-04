@@ -1,14 +1,18 @@
 mixin navbar(menu_items)
   header
-    .navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
-      .navbar-section
-        a(href='#')
-          img.oversized-logo(src=imgPath+"logo.svg" alt="JollyRobot")
-      .navbar-section.pr-1
-        each menu_item in menu_items
-          a.text-bold.pull-right.btn.btn-dark.btn-action.btn-sm.mr-3(href= menu_item.url) #{menu_item.name}
-            i.hui.hui-beaker
-        .clearfix
+    .navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark.z-max.mb-none.mt-none.pt-none.pb-none
+      .container-fluid
+        a.navbar-brand(href='#')
+          img.oversized-logo(src=imgPath+"logo.svg" alt="main logo")
+        button.navbar-toggler
+          span.navbar-toggler-icon
+        .collapse.navbar-collapse
+          ul.navbar-nav.ml-auto.mb-none.mt-none.pt-none.pb-none
+            each menu_item in menu_items
+              li.nav-item
+                a.nav-link(href= menu_item.url) #{menu_item.name}
+                  i(class="hui hui-"+menu_item.icon)
+
 
 mixin menu(menu_items)
   ul.menu-inner

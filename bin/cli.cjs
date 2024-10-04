@@ -21,8 +21,9 @@
 
 const args = require('yargs').argv
 const { textUI } = require('./tui.cjs')
+const { fileMGMT } = require('./filemgmt.cjs')
 const TokenColors = require('./colors.cjs')
-const FileBuilder = require('./fileBuilder.cjs')
+const TokenChords = require('./chords.cjs')
 // const TokenFonts = require("./fonts");
 // const TokenChords = require("./chords");
 const cg = require('../package.json')
@@ -35,20 +36,14 @@ process.on('exit', function (code) {
     return console.log(`Exiting with code: ${code}`)
 })
 
-// let colorList = 'tokens/color_tokens.json'
-// let colorSCSS = 'scss/config/_palette-test.scss'
+let colorList = 'tokens/color_tokens.json'
+let colorSCSS = 'scss/config/_palette-test.scss'
 
-let globalValues = 'tokens/globals.json'
-let outputFile = 'scss/config/_globals-test.scss'
+const tc = new TokenColors(colorList, colorSCSS)
+tc.assemblePalette()
+tc.addDefaultSass()
 
-// const tc = new TokenColors(colorList, colorSCSS)
-// tc.assemblePalette()
-// tc.addDefaultSass()
-
-const fb = new FileBuilder(globalValues, outputFile)
-fb.generateFile()
-fb.addDefaultSass()
-
+// TODO: Yargs setup
 // if (args.fonts !== undefined) {
 //     const tf = new TokenFonts('fontPath', 'fontTarget')
 //     tf.assembleFontFiles()
@@ -57,5 +52,11 @@ fb.addDefaultSass()
 // Design Token Chords
 // Pass in chords.json file path
 // let chordList = gdb.chordTokens
-// const td = new TokenChords(chordList)
-// td.assmebleChordTokens()
+const td = new TokenChords('../tokens/gdb.json')
+td.assmebleChordTokens()
+
+// TODO: icon build
+
+// TODO: pug build
+
+// TODO: s3 bundle

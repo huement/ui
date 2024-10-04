@@ -15,16 +15,8 @@ append config
 doctype html
 html(lang= lang)
     head
-        include ../partials/meta
-        include ../partials/head-docs
-
-        link(rel="stylesheet", href=path+"demo/css/docs.css?stamp="+ stamp, type="text/css" id="docs_css")
-
-        if prismjs
-            link(rel="stylesheet", href=path+"demo/css/prism.css", type="text/css" id="prism_css")
-
-        if highlight
-            link(rel="stylesheet", href=path+"demo/css/highlight.css", type="text/css" id="highlight_css")
+        include ./top
+        link(rel="stylesheet", href=path+"css/docs.css" type="text/css" id="docs_css")
 
     body(class='no-javascript')
         script document.body.classList.remove('no-javascript');
@@ -47,9 +39,9 @@ html(lang= lang)
 
         block scriptsJS
             if highlight
-                script(src=path+"demo/js/highlight.js")
+                script(src=path+"js/highlight.js")
             if prismjs
-                script(src=path+"demo/js/prism.js")
+                script(src=path+"js/prism.js")
 
         if showDebug
             include ../partials/debugger

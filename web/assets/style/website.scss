@@ -12,52 +12,11 @@
 
 //
 // SUPER CLASSY SETUP
-@import '../../../scss/framework';
+@import '@huement/ui/scss/framework';
 $debug: false;
 $dark: map.get($mono, 100);
 
-// Required Mojo
-// @import "../../../scss/shapes";
-
-body {
-  background-color: $dark !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.demo {
-  .row {
-    margin-bottom: 15px;
-  }
-
-  [class^='col-'] {
-    // border: 1px solid #738290;
-    background-color: #e3f2f7;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-}
-
-// This works but its not being used yet...
-// @include superclass() {
-// }
-
-.navbar {
-  z-index: 10;
-  margin-top: 2rem;
-  margin-bottom: 0;
-}
-
-.oversized-logo {
-  height: 76px;
-  position: absolute;
-  top: -1rem;
-  z-index: 99;
-}
+@import './shared';
 
 .negative-top {
   margin-top: -13rem;
@@ -117,48 +76,6 @@ body {
       display: block;
     }
   }
-}
-
-.social-wrap {
-  .social-icons {
-    width: calc(54px * 4);
-    @include block-center;
-
-    li {
-      a {
-        @include img-center;
-        background-color: $dark;
-        border-color: $dark;
-      }
-    }
-  }
-}
-
-.bg-cyan-light {
-  background: map.get($mojo-cyan, light) !important;
-}
-
-.footer-logo {
-  width: 210px;
-  height: auto;
-  @include img-center;
-  z-index: 2;
-  margin-top: -10.5rem;
-  margin-left: 10.5rem;
-}
-
-.footer-circle {
-  margin-left: auto;
-  margin-right: auto;
-  right: 0;
-  z-index: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 100px;
-  width: 200px;
-  border-radius: 150px 150px 0 0;
 }
 
 // Breakpoint Loop

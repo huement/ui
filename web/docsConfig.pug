@@ -1,24 +1,17 @@
 //- Doc Site information
 - var path = '../'
-- var imgPath = '../demo/imgs/'
+- var imgPath = '../imgs/'
 - var pathTokens = '../tokens/'
 //- var cssFile = 'plume-all'
-- var cssFile = 'mojo'
+- var cssFile = package.codeName
 
 //- Page information
-- var title = title || 'Mojo Documentation'
-- var metaDesc = metaDesc || 'Mojo is a simple framework for ensuring vertical rhythm, modular scaling typography, design token integration + generation and a few more nice to haves when developing or mocking up an idea quickly'
+- var title = title || '@huement/ui Documentation'
+- var metaDesc = metaDesc || '@huement/ui is a simple framework for ensuring vertical rhythm, modular scaling typography, design token integration + generation and a few more nice to haves when developing or mocking up an idea quickly'
 
-//- Templates classes
-- var superClass = superClass || 'mojo'
-- var showDebug = false
+- var envURL = envData.url || "/"
 
-- var envURL = envData.url || "#"
-
-- var topLinks = [ {text: 'Github', url: 'https://github.com/huement/mojo', icon: false, color: 'medium'}, {text: 'Mojo', url: envURL, icon: false, color: 'secondary'}, {text: 'Huement', url: 'https://huement.com',icon: false, color: 'primary'} ]
+- var topLinks = [ {text: 'Github', url: 'https://github.com/huement/ui', icon: false, color: 'dark'}, {text: '@hui', url: envURL+'index.html', icon: false, color: 'secondary'}, {text: 'Huement', url: 'http://localhost',icon: false, color: 'primary'} ]
 - var topSearch = true
 
 - var showRobot = false
-
-- var lang = "en.US"
-- var stamp = Math.round(new Date().getTime() / 1000)

@@ -3,15 +3,12 @@ block config
 include ../mixins/global
 
 append config
-    - var cssFile = "mojo"
+    - var cssFile = package.codeName
 
 doctype html
 html(lang= lang)
     head
-        include ../partials/meta
-        include ../partials/head
-        if highlight
-            link(rel="stylesheet", href=cssPath+"demo/css/highlight.css" type="text/css" id="highlight_css")
+        include ./top
 
     body(class='no-javascript')
         script document.body.classList.remove('no-javascript');
@@ -22,13 +19,16 @@ html(lang= lang)
                     .row
                         .col-12
                             +navbar(pages)
+
                 block content
 
                 include ../partials/footer
 
 
             if highlight
-                script(src=path+"demo/js/highlight.js")
+                script(src=path+"js/highlight.js")
+            if prism
+                script(src=path+"js/prism.js")
 
             block scriptsJS
 

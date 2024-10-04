@@ -1,19 +1,18 @@
 if showRobot
   div.robot-wrapper
     div.vr-block
-    img.robot-logo(src=imgPath+"RocketRobot.png", alt="RobotImg")
+    img.robot-logo(src=imgPath+"RocketRobot.png" alt="RobotImg")
 else
   div.vr-block.vr-block-lg
 
 <!-- Mojo Footer -->
-footer.footer.make-background-highlight-light(role="contentinfo")
-  .row
-    .col-xs-6.col-sm-4
-      img.footer-logo(src=imgPath+"SceneL@2x.png", alt="GrungeElement")
-    .col-sm-4.col-xs-6
-      img.footer-logo(src=imgPath+"MadeWithLove.png", alt="HeartLogo")
-    .col-sm-4.col-12
-      div.social-wrap
+footer.footer.make-background-highlight-light(role="contentinfo" style="background-image:url("+imgPath+"SceneL@2x.png)" alt="GrungeElement")
+  .container-fluid
+    .row
+      .col-4.offset-md-2
+        img.img-fluid(src=imgPath+"MadeWithLove.png" alt="HeartLogo")
+      .col-4.offset-md-2
+        div.social-wrap
           ul.social-icons
             li
               a.facebook(href="#")

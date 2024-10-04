@@ -2,15 +2,14 @@
 mixin topNavBar(search,links)
     .docbar.docbar-dark
         .docbar-section
-            a.off-canvas-toggle.btn.btn-link.btn-action(href='#sidebar')
+            button.btn.btn-dark.m-1.btn-sm
                 i.hui.hui-bacon-cheeseburger
-            p#firstnav
         .docbar-section(style="flex: 2 0 0")
             if search
                 input.form-input.input-sm.mr-2(type="text" placeholder="search")
             .btns.d-flex
                 each link in links
-                    a(href=link.url, target="_blank" class="btn btn-sm mr-2 ml-1 btn-"+link.color)
+                    a(href=link.url, class="text-white btn btn-sm mr-2 ml-1 btn-"+link.color)
                         | #{link.text}
                     if link.icon
                         i(class= link.icon + ' hui')
@@ -20,7 +19,7 @@ mixin topNavBar(search,links)
 mixin sideNavLogo(data)
     div.side-container
         div.logo-container
-            img(src=imgPath+"Logo.png" class="logo")
+            img(src=imgPath+"Logo.png" class="logo img-fluid")
 
         div.build-container
             .row.g-0.mx-0.text-center

@@ -10,6 +10,7 @@
 
 // Global Variables
 const { textUI } = require('./tui.cjs')
+const { fileMGMT } = require('./filemgmt.cjs')
 const cg = require('../package.json')
 const fs = require('fs')
 const _ = require('lodash')
@@ -32,7 +33,7 @@ class TokenColors {
         textUI.statusTxt('Loading template file & preparing to populate')
 
         let newFile = path.resolve(__dirname, '../' + this.resultFile)
-        textUI.templateNewFile(
+        fileMGMT.templateNewFile(
             newFile,
             "Design Tokens Color Palette. Generated via '$> node cli/bin/mojo.js'"
         )

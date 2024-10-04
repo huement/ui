@@ -3,14 +3,10 @@ extends ../layout/main
 append config
     - var highlight = true
     - var slug = 'index'
-    - var pageCSS = 'demo/css/website'
-    - var path = "./"
-    - var imgPath = "demo/imgs/"
-    - var jsPath = "js/"
-    - var cssPath = "css/"
+    - var pageCSS = 'css/website'
 
 append scriptsJS
-    script(src=jsPath+"bundle.js", type="module")
+    script(src=path+"js/bundle.js?stamp=" + stamp, type="module")
 
 block content
     section.angle-bottom-left.positive-top.headBlock
@@ -19,9 +15,7 @@ block content
                 .col
                     .hero.hero-large
                         .hero-body.text-center
-                            h1.
-                            title.text-warning.mt-n3
-                                | a sassy prototyping framework
+                            h1.mt-n3=package.name
                             .subtitle.subtitle-sm.text-info.mt-3.mb-2
                                 | package based | lightweight | crazy fun
                             .btn.btn-lg.btn-secondary.mt-5
@@ -36,25 +30,25 @@ block content
             .row.mt-5.mb-1
                 .col-12
                     p.display-3.text-center.text-dark
-                        | Main #[strong Mojo] Modules
+                        | #[strong #{package.name}] Features
         .container
             .row.pt-5.pb-5.mt-5.mb-5
                 .col.col-md-4
                     .promo-block
                         img.img-center(src= imgPath+"SassLogo.png")
-                        h3.text-info.text-center SCSS Stylesheets
+                        h3.text-info.text-center Typography
                         p.text-center.px-4
                             | Using a familiar, easy to pick up class structure, and battle tested modules (like Bootstrap's CSS Grid), the #[strong Mojo CSS Framework] gets your project looking good from the jump. Tweak the starting points with ease.
                 .col.col-md-4
                     .promo-block
                         img.img-center(src= imgPath+"JollyDesign.png")
-                        h3.text-info.text-center JollyBar Sidekick
+                        h3.text-info.text-center Sidekick
                         p.text-center.px-4
                             | Include the #[strong Jollybar] and easily debug your pages like you've never been able to do before! See sizes change in real time, instant browser viewport resizes, load CSS files to compare differences and much more.
                 .col.col-md-4
                     .promo-block
                         img.img-center(src= imgPath+"TERM.png")
-                        h3.text-info.text-center CLI Token Toolkit
+                        h3.text-info.text-center Token Toolkit
                         p.text-center.px-4
                             | Token based and built with flexibility in mind! Quickly, via our #[strong Command Line Interface], swap out color palettes ala #[strong design tokens], jumping between looks quicker than you can change your pants,
 
@@ -64,17 +58,19 @@ block content
         .vr-block.site-spacer
         .container
             .row
-                .offset-md-3.col-md-6.offset-sm-1.col-sm-10
+                .offset-md-2.col-md-8.offset-sm-1.col-sm-10
                     h2.text-center.text-secondary
                         | Dip a toe in, or jump in the deep end
 
-                    p.text-primary.text-center
+                    p.text-white.text-center
                         | If you're just looking for the framework, thats as easy as 1-2-3 #[strong SASS]! If you're looking for help building a documentation generator, or a number of flatfile content setups, thats easy-peasy
 
-                    :highlightify(lang="shell")
-                        > some_command.sh arg=true sample=thing
-
-                        > node another_cmd.js --arg2 -a "mojojojo"
+                    :highlightify(lang="sass")
+                        @import '@huement/ui/scss/framework';
+                        @include superclass() {
+                            // ...
+                            // your custom css
+                        }
 
         .vr-block.site-spacer
 
@@ -85,31 +81,31 @@ block content
             .row
                 .col
                     h4.title.text-center.text-dark
-                        | This is an example header
+                        | Getting Started
                     h5.subtitle.text-center.mt-2.text-dark
-                        | This is more details about things
+                        | setting up [HUI] is very easy
 
                     p.text-center.mt-5
-                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidi.
+                        | Simply install with your favorite package manager and import the SCSS framework.
 
             .row
                 .offset-md-3.col-md-6.offset-sm-1.col-sm-10
                     :highlightify(lang="shell")
-                        > node mojo.js --grunt --install
+                        > npm install @huement/ui
 
-                        > grunt mojoDocs
+                        > yarn install @huement/ui
 
             .row
                 .col
                     .vr-block.vr-block-two
                     p.text-center
-                        | Consect et ur eiusmod tempor incididunt ut labore adipisicing elit, sed do  et dolore magna aliqua.
+                        | Developing on, or adding to #{package.name} is very easy as well. There are a number of included commands that make it a snap to tweak to your hearts content.
 
             .row
                 .offset-md-3.col-md-6.offset-sm-1.col-sm-10
                     :highlightify(lang="shell")
-                        > node mojo.js --grunt --install
-
-                        > grunt mojoDocs
+                        # from hui directory
+                        > npm run dev
+                        > npm run build
 
         .vr-block.site-spacer
