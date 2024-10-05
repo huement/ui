@@ -8,8 +8,8 @@
   "license": "MPL-2.0",
   "author": "Derek Scott <derek@huement.com>",
   "homepage": "https://github.com/huement/ui",
-  "buildNumber": 529,
-  "buildDate": "Fri Oct 04 2024",
+  "buildNumber": 531,
+  "buildDate": "Sat Oct 05 2024",
   "buildSize": "383.18 KiB",
   "scripts": {
     "clean": "rimraf dist",

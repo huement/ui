@@ -42,7 +42,7 @@ const replaceLoop = async function () {
     })
 }
 
-copy('public', 'dist', options)
+copy('web/public', 'dist', options)
     .then(function (results) {
         console.log('\n')
         textUI.taskTxt('COPIED ' + results.length + ' FILES')
