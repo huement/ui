@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 
-//  ░█▀█░█░█░█▀▀░░░█▀▄░█░█░▀█▀░█░░░█▀▄░█▀▀░█▀▄
-//  ░█▀▀░█░█░█░█░░░█▀▄░█░█░░█░░█░░░█░█░█▀▀░█▀▄
-//  ░▀░░░▀▀▀░▀▀▀░░░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀░░▀▀▀░▀░▀
 //  Runs the PUG command with a number of custom filters
 //  Allowing for JSTransformer & other dynamic data to be applied on build
 
@@ -22,6 +19,10 @@ const jetpack = require( 'fs-jetpack' )
 const { textUI } = require( './tui.cjs' )
 const { fileMGMT } = require('./filemgmt.cjs')
 require('dotenv').config()
+
+const yargs = require('yargs/yargs')
+const { hideBin } = require('yargs/helpers')
+const argv = yargs( hideBin( process.argv ) ).argv
 
 class PugPageBuilder {
     constructor( tokenFile, outputFile ) {
@@ -288,6 +289,9 @@ class PugPageBuilder {
 
 module.exports = PugPageBuilder
 
-const pugBuilder = new PugPageBuilder()
-pugBuilder.buildWebpages()
-pugBuilder.buildDocumentation()
+if ( argv.build ) {
+    textUI.headerLog("RUNNING PUG PAGE BUILDER...")
+    const pugBuilder = new PugPageBuilder()
+    pugBuilder.buildWebpages()
+    pugBuilder.buildDocumentation()
+}
