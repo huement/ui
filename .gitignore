@@ -12,6 +12,7 @@ bootstrap-5.3.3-examples
 
 node_modules/
 node_modules1/
+dist
 dist-ssr
 *.local
 .cache
