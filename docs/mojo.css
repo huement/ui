@@ -638,7 +638,7 @@ h6 {
   font-family: "Jost";
   font-style: normal;
   font-weight: 400;
-  src: url("/fonts/Jost/jost-variablefont_wght-webfont.woff") format("truetype");
+  src: url("./fonts/Jost/jost-variablefont_wght-webfont.woff") format("truetype");
   font-display: swap;
 }
 :root {
@@ -656,7 +656,7 @@ html, body, p, li, b, i, strong, a, mark, td, th, button {
   font-family: "Saira";
   font-style: bold;
   font-weight: 700;
-  src: url("/fonts/Saira/saira-variablefont_wdthwght-webfont.woff") format("truetype");
+  src: url("./fonts/Saira/saira-variablefont_wdthwght-webfont.woff") format("truetype");
   font-display: swap;
 }
 :root {
@@ -674,7 +674,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Space Grotesk";
   font-style: normal;
   font-weight: 400;
-  src: url("/fonts/Space_Grotesk/spacegrotesk-variablefont_wght-webfont.woff") format("truetype");
+  src: url("./fonts/Space_Grotesk/spacegrotesk-variablefont_wght-webfont.woff") format("truetype");
   font-display: swap;
 }
 :root {
