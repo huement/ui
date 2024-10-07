@@ -202,7 +202,7 @@ body {
   height: auto;
   padding: 0;
   margin: 2rem auto 5rem auto;
-  background: #171717;
+  background: rgb(23.35, 23.35, 23.35);
 }
 .documentation-content .mojo-docblock {
   position: relative;
@@ -223,7 +223,7 @@ body {
   padding: 0.5rem;
   color: #8a8a8a;
   border-radius: 0.5rem;
-  background: #171717;
+  background: rgb(23.35, 23.35, 23.35);
 }
 .documentation-content .mojo-docblock .preview-wrapper {
   padding: 1rem;

@@ -108,10 +108,13 @@ function findAllFilesToUpdate(
         compareCurrentFileToDestination(pathPath, outputPath)
     }
 
-    compareCurrentFileToDestination("./dist/index.html", "./index.html")
+    compareCurrentFileToDestination("./dist/index.html", "./docs/")
+    compareCurrentFileToDestination("./dist/dashboard.html", "./docs/")
+    compareCurrentFileToDestination("./dist/preview.html", "./docs/")
+
 }
 
 textUI.headerLog(
     `Running MOVE command. checking for changed .HTML files`
 )
-findAllFilesToUpdate('_temp', '*.html', 'dist/docs/')
+findAllFilesToUpdate('_temp', '*.html', 'docs/docs/')

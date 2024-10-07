@@ -14,13 +14,12 @@
     "build": "npx npm-run-all -lsc pug move build:css",
     "build:css": "npx npm-run-all -lsc scss postfix",
     "build:js": "node bin/bundle.cjs",
-    "clean": "rimraf _temp && rimraf dist && npm run clean:index",
-    "clean:index": "rimraf ./index.html",
+    "clean": "rimraf _temp",
     "dev": "nodemon -x \"npm run build\" & npx browser-sync start --config browser-sync.cjs",
     "move": "node ./bin/move.cjs",
-    "postfix": "postcss --config postcss.config.cjs --replace dist/css/docs.css",
+    "postfix": "postcss --config postcss.config.cjs --replace docs/css/docs.css",
     "pug": "node bin/pug.cjs --build=true && npm run move",
-    "scss": "sass --verbose --no-quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css web/assets/style:dist/css"
+    "scss": "sass --verbose --no-quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css web/assets/style:docs/css"
   },
   "nodemonConfig": {
     "verbose": true,
@@ -117,5 +116,6 @@
   ],
   "bugs": {
     "url": "https://github.com/huement/ui/issues"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

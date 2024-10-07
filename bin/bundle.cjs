@@ -16,7 +16,7 @@ const jetpack = require('fs-jetpack')
 const packageData = textUI.getParsedPackage()
 
 const inputFileName = './js/index.js'
-const outputFileName = './dist/js/bundle.js'
+const outputFileName = './docs/js/bundle.js'
 
 // START BUNDLING..
 textUI.taskTxt(`${packageData.name} javascript browserify starting...`)
@@ -62,8 +62,8 @@ const awaitFinalize = () => {
 }
 
 ;(async () => {
-    if (jetpack.exists('dist/js/') !== true) {
-        jetpack.dir('dist/js')
+    if (jetpack.exists('docs/js/') !== true) {
+        jetpack.dir('docs/js')
     }
 
     await buildBundle()
