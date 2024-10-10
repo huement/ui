@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo.png" width="400" />
+  <img src="hui-logo.png" width="400" />
 </p>
 
 <div style="width: 100%;clear:both;display:block;position:relative">
