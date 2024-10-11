@@ -71,7 +71,6 @@ $include-column-box-sizing: true;
 @import 'input-group';
 @import 'bootstrap/scss/list-group';
 @import 'list-group';
-// @import 'modal';
 @import 'bootstrap/scss/pagination';
 @import 'pagination';
 @import 'bootstrap/scss/tables';
@@ -89,87 +88,78 @@ $include-column-box-sizing: true;
 @import 'bootstrap/scss/offcanvas';
 
 // TODO: consider adding these files
-// @import "off-canvas";
 // @import "popover";
 
 @import 'bootswatch';
 @import 'quartz';
 
-// @import "utilities/grid";
-// @import "utilities/clearfix";
-// @import "utilities/display";
-// @import "utilities/flex";
-// @import "utilities/spacing";
-// @import "utilities/visibility";
+// CUSTOM UTILITY CLASS API
+// + put back bootstrap 4 classes and forego RTL mode https://gist.github.com/FelipeVa/6e5c2857c6c1bed0fe8647ea0bfa7478
+// + opacity 0 to 100 across all viewports
 
-// UTILITY CLASS API
-// Custom Mods Include:
-// put back bootstrap 4 classes and forego RTL mode
-// https://gist.github.com/FelipeVa/6e5c2857c6c1bed0fe8647ea0bfa7478
-// opacity 0 to 100 across all viewports
 $utilities: map-merge(
-  $utilities,
-  (
-    'opacity': (
-      property: 'opacity',
-      responsive: true,
-      class: vis,
-      values: (
-        0: 0,
-        100: 1
-      )
-    ),
-    'position':
-      map-merge(
-        map-get($utilities, 'position'),
-        (
-          class: position,
-          responsive: true
-        )
-      ),
-    'margin-start':
-      map-merge(
-        map-get($utilities, 'margin-start'),
-        (
-          class: ml
-        )
-      ),
-    'margin-end':
-      map-merge(
-        map-get($utilities, 'margin-end'),
-        (
-          class: mr
-        )
-      ),
-    'negative-margin-start':
-      map-merge(
-        map-get($utilities, 'negative-margin-start'),
-        (
-          class: ml
-        )
-      ),
-    'negative-margin-end':
-      map-merge(
-        map-get($utilities, 'negative-margin-end'),
-        (
-          class: mr
-        )
-      ),
-    'padding-start':
-      map-merge(
-        map-get($utilities, 'padding-start'),
-        (
-          class: pl
-        )
-      ),
-    'padding-end':
-      map-merge(
-        map-get($utilities, 'padding-end'),
-        (
-          class: pr
-        )
-      )
-  )
+    $utilities,
+    (
+        'opacity': (
+            property: 'opacity',
+            responsive: true,
+            class: vis,
+            values: (
+                0: 0,
+                100: 1,
+            ),
+        ),
+        'position':
+            map-merge(
+                map-get($utilities, 'position'),
+                (
+                    class: position,
+                    responsive: true,
+                )
+            ),
+        'margin-start':
+            map-merge(
+                map-get($utilities, 'margin-start'),
+                (
+                    class: ml,
+                )
+            ),
+        'margin-end':
+            map-merge(
+                map-get($utilities, 'margin-end'),
+                (
+                    class: mr,
+                )
+            ),
+        'negative-margin-start':
+            map-merge(
+                map-get($utilities, 'negative-margin-start'),
+                (
+                    class: ml,
+                )
+            ),
+        'negative-margin-end':
+            map-merge(
+                map-get($utilities, 'negative-margin-end'),
+                (
+                    class: mr,
+                )
+            ),
+        'padding-start':
+            map-merge(
+                map-get($utilities, 'padding-start'),
+                (
+                    class: pl,
+                )
+            ),
+        'padding-end':
+            map-merge(
+                map-get($utilities, 'padding-end'),
+                (
+                    class: pr,
+                )
+            ),
+    )
 );
 @import 'bootstrap/scss/utilities/api';
 
