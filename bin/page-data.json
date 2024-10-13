@@ -1,0 +1,31 @@
+{
+  "options": {
+    "target": "<%= grunt.config.get(\"dev.website\") %>/pages",
+    "defaultIcon": "circle",
+    "groupBy": false,
+    "searchFor": "*.pug"
+  },
+  "webpages": {
+    "path": "<%= grunt.config.get(\"dev.website\") %>/pages"
+  },
+  "docs": {
+    "target": "<%= grunt.config.get(\"dev.docs\") %>",
+    "path": "<%= grunt.config.get(\"dev.docs\") %>",
+    "url": "docs/",
+    "filename": "pagelist",
+    "defaultIcon": "square",
+    "groupBy": {
+      "getting-started": [],
+      "style-guide": [],
+      "layout": [],
+      "components": [],
+      "utilities": []
+    }
+  },
+  "templates": {
+    "target": "<%= grunt.config.get(\"dev.templates\") %>",
+    "path": "<%= grunt.config.get(\"dev.templates\") %>",
+    "url": "templates/",
+    "filename": "templatelist"
+  }
+}

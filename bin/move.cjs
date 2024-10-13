@@ -108,9 +108,9 @@ function findAllFilesToUpdate(
         compareCurrentFileToDestination(pathPath, outputPath)
     }
 
-    compareCurrentFileToDestination("./dist/index.html", "./docs/")
-    compareCurrentFileToDestination("./dist/dashboard.html", "./docs/")
-    compareCurrentFileToDestination("./dist/preview.html", "./docs/")
+    compareCurrentFileToDestination("./docs/index.html", "./docs/")
+    compareCurrentFileToDestination("./docs/dashboard.html", "./docs/")
+    compareCurrentFileToDestination("./docs/preview.html", "./docs/")
 
 }
 

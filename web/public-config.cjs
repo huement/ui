@@ -29,9 +29,9 @@ module.exports = {
         ignoreInitial: true,
     },
     server: {
-        baseDir: 'dist/',
+        baseDir: 'docs/',
         directory: true,
-        index: 'dist/theme.html',
+        index: 'docs/theme.html',
     },
     proxy: false,
     port: 8100,

@@ -22,19 +22,19 @@
     "media": "tokens",
     "style": "build/scss",
     "templates": "web/pages/templates",
-    "url": "lucky.local/dev/mojo_v3/dist/www/",
+    "url": "localhost/ui/",
     "website": "web"
   },
   "prod": {
     "assets": "dist",
-    "debug": "dist/jollybar",
-    "docs": "dist/docs",
-    "fonts": "dist/www/fonts",
-    "img": "dist/www/imgs",
-    "js": "dist/www/js",
-    "pages": "dist/www",
-    "style": "dist/css",
-    "url": "huement.github.io/mojo/"
+    "debug": "docs/jollybar",
+    "docs": "docs/docs",
+    "fonts": "docs/www/fonts",
+    "img": "docs/www/imgs",
+    "js": "docs/www/js",
+    "pages": "docs/www",
+    "style": "docs/css",
+    "url": "huement.github.io/ui/"
   },
   "env": {
     "pug": true,

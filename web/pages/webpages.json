@@ -7,23 +7,23 @@
   },
   {
     "name": "Documentation",
-    "icon": "document-paper",
+    "icon": "table",
     "url": "/docs/installation.html"
   },
   {
     "name": "Icons",
-    "icon": "chat-02",
+    "icon": "zippo-lighter",
     "url": "hi/icons.html"
   },
   {
     "name": "Preview",
-    "icon": "html5",
+    "icon": "icecream",
     "url": "/preview.html",
     "file": "preview.pug"
   },
   {
     "name": "Dashboard",
-    "icon": "full-screen",
+    "icon": "microsoft",
     "url": "/dashboard.html",
     "file": "dashboard.pug"
   }

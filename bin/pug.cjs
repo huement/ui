@@ -149,14 +149,14 @@ class PugPageBuilder {
             envData: { url: process.env.URL },
         })
 
-        fs.writeFile('dist' + pageData.url, html, (err) => {
+        fs.writeFile('docs' + pageData.url, html, (err) => {
             if (err !== null && err !== undefined) {
                 console.error(err)
             }
 
             // file written successfully
             console.log(
-                c.green.bold('dist' + pageData.url),
+                c.green.bold('docs' + pageData.url),
                 c.green(' created successfully!')
             )
         })

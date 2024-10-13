@@ -1,0 +1,28 @@
+extends ../../layout/doc
+
+append config
+  - var slug = 'angles'
+  - var parent = 'utilities'
+  - var title = 'Slanted Angles - Utilities'
+  - var metaDesc = 'slanted angles for background seperators. content breaks. css slanted angles.'
+
+block content
+  +docs-heading('angles', 'Slanted Angles')
+
+  p.lead
+    | A cool way to breakup some content and add breaks between content.
+
+  p
+    | Using these classes on your
+    code container
+    | classes helps to break things up and look cool af while doing so.
+    code make-{display}
+    | to whatever you are targeting...
+
+  :highlightify(lang="html")
+    <div class="container angled-up">
+      ...
+    </div>
+    <div class="container angled-down">
+      ...
+    </div>

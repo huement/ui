@@ -1,0 +1,12 @@
+{
+  "options": {
+    "savePath": "<%= grunt.config.get(\"dev.website\") %>/pages",
+    "searchFor": "*.pug"
+  },
+  "icons": {
+    "savePath": "<%= grunt.config.get(\"dev.docs\") %>",
+    "searchPath": "<%= grunt.config.get(\"dev.style\") %>/icono/icons",
+    "filename": "iconlist",
+    "searchFor": "*.scss"
+  }
+}

@@ -11,12 +11,13 @@
   "buildDate": "Mon Sep 23 2024",
   "debugMode": true,
   "scripts": {
-    "build": "npx npm-run-all -lsc pug move build:css",
-    "build:css": "npx npm-run-all -lsc scss postfix",
+    "build": "npx npm-run-all -lsc pug build:css",
+    "build:css": "npm run scss && npm run postfix",
     "build:js": "node bin/bundle.cjs",
-    "clean": "rimraf _temp",
+    "clean": "rimraf _temp && rimraf dist && npm run clean:index",
     "dev": "nodemon -x \"npm run build\" & npx browser-sync start --config browser-sync.cjs",
     "move": "node ./bin/move.cjs",
+    "copy": "node ./bin/copy.cjs",
     "postfix": "postcss --config postcss.config.cjs --replace docs/css/docs.css",
     "pug": "node bin/pug.cjs --build=true && npm run move",
     "scss": "sass --verbose --no-quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css web/assets/style:docs/css"

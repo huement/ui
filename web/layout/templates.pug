@@ -12,17 +12,9 @@ append config
 doctype html
 html(lang= lang)
   head
-    meta(charset="UTF-8")
-    title= title
-    include ../partials/meta
+    include ./top
 
     link(rel="canonical" href="/templates/"+slug+"/")
-    link(href= path + "css/" + cssFile + ".css?token=" + stamp, rel="stylesheet")
-
-    if prismjs
-      link(rel="stylesheet", href=path+"css/prism.css" type="text/css" id="prism_css")
-    if highlight
-      link(rel="stylesheet", href=path+"css/highlight.css" type="text/css" id="highlight_css")
 
     block ExtraHeader
 
