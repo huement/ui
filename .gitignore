@@ -8,16 +8,8 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Built Items to ignore
-dist
 dist-old
-!dist/js
-!dist/css
-!dist/mojo.css
-!dist/mojo.css.map
-!dist/mojo.min.css
-!dist/mojo.min.css.map
-!dist/hi
-!dist/fonts
+package.1.json
 
 # dist/cdn-test
 # dist/demo

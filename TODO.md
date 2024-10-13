@@ -2,18 +2,18 @@
 
 ## CLI
 
-+ split the docs & webpage building back onto the ui-doc branch
++ ~~split the docs & webpage building back onto the ui-doc branch~~
 + finish cli.js to handle all available cli commands
 
 ## HUI
 
-+ strip out icon building on default run
-+ clean up unnecessary files
++ ~~strip out icon building on default run~~
++ ~~clean up unnecessary files~~
 + update docs UI (sidebar, footer)
 + fix typography page by merging in main /fonttest + /type pages
 + update docs grid page by merging in main /grid + /grid-test pages
 
-+ dashboard page
++ ~~dashboard page~~
 
 ## SCSS
 
@@ -23,4 +23,4 @@
 
 ## BRANDING
 
-+ update @Huement/UI logo from Mojo Logo.
++ ~~update @Huement/UI logo from Mojo Logo.~~
