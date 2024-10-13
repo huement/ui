@@ -95,7 +95,7 @@
     }
 
     &:hover {
-      border-color: lighten($nav-tabs-border-color, 8%);
+      border-color: color.adjust($nav-tabs-border-color, $lightness: 8%);
     }
   }
 }
@@ -134,11 +134,11 @@
       // Active pills
       .nav-link.active {
         background: transparent;
-        border-color: lighten($value, 10%);
+        border-color: color.adjust($value, $lightness: 10%);
         color: $value;
 
         &:hover {
-          border-color: lighten($value, 10%);
+          border-color: color.adjust($value, $lightness: 10%);
         }
       }
 

@@ -3413,11 +3413,11 @@ kbd kbd {
 }
 
 .alert-success {
-  color: white;
+  color: hsl(122.4870466321, 96.9849246231%, 108.9803921569%);
   background-color: #3bfc43;
 }
 .alert-success .alert-link {
-  color: white;
+  color: hsl(122.4870466321, 96.9849246231%, 108.9803921569%);
 }
 
 .alert-info {
@@ -3429,11 +3429,11 @@ kbd kbd {
 }
 
 .alert-warning {
-  color: white;
+  color: hsl(61.0126582278, 100%, 101.5294117647%);
   background-color: #fbff12;
 }
 .alert-warning .alert-link {
-  color: white;
+  color: hsl(61.0126582278, 100%, 101.5294117647%);
 }
 
 .alert-danger {
@@ -3445,12 +3445,12 @@ kbd kbd {
 }
 
 .alert-light {
-  color: white;
+  color: hsl(0, 0%, 142.1176470588%);
   background-color: #f0f0f0;
   color: #1f1f1f;
 }
 .alert-light .alert-link {
-  color: white;
+  color: hsl(0, 0%, 142.1176470588%);
 }
 .alert-light .alert-link {
   color: #1f1f1f;
@@ -7034,7 +7034,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 }
 .was-validated .custom-file-input:valid ~ .custom-file-label::after, .custom-file-input.is-valid ~ .custom-file-label::after {
   color: #3bfc43;
-  background-color: white;
+  background-color: hsl(122.4870466321, 96.9849246231%, 100.9803921569%);
   border-color: rgb(109.2311557789, 252.7688442211, 115.1809045226);
 }
 .was-validated .custom-file-input:focus:valid ~ .custom-file-label, .custom-file-input:focus.is-valid ~ .custom-file-label {
@@ -8285,12 +8285,20 @@ button.list-group-item-dark.active {
   transition: width 0.35s ease;
 }
 
+.angle-debug {
+  clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+}
+
+.promo {
+  clip-path: polygon(0 0, 1600px 0, 1600px 87%, 0 100%);
+}
+
 .angle-top-left {
   position: relative;
   overflow: hidden;
-  clip-path: polygon(0 calc(0% + convertdegtovw(3)vw), 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 calc(0% + 7vw), 100% 0, 100% 100%, 0 100%);
 }
-@supports not (clip-path: polygon(0 calc(0% + convertdegtovw(3)vw), 100% 0, 100% 100%, 0 100%)) {
+@supports not (clip-path: polygon(0 calc(0% + 7vw), 100% 0, 100% 100%, 0 100%)) {
   .angle-top-left::before, .angle-top-left::after {
     position: absolute;
     left: 0;
@@ -8302,16 +8310,16 @@ button.list-group-item-dark.active {
   .angle-top-left::before {
     top: 0;
     border-color: #fff transparent transparent transparent;
-    border-width: convertdegtovw(3)1vw 100vw 0 0;
+    border-width: 8vw 100vw 0 0;
   }
 }
 
 .angle-top-right {
   position: relative;
   overflow: hidden;
-  clip-path: polygon(0 0, 100% calc(0% + convertdegtovw(3)vw), 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% calc(0% + 7vw), 100% 100%, 0 100%);
 }
-@supports not (clip-path: polygon(0 0, 100% calc(0% + convertdegtovw(3)vw), 100% 100%, 0 100%)) {
+@supports not (clip-path: polygon(0 0, 100% calc(0% + 7vw), 100% 100%, 0 100%)) {
   .angle-top-right::before, .angle-top-right::after {
     position: absolute;
     left: 0;
@@ -8323,16 +8331,16 @@ button.list-group-item-dark.active {
   .angle-top-right::before {
     top: 0;
     border-color: #fff transparent transparent transparent;
-    border-width: convertdegtovw(3)1vw 0 0 100vw;
+    border-width: 8vw 0 0 100vw;
   }
 }
 
 .angle-bottom-left {
   position: relative;
   overflow: hidden;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - convertdegtovw(3)vw));
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 7vw));
 }
-@supports not (clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - convertdegtovw(3)vw))) {
+@supports not (clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 7vw))) {
   .angle-bottom-left::before, .angle-bottom-left::after {
     position: absolute;
     left: 0;
@@ -8344,16 +8352,16 @@ button.list-group-item-dark.active {
   .angle-bottom-left::after {
     bottom: 0;
     border-color: transparent transparent #fff transparent;
-    border-width: 0 100vw convertdegtovw(3)1vw 0;
+    border-width: 0 100vw 8vw 0;
   }
 }
 
 .angle-bottom-right {
   position: relative;
   overflow: hidden;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - convertdegtovw(3)vw), 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 7vw), 0 100%);
 }
-@supports not (clip-path: polygon(0 0, 100% 0, 100% calc(100% - convertdegtovw(3)vw), 0 100%)) {
+@supports not (clip-path: polygon(0 0, 100% 0, 100% calc(100% - 7vw), 0 100%)) {
   .angle-bottom-right::before, .angle-bottom-right::after {
     position: absolute;
     left: 0;
@@ -8365,16 +8373,16 @@ button.list-group-item-dark.active {
   .angle-bottom-right::after {
     bottom: 0;
     border-color: transparent transparent #fff transparent;
-    border-width: 0 0 convertdegtovw(3)1vw 100vw;
+    border-width: 0 0 8vw 100vw;
   }
 }
 
 .angle-both-left-left {
   position: relative;
   overflow: hidden;
-  clip-path: polygon(0 calc(0% + convertdegtovw(3)vw), 100% 0, 100% 100%, 0 calc(100% - convertdegtovw(3)vw));
+  clip-path: polygon(0 calc(0% + 7vw), 100% 0, 100% 100%, 0 calc(100% - 7vw));
 }
-@supports not (clip-path: polygon(0 calc(0% + convertdegtovw(3)vw), 100% 0, 100% 100%, 0 calc(100% - convertdegtovw(3)vw))) {
+@supports not (clip-path: polygon(0 calc(0% + 7vw), 100% 0, 100% 100%, 0 calc(100% - 7vw))) {
   .angle-both-left-left::before, .angle-both-left-left::after {
     position: absolute;
     left: 0;
@@ -8386,21 +8394,21 @@ button.list-group-item-dark.active {
   .angle-both-left-left::before {
     top: 0;
     border-color: #fff transparent transparent transparent;
-    border-width: convertdegtovw(3)1vw 100vw 0 0;
+    border-width: 8vw 100vw 0 0;
   }
   .angle-both-left-left::after {
     bottom: 0;
     border-color: transparent transparent #fff transparent;
-    border-width: 0 100vw convertdegtovw(3)1vw 0;
+    border-width: 0 100vw 8vw 0;
   }
 }
 
 .angle-both-right-right {
   position: relative;
   overflow: hidden;
-  clip-path: polygon(0 0, 100% calc(0% + convertdegtovw(3)vw), 100% calc(100% - convertdegtovw(3)vw), 0 100%);
+  clip-path: polygon(0 0, 100% calc(0% + 7vw), 100% calc(100% - 7vw), 0 100%);
 }
-@supports not (clip-path: polygon(0 0, 100% calc(0% + convertdegtovw(3)vw), 100% calc(100% - convertdegtovw(3)vw), 0 100%)) {
+@supports not (clip-path: polygon(0 0, 100% calc(0% + 7vw), 100% calc(100% - 7vw), 0 100%)) {
   .angle-both-right-right::before, .angle-both-right-right::after {
     position: absolute;
     left: 0;
@@ -8412,21 +8420,21 @@ button.list-group-item-dark.active {
   .angle-both-right-right::before {
     top: 0;
     border-color: #fff transparent transparent transparent;
-    border-width: convertdegtovw(3)1vw 0 0 100vw;
+    border-width: 8vw 0 0 100vw;
   }
   .angle-both-right-right::after {
     bottom: 0;
     border-color: transparent transparent #fff transparent;
-    border-width: 0 0 convertdegtovw(3)1vw 100vw;
+    border-width: 0 0 8vw 100vw;
   }
 }
 
 .angle-both-left-right {
   position: relative;
   overflow: hidden;
-  clip-path: polygon(0 calc(0% + convertdegtovw(3)vw), 100% 0, 100% calc(100% - convertdegtovw(3)vw), 0 100%);
+  clip-path: polygon(0 calc(0% + 7vw), 100% 0, 100% calc(100% - 7vw), 0 100%);
 }
-@supports not (clip-path: polygon(0 calc(0% + convertdegtovw(3)vw), 100% 0, 100% calc(100% - convertdegtovw(3)vw), 0 100%)) {
+@supports not (clip-path: polygon(0 calc(0% + 7vw), 100% 0, 100% calc(100% - 7vw), 0 100%)) {
   .angle-both-left-right::before, .angle-both-left-right::after {
     position: absolute;
     left: 0;
@@ -8438,21 +8446,21 @@ button.list-group-item-dark.active {
   .angle-both-left-right::before {
     top: 0;
     border-color: #fff transparent transparent transparent;
-    border-width: convertdegtovw(3)1vw 100vw 0 0;
+    border-width: 8vw 100vw 0 0;
   }
   .angle-both-left-right::after {
     bottom: 0;
     border-color: transparent transparent #fff transparent;
-    border-width: 0 0 convertdegtovw(3)1vw 100vw;
+    border-width: 0 0 8vw 100vw;
   }
 }
 
 .angle-both-right-left {
   position: relative;
   overflow: hidden;
-  clip-path: polygon(0 0, 100% calc(0% + convertdegtovw(3)vw), 100% 100%, 0 calc(100% - convertdegtovw(3)vw));
+  clip-path: polygon(0 0, 100% calc(0% + 7vw), 100% 100%, 0 calc(100% - 7vw));
 }
-@supports not (clip-path: polygon(0 0, 100% calc(0% + convertdegtovw(3)vw), 100% 100%, 0 calc(100% - convertdegtovw(3)vw))) {
+@supports not (clip-path: polygon(0 0, 100% calc(0% + 7vw), 100% 100%, 0 calc(100% - 7vw))) {
   .angle-both-right-left::before, .angle-both-right-left::after {
     position: absolute;
     left: 0;
@@ -8464,12 +8472,12 @@ button.list-group-item-dark.active {
   .angle-both-right-left::before {
     top: 0;
     border-color: #fff transparent transparent transparent;
-    border-width: convertdegtovw(3)1vw 0 0 100vw;
+    border-width: 8vw 0 0 100vw;
   }
   .angle-both-right-left::after {
     bottom: 0;
     border-color: transparent transparent #fff transparent;
-    border-width: 0 100vw convertdegtovw(3)1vw 0;
+    border-width: 0 100vw 8vw 0;
   }
 }
 
@@ -9376,11 +9384,11 @@ button.list-group-item-dark.active {
 }
 .nav-white.nav-outlined-pills .nav-link.active {
   background: transparent;
-  border-color: white;
+  border-color: hsl(0, 0%, 110%);
   color: #fff;
 }
 .nav-white.nav-outlined-pills .nav-link.active:hover {
-  border-color: white;
+  border-color: hsl(0, 0%, 110%);
 }
 .nav-white.nav-outlined-pills .nav-link {
   color: #fff;

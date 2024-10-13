@@ -61,7 +61,8 @@ blockquote.styled {
     }
 
     cite {
-      color: lighten($quote-text-color, 20);
+
+      color: color.adjust($quote-text-color, $lightness: 20%);
     }
   }
 
@@ -124,7 +125,7 @@ blockquote.styled {
     cite {
       font-size: .8em;
       line-height: 1.6;
-      color: lighten($quote-text-color, 25);
+      color: color.adjust($quote-text-color, $lightness: 20%);
       letter-spacing: .1em;
     }
   }
