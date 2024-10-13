@@ -16,7 +16,7 @@ const options = {
     junk: false,
 }
 
-copy('public', 'docs', options)
+copy('web/public', 'docs', options)
     .then(function (results) {
         console.log('\n')
         textUI.taskTxt('COPIED ' + results.length + ' FILES')
