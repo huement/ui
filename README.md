@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img style="width: 500px; margin:0.25rem 0 0.5rem;" src="hui-logo.png" alt="@huement/ui logo">
+  <img style="width: 500px; margin:0 0 1rem;" src="hui-logo.png" alt="@huement/ui logo">
   <br>
 </h1>
 
