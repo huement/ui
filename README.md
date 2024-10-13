@@ -5,9 +5,7 @@
 </h1>
 
 ![Version Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fhuement%2Fui%2Fraw%2Fmain%2Fpackage.json&query=version&style=flat-square&label=VERSION&labelColor=505050&color=3f3f3f)
-
 [![NPM Status](https://img.shields.io/npm/dm/metatags.svg?style=flat-square)](https://www.npmjs.com/package/@huement/ui)
-
 ![Size Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fhuement%2Fui%2Fraw%2Fmain%2Fpackage.json&query=buildSize&style=flat-square&label=SIZE&labelColor=505050&color=3f3f3f)
 
 > using Bootstrap 5 to create a 'visually pleasing' harmonic layout. Content focused with a neat typographic system.
