@@ -46,7 +46,9 @@ const fileMGMT = {
         // Add some space to make room for the actual SASS data
         jetpack.append(tempFilePath, '\r\n')
 
-        jetpack.move(tempFilePath, newFilePath, { overwrite: true })
+        jetpack.move( tempFilePath, newFilePath, { overwrite: true } )
+
+
     },
     blankNewFile(newFilePath) {
         //let filePath = path.resolve(__dirname, "../../" + newFilePath);

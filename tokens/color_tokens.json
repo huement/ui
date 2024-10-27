@@ -1,52 +1,38 @@
 [
-  {
-    "colors": [
-      { "red": "EC174C" },
-      { "orange": "FD8046" },
-      { "yellow": "FBFE12" },
-      { "green": "24FC2D" },
-      { "cyan": "028AA6" },
-      { "blue": "41EAD4" },
-      { "ultra": "3E0097" }
-    ]
-  },
-  {
-    "monochrome": [
-      { "dark": "1F1F1F" },
-      { "medium": "4C4C4C" },
-      { "light": "F0F0F0" }
-    ]
-  },
-  {
-    "brand": [{ "primary": "2bb3cf" }, { "secondary": "f99157" }]
-  },
-  {
-    "page": [
-      { "heading": "333333" },
-      { "body": "232323" },
-      { "code": "404040" },
-      { "caption": "4F4F4F" },
-      { "background": "FCFCFC" }
-    ]
-  },
-  {
-    "base16": [
-      { "base00": "1F1F1F" },
-      { "base01": "232323" },
-      { "base02": "333333" },
-      { "base03": "4C4C4C" },
-      { "base04": "A0A0A0" },
-      { "base05": "BFBFBF" },
-      { "base06": "E0E0E0" },
-      { "base07": "F0F0F0" },
-      { "base08": "EC174C" },
-      { "base09": "24FC2D" },
-      { "base0A": "FBFE12" },
-      { "base0B": "41EAD4" },
-      { "base0C": "3E0097" },
-      { "base0D": "028AA6" },
-      { "base0E": "FE445F" },
-      { "base0F": "FD8046" }
-    ]
-  }
+    {
+        "colors": [
+            { "red": "EC174C" },
+            { "orange": "FD8046" },
+            { "yellow": "FBFE12" },
+            { "green": "24FC2D" },
+            { "cyan": "028AA6" },
+            { "blue": "41EAD4" },
+            { "ultra": "3E0097" },
+            { "primary": "2bb3cf" },
+            { "secondary": "f99157" }
+        ]
+    },
+    {
+        "monochrome": [{ "mono": "757575" }, { "light": "8a8a8a" }]
+    },
+    {
+        "base16": [
+            { "base00": "1F1F1F" },
+            { "base01": "232323" },
+            { "base02": "333333" },
+            { "base03": "4C4C4C" },
+            { "base04": "A0A0A0" },
+            { "base05": "BFBFBF" },
+            { "base06": "E0E0E0" },
+            { "base07": "F0F0F0" },
+            { "base08": "EC174C" },
+            { "base09": "24FC2D" },
+            { "base0A": "FBFE12" },
+            { "base0B": "41EAD4" },
+            { "base0C": "3E0097" },
+            { "base0D": "028AA6" },
+            { "base0E": "FE445F" },
+            { "base0F": "FD8046" }
+        ]
+    }
 ]

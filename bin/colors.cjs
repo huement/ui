@@ -9,159 +9,181 @@
  */
 
 // Global Variables
-const { textUI } = require('./tui.cjs')
-const { fileMGMT } = require('./filemgmt.cjs')
-const cg = require('../package.json')
-const fs = require('fs')
-const _ = require('lodash')
-const path = require('path')
-const chalk = require('chalk')
-const jetpack = require('fs-jetpack')
-const ColorScale = require('color-scale')
-const json2scss = require('json2scss')
-const json2scssMap = require('json2scss-map')
+const { textUI } = require( './tui.cjs' )
+const { fileMGMT } = require( './filemgmt.cjs' )
+const cg = require( '../package.json' )
+const fs = require( 'fs' )
+const _ = require( 'lodash' )
+const path = require( 'path' )
+const chalk = require( 'chalk' )
+const jetpack = require( 'fs-jetpack' )
+const ColorScale = require( 'color-scale' )
+const json2scss = require( 'json2scss' )
+const json2scssMap = require( 'json2scss-map' )
 
 class TokenColors {
-    constructor(tokenFile, outputFile) {
+    constructor( tokenFile, outputFile ) {
+        textUI.headerLog( 'Color Palette Generation LOADING' )
         this.tokenFile = tokenFile
         this.resultFile = outputFile
+        this.codeName = cg.codeName || 'mojo'
+        this.MasterJSON = {}
     }
 
-    assemblePalette() {
-        textUI.headerLog('Color Palette Generation Starting')
+    async assemblePalette() {
+        textUI.statusTxt( 'Loading template file & preparing to populate' )
 
-        textUI.statusTxt('Loading template file & preparing to populate')
-
-        let newFile = path.resolve(__dirname, '../' + this.resultFile)
+        let newFile = path.resolve( __dirname, '../' + this.resultFile )
         fileMGMT.templateNewFile(
             newFile,
             "Design Tokens Color Palette. Generated via '$> node cli/bin/mojo.js'"
         )
 
-        textUI.statusTxt('Parsing ' + this.tokenFile + ' file for values')
+        textUI.statusTxt( 'Parsing ' + this.tokenFile + ' file for values' )
 
-        let cTokenFile = path.resolve(__dirname, '../' + this.tokenFile)
+        let cTokenFile = path.resolve( __dirname, '../' + this.tokenFile )
 
-        var color_tokens = require(cTokenFile)
-
-        color_tokens.forEach((element) => {
-            this.processColorObj(element, newFile)
-        })
+        var color_tokens = require( cTokenFile )
+        for ( let i = 0; i < color_tokens.length; i++ ) {
+            await this.processColorObj( color_tokens[ i ], newFile )
+        }
 
         // Finally close out the file, move into place and report as done
-        jetpack.append(newFile, '\r\n')
+        jetpack.append( newFile, '\r\n' )
 
-        console.log(' ')
-        textUI.statusTxt('SCSS file ' + newFile + ' created!')
-        console.log(' ')
+        console.log( ' ' )
+        textUI.statusTxt( 'SCSS Created! Saved to ' + newFile )
+        console.log( ' ' )
+
+        // console.log( JSON.stringify( this.MasterJSON ) )
+        this.saveColorJSONFile( 'stack', this.MasterJSON )
     }
 
-    saveColorJSONFile(filename, filedata) {
+    saveColorJSONFile( filename, filedata ) {
         //textUI.headerLog("Color Palette JSON");
         //console.log(JSON.stringify(filedata));
-        var tokenDir = this.tokenFile.split('/')
+        var tokenDir = this.tokenFile.split( '/' )
 
         //textUI.statusTxt("Building Color theme JSON");
 
-        if (Object.keys(filedata).length > 0) {
+        if ( Object.keys( filedata ).length > 0 ) {
             let newFile = path.resolve(
                 __dirname,
-                '../../' + tokenDir[0] + '/' + filename + '.json'
+                '../' + tokenDir[ 0 ] + '/' + filename + '.json'
             )
 
-            let prettyJSON = JSON.stringify(filedata, null, 4)
+            let prettyJSON = JSON.stringify( filedata, null, 4 )
 
-            textUI.statusTxt('Saving JSON Tokens File')
-            jetpack.write(newFile, prettyJSON)
+            textUI.statusTxt( 'Saving JSON Tokens File ' + newFile )
+            jetpack.write( newFile, prettyJSON )
         }
     }
 
-    processColorObj(obj, targetFile) {
-        let MasterJSON = {}
+    async processColorObj( obj, targetFile ) {
 
-        for (const [key, value] of Object.entries(obj)) {
-            textUI.statusTxt(`${key}` + ' processing')
 
-            if (key == 'base16') {
-                textUI.statusTxt('custom base16 coloring....')
+        for ( const [ key, value ] of Object.entries( obj ) ) {
+            textUI.statusTxt( `${key}` + ' processing' )
+
+            if ( key == 'base16' ) {
+                textUI.statusTxt( 'custom base16 coloring....' )
                 let Hex = { Hexidecimal: {} }
 
-                value.forEach((element) => {
-                    for (const [ckey, cvalue] of Object.entries(element)) {
+                value.forEach( ( element ) => {
+                    for ( const [ ckey, cvalue ] of Object.entries( element ) ) {
                         var cVal = `${cvalue}`
-                        var cleanColor = cVal.replace(/^#/, '')
+                        var cleanColor = cVal.replace( /^#/, '' )
                         var cKey = `${ckey}`
 
                         var objB16 = {}
-                        objB16[cKey] = '#' + cleanColor
+                        objB16[ cKey ] = '#' + cleanColor
 
-                        Hex.Hexidecimal[cKey] = '#' + cleanColor
+                        Hex.Hexidecimal[ cKey ] = '#' + cleanColor
 
-                        let sassData = json2scss(objB16)
-                        jetpack.append(targetFile, sassData)
+                        let sassData = json2scss( objB16 )
+                        jetpack.append( targetFile, sassData )
                     }
-                })
+                } )
 
-                let hexData = json2scss(Hex)
-                jetpack.append(targetFile, '\r\n')
-                jetpack.append(targetFile, '\r\n')
-                jetpack.append(targetFile, hexData)
-                jetpack.append(targetFile, '\r\n')
+                let hexData = json2scss( Hex )
+                jetpack.append( targetFile, '\r\n' )
+                jetpack.append( targetFile, '\r\n' )
+                jetpack.append( targetFile, hexData )
+                jetpack.append( targetFile, '\r\n' )
             } else {
-                //colorGroups.push({ key: key, values: value });
-                value.forEach((element) => {
-                    for (const [ckey, cvalue] of Object.entries(element)) {
+                //colorGroups.push({ key: key, value: value });
+                value.forEach( ( element ) => {
+                    for ( const [ ckey, cvalue ] of Object.entries( element ) ) {
                         var cVal = `${cvalue}`
-                        var cleanColor = cVal.replace(/^#/, '')
+                        var cleanColor = cVal.replace( /^#/, '' )
 
-                        var cScale = ColorScale({
+                        var cScale = ColorScale( {
                             color: '#' + cleanColor,
-                            variance: 8,
-                        })
+                            variance: 10,
+                        } )
 
-                        var cKey = `${ckey}`
-                        var mKey = `${ckey}s`
+                        // var colorKey = `${ckey}`
+                        var mKey = `${ckey}`
                         var n = 0
-                        var keys = []
+                        const numberObj = {}
+                        numberObj[ `${ckey}-100` ] = cScale( -4 )
+                        numberObj[ `${ckey}-200` ] = cScale( -3 )
+                        numberObj[ `${ckey}-300` ] = cScale( -2 )
+                        numberObj[ `${ckey}-400` ] = cScale( -1 )
+                        numberObj[ `${ckey}-500` ] = '#' + cleanColor
+                        numberObj[ `${ckey}-600` ] = cScale( 1 )
+                        numberObj[ `${ckey}-700` ] = cScale( 2 )
+                        numberObj[ `${ckey}-800` ] = cScale( 3 )
+                        numberObj[ `${ckey}-900` ] = cScale( 4 )
+
+                        var mojoColor = {
+                            hex: '#' + cleanColor,
+                            light: cScale( 3 ),
+                            dark: cScale( -3 )
+                        }
 
                         var mapC = {}
-                        mapC['100'] = cScale(-4)
-                        mapC['200'] = cScale(-3)
-                        mapC['300'] = cScale(-2)
-                        mapC['400'] = cScale(-1)
-                        mapC['500'] = '#' + cleanColor
-                        mapC['600'] = cScale(1)
-                        mapC['700'] = cScale(2)
-                        mapC['800'] = cScale(3)
-                        mapC['900'] = cScale(4)
+                        mapC[ '100' ] = cScale( -4 )
+                        mapC[ '200' ] = cScale( -3 )
+                        mapC[ '300' ] = cScale( -2 )
+                        mapC[ '400' ] = cScale( -1 )
+                        mapC[ '500' ] = '#' + cleanColor
+                        mapC[ '600' ] = cScale( 1 )
+                        mapC[ '700' ] = cScale( 2 )
+                        mapC[ '800' ] = cScale( 3 )
+                        mapC[ '900' ] = cScale( 4 )
 
-                        let sassData = json2scss(mapC)
+                        let sassData = json2scss( numberObj )
+
                         let blankObj = {}
-                        blankObj[mKey] = mapC
-                        let sassDataMap = json2scss(blankObj)
-                        //console.log(sassData);
-                        jetpack.append(targetFile, sassData)
-                        jetpack.append(targetFile, '\r\n')
-                        jetpack.append(targetFile, sassDataMap)
-                        jetpack.append(targetFile, '\r\n')
+                        blankObj[ mKey ] = mapC
+                        let sassDataMap = json2scss( blankObj )
 
-                        if (key == 'colors') {
-                            MasterJSON[ckey] = mapC
-                        }
+                        let blankMojo = {}
+                        blankMojo[ `${this.codeName}-${ckey}` ] = mojoColor
+                        let mojoDataMap = json2scss( blankMojo )
+
+                        //console.log(sassData);
+                        jetpack.append( targetFile, sassData )
+                        jetpack.append( targetFile, '\r\n' )
+                        jetpack.append( targetFile, sassDataMap )
+                        jetpack.append( targetFile, '\r\n' )
+                        jetpack.append( targetFile, mojoDataMap )
+                        jetpack.append( targetFile, '\r\n' )
+
+                        this.MasterJSON[ ckey ] = mapC
                     }
-                })
+                } )
             }
         }
-
-        this.saveColorJSONFile('stack', MasterJSON)
     }
 
     // Add !default to any scss file
     addDefaultSass() {
-        let cTokenFile = path.resolve(__dirname, '../' + this.resultFile)
-        let fileData = jetpack.read(cTokenFile)
-        let result = fileData.replace(/;/g, ' !default;')
-        jetpack.write(cTokenFile, result)
+        let cTokenFile = path.resolve( __dirname, '../' + this.resultFile )
+        let fileData = jetpack.read( cTokenFile )
+        let result = fileData.replace( /;/g, ' !default;' )
+        jetpack.write( cTokenFile, result )
     }
 }
 
