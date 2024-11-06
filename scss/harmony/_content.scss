@@ -1,5 +1,7 @@
 $tile-breakpoint: getbreakpoint($break-point-limit) !default;
 
+// @TODO: Update SCSS body paragraph styles to include things like .text-body2 .lead2
+
 .empty {
   padding: $sz_20 $sz_10;
   color: $caption;

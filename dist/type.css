@@ -16,97 +16,97 @@
   --bs-mojo-coral: #fd7e47;
   --bs-mojo-yellow: #fbff12;
   --bs-mojo-green: #3bfc43;
-  --bs-gray-100: #1f1f1f;
-  --bs-gray-200: #242424;
-  --bs-gray-300: #3d3d3d;
-  --bs-gray-400: #4c4c4c;
+  --bs-gray-100: #0F0F0F;
+  --bs-gray-200: #292929;
+  --bs-gray-300: #424242;
+  --bs-gray-400: #5C5C5C;
   --bs-gray-500: #757575;
-  --bs-gray-600: #8a8a8a;
-  --bs-gray-700: #b3b3b3;
-  --bs-gray-800: #dbdbdb;
-  --bs-gray-900: #f0f0f0;
+  --bs-gray-600: #8F8F8F;
+  --bs-gray-700: #A8A8A8;
+  --bs-gray-800: #C2C2C2;
+  --bs-gray-900: #DBDBDB;
   --bs-primary: #520099;
   --bs-secondary: #0fb2aa;
   --bs-success: #3bfc43;
   --bs-info: #00f5d4;
   --bs-warning: #fbff12;
   --bs-danger: #ff0054;
-  --bs-light: #f0f0f0;
-  --bs-dark: #1f1f1f;
+  --bs-light: #DBDBDB;
+  --bs-dark: #0F0F0F;
   --bs-primary-rgb: 82, 0, 153;
   --bs-secondary-rgb: 15, 178, 170;
   --bs-success-rgb: 59, 252, 67;
   --bs-info-rgb: 0, 245, 212;
   --bs-warning-rgb: 251, 255, 18;
   --bs-danger-rgb: 255, 0, 84;
-  --bs-light-rgb: 240, 240, 240;
-  --bs-dark-rgb: 31, 31, 31;
+  --bs-light-rgb: 219, 219, 219;
+  --bs-dark-rgb: 15, 15, 15;
   --bs-primary-text-emphasis: rgb(32.8, 0, 61.2);
   --bs-secondary-text-emphasis: rgb(6, 71.2, 68);
   --bs-success-text-emphasis: rgb(23.6, 100.8, 26.8);
   --bs-info-text-emphasis: rgb(0, 98, 84.8);
   --bs-warning-text-emphasis: rgb(100.4, 102, 7.2);
   --bs-danger-text-emphasis: rgb(102, 0, 33.6);
-  --bs-light-text-emphasis: #3d3d3d;
-  --bs-dark-text-emphasis: #3d3d3d;
+  --bs-light-text-emphasis: #424242;
+  --bs-dark-text-emphasis: #424242;
   --bs-primary-bg-subtle: rgb(220.4, 204, 234.6);
   --bs-secondary-bg-subtle: rgb(207, 239.6, 238);
   --bs-success-bg-subtle: rgb(215.8, 254.4, 217.4);
   --bs-info-bg-subtle: rgb(204, 253, 246.4);
   --bs-warning-bg-subtle: rgb(254.2, 255, 207.6);
   --bs-danger-bg-subtle: rgb(255, 204, 220.8);
-  --bs-light-bg-subtle: rgb(247.5, 247.5, 247.5);
-  --bs-dark-bg-subtle: #8a8a8a;
+  --bs-light-bg-subtle: #ededed;
+  --bs-dark-bg-subtle: #8F8F8F;
   --bs-primary-border-subtle: rgb(185.8, 153, 214.2);
   --bs-secondary-border-subtle: rgb(159, 224.2, 221);
   --bs-success-border-subtle: rgb(176.6, 253.8, 179.8);
   --bs-info-border-subtle: rgb(153, 251, 237.8);
   --bs-warning-border-subtle: rgb(253.4, 255, 160.2);
   --bs-danger-border-subtle: rgb(255, 153, 186.6);
-  --bs-light-border-subtle: #dbdbdb;
+  --bs-light-border-subtle: #C2C2C2;
   --bs-dark-border-subtle: #757575;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 67, 62, 62;
   --bs-link-color: #1982c4;
-  --bs-link-hover-color: #185c87;
-  --bs-code-color: #3d3d3d;
+  --bs-link-hover-color: #004A78;
+  --bs-code-color: #424242;
   --bs-highlight-bg: #00f5d4;
   --bs-font-headings: "Saira";
   --bs-font-sans-serif: "Jost";
   --bs-font-monospace: "Space Grotesk";
-  --bs-gradient: linear-gradient(180deg, rgba(138, 138, 138, 0.15), rgba(219, 219, 219, 0));
+  --bs-gradient: linear-gradient(180deg, rgba(143, 143, 143, 0.15), rgba(194, 194, 194, 0));
   --bs-root-font-size: 1;
   --bs-body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
-  --bs-body-color: #f0f0f0;
-  --bs-body-color-rgb: 240, 240, 240;
-  --bs-body-bg: rgb(23.35, 23.35, 23.35);
-  --bs-body-bg-rgb: 23, 23, 23;
+  --bs-body-color: #DBDBDB;
+  --bs-body-color-rgb: 219, 219, 219;
+  --bs-body-bg: rgb(7.35, 7.35, 7.35);
+  --bs-body-bg-rgb: 7, 7, 7;
   --bs-emphasis-color: #433e3e;
   --bs-emphasis-color-rgb: 67, 62, 62;
-  --bs-secondary-color: rgba(31, 31, 31, 0.75);
-  --bs-secondary-color-rgb: 31, 31, 31;
-  --bs-secondary-bg: #dbdbdb;
-  --bs-secondary-bg-rgb: 219, 219, 219;
-  --bs-tertiary-color: rgba(31, 31, 31, 0.5);
-  --bs-tertiary-color-rgb: 31, 31, 31;
-  --bs-tertiary-bg: #f0f0f0;
-  --bs-tertiary-bg-rgb: 240, 240, 240;
-  --bs-heading-color: #f0f0f0;
+  --bs-secondary-color: rgba(15, 15, 15, 0.75);
+  --bs-secondary-color-rgb: 15, 15, 15;
+  --bs-secondary-bg: #C2C2C2;
+  --bs-secondary-bg-rgb: 194, 194, 194;
+  --bs-tertiary-color: rgba(15, 15, 15, 0.5);
+  --bs-tertiary-color-rgb: 15, 15, 15;
+  --bs-tertiary-bg: #DBDBDB;
+  --bs-tertiary-bg-rgb: 219, 219, 219;
+  --bs-heading-color: #DBDBDB;
   --bs-link-color: #1982c4;
   --bs-link-color-rgb: 25, 130, 196;
   --bs-link-decoration: none;
   --bs-link-hover-color: rgb(20, 104, 156.8);
   --bs-link-hover-color-rgb: 20, 104, 157;
-  --bs-code-color: #f93877;
-  --bs-highlight-color: #1f1f1f;
+  --bs-code-color: #FF4D88;
+  --bs-highlight-color: #0F0F0F;
   --bs-highlight-bg: #fff09e;
   --bs-border-width: 0.0625rem;
   --bs-border-style: solid;
-  --bs-border-color: #3d3d3d;
-  --bs-border-color-translucent: rgba(61, 61, 61, 0.175);
+  --bs-border-color: #424242;
+  --bs-border-color-translucent: rgba(66, 66, 66, 0.175);
   --bs-border-radius: 0.375rem;
   --bs-border-radius-sm: 0.35rem;
   --bs-border-radius-lg: 0.5rem;
@@ -114,10 +114,10 @@
   --bs-border-radius-xxl: 2rem;
   --bs-border-radius-2xl: var(--bs-border-radius-xxl);
   --bs-border-radius-pill: 50rem;
-  --bs-box-shadow: 0 0.5rem 1rem rgba(31, 31, 31, 0.15);
-  --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(31, 31, 31, 0.075);
-  --bs-box-shadow-lg: 0 1rem 3rem rgba(31, 31, 31, 0.175);
-  --bs-box-shadow-inset: inset 0 1px 2px rgba(31, 31, 31, 0.075);
+  --bs-box-shadow: 0 0.5rem 1rem rgba(15, 15, 15, 0.15);
+  --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(15, 15, 15, 0.075);
+  --bs-box-shadow-lg: 0 1rem 3rem rgba(15, 15, 15, 0.175);
+  --bs-box-shadow-inset: inset 0 1px 2px rgba(15, 15, 15, 0.075);
   --bs-focus-ring-width: 0.25rem;
   --bs-focus-ring-opacity: 0.25;
   --bs-focus-ring-color: rgba(82, 0, 153, 0.25);
@@ -604,8 +604,8 @@ html {
 body {
   font-size: 1rem;
   font-weight: 400;
-  color: #f0f0f0;
-  background-color: rgb(23.35, 23.35, 23.35);
+  color: #DBDBDB;
+  background-color: rgb(7.35, 7.35, 7.35);
   margin: 0;
   padding: 0;
 }
@@ -615,7 +615,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #185c87;
+  color: #004A78;
   text-decoration: none;
 }
 
@@ -854,7 +854,7 @@ a.underline {
   text-decoration: underline;
 }
 a:hover {
-  color: #185c87;
+  color: #004A78;
   text-decoration: underline;
   cursor: pointer;
   animation-name: pulse;
@@ -945,12 +945,12 @@ b {
 
 mark {
   padding: 0 0.2rem;
-  color: #1f1f1f;
+  color: #0F0F0F;
   background: #00f5d4;
 }
 
 disabled {
-  color: rgba(31, 31, 31, 0.5);
+  color: rgba(15, 15, 15, 0.5);
 }
 
 /** Harmonious Heading Sizes */
@@ -991,9 +991,9 @@ h6 .subtitle, .h1 small,
 .h6 .small,
 .h6 .subtitle {
   display: block;
+  padding-top: 10px;
   font-size: 76%;
   line-height: 1.2;
-  padding-top: 10px;
 }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a {
   text-decoration: underline;
@@ -1478,13 +1478,13 @@ h6,
   font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.25;
-  color: #dbdbdb;
+  color: #C2C2C2;
   letter-spacing: 0.5px;
   font-family: getfontfamily("heading");
 }
 .title strong {
   font-weight: inherit;
-  color: #242424;
+  color: #292929;
   letter-spacing: 0.75px;
 }
 .title.title-1 {
@@ -1511,7 +1511,7 @@ h6,
   font-size: 2rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #8a8a8a;
+  color: #8F8F8F;
   letter-spacing: 2px;
   font-family: getfontfamily("primary");
 }
@@ -1812,10 +1812,10 @@ pre {
   overflow: auto;
   font-size: 0.75rem;
   line-height: 1.375rem;
-  color: #f0f0f0;
+  color: #DBDBDB;
   word-wrap: break-word;
   white-space: pre;
-  background-color: #3d3d3d;
+  background-color: #424242;
   border-radius: 0.375rem;
 }
 pre code {
@@ -1836,7 +1836,7 @@ kbd {
   padding: 0.1875rem 0.8125rem;
   font-size: 0.75rem;
   color: #fff;
-  background-color: #1f1f1f;
+  background-color: #0F0F0F;
   border-radius: 0.625rem;
   box-shadow: none;
 }
@@ -1852,7 +1852,7 @@ kbd kbd {
   padding: 20rem 5rem;
   color: #757575;
   text-align: center;
-  background: rgb(23.35, 23.35, 23.35);
+  background: rgb(7.35, 7.35, 7.35);
   border-radius: 0.375rem;
 }
 .empty .empty-icon {
@@ -1966,7 +1966,7 @@ kbd kbd {
 
 .img-thumbnail {
   padding: 0;
-  background-color: rgb(23.35, 23.35, 23.35);
+  background-color: rgb(7.35, 7.35, 7.35);
   border: none;
   border-radius: 0.375rem;
   box-shadow: none;
@@ -1984,7 +1984,7 @@ kbd kbd {
 
 .figure-caption {
   font-size: 1rem;
-  color: #4c4c4c;
+  color: #5C5C5C;
 }
 
 .hero {

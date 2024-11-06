@@ -8,7 +8,7 @@
   $prev-key: null;
   $prev-num: null;
   @each $key, $num in $map {
-    @if $prev-num == null or unit($num) == '%' or unit($prev-num) == '%' {
+    @if $prev-num == null or unit($num) == "%" or unit($prev-num) == "%" {
       // Do nothing
     } @else if not comparable($prev-num, $num) {
       @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
@@ -22,7 +22,7 @@
 
 // Starts at zero
 // Used to ensure the min-width of the lowest breakpoint starts at 0.
-@mixin _assert-starts-at-zero($map, $map-name: '$grid-breakpoints') {
+@mixin _assert-starts-at-zero($map, $map-name: "$grid-breakpoints") {
   @if length($map) > 0 {
     $values: map-values($map);
     $first-value: nth($values, 1);
@@ -39,10 +39,10 @@
 
 // stylelint-disable scss/dollar-variable-pattern
 @function rgba-css-var($identifier, $target) {
-  @if $identifier == 'body' and $target == 'bg' {
+  @if $identifier == "body" and $target == "bg" {
     @return rgba(var(--#{$prefix}#{$identifier}-bg-rgb), var(--#{$prefix}#{$target}-opacity));
   }
-  @if $identifier == 'body' and $target == 'text' {
+  @if $identifier == "body" and $target == "text" {
     @return rgba(var(--#{$prefix}#{$identifier}-color-rgb), var(--#{$prefix}#{$target}-opacity));
   } @else {
     @return rgba(var(--#{$prefix}#{$identifier}-rgb), var(--#{$prefix}#{$target}-opacity));
@@ -56,7 +56,7 @@
     // allow to pass the $key and $value of the map as an function argument
     $_args: ();
     @each $arg in $args {
-      $_args: append($_args, if($arg == '$key', $key, if($arg == '$value', $value, $arg)));
+      $_args: append($_args, if($arg == "$key", $key, if($arg == "$value", $value, $arg)));
     }
 
     $_map: map-merge(
@@ -85,7 +85,7 @@
   $result: ();
   @each $key, $value in $map {
     @if $key != 0 {
-      $result: map-merge($result, ('n' + $key: (-$value)));
+      $result: map-merge($result, ("n" + $key: (-$value)));
     }
   }
   @return $result;
@@ -125,7 +125,7 @@
 // @param {String} $search - Substring to replace
 // @param {String} $replace ('') - New value
 // @return {String} - Updated string
-@function str-replace($string, $search, $replace: '') {
+@function str-replace($string, $search, $replace: "") {
   $index: str-index($string, $search);
 
   @if $index {
@@ -141,11 +141,11 @@
 // Requires the use of quotes around data URIs.
 
 @function escape-svg($string) {
-  @if str-index($string, 'data:image/svg+xml') {
+  @if str-index($string, "data:image/svg+xml") {
     @each $char, $encoded in $escaped-characters {
       // Do not escape the url brackets
-      @if str-index($string, 'url(') == 1 {
-        $string: url('#{str-replace(str-slice($string, 6, -3), $char, $encoded)}');
+      @if str-index($string, "url(") == 1 {
+        $string: url("#{str-replace(str-slice($string, 6, -3), $char, $encoded)}");
       } @else {
         $string: str-replace($string, $char, $encoded);
       }
@@ -169,7 +169,7 @@
     @return $value1 + $value2;
   }
 
-  @return if($return-calc == true, calc(#{$value1} + #{$value2}), $value1 + unquote(' + ') + $value2);
+  @return if($return-calc == true, calc(#{$value1} + #{$value2}), $value1 + unquote(" + ") + $value2);
 }
 
 @function subtract($value1, $value2, $return-calc: true) {
@@ -190,10 +190,10 @@
   }
 
   @if type-of($value2) != number {
-    $value2: unquote('(') + $value2 + unquote(')');
+    $value2: unquote("(") + $value2 + unquote(")");
   }
 
-  @return if($return-calc == true, calc(#{$value1} - #{$value2}), $value1 + unquote(' - ') + $value2);
+  @return if($return-calc == true, calc(#{$value1} - #{$value2}), $value1 + unquote(" - ") + $value2);
 }
 
 @function divide($dividend, $divisor, $precision: 10) {
@@ -216,7 +216,7 @@
       $quotient: $quotient + 1;
     }
     $result: $result * 10 + $quotient;
-    $factor: $factor * 0.1;
+    $factor: $factor * .1;
     $remainder: $remainder * 10;
     $precision: $precision - 1;
     @if ($precision < 0 and $remainder >= $divisor * 5) {
@@ -227,10 +227,10 @@
   $dividend-unit: unit($dividend);
   $divisor-unit: unit($divisor);
   $unit-map: (
-    'px': 1px,
-    'rem': 1rem,
-    'em': 1em,
-    '%': 1%,
+    "px": 1px,
+    "rem": 1rem,
+    "em": 1em,
+    "%": 1%,
   );
   @if ($dividend-unit != $divisor-unit and map-has-key($unit-map, $dividend-unit)) {
     $result: $result * map-get($unit-map, $dividend-unit);
@@ -247,19 +247,19 @@
   // @if index($keys, $index) {
   @if ($index==0) {
     @warn "SCSS Indexes start at 1 not 0! Ya Dingus!";
-    @return 'xs';
+    @return "xs";
   } @else if ($index <=length($keys)) {
     @return nth($keys, $index);
   } @else {
     @warn "Requested Index is greater than total Keys";
-    @return 'xl';
+    @return "xl";
   }
 }
 
 @function depth($map) {
   $level: 1;
   @each $key, $value in $map {
-    @if type-of($value) == 'map' {
+    @if type-of($value) == "map" {
       $level: max(depth($value) + 1, $level);
     }
   }
@@ -360,13 +360,13 @@
           @return $fallback;
         }
       }
-      @warn 'No next map item for key #{$key}';
+      @warn "No next map item for key #{$key}";
       @return $fallback;
     }
-    @warn 'No valid key #{$key} in map';
+    @warn "No valid key #{$key} in map";
     @return $fallback;
   }
-  @warn 'No valid map';
+  @warn "No valid map";
   @return $fallback;
 }
 
@@ -411,12 +411,12 @@
   // Check if map is valid
   @if type-of($map) ==map {
     @if $debug {
-      @debug 'Map exists #{$map}';
+      @debug "Map exists #{$map}";
     }
     // Check if key exists in map
     @if map-has-key($map, $key) {
       @if $debug {
-        @debug 'Map has key #{$key}';
+        @debug "Map has key #{$key}";
       }
       // Init index counter variable
       $i: 1;
@@ -426,13 +426,13 @@
       // Traverse map for key
       @each $map-key, $map-value in $map {
         @if $debug {
-          @debug 'map-key: #{$map-key}, map-value: #{$map-value}, i: #{$i}';
+          @debug "map-key: #{$map-key}, map-value: #{$map-value}, i: #{$i}";
         }
         // If map key found, set key index
         @if $map-key==$key {
           $key-index: $i;
           @if $debug {
-            @debug 'found key-index: #{$key-index}';
+            @debug "found key-index: #{$key-index}";
           }
         }
         // Update index
@@ -444,20 +444,20 @@
         $i: 1;
         // If the previous key is less than one, use the fallback
         @if $previous-index < 1 {
-          @warn 'no previous item in map, returning fallback';
+          @warn "no previous item in map, returning fallback";
           @return $fallback;
         } @else {
           // Traverse map for key
           @each $map-key, $map-value in $map {
             @if $i==$previous-index {
-              @if $return== 'key' {
+              @if $return== "key" {
                 @if $debug {
-                  @debug 'found! returning map-key: #{$map-key}';
+                  @debug "found! returning map-key: #{$map-key}";
                 }
                 @return $map-key;
               } @else {
                 @if $debug {
-                  @debug 'found! returning map-value: #{$map-value}';
+                  @debug "found! returning map-value: #{$map-value}";
                 }
                 @return $map-value;
               }
@@ -467,15 +467,15 @@
           }
         }
       } @else {
-        @warn 'No previous map item for key #{$key}';
+        @warn "No previous map item for key #{$key}";
         @return $fallback;
       }
     } @else {
-      @warn 'No valid key #{$key} in map';
+      @warn "No valid key #{$key} in map";
       @return $fallback;
     }
   } @else {
-    @warn 'No valid map';
+    @warn "No valid map";
     @return $fallback;
   }
 }

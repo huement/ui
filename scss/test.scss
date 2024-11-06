@@ -1,0 +1,43 @@
+//        ___          ___                     ___
+//       /  /\        /  /\         ___       /  /\
+//      /  /::\      /  /::\       /__/\     /  /::\
+//     /  /:/\:\    /  /:/\:\      \__\:\   /  /:/\:\
+//    /  /:/  \:\  /  /::\ \:\     /  /::\ /  /:/  \:\
+//   /__/:/_\_ \:\/__/:/\:\_\:\ __/  /:/\//__/:/ \__\:|
+//   \  \:\__/\_\/\__\/~|::\/://__/\/:/~~ \  \:\ /  /:/
+//    \  \:\ \:\     |  |:|::/ \  \::/     \  \:\  /:/
+//     \  \:\/:/     |  |:|\/   \  \:\      \  \:\/:/
+//      \  \::/      |__|:|~     \__\/       \  \::/
+//       \__\/        \__\|                   \__\/
+//
+//
+// This file is mostly used for testing and development of the Grid & Layout
+// parts of the framework.
+
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:meta';
+@use 'sass:string';
+
+//
+// SUPER CLASSY SETUP
+@import 'thirdparty/animate';
+@import 'framework/functions';
+@import 'framework/color-functions';
+@import 'framework/props';
+@import 'framework/rfs';
+@import 'framework/typography';
+@import 'framework/rhythm';
+@import 'framework/math-functions';
+
+@import 'config/globals'; // CONSTANTS & RATIOS
+@import 'config/tokens'; // GENERATED TYPOGRAPHY SIZES
+@import 'config/palette'; // DMT PALETTE [UPDATED]
+@import 'config/theme'; // FINAL TWEAKS
+$debug: true;
+
+body {
+  background: map.get($mono, 100);
+}

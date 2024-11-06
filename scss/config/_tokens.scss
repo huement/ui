@@ -1,29 +1,11 @@
-//
 //  ■■■■■■■■■■■■■■■■■■▶ HUEMENT PRESENTS ◀■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 //
-//                  .;,                    ..                      .,.      .
-//     .,,.        .dWK;       ...  'cdOOl            .;coool ... 'cdOOl. :d,
-//     :XNk'       .OWNx.     'kOccoo:;kW0   .:oko';loool:'. 'kOccoowokW0:x;.
-//     'OWN0;      :XNW0,    .dN0d:.  .xWX.;xkcox0Xx:'.    .dN0d:.  .xWXOo
-//      oNNNK:   .cONXNXc   ,xXK:   .:xXNdkxdocxxOWk.     ,xXK:   .:xXNd.
-//      ;KNNNKc .dNNOo0Wd.;doxNk..:dxdkNK;.      ;KNo     oxNk..:dxdkNK;
-//      .xNK0NXloXWX:.xWO'x,.oN0xkd:..xWd.        lNK;  ' ,0;0:   ..xWd.
-//       cNKldNNNNXo  cNX:d:dKNk;.   :X0,   ..';:'.dNk..  xx:k;.   :X0,
-//       '0Nl.oKKd:.  ,0WdOxxXX:    'OXc  xkOkdl:. 'ONl.  xXX:    'OXc
-//       .xWx. ..     .xW0.;O0K,   .dNo.  k0KOd:.   :XK; .,0K,   .dNo.
-//       .dW0,         cNNX00KK,  .oXd.    .':dOKkc'.oNk. ,KK,  .oXd.
-//     kX00NX;         'OWwx;KK, .dKl.         .,o0KxdKNo.;KK, .dKl.
-//     .l0NNX:          oN0l,KNockk,              .;xKNNXc,KNockk,
-//       .d0d.          '0;..dXKkc.                  'oKWK.dXKkc.
-//         .             ,    ..                       .ll'   ..
-//
-//
-//                                        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-//                                          _harmony.scss
-//                                          NOV 29 2022
-//                                          VER 0.0.16
-//                                          Design Tokens Color Palette. Generated via '$> node cli/bin/mojo.js'
-//                                        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+//    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+//      _tokens.scss
+//      NOV 06 2024
+//      VER 0.5.5
+//      @huement/ui generated file > npm run build:chords
+//    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //
 
 $chords: (
@@ -265,11 +247,11 @@ $chords: (
       h5: 38.39px,
       h6: 28.8px,
     ),
-    color: #ff0,
+    color: #ffff00,
   ),
-  xxl: (
+  xx: (
     name: xxlarge,
-    abrev: xxl,
+    abrev: xx,
     width: 1400px,
     width_rem: 77.78rem,
     max: 1320px,
@@ -323,7 +305,7 @@ $grid-breakpoints: (
   md: 768px,
   lg: 992px,
   xl: 1200px,
-  xxl: 1400px,
+  xx: 1400px,
 ) !default;
 
 $container-max-widths: (
@@ -331,14 +313,13 @@ $container-max-widths: (
   md: 720px,
   lg: 960px,
   xl: 1140px,
-  xxl: 1320px,
+  xx: 1320px,
 ) !default;
 
 /// Default Mojo Config
-$superclass: "mojo5" !default;
+$superclass: 'mojo' !default;
 $mq-responsive: true !default;
 $base-font-size: 16px !default;
 $base-line-height: 1.5 !default;
-$version: "0.0.16" !default;
-$date: "11/10/2022" !default;
-$code-name: "1985" !default;
+$version: '0.5.5' !default;
+$date: 'Wed Oct 30 2024' !default;

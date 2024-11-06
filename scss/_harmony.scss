@@ -25,6 +25,7 @@
 @import "harmony/base";
 
 /** Harmonious Heading Sizes */
+// TODO Remove needing to call these functions. Things dont work like that anymore.
 @import "harmony/headings";
 @include Harmonic_Headings_Core();
 @include Harmonic_Headings_Breakpoints();

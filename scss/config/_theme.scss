@@ -18,15 +18,15 @@ $black: #433e3e;
 
 // scss-docs-start gray-colors-map
 $grays: (
-  '100': $gray-100,
-  '200': $gray-200,
-  '300': $gray-300,
-  '400': $gray-400,
-  '500': $gray-500,
-  '600': $gray-600,
-  '700': $gray-700,
-  '800': $gray-800,
-  '900': $gray-900,
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900,
 ) !default;
 // scss-docs-end gray-colors-map
 
@@ -45,20 +45,20 @@ $cyan: map.get($mojo-cyan, hex) !default;
 
 // scss-docs-start colors-map
 $colors: (
-  'blue': $blue,
-  'indigo': $indigo,
-  'purple': $purple,
-  'pink': $pink,
-  'red': $red,
-  'orange': $orange,
-  'yellow': $yellow,
-  'green': $green,
-  'teal': $teal,
-  'cyan': $cyan,
-  'black': $black,
-  'white': $white,
-  'gray': $gray-600,
-  'gray-dark': $gray-800,
+  "blue": $blue,
+  "indigo": $indigo,
+  "purple": $purple,
+  "pink": $pink,
+  "red": $red,
+  "orange": $orange,
+  "yellow": $yellow,
+  "green": $green,
+  "teal": $teal,
+  "cyan": $cyan,
+  "black": $black,
+  "white": $white,
+  "gray": $gray-600,
+  "gray-dark": $gray-800,
 ) !default;
 // scss-docs-end colors-map
 
@@ -74,25 +74,25 @@ $dark: map.get($mono, 100) !default;
 // scss-docs-end theme-color-variables
 
 $mojo-colors: (
-  'cyan': map.get($mojo-cyan, hex),
-  'ocean': map.get($mojo-ocean, hex),
-  'blue': map.get($mojo-blue, hex),
-  'violet': map.get($mojo-violet, hex),
-  'red': map.get($mojo-red, hex),
-  'coral': map.get($mojo-coral, hex),
-  'yellow': map.get($mojo-yellow, hex),
-  'green': map.get($mojo-green, hex),
+  "cyan": map.get($mojo-cyan, hex),
+  "ocean": map.get($mojo-ocean, hex),
+  "blue": map.get($mojo-blue, hex),
+  "violet": map.get($mojo-violet, hex),
+  "red": map.get($mojo-red, hex),
+  "coral": map.get($mojo-coral, hex),
+  "yellow": map.get($mojo-yellow, hex),
+  "green": map.get($mojo-green, hex),
 );
 
 $theme-colors: (
-  'primary': $primary,
-  'secondary': $secondary,
-  'success': $success,
-  'info': $info,
-  'warning': $warning,
-  'danger': $danger,
-  'light': $light,
-  'dark': $dark,
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
 );
 
 // scss-docs-start page-color-variables
@@ -125,7 +125,7 @@ $border-dark: $gray-400;
 // The gradient which is added to components if `$enable-gradients` is `true`
 // This gradient is also added to elements with `.bg-gradient`
 // scss-docs-start variable-gradient
-$gradient: linear-gradient(180deg, rgba($gray-400, 0.15), rgba($gray-200, 0));
+$gradient: linear-gradient(180deg, rgba($gray-400, .15), rgba($gray-200, 0));
 
 $body-bg-image: linear-gradient(
   90deg,
@@ -134,7 +134,7 @@ $body-bg-image: linear-gradient(
   shade-color($pink, 5%)
 ) !default;
 
-$frosted-opacity: 0.3 !default;
+$frosted-opacity: .3 !default;
 
 //============================================================
 // FONT SYSTEM
@@ -143,34 +143,34 @@ $frosted-opacity: 0.3 !default;
 $google-fonts-import: false !default;
 
 $PrimaryFont: (
-  family: 'Jost',
-  src: 'Jost/jost-variablefont_wght-webfont',
-  ext: 'woff',
+  family: "Jost",
+  src: "Jost/jost-variablefont_wght-webfont",
+  ext: "woff",
   weight: 400,
   style: normal,
-  selector: 'html, body, p, li, b, i, strong, a, mark, td, th, button',
+  selector: "html, body, p, li, b, i, strong, a, mark, td, th, button",
   stack: $SansStack,
   display: swap,
 );
 
 $HeadingFont: (
-  family: 'Saira',
-  src: 'Saira/saira-variablefont_wdthwght-webfont',
-  ext: 'woff',
+  family: "Saira",
+  src: "Saira/saira-variablefont_wdthwght-webfont",
+  ext: "woff",
   weight: 700,
   style: bold,
-  selector: 'h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6',
+  selector: "h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6",
   stack: $SansStack,
   display: swap,
 );
 
 $CodeFont: (
-  family: 'Space Grotesk',
-  src: 'Space_Grotesk/spacegrotesk-variablefont_wght-webfont',
-  ext: 'woff',
+  family: "Space Grotesk",
+  src: "Space_Grotesk/spacegrotesk-variablefont_wght-webfont",
+  ext: "woff",
   weight: 400,
   style: normal,
-  selector: 'code, pre, samp, kbd, caption, blockquote, cite, .code-block, .code-block p, aside, label, legend, .quote',
+  selector: "code, pre, samp, kbd, caption, blockquote, cite, .code-block, .code-block p, aside, label, legend, .quote",
   stack: $MonoStack,
   display: swap,
 );
@@ -182,9 +182,9 @@ $CodeFont: (
 // Caution: Using a large number of various spacings will complicate having a
 // vertical or horizontal rhythm. consider adjusting the maps instead of trying
 // to keep track of what sizes are in play.
-$sz_1: 0.2rem; //1.6px
-$sz_2: 0.5rem; //8px
-$sz_2b: 0.75rem;
+$sz_1: .2rem; //1.6px
+$sz_2: .5rem; //8px
+$sz_2b: .75rem;
 $sz_3: 1rem; //16px
 $sz_3b: 1.25rem;
 $sz_4: 1.5rem; //24px

@@ -119,12 +119,18 @@ const textUI = {
             d = Math.floor(Math.log(a) / Math.log(1024))
         return `${parseFloat((a / Math.pow(1024, d)).toFixed(c))} ${['Bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'][d]}`
     },
-    scssVar(name, value, quotes = false) {
+    scssVar(name, value, quotes = false, defTag = true) {
         let scssString = ''
         if (quotes !== false) {
-            scssString = '$' + name + ': "' + value + '" !default;'
+            scssString = '$' + name + ': "' + value + '"'
         } else {
-            scssString = '$' + name + ': ' + value + ' !default;'
+            scssString = '$' + name + ': ' + value
+        }
+
+        if (defTag) {
+            scssString += ' !default;'
+        } else {
+            scssString += ';'
         }
 
         return scssString

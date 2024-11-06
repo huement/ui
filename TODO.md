@@ -4,6 +4,8 @@
 
 + ~~split the docs & webpage building back onto the ui-doc branch~~
 + finish cli.js to handle all available cli commands
++ ~~Color Tokens javascript builder updated~~
++ Chords need the javascript builder updated
 
 ## HUI
 
@@ -15,12 +17,26 @@
 
 + ~~dashboard page~~
 
++ The 'Jollybar' Debug Toolkit needs to be finished
+
++ Move Icons to new Repo (embed any required svgs like arrows etc)
+
 ## SCSS
 
 + fix / update typography emphasis colors
 + fix toasts
 + popovers and tooltips ? In or Out?
 
++ harmony
+  + Update .text-body and .lead and other text classes
+
++ Bootstrap + CSS GRID: <https://codepen.io/dutchwebworks/pen/EvaJdB>
++ ~~Generate _package.scss as a way to import json data~~
+
++ Copy anything used in the Blog SCSS back to HUI
+
 ## BRANDING
 
 + ~~update @Huement/UI logo from Mojo Logo.~~
++ Styleguide finish typography
++ Styleguide finish palette

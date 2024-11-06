@@ -8,7 +8,7 @@
  * @file: Creates ModularScale, Vertical Rhythm, Breakpoint "Design Token Chords"
  */
 const { textUI } = require('./tui.cjs')
-const { fileMGMT } = require('./filemgmt.cjs')
+const fileMGMT = require('./filemgmt.cjs')
 const cg = require('../package.json')
 const _ = require('lodash')
 const path = require('path')
@@ -16,7 +16,8 @@ const colormap = require('colormap')
 const json2scss = require('json2scss')
 const ModularScale = require('modular-scale')
 const jetpack = require('fs-jetpack')
-const { TypeScale } = require('@ntdalbec/type-scale')
+// const { TypeScale } = require( '@ntdalbec/type-scale' )
+
 // const ColorScale = require('color-scale')
 const {
     getBoxHeight,
@@ -26,25 +27,24 @@ const {
 } = require('rhythm-fns')
 
 class TokenChords {
-    constructor(designTokenFile) {
+    constructor(huiDetails, outputFile, inputFile) {
         // Load Variables
-        this.dataFile = require(designTokenFile)
+        // this.dataFile = require(designTokenFile)
+        this.dataFile = huiDetails
 
-        this.chordFileSCSS = path.resolve(
-            __dirname,
-            '../' + this.dataFile.harmonySCSSFile
-        )
+        this.output = outputFile ? outputFile : 'scss/config/_tokens.scss'
+        this.input = inputFile ? inputFile : 'dist/generated_chords.json'
 
-        this.chordFileJSON = path.resolve(
-            __dirname,
-            '../' + this.dataFile.harmonyJSONFile
-        )
+        // What we are creating for output
+        this.chordFileSCSS = path.resolve(__dirname, '../' + this.output)
 
-        this.params = require(this.dataFile.chordTokens)
-        // console.log(this.params)
+        // Our inputs used to create the output
+        this.chordFileJSON = path.resolve(__dirname, '../' + this.input)
 
-        // process.exit(1)
+        // The global framework options
+        this.params = require('../' + huiDetails.tokens)
 
+        // Objects used to hold compiled data before writing to file
         this.harmonyObj = false
         this.harmonyJSON = { chords: {} }
     }
@@ -191,7 +191,6 @@ class TokenChords {
         })
 
         this.harmonyJSON.chords = localHarmonyJSON
-        this.tackOnJSONData()
         return sassTokens
     }
 
@@ -199,8 +198,7 @@ class TokenChords {
     assembleGBJSON() {
         let mqTokens = { 'grid-breakpoints': {} }
 
-        _.forEach(this.params, function (value, i) {
-            //console.log(value.break);
+        _.forEach(this.params.chords, function (value, i) {
             let total = value.break
             if (value.break > 0) total = value.break + 'px'
             mqTokens['grid-breakpoints'][value.abr] = total
@@ -213,7 +211,7 @@ class TokenChords {
     assembleCMWJSON() {
         let mqTokens = { 'container-max-widths': {} }
 
-        _.forEach(this.params, function (value, i) {
+        _.forEach(this.params.chords, function (value, i) {
             if (value.abr !== 'xs') {
                 let total = value.max
                 if (value.break > 0) total = value.max + 'px'
@@ -222,20 +220,6 @@ class TokenChords {
         })
 
         return mqTokens
-    }
-
-    tackOnJSONData() {
-        textUI.statusTxt('[JSON] Adding Default Config Tokens')
-
-        this.harmonyJSON = Object.assign({}, this.harmonyJSON, {
-            superclass: this.dataFile.superclass,
-            'mq-responsive': this.dataFile.mqResponsive,
-            'base-font-size': this.dataFile.baseFontSize,
-            'base-line-height': this.dataFile.baseLineHeight,
-            version: cg.version,
-            date: cg.built,
-            'code-name': cg.codename,
-        })
     }
 
     tackOnConfigData() {
@@ -248,13 +232,27 @@ class TokenChords {
         // default config values
         let localCFS = this.chordFileSCSS
         let tokenVars = [
-            textUI.scssVar('superclass', this.dataFile.superclass, true),
-            textUI.scssVar('mq-responsive', this.dataFile.mqResponsive),
-            textUI.scssVar('base-font-size', this.dataFile.baseFontSize),
-            textUI.scssVar('base-line-height', this.dataFile.baseLineHeight),
-            textUI.scssVar('version', cg.version, true),
-            textUI.scssVar('date', cg.built, true),
-            textUI.scssVar('code-name', cg.codename, true),
+            textUI.scssVar('superclass', cg.codeName, true, false),
+            textUI.scssVar(
+                'mq-responsive',
+                this.dataFile.mqResponsive,
+                false,
+                false
+            ),
+            textUI.scssVar(
+                'base-font-size',
+                this.dataFile.baseFontSize,
+                false,
+                false
+            ),
+            textUI.scssVar(
+                'base-line-height',
+                this.dataFile.baseLineHeight,
+                false,
+                false
+            ),
+            textUI.scssVar('version', cg.version, true, false),
+            textUI.scssVar('date', cg.buildDate, true, false),
         ]
         _.forEach(tokenVars, function (value) {
             jetpack.append(localCFS, value)
@@ -291,12 +289,13 @@ class TokenChords {
 
         textUI.taskTxt('Creating Empty JSON+SCSS Files...')
         // Create blank SCSS File
-        fileMGMT.templateNewFile(
+        const fm = new fileMGMT()
+        fm.templateNewFile(
             this.chordFileSCSS,
-            '@huement/ui automatically generated SCSS design tokens file'
+            `${cg.name} generated file > npm run build:chords`
         )
         // Create blank JSON File
-        fileMGMT.blankNewFile(this.chordFileJSON)
+        fm.blankNewFile(this.chordFileJSON)
 
         // Get the Data to fill these files ready
         let tobj = this.assembleTypeJSON()
@@ -325,6 +324,14 @@ class TokenChords {
         console.log(' ')
         textUI.taskTxt('DONE! Design Token Harmony Task Finished!')
         console.log(' ')
+    }
+
+    // Add !default to any scss file
+    async addDefaultTagsSass() {
+        let cTokenFile = path.resolve(__dirname, '../' + this.output)
+        let fileData = jetpack.read(this.chordFileSCSS)
+        let result = fileData.replace(/;/g, ' !default;')
+        jetpack.write(cTokenFile, result)
     }
 }
 
