@@ -1,0 +1,21 @@
+///
+/// HUI TEST STYLINGS
+/// Everything here is just to make sure the poop is grouped.
+///
+
+// Sass Modules
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:meta';
+
+//
+// SUPER CLASSY SETUP
+@import '@huement/ui/scss/mojo';
+
+.hui-test, .hui-test-two {
+  color: map.get($mojo-coral, hex);
+  background-color: $yellow-100;
+  font-size: $base-font-size;
+}
