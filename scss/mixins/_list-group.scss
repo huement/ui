@@ -13,7 +13,7 @@
 
     @include hover-focus () {
       color: $color;
-      background-color: darken($background, 5%);
+      background-color: color.scale($background, $lightness: -5%);
     }
 
     &.active {

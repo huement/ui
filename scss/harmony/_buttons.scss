@@ -145,7 +145,7 @@ $actionMap: map.get($variantMap, "action");
       &:hover,
       &:active,
       &.active {
-        color: darken(map.get($linkMap, "text"), 15);
+        color: color.scale(map.get($linkMap, "text"), $lightness: -15%);
       }
     }
 

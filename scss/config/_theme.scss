@@ -100,7 +100,7 @@ $heading: $gray-200;
 $heading-dark: $gray-800;
 $text: $light;
 $text-dark: $gray-100;
-$body: darken(map.get($mono, 100), 3);
+$body: color.scale(map.get($mono, 100), $lightness: -3%);
 $body-dark: $gray-100;
 $link-color: map.get($mojo-blue, hex);
 $link-hover: map.get($mojo-blue, dark);

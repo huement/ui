@@ -11,19 +11,19 @@
       .card-body,
       .card-header,
       .card-footer {
-        background-color: darken($color, 10%) !important;
+        background-color: color.scale($color, $lightness: -10%) !important;
       }
 
       // Adjust card header background.
       .card-header,
       .card-footer {
-        background: darken($color, 3%);
+        background: color.scale($color, $lightness: -3%);
       }
     }
   }
   a#{$parent} {
     @include hover-focus () {
-      background-color: darken($color, 10%) !important;
+      background-color: color.scale($color, $lightness: -10%) !important;
     }
   }
 }

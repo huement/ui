@@ -4,15 +4,15 @@
 
 /* Name: icons-s3 */
 /* Prefix: hui */
-/* Source: url("https://huement.nyc3.digitaloceanspaces.com/0.5.2/fonts/icons/icons-s3.ttf?db2bae3149aefe89a42163de42168efe") format("truetype"),
-url("https://huement.nyc3.digitaloceanspaces.com/0.5.2/fonts/icons/icons-s3.woff?db2bae3149aefe89a42163de42168efe") format("woff"),
-url("https://huement.nyc3.digitaloceanspaces.com/0.5.2/fonts/icons/icons-s3.woff2?db2bae3149aefe89a42163de42168efe") format("woff2") */
+/* Source: url("https://huement.nyc3.digitaloceanspaces.com/0.5.6/fonts/icons/icons-s3.ttf?db2bae3149aefe89a42163de42168efe") format("truetype"),
+url("https://huement.nyc3.digitaloceanspaces.com/0.5.6/fonts/icons/icons-s3.woff?db2bae3149aefe89a42163de42168efe") format("woff"),
+url("https://huement.nyc3.digitaloceanspaces.com/0.5.6/fonts/icons/icons-s3.woff2?db2bae3149aefe89a42163de42168efe") format("woff2") */
 
 @font-face {
     font-family: "icons-s3";
-    src: url("https://huement.nyc3.digitaloceanspaces.com/0.5.2/fonts/icons/icons-s3.ttf?db2bae3149aefe89a42163de42168efe") format("truetype"),
-url("https://huement.nyc3.digitaloceanspaces.com/0.5.2/fonts/icons/icons-s3.woff?db2bae3149aefe89a42163de42168efe") format("woff"),
-url("https://huement.nyc3.digitaloceanspaces.com/0.5.2/fonts/icons/icons-s3.woff2?db2bae3149aefe89a42163de42168efe") format("woff2");
+    src: url("https://huement.nyc3.digitaloceanspaces.com/0.5.6/fonts/icons/icons-s3.ttf?db2bae3149aefe89a42163de42168efe") format("truetype"),
+url("https://huement.nyc3.digitaloceanspaces.com/0.5.6/fonts/icons/icons-s3.woff?db2bae3149aefe89a42163de42168efe") format("woff"),
+url("https://huement.nyc3.digitaloceanspaces.com/0.5.6/fonts/icons/icons-s3.woff2?db2bae3149aefe89a42163de42168efe") format("woff2");
     font-style: normal;
     font-weight: 400;
 }

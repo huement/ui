@@ -6,7 +6,7 @@
   }
   a#{$parent} {
     @include hover-focus() {
-      color: darken($color, 10%) !important;
+      color: color.scale($color, $lightness: -10%) !important;
     }
   }
 }
@@ -46,4 +46,3 @@
   word-spacing: normal;
   line-break: auto;
 }
-

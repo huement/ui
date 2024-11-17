@@ -31,7 +31,7 @@
     &.accordion-header-alt {
       color: $transition-color;
       &:hover {
-        color: darken($transition-color, 20%);
+        color: color.scale($transition-color, $lightness: -20%);
       }
     }
 
