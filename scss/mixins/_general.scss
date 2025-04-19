@@ -1,0 +1,1008 @@
+@function isColorDark($color) {
+  // Parse RGB by isolating each color
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+  // Compute the perceptive luminance, keeping
+  // in mind that the human eye favors green.
+  $l: 1 - (0.299 * $red + 0.587 * $green + 0.114 * $blue) / 255;
+  /* arguably this should be 0.50, but testing out various colors, this seemed to be the best so far. */
+  @if ($l < 0.41) {
+    // if the luminance is less than 0.5 return black
+    @return #000000;
+  } @else {
+    // if the luminance is more than 0.5 return white
+    @return #ffffff;
+  }
+}
+
+@mixin textHoverEffect($color: $red-500) {
+  transition: all 0.3s linear;
+
+  &:hover {
+    color: $color !important;
+  }
+}
+
+// CALL TO ACTION BUTTONS
+
+// Generates a Cool Button for Call to Action and the like
+// @TODO: add in some customization options
+@mixin sqButton($btn-color: $red-500) {
+  .sqbtn {
+    padding-top: 0;
+    margin: $ctabtn-padding auto $ctabtn-padding auto;
+    position: relative;
+    z-index: 2;
+    font-family: map.get($UIFont, 'family'), map.get($UIFont, 'stack');
+    font-weight: bold;
+
+    button {
+      border: $ctabtn-border;
+      border-color: #fff;
+      padding: $btn-padding-y-lg $btn-padding-x-lg;
+      position: relative;
+      background-color: transparent;
+      transition: border-color 0.2s linear;
+      text-decoration: none;
+      line-height: 2;
+
+      span {
+        font-size: $btn-font-size-lg;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: $ctabtn-letter-spacing;
+        color: #000;
+        transition: color 0.2s linear;
+      }
+
+      &:after {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        height: 100%;
+        width: 100%;
+        background-color: $btn-color;
+        content: '';
+        z-index: -1;
+        transition:
+          transform 0.2s linear,
+          width 0.2s ease-out 0.2s;
+      }
+
+      &:hover {
+        border-color: #e0e0e0;
+
+        span {
+          color: #000;
+        }
+
+        &:after {
+          transform: translate(-10px, -10px);
+          width: calc(100%);
+        }
+      }
+
+      &:active {
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @each $color, $value in $theme-colors {
+    .sqbtn-#{$color} button {
+      color: isColorDark($value);
+      &:after {
+        background-color: $value;
+      }
+    }
+  }
+}
+
+// Generates animated Cyberpunk style button.
+// flashy call to action component.
+// supports small size & supports all theme colors
+@mixin cpubtn($btn-color: $red-500) {
+  $border: 2px; // Define as SCSS variable
+  $slant: 0.5em; // Define as SCSS variable
+
+  .cpubtn {
+    --border: #{$border}; // Use SCSS variable in CSS custom property
+    --slant: #{$slant};
+    --color: $btn-color;
+
+    font-size: $ctabtn-font-size;
+    display: inline-block;
+    white-space: nowrap;
+    line-height: 1;
+    padding: 0.4em 1.2em;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: map.get($UIFont, 'family'), map.get($UIFont, 'stack');
+    color: isColorDark($btn-color);
+    background:
+      linear-gradient(to bottom left, $btn-color 50%, #0000 50.1%) top right,
+      linear-gradient(to top right, $btn-color 50%, #0000 50.1%) bottom left;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    box-shadow:
+      0 0 0 200px inset var(--s, #0000),
+      0 0 0 var(--border) inset $btn-color;
+    clip-path: polygon(
+      0 0,
+      calc(100% - var(--slant)) 0,
+      100% var(--slant),
+      100% 100%,
+      var(--slant) 100%,
+      0 calc(100% - var(--slant))
+    );
+    transition:
+      color var(--t, 0.6s),
+      background-size 0.3s;
+
+    &:focus-visible {
+      outline-offset: calc(-1 * var(--border));
+      outline: var(--border) solid #000c;
+      clip-path: none;
+      background-size: 0 0;
+    }
+
+    &:hover,
+    &:active {
+      background-size: calc(var(--slant) + 1.3 * var(--border))
+        calc(var(--slant) + 1.3 * var(--border));
+      color: #fff;
+      --t: 0.2s 0.1s;
+    }
+
+    &:active {
+      --s: #0005;
+      transition: none;
+    }
+
+    &.cpubtn-sm {
+      font-size: $font-size-base;
+      display: inline-block;
+      white-space: nowrap;
+      line-height: 1;
+      padding: $input-btn-padding-y $input-btn-padding-x;
+    }
+  }
+
+  // The cool nature of this button makes creating the themes pretty simple
+  @each $color, $value in $theme-colors {
+    .cpubtn-#{$color} {
+      --border: #{$border};
+      --slant: #{$slant};
+      --color: $value;
+
+      color: isColorDark($value);
+      background:
+        linear-gradient(to bottom left, $value 50%, #0000 50.1%) top right,
+        linear-gradient(to top right, $value 50%, #0000 50.1%) bottom left;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      box-shadow:
+        0 0 0 200px inset var(--s, #0000),
+        0 0 0 var(--border) inset $value;
+    }
+  }
+}
+
+// Area of Interest Button
+// Complementary Color Animated Button.
+// supports small size & supports all theme colors
+@mixin aoibutton($btn-color: $red-500) {
+  .aoibtn {
+    text-decoration: none;
+
+    .button {
+      position: relative;
+      display: inline-block;
+      padding: $ctabtn-padding-x $ctabtn-padding-y;
+      background: transparent;
+      text-transform: uppercase;
+      color: #fff;
+      letter-spacing: $ctabtn-letter-spacing-sm;
+      z-index: 1;
+      border: 1px solid transparent;
+      font-weight: bold;
+      // opacity: .8;
+      &:after,
+      &:before {
+        mix-blend-mode: multiply;
+        content: '';
+        position: absolute;
+        display: block;
+        background: $btn-color;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        top: 5px;
+        left: 5px;
+        transition: all 0.2s linear;
+      }
+      &:after {
+        background: complementary($btn-color);
+        top: -5px;
+        left: -5px;
+      }
+
+      &:hover:after,
+      &:hover:before {
+        top: 0px;
+        left: 0px;
+      }
+    }
+    &.aoibtn-sm {
+      .button {
+        padding: 5px 10px;
+        letter-spacing: 0.5px;
+
+        &:after,
+        &:before {
+          top: 2px;
+          left: 2px;
+        }
+        &:after {
+          top: -2px;
+          left: -2px;
+        }
+        // &:hover {
+        //   text-decoration: underline;
+        // }
+        &:hover:after,
+        &:hover:before {
+          top: 0px;
+          left: 0px;
+        }
+      }
+    }
+  }
+
+  @each $color, $value in $theme-colors {
+    .aoibtn-#{$color} {
+      .button {
+        transition: all 0.125s linear;
+
+        &:after,
+        &:before {
+          transition: all 0.125s linear;
+          background: $value;
+        }
+        &:after {
+          background: complementary($value);
+        }
+      }
+    }
+  }
+}
+
+@mixin catbutton() {
+  // CAT BTN
+  .catbtn {
+    display: inline-block;
+    padding: $input-btn-padding-y-lg $input-btn-padding-x-lg
+      $input-btn-padding-y-lg $input-btn-padding-x-lg;
+    text-decoration: none;
+    color: isColorDark($gray-500);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: $btn-font-size;
+    font-family: $btn-font-family;
+    letter-spacing: 1px;
+    position: relative;
+    transition: all 0.3s linear;
+    z-index: 3;
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      display: block;
+      width: 100%;
+      height: 100%;
+      clip-path: polygon(0 9%, 100% 0, 96% 80%, 5% 100%);
+      background-image: linear-gradient($gray-500, $gray-500);
+      z-index: -1;
+      transition: all 0.3s linear;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: -3px;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      clip-path: polygon(0 9%, 100% 0, 96% 80%, 5% 100%);
+      text-decoration: none;
+      z-index: -2;
+    }
+    &:hover {
+      // color: color.scale($gray-500, $lightness: -30%);
+      &::before {
+        // background: color.scale($gray-500, $lightness: -30%);
+        background-image: linear-gradient(
+          to left,
+          #{$gray-500},
+          color.scale($gray-500, $lightness: -10%),
+          color.scale($gray-500, $lightness: -20%),
+          color.scale($gray-500, $lightness: -30%)
+        );
+      }
+    }
+  }
+
+  @each $color, $value in $theme-colors {
+    .catbtn-#{$color} {
+      color: isColorDark($value);
+      transition: background-image 0.3s linear;
+      &::before {
+        // background: $value;
+        background-image: linear-gradient(to left, $value, $value);
+      }
+      &:hover {
+        // color: color.scale($value, $lightness: -30%);
+        &::before {
+          // background: color.scale($value, $lightness: -30%);
+          background-image: linear-gradient(
+            to left,
+            #{$value},
+            color.scale($value, $lightness: -10%),
+            color.scale($value, $lightness: -20%),
+            color.scale($value, $lightness: -30%)
+          );
+        }
+      }
+    }
+  }
+
+  .catbtn-shadow {
+    display: inline-block;
+    transition: all 0.2s linear;
+    filter: drop-shadow(3px 3px white);
+
+    &:hover {
+      filter: drop-shadow(1px 1px rgba(255, 255, 255, 0.5));
+    }
+    .catbtn {
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+// SIMPLE CALL TO ACTION CYBERPUNK BUTTON (SOLID BACKGROUND)
+@mixin punkbtn() {
+  .punkbtn {
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    outline: none;
+    background-image: linear-gradient($gray-500, $gray-500);
+    transition: all 0.5s ease;
+    cursor: pointer;
+    padding: $input-btn-padding-x-lg $input-btn-padding-y-lg;
+    box-sizing: border-box;
+    color: isColorDark($gray-500);
+    display: inline-flex;
+    height: $ctabtn-height;
+    letter-spacing: $ctabtn-letter-spacing-sm;
+    max-width: 100%;
+    min-height: $ctabtn-height;
+    position: relative;
+    font-family: $btn-font-family;
+    font-size: $btn-font-size;
+    line-height: $btn-line-height;
+    text-align: center;
+    text-decoration: none solid $gray-500;
+    text-size-adjust: 100%;
+    text-transform: uppercase;
+    white-space: nowrap;
+    width: auto;
+    border: 1px solid transparent;
+    filter: drop-shadow(rgba($gray-500, 0.8) 1px 1px 2px);
+    clip-path: polygon(
+      8.3% 0%,
+      85% 0%,
+      99.9% 0%,
+      100% 82%,
+      92.2% 100%,
+      15% 100%,
+      0% 100%,
+      0% 18%
+    );
+
+    &:hover {
+      color: #000;
+      filter: drop-shadow(0 0 8px rgba($gray-500, 0.33));
+      border: 1px solid #000;
+      background-image: linear-gradient(
+        to left,
+        $gray-500,
+        color.scale($gray-500, $lightness: -10%),
+        color.scale($gray-500, $lightness: -20%)
+      );
+    }
+
+    &.v2 {
+      border: none;
+      &:hover {
+        color: #666;
+        border: none;
+        filter: drop-shadow(2px 2px 5px rgba($gray-500, 0.66));
+        background-image: linear-gradient(
+          to left,
+          $gray-500,
+          color.scale($gray-500, $lightness: -10%),
+          color.scale($gray-500, $lightness: -20%),
+          color.scale($gray-500, $lightness: -30%)
+        );
+      }
+    }
+
+    @each $color, $value in $theme-colors {
+      &.punkbtn-#{$color} {
+        background-image: linear-gradient($value, $value);
+      }
+    }
+  }
+
+  .btn-hover-shadow-1 {
+    display: inline-block;
+    transition: all 0.3s linear;
+    filter: drop-shadow(3px 3px white);
+
+    &:hover {
+      filter: drop-shadow(1px 1px rgba(255, 255, 255, 0.5));
+    }
+  }
+}
+
+@mixin HUIButtons() {
+  // CYBER-BTN USES THE DEFAULT BOOTSTRAP BTN's
+  .cyber-btn {
+    transition: all 0.2s linear;
+    filter: drop-shadow(rgba($btn-color, 0.8) 1px 1px 2px);
+    clip-path: polygon(
+      8.3% 0%,
+      85% 0%,
+      99.9% 0%,
+      100% 82%,
+      92.2% 100%,
+      15% 100%,
+      0% 100%,
+      0% 18%
+    );
+  }
+
+  // ALL THE REST HAVE THEIR OWN CLASSES & MARKUP
+  @include sqButton();
+  @include cpubtn();
+  @include catbutton();
+  @include aoibutton();
+  @include punkbtn();
+}
+
+/// Generates a Cool Background Wave
+/// @param {*} $bgColor body background color
+/// @param {*} $waveColor color of the next content block
+
+@mixin makeWave($bgColor, $waveBase, $height: 40vh) {
+  $waveColor: str-slice(inspect($waveBase), 2);
+  $waveEncode: '%23#{$waveColor}';
+
+  height: $height;
+  background-color: $bgColor;
+  position: relative;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 144px;
+    position: absolute;
+    bottom: -0.3%;
+    left: 0;
+    background-size: auto;
+    background-repeat: repeat no-repeat;
+    background-position: 39vw bottom;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200  111' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 81L50 76C100 71 200 61 300 41C400 21 500 -8 600 1C700 11 800 61 900 81C1000 101 1100 91 1150 86L1200 81V111H1150C1100 111 1000 111 900 111C800 111 700 111 600 111C500 111 400 111 300 111C200 111 100 111 50 111H0V81Z' fill='#{$waveEncode}'/></svg>");
+  }
+
+  @media (max-width: 850px) {
+    &::before {
+      height: 72px;
+    }
+  }
+}
+
+@mixin text-shadow($string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
+  text-shadow: $string;
+}
+
+@mixin box-shadow($shadow...) {
+  @if $enable-shadows {
+    $result: ();
+
+    @each $value in $shadow {
+      @if $value != null {
+        $result: list.append($result, $value, 'comma');
+      }
+      @if $value == none and length($shadow) > 1 {
+        @warn "The keyword 'none' must be used as a single argument.";
+      }
+    }
+
+    @if (length($result) > 0) {
+      box-shadow: $result;
+    }
+  }
+}
+
+@mixin box-sizing($type: border-box) {
+  -webkit-box-sizing: $type;
+  -moz-box-sizing: $type;
+  box-sizing: $type;
+}
+
+// Helper function to replace negative values with 0
+@function valid-radius($radius) {
+  $return: ();
+  @each $value in $radius {
+    @if meta.type-of($value) == number {
+      $return: list.append($return, max($value, 0));
+    } @else {
+      $return: list.append($return, $value);
+    }
+  }
+  @return $return;
+}
+// stylelint-disable property-disallowed-list
+// Single side border-radius
+
+// scss-docs-start border-radius-mixins
+@mixin border-radius($radius: $border-radius, $fallback-border-radius: false) {
+  @if $enable-rounded {
+    border-radius: valid-radius($radius);
+  } @else if $fallback-border-radius != false {
+    border-radius: $fallback-border-radius;
+  }
+}
+
+@mixin border-top-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-top-left-radius: valid-radius($radius);
+    border-top-right-radius: valid-radius($radius);
+  }
+}
+
+@mixin border-end-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-top-right-radius: valid-radius($radius);
+    border-bottom-right-radius: valid-radius($radius);
+  }
+}
+
+@mixin border-bottom-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-bottom-right-radius: valid-radius($radius);
+    border-bottom-left-radius: valid-radius($radius);
+  }
+}
+
+@mixin border-start-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-top-left-radius: valid-radius($radius);
+    border-bottom-left-radius: valid-radius($radius);
+  }
+}
+
+@mixin border-top-start-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-top-left-radius: valid-radius($radius);
+  }
+}
+
+@mixin border-top-end-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-top-right-radius: valid-radius($radius);
+  }
+}
+
+@mixin border-bottom-end-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-bottom-right-radius: valid-radius($radius);
+  }
+}
+
+@mixin border-bottom-start-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-bottom-left-radius: valid-radius($radius);
+  }
+}
+// scss-docs-end border-radius-mixins
+
+@mixin opacity($opacity: 0.5) {
+  -webkit-opacity: $opacity;
+  -moz-opacity: $opacity;
+  opacity: $opacity;
+}
+
+@mixin gradient($startColor: #eee, $endColor: white) {
+  background-color: $startColor;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from($startColor),
+    to($endColor)
+  );
+  background: -webkit-linear-gradient(top, $startColor, $endColor);
+  background: -moz-linear-gradient(top, $startColor, $endColor);
+  background: -ms-linear-gradient(top, $startColor, $endColor);
+  background: -o-linear-gradient(top, $startColor, $endColor);
+}
+
+@mixin horizontal-gradient($startColor: #eee, $endColor: white) {
+  background-color: $startColor;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from($startColor),
+    to($endColor)
+  );
+  background-image: -webkit-linear-gradient(left, $startColor, $endColor);
+  background-image: -moz-linear-gradient(left, $startColor, $endColor);
+  background-image: -ms-linear-gradient(left, $startColor, $endColor);
+  background-image: -o-linear-gradient(left, $startColor, $endColor);
+}
+
+@mixin animation($name, $duration: 300ms, $delay: 0, $ease: ease) {
+  -webkit-animation: $name $duration $delay $ease;
+  -moz-animation: $name $duration $delay $ease;
+  -ms-animation: $name $duration $delay $ease;
+}
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+}
+
+@mixin transform($string) {
+  -webkit-transform: $string;
+  -moz-transform: $string;
+  -ms-transform: $string;
+  -o-transform: $string;
+}
+
+@mixin scale($factor) {
+  -webkit-transform: scale($factor);
+  -moz-transform: scale($factor);
+  -ms-transform: scale($factor);
+  -o-transform: scale($factor);
+}
+
+@mixin rotate($deg) {
+  -webkit-transform: rotate($deg);
+  -moz-transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  -o-transform: rotate($deg);
+}
+
+@mixin skew($deg, $deg2) {
+  -webkit-transform: skew($deg, $deg2);
+  -moz-transform: skew($deg, $deg2);
+  -ms-transform: skew($deg, $deg2);
+  -o-transform: skew($deg, $deg2);
+}
+
+@mixin translate($x, $y: 0) {
+  -webkit-transform: translate($x, $y);
+  -moz-transform: translate($x, $y);
+  -ms-transform: translate($x, $y);
+  -o-transform: translate($x, $y);
+}
+
+@mixin translate3d($x, $y: 0, $z: 0) {
+  -webkit-transform: translate3d($x, $y, $z);
+  -moz-transform: translate3d($x, $y, $z);
+  -ms-transform: translate3d($x, $y, $z);
+  -o-transform: translate3d($x, $y, $z);
+}
+
+@mixin perspective($value: 1000) {
+  -webkit-perspective: $value;
+  -moz-perspective: $value;
+  -ms-perspective: $value;
+  perspective: $value;
+}
+
+@mixin transform-origin($x: center, $y: center) {
+  -webkit-transform-origin: $x $y;
+  -moz-transform-origin: $x $y;
+  -ms-transform-origin: $x $y;
+  -o-transform-origin: $x $y;
+}
+
+@mixin reset-box-sizing($size: content-box) {
+  &,
+  *,
+  *:before,
+  *:after {
+    @include box-sizing($size);
+  }
+}
+
+@mixin truncate($max-width: 250px) {
+  max-width: $max-width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin background-size($string: contain) {
+  -webkit-background-size: $string;
+  -moz-background-size: $string;
+  -o-background-size: $string;
+  background-size: $string;
+}
+
+@mixin placeholder-input($color: #999) {
+  &::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: $color;
+  }
+
+  &:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: $color;
+  }
+
+  &::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: $color;
+  }
+
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: $color;
+  }
+}
+
+// Responsive images (ensure images don't scale beyond their parents)
+
+// Responsive image
+//
+// Keep images from scaling beyond the width of their parents.
+
+@mixin img-fluid($display: inline) {
+  display: $display;
+  // Part 1: Set a maximum relative to the parent
+  max-width: 100%;
+  // Part 2: Override the height to auto, otherwise images will be stretched
+  // when setting a width and height attribute on the img element.
+  height: auto;
+}
+
+// Retina image
+//
+// Short retina mixin for setting background-image and -size.
+
+// stylelint-disable indentation, media-query-list-comma-newline-after
+@mixin img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
+  background-image: url($file-1x);
+
+  // Autoprefixer takes care of adding -webkit-min-device-pixel-ratio and -o-min-device-pixel-ratio,
+  // but doesn't convert dppx=>dpi.
+  // There's no such thing as unprefixed min-device-pixel-ratio since it's nonstandard.
+  // Compatibility info: https://caniuse.com/#feat=css-media-resolution
+  @media only screen and (min-resolution: 192dpi) {
+    background-image: url($file-2x);
+    background-size: $width-1x $height-1x;
+  }
+}
+
+@mixin img-center {
+  position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin reset {
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: 1em;
+  color: currentcolor;
+  appearance: none;
+  background: none;
+  border: none;
+}
+
+@mixin unselectable {
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+@mixin arrow($color: transparent) {
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 0.625em;
+  height: 0.625em;
+  margin-top: -0.4375em;
+  pointer-events: none;
+  content: ' ';
+  border: 3px solid $color;
+  border-top: 0;
+  border-right: 0;
+  border-radius: 2px;
+  transform: rotate(-45deg);
+  transform-origin: center;
+}
+
+@mixin block($spacing: $block-spacing) {
+  &:not(:last-child) {
+    margin-bottom: $spacing;
+  }
+}
+
+@mixin block-center {
+  position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin block-box($marginTop: 0, $marginBtm: 0) {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: $marginTop auto $marginBtm auto;
+}
+
+@mixin delete {
+  @include unselectable();
+  position: relative;
+  display: inline-block;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 20px;
+  min-width: 20px;
+  max-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  max-height: 20px;
+  font-size: 0;
+  vertical-align: top;
+  appearance: none;
+  pointer-events: auto;
+  cursor: pointer;
+  background-color: validrgba($dark, 0.2);
+  border: none;
+  border-radius: $border-radius-lg;
+  outline: none;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    content: '';
+    background-color: $light_white;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform-origin: center center;
+  }
+
+  &::before {
+    width: 50%;
+    height: 2px;
+  }
+
+  &::after {
+    width: 2px;
+    height: 50%;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: validrgba($dark, 0.3);
+  }
+
+  &:active {
+    background-color: validrgba($dark, 0.4);
+  }
+
+  // Sizes
+  &.is-small {
+    width: 16px;
+    min-width: 16px;
+    max-width: 16px;
+    height: 16px;
+    min-height: 16px;
+    max-height: 16px;
+  }
+
+  &.is-medium {
+    width: 24px;
+    min-width: 24px;
+    max-width: 24px;
+    height: 24px;
+    min-height: 24px;
+    max-height: 24px;
+  }
+
+  &.is-large {
+    width: 32px;
+    min-width: 32px;
+    max-width: 32px;
+    height: 32px;
+    min-height: 32px;
+    max-height: 32px;
+  }
+}
+
+@mixin loader {
+  position: relative;
+  display: block;
+  width: 1em;
+  height: 1em;
+  content: '';
+  border: 2px solid $medium_light;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-radius: $border-radius-lg;
+  animation: spinAround 500ms infinite linear;
+}
+
+@mixin overlay($offset: 0) {
+  position: absolute;
+  top: $offset;
+  right: $offset;
+  bottom: $offset;
+  left: $offset;
+}
+
+@mixin list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+@mixin overflow-touch {
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin placeholder {
+  $placeholders: ':-moz' ':-webkit-input' '-moz' '-ms-input';
+
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+}
+
+@mixin center($width, $height: 0) {
+  position: absolute;
+
+  @if $height != 0 {
+    left: calc(50% - (#{$width} * 0.5));
+    top: calc(50% - (#{$height} * 0.5));
+  } @else {
+    left: calc(50% - (#{$width} * 0.5));
+    top: calc(50% - (#{$width} * 0.5));
+  }
+}

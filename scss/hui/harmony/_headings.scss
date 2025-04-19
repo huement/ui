@@ -1,0 +1,203 @@
+// TODO possible to do font-size in rems & line height in ems...
+// URL: https://github.com/du5rte/typoRhythm
+// h1 {
+//   font-size: 2.9375rem;
+//   margin-bottom: 0.51064em;
+//   line-height: 1.02128[em];
+// }
+
+// @import "../_frmwrk-config/index";
+// @import "../_frmwrk/index";
+
+$headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".h6" !default;
+
+// =============================================================================
+// HARMONIC RESPONSIVE HEADINGS
+// =============================================================================
+
+/// This function adds in the basic stylings that are common across all H[1-6] elements
+@mixin Harmonic_Headings_Core() {
+  #{$headingSelectors} {
+    @if global-variable-exists(HeadingFont) {
+      font-family: map.get($HeadingFont, "family");
+    }
+    font-feature-settings: "kern", "liga", "clig", "calt", "dlig";
+    font-kerning: normal;
+    font-variant-ligatures: common-ligatures, contextual, discretionary-ligatures;
+    word-break: break-word;
+    font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+
+    /* <small> subheadings */
+    small,
+    .small,
+    .subtitle {
+      display: block;
+      padding-top: 10px;
+      font-size: 76%;
+      line-height: 1.2;
+    }
+
+    a {
+      @if global-variable-exists(HeadingFont) {
+        font-family: map.get($HeadingFont, "family") !important;
+      }
+      text-decoration: none;
+    }
+  }
+}
+
+/// Mojo_headings_breakpoints has the difficult job of getting all the requirements together
+/// for calling the main `makeHeadings` function that actually prints out the generated CSS.
+@mixin Harmonic_Headings_Breakpoints($debugStyles: false) {
+  // DYNAMIC WEIGHTS
+  // -----------------------------
+  // TODO Put this in the docs
+  //
+  // We divide the total number of breakpoints by the total amount of weights.
+  // Example: 5 breakpoints / 3 weights = 1.67 (rounded up to 2)
+  //
+  // So Every 2 Loops, we advance the current weight.
+  // Example: Breakpoint 576 and 768 have a weight of 300. Then 1024 and 1366 get 500 etc etc.
+  //
+  // With this logic our heading weights scale up and down nicely.
+  //
+  $counter: 0;
+  $weights: 300, 500, 700;
+  // $weightAdjust: computedynamicweight(length($chords), length($weights));
+  $weightAdjust: decimal_round(math.div(6, 3), 0, ceil);
+  @debug "Every #{$weightAdjust} breakpoints, increase font weight";
+  $weightNthCounter: 1;
+  $weightCurrent: 0;
+  $weightNth: nth($weights, $weightNthCounter);
+
+  $minBP: nth(map-keys($chords), 1);
+  $minMap: nth(map-values($chords), 1);
+
+  //@include breakpoint(#{$minBP}, max) {
+  $headingFontMap: map.get($minMap, "headings_px");
+  $headingLineMap: map.get($minMap, "headingsLine_px");
+  $bpLH: map.get($minMap, "lineHeight_px");
+  $bpFS: map.get($minMap, "fontSize");
+  @include MainLine_heading_compute($headingFontMap, $headingLineMap, 300, $bpFS, $bpLH, true, $debugStyles);
+  //}
+
+  $maxBP: calc(length(map-keys($chords)) - 1);
+  $hLC: 0;
+
+  @each $hKey, $hMap in $chords {
+    $weightNth: nth($weights, $weightNthCounter);
+    $headingFontMap: map.get($hMap, "headings_px");
+    $headingLineMap: map.get($hMap, "headingsLine_px");
+    $bpLH: map.get($hMap, "lineHeight_px");
+    $bpFS: map.get($minMap, "fontSize");
+
+    //  Skip smallest breakpoint b/c size is 0.
+    $minBP: nth(map-keys($chords), 1);
+    @if ($hKey != $minBP) {
+      @include media-breakpoint-up(#{$hKey}) {
+        @include MainLine_heading_compute(
+          $headingFontMap,
+          $headingLineMap,
+          $weightNth,
+          $bpFS,
+          $bpLH,
+          true,
+          $debugStyles
+        );
+      }
+    }
+
+    $counter: $counter + 1;
+    $hLC: $hLC + 1;
+    @if ($counter >= $weightAdjust) {
+      @debug "Advancing Weight Counter";
+      $weightNthCounter: $weightNthCounter + 1;
+      $counter: 0;
+    }
+  }
+}
+
+// HEADING HELPER UTILS
+// =============================================================================
+
+/// Weights scale down with the screen size
+@function computeDynamicWeight($totalBreaks, $totalWeights) {
+  $span: decimal_round(math.div($totalBreaks, $totalWeights), 0, ceil);
+  @return $span;
+}
+
+/// Basically the first headings need more imporantance and that drops off as they continue in number
+/// the ratio of spaces between them and the content is attempting to find the right "balance" of white space based on a number of factors.
+/// In addition the font weight is dynamic, so that certain viewpoints have increased readability (ie Mobile screens dont do bold letters very well)
+@mixin MainLine_heading_compute(
+  $headingFontMap,
+  $headingLineMap,
+  $dynamicFontWeight,
+  $bpFontSize,
+  $bpLineHeight,
+  $silent: true,
+  $debugStyles: false
+) {
+  @if ($silent == false) or ($debug == true) {
+    @debug "Creating Headings w/ weight #{$dynamicFontWeight}";
+    @if ($debugStyles != false) {
+      @debug "Loading Harmonic Headings.... Debug Status: #{$debugStyles}";
+    }
+  }
+
+  $hLC: 1;
+
+  @each $hfk, $hfm in $headingFontMap {
+    $top: 0;
+    $btm: .25;
+
+    // prettier-ignore
+    @if ($hfk == "h1"){ $top: 1; $btm: 2; }
+    // prettier-ignore
+    @if ($hfk == "h2"){ $top: 1; $btm: 1; }
+    // prettier-ignore
+    @if ($hfk == "h3"){ $top: 0; $btm: 1; }
+    // prettier-ignore
+    @if ($hfk == "h4"){ $top: 0; $btm: .5; }
+
+    $HLH: nth(map-values($headingLineMap), $hLC);
+    $HTOP: $top * $bpLineHeight;
+    $HBTM: $btm * $bpLineHeight;
+
+    // IMPORTANT: Resolve to line height to the nearest multiple! Creates a sexy flow.
+    $RhythmHeight: resolve($HLH);
+    $stripBFS: strip-units($bpFontSize);
+
+    @if ($silent == false) {
+      @debug "Stripped Size: #{$stripBFS}";
+    }
+
+    $HMarginTop: px_rem($HTOP, $stripBFS);
+    $HMarginBtm: px_rem($HBTM, $stripBFS);
+    $HFontSize: px_rem(decimal_round($hfm, 0), strip-units($bpFontSize), 2);
+    $HLineHeight: px_rem(decimal_round($HLH, 0), strip-units($bpFontSize), 2);
+
+    #{$hfk},
+    .#{$hfk} {
+      @if ($debugStyles != true) {
+        /* test: #{$RhythmHeight} */
+        font-size: decimal_round($hfm, 1);
+        font-size: $HFontSize;
+        line-height: decimal_round(resolve($HLH), 2);
+        line-height: decimal_round(px_rem(resolve($HLH), strip-units($bpFontSize)), 2);
+        font-weight: $dynamicFontWeight;
+        margin-top: $HTOP;
+        margin-bottom: $HBTM;
+        padding: 0;
+      }
+
+      a {
+        font-weight: $dynamicFontWeight;
+        line-height: decimal_round(resolve($HLH), 2);
+      }
+    }
+
+    $hLC: $hLC + 1;
+  }
+}

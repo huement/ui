@@ -1,20 +1,3 @@
-//                        :([ HARMONIC SASS FRONTEND ]):
-//                 .;,                ..                  .,.         ..       .
-//    .,,.        .dWK;       ... .ocdOO:  ,.         .;coool ...xx'coOOl.  .:d
-//    :XNk'       .OWNx.     'kOcc. :;kW:       .';coool:'.  'kOccoo:;kW0:;dxo;.
-//    'OWN0;      :XNW0,    .dN0d:.  .xWX..';coo00Ll'.      .dN0d:.  .xWXOo;.
-//     oNNNK:   .cONXNXc   ,xXK:      XNdxxdoc;:OWk.       ,xXK:   .:xXNd.
-//     ;KNNNKc .dNNOo0Wd.  oxNk..     NK;.      ;KNo     ;doxNk..:dxdkNK;
-//     .xNK0NXloXWX:.xWO'  .oN0x      Wd.        lNK;  'xx  oN0xkd:..xWd.
-//      cNKldNNNNXo  cNX: .dKNk;.     :X0  ..';:'.dNk..ONd:dKNk;.   :X0,
-//      '0Nl:oKKd:.  ,0Wd..xXX:      'OHco0O0ol:. 'ONl.o .,,xX:    'OXc
-//      .xWx: .*     .xW0' ,0K,     .tWo.C00Ol:.   :XK; .  ,0K,   .dNo.
-//      .dW0,         cNNc ,KK,    .oXd.  .':dOKkc'.oNk.   ,KK,  .oXd.
-//    kX00NX;         'OWk.;KK, .dKl:l;       .,o0KxdKNo.  ;KK, .dKl.
-//    .l0NNX:          oNXc,KNockk,   :.          .;xKNNXc  ,KNockk,
-//      .d0d.          '0WO.dXKkc.    ,             'oKWK; .dXKkc.
-//        .             ,ol  ..                       .ll'   ..
-//
 @use 'sass:map';
 @use 'sass:list';
 @use 'sass:math';
@@ -22,146 +5,164 @@
 @use 'sass:meta';
 @use 'sass:string';
 
-///  TODO LIST
-///  Bootstrap + CSS GRID: https://codepen.io/dutchwebworks/pen/EvaJdB
-///  Generate _package.scss as a way to import json data
-///  Tokens & Chords need the javascript builders updated
-///  The 'Jollybar' Debug Toolkit needs to be finished
+// Global Styles between all layouts
 
-//
-// CONTAINS HUI LIBRARY, VARIABLES, AND CONFIG OPTIONS
-@import 'framework';
-@import 'quartz';
+// HUI REQUIREMENTS & CONFIG
+@import 'hui';
+@include fileBanner('hui scss library');
 
-//
-// INITIAL OUTPUT : ROOT VARS : NORMALIZE + RESET
-@include mojoBanner('', $version);
+@import 'hui/root';
 
-@import 'root';
-@import 'thirdparty/normalize/normalize';
-@import 'kick-off';
-
-//
-// HARMONIC TYPOGRAPHY & ARTICLE CONTENT
-@import 'harmony';
-
-// LAYOUT GRID SECTIONS
-$include-column-box-sizing: true;
-@import 'bootstrap/scss/containers';
-@import 'bootstrap/scss/grid';
-@import 'container-grid';
-
-//
-// COMPONENT LIBRARY [a mix of trad bootstrap & hui]
-@import 'bootstrap/scss/alert';
-@import 'alert';
-@import 'bootstrap/scss/accordion';
-@import 'badge';
-@import 'bootstrap/scss/buttons';
-@import 'buttons';
-@import 'bootstrap/scss/button-group';
-@import 'button-group';
-@import 'bootstrap/scss/breadcrumb';
-@import 'bootstrap/scss/card';
-@import 'card';
-@import 'bootstrap/scss/close';
-@import 'bootstrap/scss/dropdown';
-@import 'dropdown';
-@import 'bootstrap/scss/forms';
-@import 'forms';
-@import 'input-group';
-@import 'bootstrap/scss/list-group';
-@import 'list-group';
-@import 'bootstrap/scss/pagination';
-@import 'pagination';
-@import 'bootstrap/scss/tables';
-@import 'tables';
-@import 'transitions';
-@import 'angle-edges';
-@import 'social';
-
-// NAVIGATION ELEMENTS
-@import 'bootstrap/scss/modal';
-@import 'bootstrap/scss/nav';
-@import 'nav';
-@import 'bootstrap/scss/navbar';
-@import 'navbar';
-@import 'bootstrap/scss/offcanvas';
-
-// TODO: consider adding these files
-// @import "popover";
-
-@import 'bootswatch';
-
-// CUSTOM UTILITY CLASS API
-// + put back bootstrap 4 classes and forego RTL mode https://gist.github.com/FelipeVa/6e5c2857c6c1bed0fe8647ea0bfa7478
-// + opacity 0 to 100 across all viewports
-
-$utilities: map-merge(
-  $utilities,
-  (
-    'opacity': (
-      property: 'opacity',
-      responsive: $mq-responsive,
-      class: vis,
-      values: (
-        0: 0,
-        100: 1,
-      ),
-    ),
-    'position':
-      map-merge(
-        map-get($utilities, 'position'),
-        (
-          class: position,
-          responsive: $mq-responsive,
-        )
-      ),
-    'margin-start':
-      map-merge(
-        map-get($utilities, 'margin-start'),
-        (
-          class: ml,
-        )
-      ),
-    'margin-end':
-      map-merge(
-        map-get($utilities, 'margin-end'),
-        (
-          class: mr,
-        )
-      ),
-    'negative-margin-start':
-      map-merge(
-        map-get($utilities, 'negative-margin-start'),
-        (
-          class: ml,
-        )
-      ),
-    'negative-margin-end':
-      map-merge(
-        map-get($utilities, 'negative-margin-end'),
-        (
-          class: mr,
-        )
-      ),
-    'padding-start':
-      map-merge(
-        map-get($utilities, 'padding-start'),
-        (
-          class: pl,
-        )
-      ),
-    'padding-end':
-      map-merge(
-        map-get($utilities, 'padding-end'),
-        (
-          class: pr,
-        )
-      ),
-  )
-);
-@import 'bootstrap/scss/utilities/api';
-
-// OUTPUT HELPER CLASSES & FINALIZE
+// BOOTSTRAP 5 + STYLE API
+@import 'bs5';
 @import 'utilities';
+
+// HUI AUGMENTATIONS
+@import 'hui/builder';
+@import 'hui/bootswatch';
+@import 'hui/typography';
+// @TODO: move this to HUI framework
+@include HUIButtons();
+
+.i-md {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+$counter: 0;
+@each $hKey, $hMap in $chords {
+  $bpFS: map.get($hMap, 'fontSize');
+  $abrev: map.get($hMap, 'abrev');
+  $vertical: map.get($hMap, 'vertical');
+  $scale: map.get($hMap, 'scale');
+  $headingFontMap: map.get($hMap, 'headings');
+  $headingLineMap: map.get($hMap, 'headingsLine');
+  $h4: map.get($headingFontMap, 'h4');
+  $h4Line: map.get($headingLineMap, 'h4');
+
+  //  Skip smallest breakpoint b/c size is 0.
+  $minBP: nth(map-keys($chords), 1);
+  @if ($hKey != $minBP) {
+    @include media-breakpoint-up(#{$hKey}) {
+      .vU {
+        height: decimal_round($vertical * $scale);
+      }
+
+      .i-md {
+        width: $h4;
+        height: $h4;
+      }
+
+      .df-md {
+        font-size: $h4;
+        line-height: $h4Line;
+      }
+    }
+  }
+
+  $counter: $counter + 1;
+}
+
+// THINGS MISSING FROM HUI THAT SHOULD BE THERE
+:root {
+  --avatar-size: 4rem;
+  //  --avatar-size: 64px;
+}
+
+.relative {
+  position: relative;
+}
+
+.b-hug {
+  margin-bottom: -4px;
+}
+
+.t-hug {
+  margin-top: -4px;
+}
+
+.spacer {
+  display: block;
+  position: relative;
+  height: 1px;
+  z-index: 999;
+  margin-top: 2.75rem;
+}
+
+.text-grey,
+.text-gray {
+  color: #97989f;
+}
+
+.text-body-emphasis {
+  color: #a7a7a7 !important;
+}
+
+.bg-red {
+  background: $red;
+}
+
+.bg-green {
+  background: $green;
+}
+
+.fill-white {
+  fill: $white;
+}
+
+.fill-black {
+  fill: $black;
+}
+
+.fw-bold {
+  font-weight: bold;
+  text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 2s linear;
+  animation-fill-mode: forwards;
+}
+
+.pt-100 {
+  padding-top: 100px;
+}
+
+.z-nine {
+  z-index: 9;
+}
+
+.nice-shadow {
+  box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+}
+
+.avatar {
+  float: left;
+  background-color: #ccc;
+  border-radius: 50%;
+  height: var(--avatar-size);
+  text-align: center;
+  width: var(--avatar-size);
+}
+
+.avatar-inititals {
+  font-size: calc(var(--avatar-size) / 2); /* 50% of parent */
+  line-height: 1;
+  position: relative;
+  color: #3d3d3d;
+  top: calc(var(--avatar-size) / 4); /* 25% of parent */
+}

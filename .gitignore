@@ -9,6 +9,7 @@ lerna-debug.log*
 
 # Built Items to ignore
 dist-old
+scss_old
 package.1.json
 
 # dist/cdn-test

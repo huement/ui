@@ -1,18 +1,13 @@
-// Quartz 5.3.3
-// Bootswatch
-
-$theme: 'quartz' !default;
-
-$min-contrast-ratio: 1.5 !default;
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:meta';
+@use 'sass:string';
 
 // Spacing
 
 $spacer: 2rem !default;
-
-// Body
-
-$body-bg: $purple !default;
-$body-color: $white !default;
 
 // Links
 
@@ -41,7 +36,7 @@ $blockquote-footer-color: $text-muted !default;
 // Tables
 
 $table-dark-bg: $dark !default;
-$table-dark-border-color: darken($dark, 5%) !default;
+$table-dark-border-color: color.adjust($dark, $lightness: -5%) !default;
 
 $table-bg-scale: 0% !default;
 
@@ -53,6 +48,17 @@ $input-btn-padding-x: 1.5rem !default;
 // Buttons
 
 $btn-box-shadow: $box-shadow !default;
+$btn-font-family: map.get($UIFont, 'family'), map.get($UIFont, 'stack');
+
+// CTA Buttons
+$ctabtn-letter-spacing: 0.3125rem !default;
+$ctabtn-letter-spacing-sm: 0.1875rem !default;
+$ctabtn-border: 4px solid !default;
+$ctabtn-padding: 2rem !default;
+$ctabtn-height: 2.5rem !default;
+$ctabtn-font-size: 2.25rem !default;
+$ctabtn-padding-x: 1.5625rem !default;
+$ctabtn-padding-y: 1.875rem !default;
 
 // Forms
 

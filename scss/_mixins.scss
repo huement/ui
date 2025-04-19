@@ -1,43 +1,48 @@
-// Mixins
 //
-// This file includes all the Bootstrap 4 mixins followed by Shards specific mixins.
+// BOOTSTRAP MIXINS
 
-//
-// Bootstrap 5 Mixins
-//
+// Deprecate
+@import 'bootstrap/scss/mixins/deprecate';
+
+// Helpers
+@import 'bootstrap/scss/mixins/breakpoints';
+@import 'bootstrap/scss/mixins/color-mode';
+@import 'bootstrap/scss/mixins/color-scheme';
+@import 'bootstrap/scss/mixins/image';
+@import 'bootstrap/scss/mixins/resize';
+@import 'bootstrap/scss/mixins/visually-hidden';
+@import 'bootstrap/scss/mixins/reset-text';
+@import 'bootstrap/scss/mixins/text-truncate';
 
 // Utilities
-@import 'mixins/angled-edges';
-@import 'mixins/badge';
-@import 'mixins/breakpoints';
-@import 'mixins/hover';
-@import 'mixins/image';
-@import 'mixins/neo';
-@import 'mixins/resize';
-@import 'mixins/screen-reader';
-@import 'mixins/shapes';
-@import 'mixins/shortcuts';
-@import 'mixins/size';
-@import 'mixins/text';
-@import 'mixins/visibility';
+@import 'bootstrap/scss/mixins/utilities';
 
 // Components
-@import 'mixins/alert';
-@import 'mixins/buttons';
-@import 'mixins/forms';
-@import 'mixins/list-group';
-@import 'mixins/lists';
-@import 'mixins/nav-divider';
-@import 'mixins/pagination';
-@import 'mixins/table-row';
+@import 'bootstrap/scss/mixins/backdrop';
+@import 'bootstrap/scss/mixins/buttons';
+@import 'bootstrap/scss/mixins/caret';
+@import 'bootstrap/scss/mixins/pagination';
+@import 'bootstrap/scss/mixins/lists';
+@import 'bootstrap/scss/mixins/forms';
+@import 'bootstrap/scss/mixins/table-variants';
 
 // Skins
-@import 'mixins/background-variant';
-@import 'mixins/border-radius';
-@import 'mixins/box-shadow';
-@import 'mixins/gradients';
-@import 'mixins/transition';
+@import 'bootstrap/scss/mixins/border-radius';
+@import 'bootstrap/scss/mixins/box-shadow';
+@import 'bootstrap/scss/mixins/gradients';
+@import 'bootstrap/scss/mixins/transition';
 
 // Layout
-@import 'mixins/clearfix';
-@import 'mixins/float';
+@import 'bootstrap/scss/mixins/clearfix';
+@import 'bootstrap/scss/mixins/container';
+@import 'bootstrap/scss/mixins/grid';
+
+//
+// HUI MIXINS
+@import 'mixins/general';
+@import 'mixins/angle-edges';
+@import 'mixins/banner';
+@import 'mixins/background-variant';
+@import 'mixins/hover';
+@import 'mixins/text';
+@import 'mixins/breakpoints';

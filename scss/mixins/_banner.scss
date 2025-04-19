@@ -1,0 +1,7 @@
+@mixin fileBanner($file, $version: '5.3.3') {
+  /*!
+   * Huement UI #{$file} v#{$version} (https://huement.github.io/ui/)
+   * Copyright 2011-2025 Huement.com
+   * Licensed under MPL (https://github.com/huement/ui/blob/main/LICENSE)
+   */
+}

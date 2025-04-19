@@ -1,0 +1,103 @@
+/**
+ * Harmonious Heading Sizes
+ */
+
+// @if meta.global-variable-exists(PrimaryFont) {
+//   @include fontFaceSelector($PrimaryFont, 'paragraph-font-family');
+// }
+
+// @if meta.global-variable-exists(HeadingFont) {
+//   @include fontFaceSelector($HeadingFont, 'headings-font-family');
+// }
+
+// @if meta.global-variable-exists(UIFont) {
+//   @include fontFaceSelector($UIFont, 'ui-font-family');
+// }
+
+// @if meta.global-variable-exists(CodeFont) {
+//   @include fontFaceSelector($CodeFont, 'code-font-family');
+// }
+
+// @TODO: #001 update HUI to support these variable weight fonts.
+@include fontFaceSelector($PrimaryFont);
+@include fontFaceSelector($UIFont);
+
+.jura {
+  font-family: "Jura";
+
+  &.w300 {
+    font-weight: 300;
+  }
+  &.w700 {
+    font-weight: 300;
+  }
+}
+
+.jost {
+  font-family: "Jost";
+
+  &.w300 {
+    font-weight: 300;
+  }
+  &.w700 {
+    font-weight: 300;
+  }
+}
+
+html, body, p, li, b, i, strong, mark, td, th {
+  font-family: 'Jost', map.get($UIFont, 'stack');
+  font-style: map.get($UIFont, 'style');
+  font-display: map.get($UIFont, 'display');
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Jost', map.get($HeadingFont, 'stack');
+  font-style: map.get($HeadingFont, 'style');
+  font-display: map.get($HeadingFont, 'display');
+  font-weight: 700;
+}
+
+.btn, a, button {
+  font-family: 'Jura', map.get($UIFont, 'stack');
+  font-style: map.get($UIFont, 'style');
+  font-display: map.get($UIFont, 'display');
+  font-weight: 300;
+}
+
+/** HUI Typography */
+@import 'harmony/headings';
+@include Harmonic_Headings_Core();
+@include Harmonic_Headings_Breakpoints();
+@import 'harmony/title';
+
+/** Typography Extras */
+@import 'harmony/typesetting';
+// @import "harmony/quotes"; TODO: This needs HTML docs / examples to confirm working
+@import 'harmony/code';
+@import 'harmony/content';
+@import 'harmony/hero';
+
+.text-sm {
+  font-size: 0.8rem;
+}
+
+.text-gray-100 {
+  color: $mono-100;
+}
+
+.text-gray-600 {
+  color: $mono-600;
+}
+
+.text-gray-800 {
+  color: $mono-800;
+}
+
+.fs-15 {
+  font-size: 1.5rem;
+}
+
+.fill-white {
+  fill: #fff;
+}

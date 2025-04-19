@@ -1,270 +1,92 @@
-// Breakpoint viewport sizes and media queries.
 //
-// Breakpoints are defined as a map of (name: minimum width), order from small to large:
-//
-//    (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px)
-//
-// The map defined in the `$grid-breakpoints` global variable is used as the `$breakpoints` argument by default.
-
-// Name of the next breakpoint, or null for the last breakpoint.
-//
-//    >> breakpoint-next(sm)
-//    md
-//    >> breakpoint-next(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px))
-//    md
-//    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl xxl))
-//    md
-@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
-  $n: index($breakpoint-names, $name);
-  @if not $n {
-    @error "breakpoint `#{$name}` not found in `#{$breakpoints}`";
-  }
-  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
-}
-
-// Minimum breakpoint width. Null for the smallest (first) breakpoint.
-//
-//    >> breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px))
-//    576px
-@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
-  $min: map-get($breakpoints, $name);
-  @return if($min != 0, $min, null);
-}
-
-// Maximum breakpoint width.
-// The maximum value is reduced by 0.02px to work around the limitations of
-// `min-` and `max-` prefixes and viewports with fractional widths.
-// See https://www.w3.org/TR/mediaqueries-4/#mq-min-max
-// Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
-// See https://bugs.webkit.org/show_bug.cgi?id=178261
-//
-//    >> breakpoint-max(md, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px))
-//    767.98px
-@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
-  $max: map-get($breakpoints, $name);
-  @return if($max and $max > 0, $max - .02, null);
-}
-
-// Returns a blank string if smallest breakpoint, otherwise returns the name with a dash in front.
-// Useful for making responsive utilities.
-//
-//    >> breakpoint-infix(xs, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px))
-//    ""  (Returns a blank string)
-//    >> breakpoint-infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px))
-//    "-sm"
-@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
-  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
-}
-
-// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
-// Makes the @content apply to the given breakpoint and wider.
-@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
-  $min: breakpoint-min($name, $breakpoints);
-  @if $min {
-    @media (min-width: $min) {
-      @content;
-    }
-  } @else {
-    @content;
-  }
-}
-
-// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
-// Makes the @content apply to the given breakpoint and narrower.
-@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
-  $max: breakpoint-max($name, $breakpoints);
-  @if $max {
-    @media (max-width: $max) {
-      @content;
-    }
-  } @else {
-    @content;
-  }
-}
-
-// Media that spans multiple breakpoint widths.
-// Makes the @content apply between the min and max breakpoints
-@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
-  $min: breakpoint-min($lower, $breakpoints);
-  $max: breakpoint-max($upper, $breakpoints);
-
-  @if $min != null and $max != null {
-    @media (min-width: $min) and (max-width: $max) {
-      @content;
-    }
-  } @else if $max == null {
-    @include media-breakpoint-up($lower, $breakpoints) {
-      @content;
-    }
-  } @else if $min == null {
-    @include media-breakpoint-down($upper, $breakpoints) {
-      @content;
-    }
-  }
-}
-
-// Media between the breakpoint's minimum and maximum widths.
-// No minimum for the smallest breakpoint, and no maximum for the largest one.
-// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
-@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
-  $min: breakpoint-min($name, $breakpoints);
-  $next: breakpoint-next($name, $breakpoints);
-  $max: breakpoint-max($next, $breakpoints);
-
-  @if $min != null and $max != null {
-    @media (min-width: $min) and (max-width: $max) {
-      @content;
-    }
-  } @else if $max == null {
-    @include media-breakpoint-up($name, $breakpoints) {
-      @content;
-    }
-  } @else if $min == null {
-    @include media-breakpoint-down($next, $breakpoints) {
-      @content;
-    }
-  }
-}
-
-//
-//  RESPOND MEDIA QUERIES
-//  https://glennmccomb.com/articles/useful-sass-scss-media-query-mixins-for-bootstrap/
-//
-
 //  RESPOND ABOVE
-//  @include respond-above(sm) {}
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+// https://glennmccomb.com/articles/useful-sass-scss-media-query-mixins-for-bootstrap/
+
+// @include respond-above(sm) {}
 @mixin respond-above($breakpoint) {
+
   // If the breakpoint exists in the map.
-  @if map-has-key($grid-breakpoints, $breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+
     // Get the breakpoint value.
-    $breakpoint-value: map-get($grid-breakpoints, $breakpoint);
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
 
     // Write the media query.
     @media (min-width: $breakpoint-value) {
       @content;
     }
 
-    // If the breakpoint doesn't exist in the map.
+  // If the breakpoint doesn't exist in the map.
   } @else {
+
     // Log a warning.
-    @warn "Invalid breakpoint: #{$breakpoint}.";
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
   }
 }
 
+
+//
 //  RESPOND BELOW
-//  @include respond-below(sm) {}
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-below(sm) {}
 @mixin respond-below($breakpoint) {
+
   // If the breakpoint exists in the map.
-  @if map-has-key($grid-breakpoints, $breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+
     // Get the breakpoint value.
-    $breakpoint-value: map-get($grid-breakpoints, $breakpoint);
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
 
     // Write the media query.
     @media (max-width: ($breakpoint-value - 1)) {
       @content;
     }
 
-    // If the breakpoint doesn't exist in the map.
+  // If the breakpoint doesn't exist in the map.
   } @else {
+
     // Log a warning.
-    @warn "Invalid breakpoint: #{$breakpoint}.";
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
   }
 }
 
+
+//
 //  RESPOND BETWEEN
-//  @include respond-between(sm, md) {}
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-between(sm, md) {}
 @mixin respond-between($lower, $upper) {
+
   // If both the lower and upper breakpoints exist in the map.
-  @if map-has-key($grid-breakpoints, $lower) and map-has-key($grid-breakpoints, $upper) {
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+
     // Get the lower and upper breakpoints.
-    $lower-breakpoint: map-get($grid-breakpoints, $lower);
-    $upper-breakpoint: map-get($grid-breakpoints, $upper);
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
 
     // Write the media query.
     @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
       @content;
     }
 
-    // If one or both of the breakpoints don't exist.
+  // If one or both of the breakpoints don't exist.
   } @else {
+
     // If lower breakpoint is invalid.
-    @if (map-has-key($grid-breakpoints, $lower) == false) {
+    @if (map-has-key($breakpoints, $lower) == false) {
+
       // Log a warning.
-      @warn "Your lower breakpoint was invalid: #{$lower}.";
+      @warn 'Your lower breakpoint was invalid: #{$lower}.';
     }
 
     // If upper breakpoint is invalid.
-    @if (map-has-key($grid-breakpoints, $upper) == false) {
+    @if (map-has-key($breakpoints, $upper) == false) {
+
       // Log a warning.
-      @warn "Your upper breakpoint was invalid: #{$upper}.";
+      @warn 'Your upper breakpoint was invalid: #{$upper}.';
     }
-  }
-}
-
-//
-//    MEDIA QUERY SHORTCUT
-//
-//    Usage: @include breakpoint(small, min) { ... }
-//
-@mixin breakpoint($breakpoint, $direction: min, $alert: false) {
-  @if ($alert!=false) or ($debug == true) {
-    @debug "Breakpoint #{$breakpoint} size #{$direction} requested!";
-  }
-
-  $strln: string.length($breakpoint);
-  @if ($strln > 2) {
-    $breakpoint: abrevname($breakpoint);
-  }
-
-  @if map-has-key($chords, $breakpoint) {
-    // Get the breakpoint value.
-    $breakpoint-map: map.get($chords, $breakpoint);
-    $breakpoint-value: map.get($breakpoint-map, width);
-
-    @if ($breakpoint-value == 0) {
-      @warn "Breakpoint Error! Sent for 0 size!";
-    }
-
-    @if $direction==max {
-      @media screen and (max-width: ($breakpoint-value - 1)) {
-        @content;
-      }
-    } @else if $direction==min {
-      @media screen and (min-width: $breakpoint-value) {
-        @content;
-      }
-    } @else if $direction==mid {
-      $bp-next: breakpoint-next($breakpoint);
-      @if ($bp-next != null) {
-        @media screen and (min-width: $breakpoint-value) and (max-width: $bp-next) {
-          @content;
-        }
-      } @else {
-        @warn "Invalid Breakpoint Size Requested! Nothing past here!";
-        @media screen and (min-width: $breakpoint-value) {
-          @content;
-        }
-      }
-    } @else {
-      @media screen and ($direction: $breakpoint-value) {
-        @content;
-      }
-    }
-    // If the breakpoint doesn't exist in the map.
-  } @else {
-    @if $direction==max {
-      @media screen and (max-width: $breakpoint) {
-        @content;
-      }
-    } @else if $direction==min {
-      @media screen and (min-width: $breakpoint) {
-        @content;
-      }
-    } @else {
-      @media screen and ($direction: $breakpoint) {
-        @content;
-      }
-    }
-    @warn "Invalid Breakpoint Size Requested!";
   }
 }
