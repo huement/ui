@@ -24,56 +24,56 @@ const argv = yargs(hideBin(process.argv)).argv
 // TODO Optionally have a selectable menu allowing users to select which cmd to run
 
 process.on('exit', function (code) {
-    if (debugOutput) return console.log(`Exiting with code: ${code}`)
+  if (debugOutput) return console.log(`Exiting with code: ${code}`)
 })
 
 // Display a cool banner message based on package.json data
 textUI.outputHeader(cg)
 
 const colorList = 'tokens/color_tokens.json' // basic hex codes used to build theme from
-const colorSCSS = 'scss/config/_palette.scss' // SCSS file w/ tokens + generated color stacks
+const colorSCSS = 'scss/hui/_palette.scss' // SCSS file w/ tokens + generated color stacks
 const colorJSON = 'dist/generated_colors.json' // List of all colors that were created
 
 const resultList = []
 
 function sleep(ms) {
-    console.log('SLEEPING!!')
-    return new Promise((resolve) => setTimeout(resolve, ms))
+  console.log('SLEEPING!!')
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 async function init() {
-    // TODO: By default running this script runs NO commands. Must pass a flag
-    if (argv['_'] && argv['_'][0]) {
-        for (let i = 0; i < argv['_'].length; i++) {
-            const theCmd = _.trim(argv['_'][i])
-            textUI.infoTxt('Input Command: ' + theCmd)
+  // TODO: By default running this script runs NO commands. Must pass a flag
+  if (argv['_'] && argv['_'][0]) {
+    for (let i = 0; i < argv['_'].length; i++) {
+      const theCmd = _.trim(argv['_'][i])
+      textUI.infoTxt('Input Command: ' + theCmd)
 
-            if (theCmd === 'data' || theCmd === 'data') {
-                const fm = new fileMGMT()
-                fm.scssDataFile()
-                resultList.push('data')
-            }
+      if (theCmd === 'data' || theCmd === 'data') {
+        const fm = new fileMGMT()
+        fm.scssDataFile()
+        resultList.push('data')
+      }
 
-            if (theCmd === 'color' || theCmd === 'colors') {
-                const tc = new TokenColors(colorList, colorSCSS, colorJSON)
-                tc.assemblePalette()
-                sleep(2000)
-                tc.addDefaultSass()
-                resultList.push('color')
-            }
+      if (theCmd === 'color' || theCmd === 'colors') {
+        const tc = new TokenColors(colorList, colorSCSS, colorJSON)
+        tc.assemblePalette()
+        sleep(2000)
+        tc.addDefaultSass()
+        resultList.push('color')
+      }
 
-            if (theCmd === 'chord' || theCmd === 'chords') {
-                // Design Token Chords
-                // Pass in chords.json file path
-                // let chordList = gdb.chordTokens
-                const td = new TokenChords(cg.hui)
-                td.assmebleChordTokens()
-                // await sleep(2000)
-                td.addDefaultTagsSass()
-                resultList.push('chord')
-            }
-        }
+      if (theCmd === 'chord' || theCmd === 'chords') {
+        // Design Token Chords
+        // Pass in chords.json file path
+        // let chordList = gdb.chordTokens
+        const td = new TokenChords(cg.hui)
+        td.assmebleChordTokens()
+        // await sleep(2000)
+        td.addDefaultTagsSass()
+        resultList.push('chord')
+      }
     }
+  }
 }
 
 // textUI.infoTxt( JSON.stringify( argv ) )
@@ -84,7 +84,7 @@ async function init() {
 init()
 
 if (resultList.length > 1) {
-    textUI.taskTxt(resultList.join(' ') + ' tasks ran')
+  textUI.taskTxt(resultList.join(' ') + ' tasks ran')
 }
 
 // TODO: icon build

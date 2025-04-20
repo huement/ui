@@ -8,8 +8,8 @@
 [data-bs-theme=light] {
   --bs-blue: #1982c4;
   --bs-indigo: #520099;
-  --bs-purple: #a654ed;
-  --bs-pink: #ff548d;
+  --bs-purple: #A654ED;
+  --bs-pink: #FF548D;
   --bs-red: #ff0054;
   --bs-orange: #fd7e47;
   --bs-yellow: #fbff12;
@@ -19,23 +19,23 @@
   --bs-black: #000;
   --bs-white: #fff;
   --bs-gray: #919191;
-  --bs-gray-dark: #c9c9c9;
+  --bs-gray-dark: #C9C9C9;
   --bs-gray-100: #050505;
   --bs-gray-200: #212121;
-  --bs-gray-300: #3d3d3d;
+  --bs-gray-300: #3D3D3D;
   --bs-gray-400: #595959;
   --bs-gray-500: #757575;
   --bs-gray-600: #919191;
-  --bs-gray-700: #adadad;
-  --bs-gray-800: #c9c9c9;
-  --bs-gray-900: #e6e6e6;
+  --bs-gray-700: #ADADAD;
+  --bs-gray-800: #C9C9C9;
+  --bs-gray-900: #E6E6E6;
   --bs-primary: #520099;
   --bs-secondary: #0fb2aa;
   --bs-success: #3bfc43;
   --bs-info: #00f5d4;
   --bs-warning: #fbff12;
   --bs-danger: #ff0054;
-  --bs-light: #e6e6e6;
+  --bs-light: #E6E6E6;
   --bs-dark: #050505;
   --bs-primary-rgb: 82, 0, 153;
   --bs-secondary-rgb: 15, 178, 170;
@@ -51,8 +51,8 @@
   --bs-info-text-emphasis: rgb(0, 98, 84.8);
   --bs-warning-text-emphasis: rgb(100.4, 102, 7.2);
   --bs-danger-text-emphasis: rgb(102, 0, 33.6);
-  --bs-light-text-emphasis: #adadad;
-  --bs-dark-text-emphasis: #adadad;
+  --bs-light-text-emphasis: #ADADAD;
+  --bs-dark-text-emphasis: #ADADAD;
   --bs-primary-bg-subtle: rgb(220.4, 204, 234.6);
   --bs-secondary-bg-subtle: rgb(207, 239.6, 238);
   --bs-success-bg-subtle: rgb(215.8, 254.4, 217.4);
@@ -79,7 +79,7 @@
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 300;
   --bs-body-line-height: 1.6;
-  --bs-body-color: #e6e6e6;
+  --bs-body-color: #E6E6E6;
   --bs-body-color-rgb: 230, 230, 230;
   --bs-body-bg: #212121;
   --bs-body-bg-rgb: 33, 33, 33;
@@ -93,18 +93,18 @@
   --bs-tertiary-color-rgb: 230, 230, 230;
   --bs-tertiary-bg: #050505;
   --bs-tertiary-bg-rgb: 5, 5, 5;
-  --bs-heading-color: #e6e6e6;
+  --bs-heading-color: #E6E6E6;
   --bs-link-color: #520099;
   --bs-link-color-rgb: 82, 0, 153;
   --bs-link-decoration: underline;
   --bs-link-hover-color: rgb(65.6, 0, 122.4);
   --bs-link-hover-color-rgb: 65.6, 0, 122.4;
-  --bs-code-color: #ff548d;
-  --bs-highlight-color: #e6e6e6;
+  --bs-code-color: #FF548D;
+  --bs-highlight-color: #E6E6E6;
   --bs-highlight-bg: #fff09e;
   --bs-border-width: 1px;
   --bs-border-style: solid;
-  --bs-border-color: #3d3d3d;
+  --bs-border-color: #3D3D3D;
   --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
   --bs-border-radius: 0.375rem;
   --bs-border-radius-sm: 0.25rem;
@@ -130,15 +130,15 @@
 
 [data-bs-theme=dark] {
   color-scheme: dark;
-  --bs-body-color: #3d3d3d;
+  --bs-body-color: #3D3D3D;
   --bs-body-color-rgb: 61, 61, 61;
-  --bs-body-bg: #e6e6e6;
+  --bs-body-bg: #E6E6E6;
   --bs-body-bg-rgb: 230, 230, 230;
   --bs-emphasis-color: #fff;
   --bs-emphasis-color-rgb: 255, 255, 255;
   --bs-secondary-color: rgba(61, 61, 61, 0.75);
   --bs-secondary-color-rgb: 61, 61, 61;
-  --bs-secondary-bg: #c9c9c9;
+  --bs-secondary-bg: #C9C9C9;
   --bs-secondary-bg-rgb: 201, 201, 201;
   --bs-tertiary-color: rgba(61, 61, 61, 0.5);
   --bs-tertiary-color-rgb: 61, 61, 61;
@@ -151,14 +151,14 @@
   --bs-warning-text-emphasis: rgb(252.6, 255, 112.8);
   --bs-danger-text-emphasis: rgb(255, 102, 152.4);
   --bs-light-text-emphasis: #050505;
-  --bs-dark-text-emphasis: #3d3d3d;
+  --bs-dark-text-emphasis: #3D3D3D;
   --bs-primary-bg-subtle: rgb(16.4, 0, 30.6);
   --bs-secondary-bg-subtle: rgb(3, 35.6, 34);
   --bs-success-bg-subtle: rgb(11.8, 50.4, 13.4);
   --bs-info-bg-subtle: rgb(0, 49, 42.4);
   --bs-warning-bg-subtle: rgb(50.2, 51, 3.6);
   --bs-danger-bg-subtle: rgb(51, 0, 16.8);
-  --bs-light-bg-subtle: #c9c9c9;
+  --bs-light-bg-subtle: #C9C9C9;
   --bs-dark-bg-subtle: rgb(100.5, 100.5, 100.5);
   --bs-primary-border-subtle: rgb(49.2, 0, 91.8);
   --bs-secondary-border-subtle: rgb(9, 106.8, 102);
@@ -166,22 +166,22 @@
   --bs-info-border-subtle: rgb(0, 147, 127.2);
   --bs-warning-border-subtle: rgb(150.6, 153, 10.8);
   --bs-danger-border-subtle: rgb(153, 0, 50.4);
-  --bs-light-border-subtle: #adadad;
-  --bs-dark-border-subtle: #c9c9c9;
+  --bs-light-border-subtle: #ADADAD;
+  --bs-dark-border-subtle: #C9C9C9;
   --bs-heading-color: inherit;
   --bs-link-color: rgb(151.2, 102, 193.8);
   --bs-link-hover-color: rgb(171.96, 132.6, 206.04);
   --bs-link-color-rgb: 151.2, 102, 193.8;
   --bs-link-hover-color-rgb: 171.96, 132.6, 206.04;
   --bs-code-color: rgb(255, 152.4, 186.6);
-  --bs-highlight-color: #3d3d3d;
-  --bs-highlight-bg: #fcff66;
-  --bs-border-color: #adadad;
+  --bs-highlight-color: #3D3D3D;
+  --bs-highlight-bg: #FCFF66;
+  --bs-border-color: #ADADAD;
   --bs-border-color-translucent: rgba(255, 255, 255, 0.15);
-  --bs-form-valid-color: #03c409;
-  --bs-form-valid-border-color: #03c409;
-  --bs-form-invalid-color: #c70042;
-  --bs-form-invalid-border-color: #c70042;
+  --bs-form-valid-color: #03C409;
+  --bs-form-valid-border-color: #03C409;
+  --bs-form-invalid-color: #C70042;
+  --bs-form-invalid-border-color: #C70042;
 }
 
 /**
@@ -404,7 +404,7 @@ kbd {
   padding: 0.1875rem 0.8125rem;
   font-size: 0.75rem;
   color: #fff;
-  background-color: #e6e6e6;
+  background-color: #E6E6E6;
   border-radius: 0.25rem;
 }
 kbd kbd {
@@ -2056,7 +2056,7 @@ progress {
 
 .table-light {
   --bs-table-color: #000;
-  --bs-table-bg: #e6e6e6;
+  --bs-table-bg: #E6E6E6;
   --bs-table-border-color: #b8b8b8;
   --bs-table-striped-bg: rgb(218.5, 218.5, 218.5);
   --bs-table-striped-color: #000;
@@ -2295,7 +2295,7 @@ textarea.form-control-lg {
 }
 
 .form-select {
-  --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23c9c9c9' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23C9C9C9' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
   display: block;
   width: 100%;
   padding: 0.375rem 2.25rem 0.375rem 0.75rem;
@@ -2353,7 +2353,7 @@ textarea.form-control-lg {
 }
 
 [data-bs-theme=dark] .form-select {
-  --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%233d3d3d' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%233D3D3D' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
 }
 
 .form-check {
@@ -3108,8 +3108,8 @@ textarea.form-control-lg {
 
 .btn-light {
   --bs-btn-color: #000;
-  --bs-btn-bg: #e6e6e6;
-  --bs-btn-border-color: #e6e6e6;
+  --bs-btn-bg: #E6E6E6;
+  --bs-btn-border-color: #E6E6E6;
   --bs-btn-hover-color: #000;
   --bs-btn-hover-bg: rgb(195.5, 195.5, 195.5);
   --bs-btn-hover-border-color: #b8b8b8;
@@ -3119,8 +3119,8 @@ textarea.form-control-lg {
   --bs-btn-active-border-color: rgb(172.5, 172.5, 172.5);
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #000;
-  --bs-btn-disabled-bg: #e6e6e6;
-  --bs-btn-disabled-border-color: #e6e6e6;
+  --bs-btn-disabled-bg: #E6E6E6;
+  --bs-btn-disabled-border-color: #E6E6E6;
 }
 
 .btn-dark {
@@ -3243,19 +3243,19 @@ textarea.form-control-lg {
 }
 
 .btn-outline-light {
-  --bs-btn-color: #e6e6e6;
-  --bs-btn-border-color: #e6e6e6;
+  --bs-btn-color: #E6E6E6;
+  --bs-btn-border-color: #E6E6E6;
   --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #e6e6e6;
-  --bs-btn-hover-border-color: #e6e6e6;
+  --bs-btn-hover-bg: #E6E6E6;
+  --bs-btn-hover-border-color: #E6E6E6;
   --bs-btn-focus-shadow-rgb: 230, 230, 230;
   --bs-btn-active-color: #000;
-  --bs-btn-active-bg: #e6e6e6;
-  --bs-btn-active-border-color: #e6e6e6;
+  --bs-btn-active-bg: #E6E6E6;
+  --bs-btn-active-border-color: #E6E6E6;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #e6e6e6;
+  --bs-btn-disabled-color: #E6E6E6;
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #e6e6e6;
+  --bs-btn-disabled-border-color: #E6E6E6;
   --bs-gradient: none;
 }
 
@@ -3647,11 +3647,11 @@ textarea.form-control-lg {
 }
 
 .dropdown-menu-dark {
-  --bs-dropdown-color: #3d3d3d;
-  --bs-dropdown-bg: #c9c9c9;
+  --bs-dropdown-color: #3D3D3D;
+  --bs-dropdown-bg: #C9C9C9;
   --bs-dropdown-border-color: var(--bs-border-color-translucent);
   --bs-dropdown-box-shadow: ;
-  --bs-dropdown-link-color: #3d3d3d;
+  --bs-dropdown-link-color: #3D3D3D;
   --bs-dropdown-link-hover-color: #fff;
   --bs-dropdown-divider-bg: var(--bs-border-color-translucent);
   --bs-dropdown-link-hover-bg: rgba(255, 255, 255, 0.15);
@@ -4550,7 +4550,7 @@ textarea.form-control-lg {
   --bs-accordion-btn-padding-y: 1rem;
   --bs-accordion-btn-color: var(--bs-body-color);
   --bs-accordion-btn-bg: var(--bs-accordion-bg);
-  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23e6e6e6' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23E6E6E6' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
   --bs-accordion-btn-icon-width: 1.25rem;
   --bs-accordion-btn-icon-transform: rotate(-180deg);
   --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;
@@ -6890,7 +6890,7 @@ textarea.form-control-lg {
 }
 
 .border {
-  border: 1px solid #3d3d3d !important;
+  border: 1px solid #3D3D3D !important;
 }
 
 .border-0 {
@@ -6898,7 +6898,7 @@ textarea.form-control-lg {
 }
 
 .border-top {
-  border-top: 1px solid #3d3d3d !important;
+  border-top: 1px solid #3D3D3D !important;
 }
 
 .border-top-0 {
@@ -6906,7 +6906,7 @@ textarea.form-control-lg {
 }
 
 .border-right {
-  border-right: 1px solid #3d3d3d !important;
+  border-right: 1px solid #3D3D3D !important;
 }
 
 .border-right-0 {
@@ -6914,7 +6914,7 @@ textarea.form-control-lg {
 }
 
 .border-bottom {
-  border-bottom: 1px solid #3d3d3d !important;
+  border-bottom: 1px solid #3D3D3D !important;
 }
 
 .border-bottom-0 {
@@ -6922,7 +6922,7 @@ textarea.form-control-lg {
 }
 
 .border-left {
-  border-left: 1px solid #3d3d3d !important;
+  border-left: 1px solid #3D3D3D !important;
 }
 
 .border-left-0 {
@@ -6954,7 +6954,7 @@ textarea.form-control-lg {
 }
 
 .border-light {
-  border-color: #e6e6e6 !important;
+  border-color: #E6E6E6 !important;
 }
 
 .border-dark {
@@ -7616,7 +7616,7 @@ textarea.form-control-lg {
 }
 
 .text-body {
-  color: #e6e6e6 !important;
+  color: #E6E6E6 !important;
 }
 
 .text-muted {
@@ -7660,7 +7660,7 @@ textarea.form-control-lg {
 }
 
 .bg-light {
-  background-color: #e6e6e6 !important;
+  background-color: #E6E6E6 !important;
 }
 
 .bg-dark {
@@ -10560,7 +10560,7 @@ a.bg-danger:hover, a.bg-danger:focus {
 }
 
 .bg-light {
-  background-color: #e6e6e6 !important;
+  background-color: #E6E6E6 !important;
 }
 .bg-light.card .card-title,
 .bg-light.card .card-body,
@@ -10596,23 +10596,23 @@ a.bg-dark:hover, a.bg-dark:focus {
 }
 
 .border {
-  border: 1px solid #3d3d3d !important;
+  border: 1px solid #3D3D3D !important;
 }
 
 .border-top {
-  border-top: 1px solid #3d3d3d !important;
+  border-top: 1px solid #3D3D3D !important;
 }
 
 .border-right {
-  border-right: 1px solid #3d3d3d !important;
+  border-right: 1px solid #3D3D3D !important;
 }
 
 .border-bottom {
-  border-bottom: 1px solid #3d3d3d !important;
+  border-bottom: 1px solid #3D3D3D !important;
 }
 
 .border-left {
-  border-left: 1px solid #3d3d3d !important;
+  border-left: 1px solid #3D3D3D !important;
 }
 
 .border-primary {
@@ -10640,7 +10640,7 @@ a.bg-dark:hover, a.bg-dark:focus {
 }
 
 .border-light {
-  border-color: #e6e6e6 !important;
+  border-color: #E6E6E6 !important;
 }
 
 .border-dark {
@@ -10732,7 +10732,7 @@ a.text-danger:hover, a.text-danger:focus {
 }
 
 .text-light {
-  color: #e6e6e6 !important;
+  color: #E6E6E6 !important;
 }
 
 a.text-light:hover, a.text-light:focus {
@@ -10748,7 +10748,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .text-body {
-  color: #e6e6e6;
+  color: #E6E6E6;
 }
 
 .text-body-emphasis {
@@ -11090,7 +11090,7 @@ body.dark .text-body-emphasis {
 }
 
 .input-group-text {
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1);
 }
 
 .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
@@ -11111,7 +11111,7 @@ body.dark .text-body-emphasis {
 }
 
 .bg-light .form-control {
-  color: #c9c9c9;
+  color: #C9C9C9;
   border-color: rgba(0, 0, 0, 0.2);
 }
 .bg-light .form-control::placeholder {
@@ -11120,7 +11120,7 @@ body.dark .text-body-emphasis {
 
 .dropdown-menu {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11151,7 +11151,7 @@ body.dark .text-body-emphasis {
 .nav-tabs .nav-item .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, white, rgba(255, 255, 255, 0.9) 70%);
   backdrop-filter: blur(5px);
@@ -11169,7 +11169,7 @@ body.dark .text-body-emphasis {
 .nav-tabs .nav-item .nav-link.active:hover, .nav-tabs .nav-item .nav-link.active:focus,
 .nav-tabs .nav-item.show .nav-link:hover,
 .nav-tabs .nav-item.show .nav-link:focus {
-  color: #c9c9c9;
+  color: #C9C9C9;
 }
 .nav-tabs .dropdown-menu {
   border-radius: 0.375rem;
@@ -11185,7 +11185,7 @@ body.dark .text-body-emphasis {
 
 .alert {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11260,7 +11260,7 @@ body.dark .text-body-emphasis {
   width: 0.5rem;
   height: 100%;
   content: "";
-  background-color: #e6e6e6;
+  background-color: #E6E6E6;
 }
 .alert-dark::after {
   position: absolute;
@@ -11279,12 +11279,12 @@ body.dark .text-body-emphasis {
   --bs-bg-opacity: 0.4;
 }
 .badge.bg-light {
-  color: #c9c9c9;
+  color: #C9C9C9;
 }
 
 .list-group {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11298,7 +11298,7 @@ body.dark .text-body-emphasis {
 
 .card {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11333,11 +11333,11 @@ body.dark .text-body-emphasis {
 }
 .card.bg-light .card-header,
 .card.bg-light .card-body {
-  color: #c9c9c9;
+  color: #C9C9C9;
 }
 .card.border-primary {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11354,7 +11354,7 @@ body.dark .text-body-emphasis {
 }
 .card.border-secondary {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11371,7 +11371,7 @@ body.dark .text-body-emphasis {
 }
 .card.border-success {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11388,7 +11388,7 @@ body.dark .text-body-emphasis {
 }
 .card.border-info {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11405,7 +11405,7 @@ body.dark .text-body-emphasis {
 }
 .card.border-warning {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11422,7 +11422,7 @@ body.dark .text-body-emphasis {
 }
 .card.border-danger {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11439,7 +11439,7 @@ body.dark .text-body-emphasis {
 }
 .card.border-light {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11451,13 +11451,13 @@ body.dark .text-body-emphasis {
   color: rgba(255, 255, 255, 0.7) !important;
 }
 .card.border-light .card-header {
-  background-color: #e6e6e6 !important;
+  background-color: #E6E6E6 !important;
   border-bottom: none;
-  color: #c9c9c9;
+  color: #C9C9C9;
 }
 .card.border-dark {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11478,7 +11478,7 @@ body.dark .text-body-emphasis {
 
 .accordion-item {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11493,7 +11493,7 @@ body.dark .text-body-emphasis {
 
 .toast {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11507,7 +11507,7 @@ body.dark .text-body-emphasis {
 
 .popover {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11519,7 +11519,7 @@ body.dark .text-body-emphasis {
   color: rgba(255, 255, 255, 0.7) !important;
 }
 .popover-header {
-  border-bottom-color: #3d3d3d;
+  border-bottom-color: #3D3D3D;
 }
 
 .tooltip {
@@ -11528,7 +11528,7 @@ body.dark .text-body-emphasis {
 
 .modal-content {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11542,7 +11542,7 @@ body.dark .text-body-emphasis {
 
 .offcanvas {
   border: none;
-  box-shadow: inset 1px 1px #3d3d3d, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -11593,21 +11593,44 @@ body.dark .text-body-emphasis {
   font-weight: 300;
 }
 
-html, body, p, li, b, i, strong, mark, .mark, td, th {
+html,
+body,
+p,
+li,
+b,
+i,
+strong,
+mark,
+.mark,
+td,
+th {
   font-family: "Jost", -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-style: normal;
   font-display: swap;
   font-weight: 300;
 }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+h1,
+.h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
   font-family: "Jost", -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-style: bold;
   font-display: swap;
   font-weight: 700;
 }
 
-.btn, a, button {
+.btn,
+a,
+button {
   font-family: "Jura", -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-style: normal;
   font-display: swap;
@@ -11662,11 +11685,11 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a {
 
 h1,
 .h1 {
-  /* test: 18.02px */
+  /* debug h1 :  fs: 1.8rem lh: 18.02px 2.25rem */
   font-size: 28.8px;
   font-size: 1.8rem;
-  line-height: 18.02px;
-  line-height: 1.13rem;
+  line-height: 36.04px;
+  line-height: 2.25rem;
   font-weight: 300;
   margin-top: 20px;
   margin-bottom: 40px;
@@ -11680,11 +11703,11 @@ h1 a,
 
 h2,
 .h2 {
-  /* test: 16.02px */
+  /* debug h2 :  fs: 1.6rem lh: 16.02px 2rem */
   font-size: 25.6px;
   font-size: 1.6rem;
-  line-height: 16.02px;
-  line-height: 1rem;
+  line-height: 32.04px;
+  line-height: 2rem;
   font-weight: 300;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -11698,11 +11721,11 @@ h2 a,
 
 h3,
 .h3 {
-  /* test: 14.24px */
+  /* debug h3 :  fs: 1.42rem lh: 14.24px 1.78rem */
   font-size: 22.8px;
   font-size: 1.42rem;
-  line-height: 14.24px;
-  line-height: 0.89rem;
+  line-height: 28.48px;
+  line-height: 1.78rem;
   font-weight: 300;
   margin-top: 0px;
   margin-bottom: 20px;
@@ -11716,11 +11739,11 @@ h3 a,
 
 h4,
 .h4 {
-  /* test: 12.655px */
+  /* debug h4 :  fs: 1.27rem lh: 12.655px 1.58rem */
   font-size: 20.3px;
   font-size: 1.27rem;
-  line-height: 12.66px;
-  line-height: 0.79rem;
+  line-height: 25.31px;
+  line-height: 1.58rem;
   font-weight: 300;
   margin-top: 0px;
   margin-bottom: 10px;
@@ -11734,11 +11757,11 @@ h4 a,
 
 h5,
 .h5 {
-  /* test: 11.25px */
+  /* debug h5 :  fs: 1.13rem lh: 11.25px 1.41rem */
   font-size: 18px;
   font-size: 1.13rem;
-  line-height: 11.25px;
-  line-height: 0.7rem;
+  line-height: 22.5px;
+  line-height: 1.41rem;
   font-weight: 300;
   margin-top: 0px;
   margin-bottom: 5px;
@@ -11752,11 +11775,11 @@ h5 a,
 
 h6,
 .h6 {
-  /* test: 10px */
+  /* debug h6 :  fs: 1rem lh: 10px 1.25rem */
   font-size: 16px;
   font-size: 1rem;
-  line-height: 10px;
-  line-height: 0.63rem;
+  line-height: 20px;
+  line-height: 1.25rem;
   font-weight: 300;
   margin-top: 0px;
   margin-bottom: 5px;
@@ -11771,11 +11794,11 @@ h6 a,
 @media (min-width: 576px) {
   h1,
   .h1 {
-    /* test: 25.88px */
+    /* debug h1 :  fs: 2.49rem lh: 25.88px 3.24rem */
     font-size: 39.8px;
     font-size: 2.49rem;
-    line-height: 25.88px;
-    line-height: 1.62rem;
+    line-height: 51.76px;
+    line-height: 3.24rem;
     font-weight: 300;
     margin-top: 20.8px;
     margin-bottom: 41.6px;
@@ -11788,11 +11811,11 @@ h6 a,
   }
   h2,
   .h2 {
-    /* test: 21.565px */
+    /* debug h2 :  fs: 2.07rem lh: 21.565px 2.7rem */
     font-size: 33.2px;
     font-size: 2.07rem;
-    line-height: 21.57px;
-    line-height: 1.35rem;
+    line-height: 43.13px;
+    line-height: 2.7rem;
     font-weight: 300;
     margin-top: 20.8px;
     margin-bottom: 20.8px;
@@ -11805,11 +11828,11 @@ h6 a,
   }
   h3,
   .h3 {
-    /* test: 17.97px */
+    /* debug h3 :  fs: 1.73rem lh: 17.97px 2.25rem */
     font-size: 27.7px;
     font-size: 1.73rem;
-    line-height: 17.97px;
-    line-height: 1.12rem;
+    line-height: 35.94px;
+    line-height: 2.25rem;
     font-weight: 300;
     margin-top: 0px;
     margin-bottom: 20.8px;
@@ -11822,11 +11845,11 @@ h6 a,
   }
   h4,
   .h4 {
-    /* test: 14.975px */
+    /* debug h4 :  fs: 1.44rem lh: 14.975px 1.87rem */
     font-size: 23px;
     font-size: 1.44rem;
-    line-height: 14.98px;
-    line-height: 0.94rem;
+    line-height: 29.95px;
+    line-height: 1.87rem;
     font-weight: 300;
     margin-top: 0px;
     margin-bottom: 10.4px;
@@ -11839,11 +11862,11 @@ h6 a,
   }
   h5,
   .h5 {
-    /* test: 12.48px */
+    /* debug h5 :  fs: 1.2rem lh: 12.48px 1.56rem */
     font-size: 19.2px;
     font-size: 1.2rem;
-    line-height: 12.48px;
-    line-height: 0.78rem;
+    line-height: 24.96px;
+    line-height: 1.56rem;
     font-weight: 300;
     margin-top: 0px;
     margin-bottom: 5.2px;
@@ -11856,11 +11879,11 @@ h6 a,
   }
   h6,
   .h6 {
-    /* test: 10.4px */
+    /* debug h6 :  fs: 1rem lh: 10.4px 1.3rem */
     font-size: 16px;
     font-size: 1rem;
-    line-height: 10.4px;
-    line-height: 0.65rem;
+    line-height: 20.8px;
+    line-height: 1.3rem;
     font-weight: 300;
     margin-top: 0px;
     margin-bottom: 5.2px;
@@ -11875,11 +11898,11 @@ h6 a,
 @media (min-width: 768px) {
   h1,
   .h1 {
-    /* test: 34.18px */
+    /* debug h1 :  fs: 3.05rem lh: 34.18px 4.27rem */
     font-size: 48.8px;
     font-size: 3.05rem;
-    line-height: 34.18px;
-    line-height: 2.14rem;
+    line-height: 68.36px;
+    line-height: 4.27rem;
     font-weight: 500;
     margin-top: 22.4px;
     margin-bottom: 44.8px;
@@ -11892,11 +11915,11 @@ h6 a,
   }
   h2,
   .h2 {
-    /* test: 27.345px */
+    /* debug h2 :  fs: 2.44rem lh: 27.345px 3.42rem */
     font-size: 39.1px;
     font-size: 2.44rem;
-    line-height: 27.35px;
-    line-height: 1.71rem;
+    line-height: 54.69px;
+    line-height: 3.42rem;
     font-weight: 500;
     margin-top: 22.4px;
     margin-bottom: 22.4px;
@@ -11909,11 +11932,11 @@ h6 a,
   }
   h3,
   .h3 {
-    /* test: 21.875px */
+    /* debug h3 :  fs: 1.95rem lh: 21.875px 2.73rem */
     font-size: 31.3px;
     font-size: 1.95rem;
-    line-height: 21.88px;
-    line-height: 1.37rem;
+    line-height: 43.75px;
+    line-height: 2.73rem;
     font-weight: 500;
     margin-top: 0px;
     margin-bottom: 22.4px;
@@ -11926,11 +11949,11 @@ h6 a,
   }
   h4,
   .h4 {
-    /* test: 17.5px */
+    /* debug h4 :  fs: 1.56rem lh: 17.5px 2.19rem */
     font-size: 25px;
     font-size: 1.56rem;
-    line-height: 17.5px;
-    line-height: 1.09rem;
+    line-height: 35px;
+    line-height: 2.19rem;
     font-weight: 500;
     margin-top: 0px;
     margin-bottom: 11.2px;
@@ -11943,11 +11966,11 @@ h6 a,
   }
   h5,
   .h5 {
-    /* test: 14px */
+    /* debug h5 :  fs: 1.25rem lh: 14px 1.75rem */
     font-size: 20px;
     font-size: 1.25rem;
-    line-height: 14px;
-    line-height: 0.88rem;
+    line-height: 28px;
+    line-height: 1.75rem;
     font-weight: 500;
     margin-top: 0px;
     margin-bottom: 5.6px;
@@ -11960,11 +11983,11 @@ h6 a,
   }
   h6,
   .h6 {
-    /* test: 11.2px */
+    /* debug h6 :  fs: 1rem lh: 11.2px 1.4rem */
     font-size: 16px;
     font-size: 1rem;
-    line-height: 11.2px;
-    line-height: 0.7rem;
+    line-height: 22.4px;
+    line-height: 1.4rem;
     font-weight: 500;
     margin-top: 0px;
     margin-bottom: 5.6px;
@@ -11979,11 +12002,11 @@ h6 a,
 @media (min-width: 992px) {
   h1,
   .h1 {
-    /* test: 56.82px */
+    /* debug h1 :  fs: 4.74rem lh: 56.82px 7.1rem */
     font-size: 75.8px;
     font-size: 4.74rem;
-    line-height: 56.82px;
-    line-height: 3.55rem;
+    line-height: 113.64px;
+    line-height: 7.1rem;
     font-weight: 500;
     margin-top: 27px;
     margin-bottom: 54px;
@@ -11996,11 +12019,11 @@ h6 a,
   }
   h2,
   .h2 {
-    /* test: 42.625px */
+    /* debug h2 :  fs: 3.55rem lh: 42.625px 5.33rem */
     font-size: 56.8px;
     font-size: 3.55rem;
-    line-height: 42.63px;
-    line-height: 2.66rem;
+    line-height: 85.25px;
+    line-height: 5.33rem;
     font-weight: 500;
     margin-top: 27px;
     margin-bottom: 27px;
@@ -12013,11 +12036,11 @@ h6 a,
   }
   h3,
   .h3 {
-    /* test: 31.975px */
+    /* debug h3 :  fs: 2.66rem lh: 31.975px 4rem */
     font-size: 42.6px;
     font-size: 2.66rem;
-    line-height: 31.98px;
-    line-height: 2rem;
+    line-height: 63.95px;
+    line-height: 4rem;
     font-weight: 500;
     margin-top: 0px;
     margin-bottom: 27px;
@@ -12030,11 +12053,11 @@ h6 a,
   }
   h4,
   .h4 {
-    /* test: 23.99px */
+    /* debug h4 :  fs: 2rem lh: 23.99px 3rem */
     font-size: 32px;
     font-size: 2rem;
-    line-height: 23.99px;
-    line-height: 1.5rem;
+    line-height: 47.98px;
+    line-height: 3rem;
     font-weight: 500;
     margin-top: 0px;
     margin-bottom: 13.5px;
@@ -12047,11 +12070,11 @@ h6 a,
   }
   h5,
   .h5 {
-    /* test: 17.995px */
+    /* debug h5 :  fs: 1.5rem lh: 17.995px 2.25rem */
     font-size: 24px;
     font-size: 1.5rem;
-    line-height: 18px;
-    line-height: 1.12rem;
+    line-height: 35.99px;
+    line-height: 2.25rem;
     font-weight: 500;
     margin-top: 0px;
     margin-bottom: 6.75px;
@@ -12064,11 +12087,11 @@ h6 a,
   }
   h6,
   .h6 {
-    /* test: 13.5px */
+    /* debug h6 :  fs: 1.13rem lh: 13.5px 1.69rem */
     font-size: 18px;
     font-size: 1.13rem;
-    line-height: 13.5px;
-    line-height: 0.84rem;
+    line-height: 27px;
+    line-height: 1.69rem;
     font-weight: 500;
     margin-top: 0px;
     margin-bottom: 6.75px;
@@ -12083,11 +12106,11 @@ h6 a,
 @media (min-width: 1200px) {
   h1,
   .h1 {
-    /* test: 60.605px */
+    /* debug h1 :  fs: 4.74rem lh: 60.605px 7.58rem */
     font-size: 75.8px;
     font-size: 4.74rem;
-    line-height: 60.61px;
-    line-height: 3.79rem;
+    line-height: 121.21px;
+    line-height: 7.58rem;
     font-weight: 700;
     margin-top: 28.8px;
     margin-bottom: 57.6px;
@@ -12100,11 +12123,11 @@ h6 a,
   }
   h2,
   .h2 {
-    /* test: 45.465px */
+    /* debug h2 :  fs: 3.55rem lh: 45.465px 5.68rem */
     font-size: 56.8px;
     font-size: 3.55rem;
-    line-height: 45.47px;
-    line-height: 2.84rem;
+    line-height: 90.93px;
+    line-height: 5.68rem;
     font-weight: 700;
     margin-top: 28.8px;
     margin-bottom: 28.8px;
@@ -12117,11 +12140,11 @@ h6 a,
   }
   h3,
   .h3 {
-    /* test: 34.11px */
+    /* debug h3 :  fs: 2.66rem lh: 34.11px 4.26rem */
     font-size: 42.6px;
     font-size: 2.66rem;
-    line-height: 34.11px;
-    line-height: 2.13rem;
+    line-height: 68.22px;
+    line-height: 4.26rem;
     font-weight: 700;
     margin-top: 0px;
     margin-bottom: 28.8px;
@@ -12134,11 +12157,11 @@ h6 a,
   }
   h4,
   .h4 {
-    /* test: 25.585px */
+    /* debug h4 :  fs: 2rem lh: 25.585px 3.2rem */
     font-size: 32px;
     font-size: 2rem;
-    line-height: 25.59px;
-    line-height: 1.6rem;
+    line-height: 51.17px;
+    line-height: 3.2rem;
     font-weight: 700;
     margin-top: 0px;
     margin-bottom: 14.4px;
@@ -12151,11 +12174,11 @@ h6 a,
   }
   h5,
   .h5 {
-    /* test: 19.195px */
+    /* debug h5 :  fs: 1.5rem lh: 19.195px 2.4rem */
     font-size: 24px;
     font-size: 1.5rem;
-    line-height: 19.2px;
-    line-height: 1.2rem;
+    line-height: 38.39px;
+    line-height: 2.4rem;
     font-weight: 700;
     margin-top: 0px;
     margin-bottom: 7.2px;
@@ -12168,11 +12191,11 @@ h6 a,
   }
   h6,
   .h6 {
-    /* test: 14.4px */
+    /* debug h6 :  fs: 1.13rem lh: 14.4px 1.8rem */
     font-size: 18px;
     font-size: 1.13rem;
-    line-height: 14.4px;
-    line-height: 0.9rem;
+    line-height: 28.8px;
+    line-height: 1.8rem;
     font-weight: 700;
     margin-top: 0px;
     margin-bottom: 7.2px;
@@ -12187,11 +12210,11 @@ h6 a,
 @media (min-width: 1400px) {
   h1,
   .h1 {
-    /* test: 81.4px */
+    /* debug h1 :  fs: 6.36rem lh: 81.4px 10.18rem */
     font-size: 101.8px;
     font-size: 6.36rem;
-    line-height: 81.4px;
-    line-height: 5.09rem;
+    line-height: 162.8px;
+    line-height: 10.18rem;
     font-weight: 700;
     margin-top: 28.8px;
     margin-bottom: 57.6px;
@@ -12204,11 +12227,11 @@ h6 a,
   }
   h2,
   .h2 {
-    /* test: 57.565px */
+    /* debug h2 :  fs: 4.5rem lh: 57.565px 7.2rem */
     font-size: 72px;
     font-size: 4.5rem;
-    line-height: 57.57px;
-    line-height: 3.6rem;
+    line-height: 115.13px;
+    line-height: 7.2rem;
     font-weight: 700;
     margin-top: 28.8px;
     margin-bottom: 28.8px;
@@ -12221,11 +12244,11 @@ h6 a,
   }
   h3,
   .h3 {
-    /* test: 40.71px */
+    /* debug h3 :  fs: 3.18rem lh: 40.71px 5.09rem */
     font-size: 50.9px;
     font-size: 3.18rem;
-    line-height: 40.71px;
-    line-height: 2.54rem;
+    line-height: 81.42px;
+    line-height: 5.09rem;
     font-weight: 700;
     margin-top: 0px;
     margin-bottom: 28.8px;
@@ -12238,11 +12261,11 @@ h6 a,
   }
   h4,
   .h4 {
-    /* test: 28.79px */
+    /* debug h4 :  fs: 2.25rem lh: 28.79px 3.6rem */
     font-size: 36px;
     font-size: 2.25rem;
-    line-height: 28.79px;
-    line-height: 1.8rem;
+    line-height: 57.58px;
+    line-height: 3.6rem;
     font-weight: 700;
     margin-top: 0px;
     margin-bottom: 14.4px;
@@ -12255,11 +12278,11 @@ h6 a,
   }
   h5,
   .h5 {
-    /* test: 20.36px */
+    /* debug h5 :  fs: 1.59rem lh: 20.36px 2.55rem */
     font-size: 25.5px;
     font-size: 1.59rem;
-    line-height: 20.36px;
-    line-height: 1.27rem;
+    line-height: 40.72px;
+    line-height: 2.55rem;
     font-weight: 700;
     margin-top: 0px;
     margin-bottom: 7.2px;
@@ -12272,11 +12295,11 @@ h6 a,
   }
   h6,
   .h6 {
-    /* test: 14.4px */
+    /* debug h6 :  fs: 1.13rem lh: 14.4px 1.8rem */
     font-size: 18px;
     font-size: 1.13rem;
-    line-height: 14.4px;
-    line-height: 0.9rem;
+    line-height: 28.8px;
+    line-height: 1.8rem;
     font-weight: 700;
     margin-top: 0px;
     margin-bottom: 7.2px;
@@ -12652,7 +12675,7 @@ pre {
   color: #050505;
   word-wrap: break-word;
   white-space: pre;
-  background-color: #adadad;
+  background-color: #ADADAD;
   border-radius: 0.375rem;
 }
 pre code {
@@ -12673,7 +12696,7 @@ kbd {
   padding: 0.1875rem 0.8125rem;
   font-size: 0.75rem;
   color: #fff;
-  background-color: #e6e6e6;
+  background-color: #E6E6E6;
   border-radius: 0.625rem;
   box-shadow: none;
 }
@@ -12687,9 +12710,9 @@ kbd kbd {
 
 .empty {
   padding: 10rem 5rem;
-  color: #3d3d3d;
+  color: #3D3D3D;
   text-align: center;
-  background: #adadad;
+  background: #ADADAD;
   border-radius: 0.375rem;
 }
 .empty .empty-icon {
@@ -12993,7 +13016,7 @@ kbd kbd {
 }
 
 .text-gray-800 {
-  color: #c9c9c9;
+  color: #C9C9C9;
 }
 
 .fs-15 {
@@ -13107,7 +13130,7 @@ kbd kbd {
   color: #000000;
 }
 .sqbtn-light button:after {
-  background-color: #e6e6e6;
+  background-color: #E6E6E6;
 }
 
 .sqbtn-dark button {
@@ -13232,10 +13255,10 @@ kbd kbd {
   --slant: 0.5em;
   --color: $value;
   color: #000000;
-  background: linear-gradient(to bottom left, #e6e6e6 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #e6e6e6 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
+  background: linear-gradient(to bottom left, #E6E6E6 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #E6E6E6 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #e6e6e6;
+  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #E6E6E6;
 }
 
 .cpubtn-dark {
@@ -13364,10 +13387,10 @@ kbd kbd {
   transition: background-image 0.3s linear;
 }
 .catbtn-light::before {
-  background-image: linear-gradient(to left, #e6e6e6, #e6e6e6);
+  background-image: linear-gradient(to left, #E6E6E6, #E6E6E6);
 }
 .catbtn-light:hover::before {
-  background-image: linear-gradient(to left, #e6e6e6, #cfcfcf, #b8b8b8, #a1a1a1);
+  background-image: linear-gradient(to left, #E6E6E6, #cfcfcf, #b8b8b8, #a1a1a1);
 }
 
 .catbtn-dark {
@@ -13518,7 +13541,7 @@ kbd kbd {
 }
 .aoibtn-light .button:after, .aoibtn-light .button:before {
   transition: all 0.125s linear;
-  background: #e6e6e6;
+  background: #E6E6E6;
 }
 .aoibtn-light .button:after {
   background: #e6e6e6;
@@ -13599,7 +13622,7 @@ kbd kbd {
   background-image: linear-gradient(#ff0054, #ff0054);
 }
 .punkbtn.punkbtn-light {
-  background-image: linear-gradient(#e6e6e6, #e6e6e6);
+  background-image: linear-gradient(#E6E6E6, #E6E6E6);
 }
 .punkbtn.punkbtn-dark {
   background-image: linear-gradient(#050505, #050505);

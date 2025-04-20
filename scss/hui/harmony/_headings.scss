@@ -9,7 +9,8 @@
 // @import "../_frmwrk-config/index";
 // @import "../_frmwrk/index";
 
-$headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".h6" !default;
+$headingSelectors: h1, h2, h3, h4, h5, h6, '.h1', '.h2', '.h3', '.h4', '.h5',
+  '.h6' !default;
 
 // =============================================================================
 // HARMONIC RESPONSIVE HEADINGS
@@ -19,11 +20,12 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
 @mixin Harmonic_Headings_Core() {
   #{$headingSelectors} {
     @if global-variable-exists(HeadingFont) {
-      font-family: map.get($HeadingFont, "family");
+      font-family: map.get($HeadingFont, 'family');
     }
-    font-feature-settings: "kern", "liga", "clig", "calt", "dlig";
+    font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig';
     font-kerning: normal;
-    font-variant-ligatures: common-ligatures, contextual, discretionary-ligatures;
+    font-variant-ligatures: common-ligatures, contextual,
+      discretionary-ligatures;
     word-break: break-word;
     font-smoothing: antialiased;
     text-rendering: optimizelegibility;
@@ -40,7 +42,7 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
 
     a {
       @if global-variable-exists(HeadingFont) {
-        font-family: map.get($HeadingFont, "family") !important;
+        font-family: map.get($HeadingFont, 'family') !important;
       }
       text-decoration: none;
     }
@@ -66,7 +68,7 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
   $weights: 300, 500, 700;
   // $weightAdjust: computedynamicweight(length($chords), length($weights));
   $weightAdjust: decimal_round(math.div(6, 3), 0, ceil);
-  @debug "Every #{$weightAdjust} breakpoints, increase font weight";
+  @debug 'Every #{$weightAdjust} breakpoints, increase font weight';
   $weightNthCounter: 1;
   $weightCurrent: 0;
   $weightNth: nth($weights, $weightNthCounter);
@@ -75,11 +77,19 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
   $minMap: nth(map-values($chords), 1);
 
   //@include breakpoint(#{$minBP}, max) {
-  $headingFontMap: map.get($minMap, "headings_px");
-  $headingLineMap: map.get($minMap, "headingsLine_px");
-  $bpLH: map.get($minMap, "lineHeight_px");
-  $bpFS: map.get($minMap, "fontSize");
-  @include MainLine_heading_compute($headingFontMap, $headingLineMap, 300, $bpFS, $bpLH, true, $debugStyles);
+  $headingFontMap: map.get($minMap, 'headings_px');
+  $headingLineMap: map.get($minMap, 'headingsLine_px');
+  $bpLH: map.get($minMap, 'lineHeight_px');
+  $bpFS: map.get($minMap, 'fontSize');
+  @include MainLine_heading_compute(
+    $headingFontMap,
+    $headingLineMap,
+    300,
+    $bpFS,
+    $bpLH,
+    true,
+    $debugStyles
+  );
   //}
 
   $maxBP: calc(length(map-keys($chords)) - 1);
@@ -87,10 +97,10 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
 
   @each $hKey, $hMap in $chords {
     $weightNth: nth($weights, $weightNthCounter);
-    $headingFontMap: map.get($hMap, "headings_px");
-    $headingLineMap: map.get($hMap, "headingsLine_px");
-    $bpLH: map.get($hMap, "lineHeight_px");
-    $bpFS: map.get($minMap, "fontSize");
+    $headingFontMap: map.get($hMap, 'headings_px');
+    $headingLineMap: map.get($hMap, 'headingsLine_px');
+    $bpLH: map.get($hMap, 'lineHeight_px');
+    $bpFS: map.get($minMap, 'fontSize');
 
     //  Skip smallest breakpoint b/c size is 0.
     $minBP: nth(map-keys($chords), 1);
@@ -111,7 +121,7 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
     $counter: $counter + 1;
     $hLC: $hLC + 1;
     @if ($counter >= $weightAdjust) {
-      @debug "Advancing Weight Counter";
+      @debug 'Advancing Weight Counter';
       $weightNthCounter: $weightNthCounter + 1;
       $counter: 0;
     }
@@ -140,9 +150,9 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
   $debugStyles: false
 ) {
   @if ($silent == false) or ($debug == true) {
-    @debug "Creating Headings w/ weight #{$dynamicFontWeight}";
+    @debug 'Creating Headings w/ weight #{$dynamicFontWeight}';
     @if ($debugStyles != false) {
-      @debug "Loading Harmonic Headings.... Debug Status: #{$debugStyles}";
+      @debug 'Loading Harmonic Headings.... Debug Status: #{$debugStyles}';
     }
   }
 
@@ -150,7 +160,7 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
 
   @each $hfk, $hfm in $headingFontMap {
     $top: 0;
-    $btm: .25;
+    $btm: 0.25;
 
     // prettier-ignore
     @if ($hfk == "h1"){ $top: 1; $btm: 2; }
@@ -170,7 +180,7 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
     $stripBFS: strip-units($bpFontSize);
 
     @if ($silent == false) {
-      @debug "Stripped Size: #{$stripBFS}";
+      @debug 'Stripped Size: #{$stripBFS}';
     }
 
     $HMarginTop: px_rem($HTOP, $stripBFS);
@@ -181,11 +191,11 @@ $headingSelectors: h1, h2, h3, h4, h5, h6, ".h1", ".h2", ".h3", ".h4", ".h5", ".
     #{$hfk},
     .#{$hfk} {
       @if ($debugStyles != true) {
-        /* test: #{$RhythmHeight} */
+        /* debug #{$hfk} :  fs: #{$HFontSize} lh: #{$RhythmHeight} #{$HLineHeight} */
         font-size: decimal_round($hfm, 1);
         font-size: $HFontSize;
-        line-height: decimal_round(resolve($HLH), 2);
-        line-height: decimal_round(px_rem(resolve($HLH), strip-units($bpFontSize)), 2);
+        line-height: $HLH;
+        line-height: $HLineHeight;
         font-weight: $dynamicFontWeight;
         margin-top: $HTOP;
         margin-bottom: $HBTM;
