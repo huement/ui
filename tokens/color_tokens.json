@@ -1,24 +1,22 @@
 [
   {
     "colors": [
-      { "red": "EC174C" },
-      { "orange": "FD8046" },
-      { "yellow": "FBFE12" },
-      { "green": "24FC2D" },
-      { "cyan": "028AA6" },
-      { "blue": "41EAD4" },
-      { "ultra": "3E0097" }
+      { "red": "ff0054" },
+      { "coral": "fd7e47" },
+      { "yellow": "fbff12" },
+      { "green": "3bfc43" },
+      { "cyan": "00f5d4" },
+      { "ocean": "0fb2aa" },
+      { "blue": "1982c4" },
+      { "violet": "520099" },
+      { "primary": "2bb3cf" },
+      { "secondary": "f99157" }
     ]
   },
   {
     "monochrome": [
-      { "dark": "1F1F1F" },
-      { "medium": "4C4C4C" },
-      { "light": "F0F0F0" }
+      { "dark": "1F1F1F" },{ "mono": "757575" }, { "light": "999f9d" }
     ]
-  },
-  {
-    "brand": [{ "primary": "2bb3cf" }, { "secondary": "f99157" }]
   },
   {
     "page": [
@@ -31,22 +29,22 @@
   },
   {
     "base16": [
-      { "base00": "1F1F1F" },
+      { "base00": "1f1f1f" },
       { "base01": "232323" },
       { "base02": "333333" },
-      { "base03": "4C4C4C" },
-      { "base04": "A0A0A0" },
-      { "base05": "BFBFBF" },
-      { "base06": "E0E0E0" },
-      { "base07": "F0F0F0" },
-      { "base08": "EC174C" },
-      { "base09": "24FC2D" },
-      { "base0A": "FBFE12" },
-      { "base0B": "41EAD4" },
-      { "base0C": "3E0097" },
-      { "base0D": "028AA6" },
-      { "base0E": "FE445F" },
-      { "base0F": "FD8046" }
+      { "base03": "4c4c4c" },
+      { "base04": "a0a0a0" },
+      { "base05": "bfbfbf" },
+      { "base06": "e0e0e0" },
+      { "base07": "f0f0f0" },
+      { "base08": "ff0054" },
+      { "base09": "3bfc43" },
+      { "base0a": "fbff12" },
+      { "base0b": "1982c4" },
+      { "base0c": "520099" },
+      { "base0d": "00f5d4" },
+      { "base0e": "0fb2aa" },
+      { "base0f": "fd7e47" }
     ]
   }
 ]
