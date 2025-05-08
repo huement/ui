@@ -1,0 +1,251 @@
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:meta';
+@use 'sass:string';
+
+//
+// MAIN SITEWIDE STYLES
+@import 'hui';
+@include fileBanner('hui scss');
+
+@import 'utilities';
+@import 'bs5';
+
+// HUI AUGMENTATIONS
+@import 'hui/root';
+@import 'hui/builder';
+@import 'hui/bootswatch';
+@import 'hui/typography';
+
+// @TODO put everything in here where it should go in the codebase
+.relative {
+  position: relative;
+}
+
+.b-hug {
+  margin-bottom: -4px;
+}
+
+.t-hug {
+  margin-top: -4px;
+}
+
+.spacer {
+  display: block;
+  position: relative;
+  height: 1px;
+  z-index: 999;
+  margin-top: 2.75rem;
+}
+
+.text-grey,
+.text-gray {
+  color: #97989f;
+}
+
+.text-body-emphasis {
+  color: #a7a7a7 !important;
+}
+
+.fw-bold {
+  font-weight: bold;
+  text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 2s linear;
+  animation-fill-mode: forwards;
+}
+
+.pt-100 {
+  padding-top: 100px;
+}
+
+.z-nine {
+  z-index: 9;
+}
+
+.nice-shadow {
+  box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+}
+
+.float-end {
+  float: right;
+}
+
+.float-start {
+  float: left;
+}
+
+.float-none {
+  float: none;
+}
+
+/* SOCIAL MEDIA */
+.share-buttons-component,
+.share-buttons-mini-component {
+  svg {
+    fill: #fff;
+  }
+
+  .dropdown-header {
+    color: $mono-100;
+  }
+}
+
+.btn-facebook {
+  color: #fff;
+  background-color: $facebook;
+}
+
+.btn-x {
+  background-color: $x;
+  color: #fff;
+  fill: #fff;
+}
+
+.btn-reddit {
+  color: #fff;
+  background-color: $reddit;
+}
+
+.btn-linkedin {
+  color: #fff;
+  fill: #fff;
+  background-color: $linkedin;
+}
+
+.btn-whatsapp {
+  background-color: $whatsapp;
+  color: #ffffff;
+}
+
+.btn-telegram {
+  background-color: $telegram;
+  color: #ffffff;
+}
+
+.btn-email,
+.btn-copy {
+  background-color: #909090;
+  color: #ffffff;
+  border: 1px solid #f0f0f0;
+}
+
+.searchbardiv {
+  display: block;
+  position: fixed;
+  background: $mono-200;
+  top: calc(var(--navbar-size) + -1px);
+  right: 0px;
+  z-index: 1001;
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  margin: 0px;
+}
+
+/**
+ * = Sections
+ */
+.section {
+  position: relative;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.section-header {
+  position: relative;
+  padding-top: 9rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 576px) {
+  .section {
+    position: relative;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .section-header {
+    position: relative;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  .section-header.section-sm {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+
+  .section-xl {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  .section-lg {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .section-sm {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .section {
+    position: relative;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .section-header {
+    position: relative;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+
+  .section-header.section-sm {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+
+  .section-xl {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+
+  .section-lg {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  .section-sm {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-hero {
+    height: 100vh;
+  }
+}

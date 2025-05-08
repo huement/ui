@@ -54,6 +54,7 @@ $wave-bg: #111111;
 $btm-bg: #131313;
 $dark-bg: #181818;
 $black: #0f0f0f !default;
+$post-bg: #030303 !default;
 $box-shadow: 0 0.5rem 1rem rgba($black, 0.2);
 $box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075);
 $box-shadow-lg: 0 1rem 3rem rgba($black, 0.3);
@@ -67,7 +68,7 @@ $line-height-base: 1.6;
 // Bootstrap Config
 $enable-rounded: true;
 $enable-shadows: true;
-$enable-gradients: false; // Not supported by Shards.
+$enable-gradients: false;
 $enable-transitions: true;
 $enable-hover-media-query: false; // Deprecated, no longer affects any compiled CSS
 $enable-fonts-import: true;
@@ -89,6 +90,9 @@ $include-column-box-sizing: true;
 
 $enable-dark-mode: true; // dark is the new default
 $color-mode-type: data; // `data` or `media-query`
+
+$enable-fills: true;
+
 
 // Spacing
 //

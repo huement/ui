@@ -6,6 +6,8 @@
 @use 'sass:meta';
 @use 'sass:string';
 
+/// Start off by loading all the Bootstrap Functions and then any additional HUI Functions
+@import 'bootstrap/scss/functions';
 
 ///   Superclass
 ///  --------------------
@@ -42,7 +44,7 @@
 
 /// This mixin is used to change a CSS property value.
 /// It will change a declared css variable auto-prefixing it.
-@mixin cssvar($name, $value: "") {
+@mixin cssvar($name, $value: '') {
   --#{$name}: #{$value};
 }
 

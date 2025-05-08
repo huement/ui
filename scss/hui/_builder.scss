@@ -5,8 +5,60 @@
 @use 'sass:meta';
 @use 'sass:string';
 
+/* Position Shorthands */
+.p-relative {
+  position: relative !important;
+}
+
+.p-absolute {
+  position: absolute !important;
+}
+
+.p-fixed {
+  position: fixed !important;
+}
+
+/**
+ * = Shadows
+ */
+[class*='shadow'] {
+  transition: all 0.2s ease;
+}
+
+.shadow-xl {
+  box-shadow: 0 1rem 1rem -0.5rem rgba(244, 246, 252, 0.25) !important;
+}
+
+.shadow-pixel {
+  box-shadow: 0.2rem 0.2rem 0 rgba(244, 246, 252, 0.5) !important;
+}
+
+.shadow-soft {
+  box-shadow: 0 0.75rem 1.5rem rgba(227, 227, 227, 0.03) !important;
+}
+
+.shadow-box {
+  box-shadow: -8px 32px 50px rgba(21, 33, 41, 0.1) !important;
+}
+
+.shadow-hover:hover {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+.shadow-sm-hover:hover {
+  box-shadow: 0 0.125rem 0.25rem rgba(13, 20, 49, 0.07) !important;
+}
+
+.shadow-lg-hover:hover {
+  box-shadow: 0 1rem 3rem rgba(13, 20, 49, 0.175) !important;
+}
+
+.shadow-none-hover:hover {
+  box-shadow: none !important;
+}
+
 /* SCSS NUMBER LOOPS */
-$masterList: 25 30 50 75 100 150 200;
+$masterList: 0 1 5 25 30 50 75 100 150 200;
 @each $amount in $masterList {
   $i: list.index($masterList, $amount);
 

@@ -5,8 +5,15 @@
 @use 'sass:meta';
 @use 'sass:string';
 
-@import 'thirdparty/animate';
+// Manually include only the animations you want in this file
+// Then use the @include for the animation you want to use
+@import 'thirdparty/animate/animate';
+
 @import 'thirdparty/rfs';
+// @TODO: work with this
+// @import 'thirdparty/modularscale';
+
+@import 'thirdparty/boxicons';
 
 @import 'hui/globals';
 @import 'hui/functions';

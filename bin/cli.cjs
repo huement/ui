@@ -41,7 +41,7 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-async function init() {
+function init() {
   // TODO: By default running this script runs NO commands. Must pass a flag
   if (argv['_'] && argv['_'][0]) {
     for (let i = 0; i < argv['_'].length; i++) {

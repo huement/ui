@@ -173,7 +173,7 @@
   }
 
   // The cool nature of this button makes creating the themes pretty simple
-  @each $color, $value in $theme-colors {
+  @each $color, $value in $colors {
     .cpubtn-#{$color} {
       --border: #{$border};
       --slant: #{$slant};
@@ -202,15 +202,16 @@
     .button {
       position: relative;
       display: inline-block;
-      padding: $ctabtn-padding-x $ctabtn-padding-y;
-      background: transparent;
+      padding: $aoibtn-padding-x $aoibtn-padding-y;
+      background: #000;
       text-transform: uppercase;
       color: #fff;
       letter-spacing: $ctabtn-letter-spacing-sm;
       z-index: 1;
       border: 1px solid transparent;
-      font-weight: bold;
-      // opacity: .8;
+      font-weight: bolder;
+      transition: all 0.125s linear;
+      opacity: 0.8;
       &:after,
       &:before {
         mix-blend-mode: multiply;
@@ -226,7 +227,7 @@
         transition: all 0.2s linear;
       }
       &:after {
-        background: complementary($btn-color);
+        background: triad($btn-color, t1);
         top: -5px;
         left: -5px;
       }
@@ -239,17 +240,17 @@
     }
     &.aoibtn-sm {
       .button {
-        padding: 5px 10px;
+        padding: 5px 8px;
         letter-spacing: 0.5px;
 
         &:after,
         &:before {
-          top: 2px;
-          left: 2px;
+          top: 4px;
+          left: 4px;
         }
         &:after {
-          top: -2px;
-          left: -2px;
+          top: -4px;
+          left: -4px;
         }
         // &:hover {
         //   text-decoration: underline;
@@ -266,15 +267,13 @@
   @each $color, $value in $theme-colors {
     .aoibtn-#{$color} {
       .button {
-        transition: all 0.125s linear;
-
         &:after,
         &:before {
           transition: all 0.125s linear;
-          background: $value;
+          background: triad($value, t2);
         }
         &:after {
-          background: complementary($value);
+          background: $value;
         }
       }
     }
@@ -283,7 +282,7 @@
 
 @mixin catbutton() {
   // CAT BTN
-  .catbtn {
+  .pgbtn {
     display: inline-block;
     padding: $input-btn-padding-y-lg $input-btn-padding-x-lg
       $input-btn-padding-y-lg $input-btn-padding-x-lg;
@@ -295,7 +294,7 @@
     font-family: $btn-font-family;
     letter-spacing: 1px;
     position: relative;
-    transition: all 0.3s linear;
+    transition: all 0.2s linear;
     z-index: 3;
     &::before {
       content: '';
@@ -308,7 +307,6 @@
       clip-path: polygon(0 9%, 100% 0, 96% 80%, 5% 100%);
       background-image: linear-gradient($gray-500, $gray-500);
       z-index: -1;
-      transition: all 0.3s linear;
     }
     &::after {
       content: '';
@@ -339,17 +337,17 @@
   }
 
   @each $color, $value in $theme-colors {
-    .catbtn-#{$color} {
+    .pgbtn-#{$color} {
       color: isColorDark($value);
       transition: background-image 0.3s linear;
       &::before {
-        // background: $value;
+        background: $value;
         background-image: linear-gradient(to left, $value, $value);
       }
       &:hover {
         // color: color.scale($value, $lightness: -30%);
         &::before {
-          // background: color.scale($value, $lightness: -30%);
+          background: color.scale($value, $lightness: -30%);
           background-image: linear-gradient(
             to left,
             #{$value},
@@ -362,7 +360,7 @@
     }
   }
 
-  .catbtn-shadow {
+  .pgbtn-shadow {
     display: inline-block;
     transition: all 0.2s linear;
     filter: drop-shadow(3px 3px white);
@@ -370,7 +368,7 @@
     &:hover {
       filter: drop-shadow(1px 1px rgba(255, 255, 255, 0.5));
     }
-    .catbtn {
+    .pgbtn {
       &::after {
         opacity: 0;
       }

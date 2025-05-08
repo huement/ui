@@ -1,0 +1,24 @@
+// Background Colors are handled via the new bootstrap api
+// @each $color, $value in $theme-colors {
+//   @include bg-variant('.bg-#{$color}', $value);
+// }
+
+@if $enable-fills {
+  @each $color, $value in $theme-colors {
+    .fill-#{$color} {
+      fill: $value;
+    }
+  }
+
+  @each $color, $value in $colors {
+    .fill-#{$color} {
+      fill: $value;
+    }
+  }
+}
+
+@if $enable-gradients {
+  @each $color, $value in $theme-colors {
+    @include bg-gradient-variant('.bg-gradient-#{$color}', $value);
+  }
+}

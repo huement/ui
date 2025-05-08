@@ -150,7 +150,8 @@ $utilities: map.merge(
     'border-color': (
       property: border-color,
       class: border,
-      values: map.merge(
+      values:
+        map.merge(
           $theme-colors,
           (
             white: $white,
@@ -158,7 +159,8 @@ $utilities: map.merge(
         ),
     ),
     // Sizing utilities
-    'width': (
+    'width':
+      (
         property: width,
         class: w,
         values: (
@@ -181,7 +183,8 @@ $utilities: map.merge(
       ),
     ),
     // Flex utilities
-    'flex': (
+    'flex':
+      (
         responsive: true,
         property: flex,
         values: (
@@ -279,11 +282,13 @@ $utilities: map.merge(
       ),
     ),
     // Margin utilities
-    'margin': (
+    'margin':
+      (
         responsive: true,
         property: margin,
         class: m,
-        values: map.merge(
+        values:
+          map.merge(
             $spacers,
             (
               auto: auto,
@@ -294,7 +299,8 @@ $utilities: map.merge(
       responsive: true,
       property: margin-right margin-left,
       class: mx,
-      values: map.merge(
+      values:
+        map.merge(
           $spacers,
           (
             auto: auto,
@@ -305,7 +311,8 @@ $utilities: map.merge(
       responsive: true,
       property: margin-top margin-bottom,
       class: my,
-      values: map.merge(
+      values:
+        map.merge(
           $spacers,
           (
             auto: auto,
@@ -316,7 +323,8 @@ $utilities: map.merge(
       responsive: true,
       property: margin-top,
       class: mt,
-      values: map.merge(
+      values:
+        map.merge(
           $spacers,
           (
             auto: auto,
@@ -327,7 +335,8 @@ $utilities: map.merge(
       responsive: true,
       property: margin-right,
       class: mr,
-      values: map.merge(
+      values:
+        map.merge(
           $spacers,
           (
             auto: auto,
@@ -338,7 +347,8 @@ $utilities: map.merge(
       responsive: true,
       property: margin-bottom,
       class: mb,
-      values: map.merge(
+      values:
+        map.merge(
           $spacers,
           (
             auto: auto,
@@ -349,7 +359,8 @@ $utilities: map.merge(
       responsive: true,
       property: margin-left,
       class: ml,
-      values: map.merge(
+      values:
+        map.merge(
           $spacers,
           (
             auto: auto,
@@ -357,7 +368,8 @@ $utilities: map.merge(
         ),
     ),
     // Negative margin utilities
-    'negative-margin': (
+    'negative-margin':
+      (
         responsive: true,
         property: margin,
         class: m,
@@ -400,7 +412,8 @@ $utilities: map.merge(
       values: $negative-spacers,
     ),
     // Padding utilities
-    'padding': (
+    'padding':
+      (
         responsive: true,
         property: padding,
         class: p,
@@ -443,7 +456,8 @@ $utilities: map.merge(
       values: $spacers,
     ),
     // Text
-    'font-weight': (
+    'font-weight':
+      (
         property: font-weight,
         values: (
           light: $font-weight-light,
@@ -479,13 +493,19 @@ $utilities: map.merge(
     'background-color': (
       property: background-color,
       class: bg,
-      values: map.merge(
+      values:
+        map.merge(
           $theme-colors,
           (
             white: $white,
             transparent: transparent,
           )
         ),
+    ),
+    'background-theme': (
+      property: background-color,
+      class: bg,
+      values: $colors,
     ),
     'white-space': (
       property: white-space,
@@ -566,7 +586,7 @@ $utilities: map.merge(
 @import 'bootstrap/scss/utilities/api';
 
 @import 'utilities/bs-helpers';
-@import 'utilities/background';
+// @import 'utilities/background';
 @import 'utilities/borders';
 @import 'utilities/text';
 @import 'utilities/shadows';
