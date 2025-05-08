@@ -10,6 +10,7 @@
 @import 'hui';
 @include fileBanner('hui scss');
 
+@import 'thirdparty/rfs';
 @import 'utilities';
 @import 'bs5';
 
@@ -18,6 +19,14 @@
 @import 'hui/builder';
 @import 'hui/bootswatch';
 @import 'hui/typography';
+
+// Manually include only the animations you want in this file
+// Then use the @include for the animation you want to use
+@import 'thirdparty/animate/animate';
+
+// @TODO: work with this
+// @import 'thirdparty/modularscale';
+@import 'thirdparty/boxicons';
 
 // @TODO put everything in here where it should go in the codebase
 .relative {
