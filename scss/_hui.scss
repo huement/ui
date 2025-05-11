@@ -15,3 +15,8 @@
 @import 'hui/token-fonts';
 @import 'variables';
 @import 'mixins';
+
+// Manually include only the animations you want in this file
+// Then use the @include for the animation you want to use
+@import 'thirdparty/animate/animate';
+@import 'thirdparty/rfs';
