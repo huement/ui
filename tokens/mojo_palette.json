@@ -1,0 +1,422 @@
+{
+    "Mojo": {
+        "cyan": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                0,
+                245,
+                212
+            ],
+            "code": "00f5d4"
+        },
+        "ocean": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                15,
+                178,
+                170
+            ],
+            "code": "0fb2aa"
+        },
+        "blue": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                25,
+                130,
+                196
+            ],
+            "code": "1982c4"
+        },
+        "violet": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                82,
+                0,
+                153
+            ],
+            "code": "520099"
+        },
+        "red": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                255,
+                0,
+                84
+            ],
+            "code": "ff0054"
+        },
+        "orange": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                253,
+                106,
+                79
+            ],
+            "code": "fd6a4f"
+        },
+        "yellow": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                251,
+                255,
+                18
+            ],
+            "code": "fbff12"
+        },
+        "green": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                59,
+                252,
+                67
+            ],
+            "code": "3bfc43"
+        }
+    },
+    "red": {
+        "light red": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                255,
+                75,
+                159
+            ],
+            "code": "ff4b9f"
+        },
+        "red": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                255,
+                0,
+                84
+            ],
+            "code": "ff0054"
+        },
+        "dark red": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                220,
+                0,
+                49
+            ],
+            "code": "dc0031"
+        }
+    },
+    "orange": {
+        "light orange": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                255,
+                201,
+                146
+            ],
+            "code": "ffc992"
+        },
+        "orange": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                253,
+                126,
+                71
+            ],
+            "code": "fd7e47"
+        },
+        "dark orange": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                218,
+                91,
+                36
+            ],
+            "code": "da5b24"
+        }
+    },
+    "yellow": {
+        "light yellow": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                255,
+                255,
+                93
+            ],
+            "code": "ffff5d"
+        },
+        "yellow": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                251,
+                255,
+                18
+            ],
+            "code": "fbff12"
+        },
+        "dark yellow": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                216,
+                220,
+                0
+            ],
+            "code": "d8dc00"
+        }
+    },
+    "green": {
+        "light green": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                134,
+                255,
+                142
+            ],
+            "code": "86ff8e"
+        },
+        "green": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                59,
+                252,
+                67
+            ],
+            "code": "3bfc43"
+        },
+        "dark green": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                24,
+                217,
+                32
+            ],
+            "code": "18d920"
+        }
+    },
+    "cyan": {
+        "light cyan": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                75,
+                255,
+                255
+            ],
+            "code": "4bffff"
+        },
+        "cyan": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                0,
+                245,
+                212
+            ],
+            "code": "00f5d4"
+        },
+        "dark cyan": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                0,
+                210,
+                177
+            ],
+            "code": "00d2b1"
+        }
+    },
+    "blue": {
+        "light blue": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                100,
+                205,
+                255
+            ],
+            "code": "64cdff"
+        },
+        "blue": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                25,
+                130,
+                196
+            ],
+            "code": "1982c4"
+        },
+        "dark blue": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                0,
+                95,
+                161
+            ],
+            "code": "005fa1"
+        }
+    },
+    "violet": {
+        "light violet": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                157,
+                75,
+                228
+            ],
+            "code": "9d4be4"
+        },
+        "violet": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                82,
+                0,
+                153
+            ],
+            "code": "520099"
+        },
+        "dark violet": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                47,
+                0,
+                118
+            ],
+            "code": "2f0076"
+        }
+    },
+    "ocean": {
+        "light ocean": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                90,
+                253,
+                245
+            ],
+            "code": "5afdf5"
+        },
+        "ocean": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                15,
+                178,
+                170
+            ],
+            "code": "0fb2aa"
+        },
+        "dark ocean": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                0,
+                143,
+                135
+            ],
+            "code": "008f87"
+        }
+    },
+    "NeonGrey": {
+        "#1A1A1A copy": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                26,
+                26,
+                26
+            ],
+            "code": "1a1a1a"
+        },
+        "#333333 copy": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                51,
+                51,
+                51
+            ],
+            "code": "333333"
+        },
+        "#4C4C4C": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                76,
+                76,
+                76
+            ],
+            "code": "4c4c4c"
+        },
+        "#666666": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                102,
+                102,
+                102
+            ],
+            "code": "666666"
+        },
+        "#999999": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                153,
+                153,
+                153
+            ],
+            "code": "999999"
+        },
+        "#CCCCCC": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                204,
+                204,
+                204
+            ],
+            "code": "cccccc"
+        },
+        "#E6E6E6": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                230,
+                230,
+                230
+            ],
+            "code": "e6e6e6"
+        },
+        "#F2F2F2": {
+            "model": "RGB",
+            "type": 2,
+            "rgb": [
+                242,
+                242,
+                242
+            ],
+            "code": "f2f2f2"
+        }
+    }
+}
