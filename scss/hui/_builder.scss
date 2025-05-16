@@ -105,3 +105,12 @@ $masterList: 0 1 5 25 30 50 75 100 150 200;
     z-index: #{$amount} !important;
   }
 }
+
+//
+// COLOR SCALES
+// easily add color scales to your project
+// Function to determine if color is dark or light based on luminance
+
+// Generate with default label (will use 'red')
+@include generate-color-scale($reds, 'reds');
+@include generate-color-scale($primarys, 'primarys');

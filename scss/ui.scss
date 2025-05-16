@@ -6,22 +6,28 @@
 @use 'sass:string';
 
 //
-// MAIN SITEWIDE STYLES
+// Load Config & Variables
 @import 'hui';
+
 @include fileBanner('hui scss');
 
+// Responsive Font Size
+@import 'hui/root';
 @import 'utilities';
 @import 'bs5';
-
 // HUI AUGMENTATIONS
-@import 'hui/root';
 @import 'hui/builder';
 @import 'hui/bootswatch';
 @import 'hui/typography';
 
 // @TODO: work with this
 // @import 'thirdparty/modularscale';
+
+// Boxicons | minimal blade version
 @import 'thirdparty/boxicons';
+// Manually include only the animations you want in this file
+// Then use the @include for the animation you want to use
+@import 'thirdparty/animate/animate';
 
 // @TODO put everything in here where it should go in the codebase
 .relative {

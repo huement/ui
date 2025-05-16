@@ -199,7 +199,7 @@ $_luminance-list: 0.0008 0.001 0.0011 0.0013 0.0015 0.0017 0.002 0.0022 0.0025
   );
 }
 
-// Color contrast. 
+// Color contrast.
 @function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
   $r: color.channel($color, 'red', $space: rgb);
   $g: color.channel($color, 'green', $space: rgb);
@@ -216,14 +216,20 @@ $_luminance-list: 0.0008 0.001 0.0011 0.0013 0.0015 0.0017 0.002 0.0022 0.0025
 
 // RETURNS THE TEXT COLOR FOR A GIVEN BACKGROUND.
 @function get-contrast-color($color) {
-  $lightContrast: contrast-ratio($color, white);
-  $darkContrast: contrast-ratio($color, black);
+  // Calculate luminance using W3C formula
+  $r: red($color) / 255;
+  $g: green($color) / 255;
+  $b: blue($color) / 255;
 
-  @if ($lightContrast > 4.5 or $darkContrast < 4.5) {
-    @return white;
-  }
+  // Adjust for human perception
+  $r: if($r <= 0.03928, $r / 12.92, pow((($r + 0.055) / 1.055), 2.4));
+  $g: if($g <= 0.03928, $g / 12.92, pow((($g + 0.055) / 1.055), 2.4));
+  $b: if($b <= 0.03928, $b / 12.92, pow((($b + 0.055) / 1.055), 2.4));
 
-  @return black;
+  $luminance: 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
+
+  // Return white for dark backgrounds, black for light
+  @return if($luminance < 0.5, #ffffff, #000000);
 }
 
 // TODO Document Color Palette Functions

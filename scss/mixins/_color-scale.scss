@@ -1,0 +1,25 @@
+// Mixin to generate color scale
+@mixin generate-color-scale($color-map, $label: null) {
+  // If no label provided, derive from map variable name
+  $map-name: str-slice(inspect($color-map), 2, -1); // Get map name
+  $derived-label: str-slice($map-name, 1, -2); // Remove 's' from end
+  $final-label: if($label, $label, $derived-label);
+
+  @each $key, $value in $color-map {
+    // Text color class
+    .text-#{$final-label}-#{$key} {
+      color: $value;
+    }
+
+    // Background color class
+    .bg-#{$final-label}-#{$key} {
+      background-color: $value;
+    }
+
+    // Text color for background class
+    .text-bg-#{$final-label}-#{$key} {
+      background-color: $value;
+      color: get-contrast-color($value);
+    }
+  }
+}
