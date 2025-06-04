@@ -2,7 +2,7 @@
   "name": "@huement/ui",
   "codeName": "mojo",
   "private": false,
-  "version": "0.7.2",
+  "version": "0.7.3",
   "type": "module",
   "sourceType": "module",
   "license": "MPL-2.0",
