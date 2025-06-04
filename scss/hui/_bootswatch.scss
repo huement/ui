@@ -126,6 +126,8 @@ $frosted-opacity: 0.7 !default;
   > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
 .input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n + 3) {
   border-right: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .form-select:not([multiple]) {
@@ -204,13 +206,34 @@ $frosted-opacity: 0.7 !default;
   }
 }
 
+.navbar .nav-link {
+  padding-top: 0.15rem;
+  padding-bottom: 0.2rem;
+}
+
+// Force Icons and SVG to stay on the same lines
+.navbar-nav {
+  a {
+    display: inline-flex;
+    align-items: center; /* Vertically center SVG and text */
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+
+  a svg {
+    display: inline-block; /* Ensure SVG behaves as inline element */
+    vertical-align: middle; /* Align SVG with text */
+  }
+}
+
 // Indicators
 
 .alert {
   @include glass();
   position: relative;
   overflow: hidden;
-  color: $white;
+  color: $mono-100;
+  font-weight: bold;
+  padding-left: 1.5rem;
 
   @each $color, $value in $theme-colors {
     $opacity: 0.7;
@@ -218,7 +241,7 @@ $frosted-opacity: 0.7 !default;
       position: absolute;
       top: 0;
       left: 0;
-      width: 0.5rem;
+      width: 1rem;
       height: 100%;
       content: '';
       background-color: $value;
@@ -246,8 +269,15 @@ $frosted-opacity: 0.7 !default;
   @include glass();
 }
 
+.card-component {
+}
+
 .card {
   @include glass();
+  --bs-card-cap-color: $mono-100;
+  --bs-card-color: $mono-100;
+  border-color: $mono-100;
+  background: $mono-300;
 
   @each $color, $value in $theme-colors {
     @if ($color == secondary) {
@@ -259,10 +289,16 @@ $frosted-opacity: 0.7 !default;
     }
   }
 
-  &.bg-light {
+  .card-header,
+  .card-body {
+    color: $gray-800;
+  }
+
+  &.bg-light,
+  &.text-bg-light {
     .card-header,
     .card-body {
-      color: $gray-800;
+      color: $gray-100;
     }
   }
 
@@ -288,10 +324,41 @@ $frosted-opacity: 0.7 !default;
   }
 }
 
-.accordion-item {
-  @include glass();
-  box-shadow: none;
+// Accordions
+.accordion-button {
+  &:not(.collapsed) {
+    background-color: map.get($violets, 400);
+    color: $mono-900;
+    font-weight: bold;
+  }
 }
+
+.accordion-header {
+  margin-bottom: 0;
+}
+
+.accordion-item {
+  color: $mono-100;
+  background-color: $mono-900;
+  border: none;
+
+  &:first-of-type {
+    > .accordion-header .accordion-button {
+    }
+  }
+
+  &:not(:first-of-type) {
+    border-top: 0;
+  }
+}
+
+.accordion-body {
+}
+
+// .accordion-item {
+//   @include glass();
+//   box-shadow: none;
+// }
 
 .toast {
   @include glass();
@@ -330,7 +397,7 @@ $frosted-opacity: 0.7 !default;
   height: 300px;
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .card-box .card-component {
     height: 450px;
   }
@@ -341,7 +408,7 @@ $frosted-opacity: 0.7 !default;
   max-height: 800px;
 }
 
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .card-box .card-component.card-component-lg {
     max-height: 410px;
   }
@@ -384,7 +451,7 @@ $frosted-opacity: 0.7 !default;
   }
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .card-box {
     width: 260px;
   }

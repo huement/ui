@@ -37,7 +37,7 @@ $blockquote-footer-color: $text-muted !default;
 
 $table-dark-bg: $dark !default;
 $table-dark-border-color: color.adjust($dark, $lightness: -5%) !default;
-
+$table-color: $mono-100;
 $table-bg-scale: 0% !default;
 
 // Buttons + Forms

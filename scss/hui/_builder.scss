@@ -58,7 +58,8 @@
 }
 
 /* SCSS NUMBER LOOPS */
-$masterList: 0 1 5 25 30 50 75 100 150 200;
+$masterList: 0 1 5 10 20 25 30 50 60 75 100 150 200;
+
 @each $amount in $masterList {
   $i: list.index($masterList, $amount);
 
@@ -66,6 +67,7 @@ $masterList: 0 1 5 25 30 50 75 100 150 200;
   .h-#{$amount}px {
     height: #{$amount}px !important;
   }
+
   .w-#{$amount}px {
     width: #{$amount}px !important;
   }
@@ -76,41 +78,15 @@ $masterList: 0 1 5 25 30 50 75 100 150 200;
     height: #{$amount}px;
   }
 
-  // margin l & r
-  .mx-#{$amount} {
-    margin-right: #{$amount}px;
-    margin-left: #{$amount}px;
-  }
-
-  // margin-top
-  .mt-#{$amount} {
-    margin-top: #{$amount}px;
-  }
-
-  // padding-top
-  .pt-#{$amount} {
-    padding-top: #{$amount}px;
-  }
-
-  .py-#{$amount} {
-    padding-top: #{$amount}px;
-    padding-bottom: #{$amount}px;
-  }
-
-  .pa-#{$amount} {
-    padding: #{$amount}px;
-  }
-
   .z-#{$amount} {
     z-index: #{$amount} !important;
   }
 }
 
-//
-// COLOR SCALES
-// easily add color scales to your project
-// Function to determine if color is dark or light based on luminance
-
-// Generate with default label (will use 'red')
-@include generate-color-scale($reds, 'reds');
-@include generate-color-scale($primarys, 'primarys');
+/* Mono Fill Classes */
+@each $key, $value in $mono {
+  .fill-color-mono-#{$key} {
+    fill: $value;
+    color: $value;
+  }
+}

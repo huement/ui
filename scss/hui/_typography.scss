@@ -18,7 +18,7 @@
 //   @include fontFaceSelector($CodeFont, 'code-font-family');
 // }
 
-// @TODO: #001 update HUI to support these variable weight fonts.
+// TODO : #001 update HUI to support these variable weight fonts.
 @include fontFaceSelector($PrimaryFont);
 @include fontFaceSelector($UIFont);
 
@@ -122,4 +122,33 @@ button {
 
 .fill-white {
   fill: #fff;
+}
+
+$masterList: 1 2 3;
+@each $amount in $masterList {
+  $i: list.index($masterList, $amount);
+
+  .limit-lines-#{$amount} {
+    max-height: calc(1.125em * #{$amount});
+    line-height: 1.125;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+    margin-bottom: 0;
+    min-height: 5rem;
+  }
+
+  @supports (-webkit-line-clamp: #{$amount}) {
+    .limit-lines-#{$amount} {
+      display: -webkit-box;
+      -webkit-line-clamp: $amount;
+      line-clamp: $amount;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: initial;
+      max-height: none;
+    }
+  }
 }

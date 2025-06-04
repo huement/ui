@@ -5,6 +5,10 @@
 @use 'sass:meta';
 @use 'sass:string';
 
+// COLORS vs PALETTE FILE
+// This file maps everything from the palette file into nicely named variables and maps.
+// The Palette file is automatically generated based on a JSON theme. This one is manually edited.
+
 // Quartz 5.3.3
 // Bootswatch
 
@@ -329,6 +333,9 @@ $theme-colors: (
   'warning': $warning,
   'danger': $danger,
   'light': $light,
-  'dark': $dark
+  'dark': $dark,
+  'body': $gray-100,
+  'body-secondary': $gray-800,
+  'medium-dark': $gray-300
 ) !default;
 // scss-docs-end theme-colors-map

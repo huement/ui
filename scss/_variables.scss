@@ -81,7 +81,7 @@ $enable-cssgrid: false;
 $enable-button-pointers: true;
 $enable-rfs: true;
 $enable-validation-icons: true;
-$enable-negative-margins: false;
+$enable-negative-margins: true;
 $enable-deprecation-messages: true;
 $enable-important-utilities: true;
 $enable-display-sizes: true;
@@ -91,7 +91,6 @@ $enable-dark-mode: true; // dark is the new default
 $color-mode-type: data; // `data` or `media-query`
 
 $enable-fills: true;
-
 
 // Spacing
 //
@@ -105,7 +104,8 @@ $spacers: (
   2: $spacer * 0.5,
   3: $spacer,
   4: $spacer * 1.5,
-  5: $spacer * 3
+  5: $spacer * 3,
+  10: $spacer * 10
 );
 
 // Caution: Using a large number of various spacings will complicate having a

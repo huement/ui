@@ -6,13 +6,11 @@
 @use 'sass:string';
 
 /**
- * Bootstrap 5 Reboot
+ * Bootstrap 5.3
  */
 @import 'bootstrap/scss/reboot';
-
-/**
- * Bootstrap 5 Grid & Layout
- */
+@import 'bootstrap/scss/type';
+@import 'bootstrap/scss/images';
 @import 'bootstrap/scss/containers';
 @import 'bootstrap/scss/grid';
 
@@ -22,29 +20,29 @@
   margin-right: 0;
   margin-left: 0;
 
-  > .col,
-  > [class*='col-'] {
+  >.col,
+  >[class*='col-'] {
     padding-right: 0;
     padding-left: 0;
   }
 }
 
-.container-fluid {
+.container-fluid.no-gutters {
   padding-left: 0;
   padding-right: 0;
+  --bs-gutter-x: 0rem;
 }
 
 /**
  * Bootstrap 5 Components
  */
-@import 'bootstrap/scss/type';
-@import 'bootstrap/scss/images';
+
 @import 'bootstrap/scss/tables';
-@import 'bootstrap/scss/forms';
 @import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/button-group';
+@import 'bootstrap/scss/forms';
 @import 'bootstrap/scss/transitions';
 @import 'bootstrap/scss/dropdown';
-@import 'bootstrap/scss/button-group';
 @import 'bootstrap/scss/nav';
 @import 'bootstrap/scss/navbar';
 @import 'bootstrap/scss/card';
@@ -60,7 +58,7 @@
 @import 'bootstrap/scss/modal';
 @import 'bootstrap/scss/tooltip';
 @import 'bootstrap/scss/popover';
-@import 'bootstrap/scss/carousel';
+// @import 'bootstrap/scss/carousel';
 @import 'bootstrap/scss/spinners';
 @import 'bootstrap/scss/offcanvas';
-@import 'bootstrap/scss/placeholders';
+// @import 'bootstrap/scss/placeholders';

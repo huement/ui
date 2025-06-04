@@ -20,7 +20,7 @@
 @import 'hui/bootswatch';
 @import 'hui/typography';
 
-// @TODO: work with this
+// TODO : work with this
 // @import 'thirdparty/modularscale';
 
 // Boxicons | minimal blade version
@@ -29,11 +29,9 @@
 // Then use the @include for the animation you want to use
 @import 'thirdparty/animate/animate';
 
-// @TODO put everything in here where it should go in the codebase
-.relative {
-  position: relative;
-}
+@include debuggerUI();
 
+// @TODO put everything in here where it should go in the codebase
 .b-hug {
   margin-bottom: -4px;
 }
@@ -86,6 +84,10 @@
   z-index: 9;
 }
 
+a .btn.mx-auto.d-block {
+  text-decoration: none !important;
+}
+
 .nice-shadow {
   box-shadow:
     0 1px 1px hsl(0deg 0% 0% / 0.075),
@@ -95,28 +97,17 @@
     0 16px 16px hsl(0deg 0% 0% / 0.075);
 }
 
+.text-center {
+  text-align: center !important;
+  display: block !important;
+}
+
 .float-end {
   float: right;
 }
 
 .float-start {
   float: left;
-}
-
-.float-none {
-  float: none;
-}
-
-/* SOCIAL MEDIA */
-.share-buttons-component,
-.share-buttons-mini-component {
-  svg {
-    fill: #fff;
-  }
-
-  .dropdown-header {
-    color: $mono-100;
-  }
 }
 
 .btn-facebook {
@@ -220,7 +211,7 @@
   }
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .section {
     position: relative;
     padding-top: 6rem;
@@ -254,8 +245,13 @@
   }
 }
 
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .section-hero {
     height: 100vh;
   }
+}
+
+.img-cap {
+  border-top-left-radius: 0.3125rem;
+  border-top-right-radius: 0.3125rem;
 }

@@ -1,0 +1,101 @@
+$debug-font: -apple-system, BlinkMacSystemFont, 'Arial', sans-serif !default;
+$debug-txt-color: #000 !default;
+$debug-font-size: 16px !default;
+$debug-line-height: 1.8 !default;
+
+$debug-position-bottom: 20px !default;
+$debug-position-right: 20px !default;
+$debug-border-radius: 8px !default;
+$debug-zindex: 999999 !default;
+
+@mixin mediaqDebug($breakpoint, $bgColor, $content) {
+  .mediaq.#{$breakpoint}-debug {
+    background-color: $bgColor;
+
+    &:before {
+      content: $content;
+    }
+  }
+}
+
+@mixin gridPaperBackground() {
+  /* GRID PAPER BACKGROUND */
+  body {
+    background-color: #111;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.07) 2px,
+        transparent 2px
+      ),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.07) 2px, transparent 2px),
+      linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size:
+      100px 100px,
+      100px 100px,
+      20px 20px,
+      20px 20px;
+    background-position:
+      -2px -2px,
+      -2px -2px,
+      -1px -1px,
+      -1px -1px;
+  }
+}
+
+@mixin debuggerUI($gridBG: false) {
+  @if $gridBG == true {
+    @include gridPaperBackground();
+  }
+
+  // Base styles for .mediaq
+  .mediaq {
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px inset rgba(0, 0, 0, 0.25);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    color: #000;
+    font-family: 'Space Grotesk', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.8;
+    position: fixed;
+    pointer-events: none;
+    padding: 0.25rem 0.5rem;
+    right: 20px;
+    white-space: pre-wrap;
+    text-transform: capitalize;
+    bottom: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 999999;
+  }
+
+  // Apply the mixin for each breakpoint
+  @include mediaqDebug(xs, $red-500, '[XS] <= 575');
+
+  @media (min-width: 576px) {
+    @include mediaqDebug(sm, $coral-500, '[SM] 576 - 767');
+  }
+
+  @include media-breakpoint-up(md) {
+    @include mediaqDebug(md, $yellow-500, '[MD] 768 - 991');
+  }
+
+  @include media-breakpoint-up(lg) {
+    @include mediaqDebug(lg, $green-500, '[LG] 992 - 1199');
+  }
+
+  @media (min-width: 1200px) {
+    @include mediaqDebug(xl, $blue-500, '[XL] 1200 - 1399');
+  }
+
+  @media (min-width: 1400px) {
+    @include mediaqDebug(xxl, $violet-700, '[XXL] 1400+');
+  }
+}
