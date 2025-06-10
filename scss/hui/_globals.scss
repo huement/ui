@@ -27,16 +27,16 @@ $MAJOR_TWELFTH: 3;
 $DOUBLE_OCTAVE: 4;
 
 $aspect-ratios: (
-  "1x1": 100%,
-  "4x3": calc(3 / 4 * 100%),
-  "16x9": calc(9 / 16 * 100%),
-  "21x9": calc(9 / 21 * 100%),
+  '1x1': 100%,
+  '4x3': calc(3 / 4 * 100%),
+  '16x9': calc(9 / 16 * 100%),
+  '21x9': calc(9 / 21 * 100%)
 );
 
 $position-values: (
   0: 0,
   50: 50%,
-  100: 100%,
+  100: 100%
 );
 
 //============================================================
@@ -51,7 +51,7 @@ $MonoStack: sfmono-regular, menlo, monaco, consolas, "Andale Mono", "Ubuntu Mono
 // prettier-ignore
 $SerifStack: "Iowan Old Style", "Apple Garamond", baskerville, "Times New Roman", "Droid Serif", times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
-$not-integer-txt: " value breaks vertical rhythm. Use an integer (whole number) for $lines.";
+$not-integer-txt: ' value breaks vertical rhythm. Use an integer (whole number) for $lines.';
 
 // Social Media color codes for a lot of sites
 $SocialColors: (
@@ -87,7 +87,7 @@ $SocialColors: (
   weibo: #d72b2b,
   windows: #12b6f3,
   xing: #00555c,
-  youtube: #c52f30,
+  youtube: #c52f30
 );
 
 // only include the icons we want
@@ -131,7 +131,7 @@ $zindex-levels: (
   0: 0,
   1: 1,
   2: 2,
-  3: 3,
+  3: 3
 );
 // scss-docs-end zindex-levels-map
 

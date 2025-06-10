@@ -22,7 +22,7 @@ $PrimaryFont: (
   style: normal,
   selector: 'html, body, p, li, b, i, strong, mark, td, th',
   stack: $SansStack,
-  display: swap,
+  display: swap
 );
 
 // $HeadingFont: (
@@ -37,7 +37,7 @@ $HeadingFont: (
   style: bold,
   selector: 'h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6',
   stack: $SansStack,
-  display: swap,
+  display: swap
 );
 
 $UIFont: (
@@ -49,7 +49,7 @@ $UIFont: (
   style: normal,
   selector: '.btn, a, button',
   stack: $SansStack,
-  display: swap,
+  display: swap
 );
 
 $CodeFont: (
@@ -62,5 +62,5 @@ $CodeFont: (
   selector:
     'code, pre, samp, kbd, caption, blockquote, cite, .code-block, .code-block p, aside, label, legend, .quote',
   stack: $MonoStack,
-  display: swap,
+  display: swap
 );

@@ -15,7 +15,7 @@ $theme-colors-text: (
   'warning': $warning-text-emphasis,
   'danger': $danger-text-emphasis,
   'light': $light-text-emphasis,
-  'dark': $dark-text-emphasis,
+  'dark': $dark-text-emphasis
 ) !default;
 // scss-docs-end theme-text-map
 
@@ -28,7 +28,7 @@ $theme-colors-bg-subtle: (
   'warning': $warning-bg-subtle,
   'danger': $danger-bg-subtle,
   'light': $light-bg-subtle,
-  'dark': $dark-bg-subtle,
+  'dark': $dark-bg-subtle
 ) !default;
 // scss-docs-end theme-bg-subtle-map
 
@@ -41,7 +41,7 @@ $theme-colors-border-subtle: (
   'warning': $warning-border-subtle,
   'danger': $danger-border-subtle,
   'light': $light-border-subtle,
-  'dark': $dark-border-subtle,
+  'dark': $dark-border-subtle
 ) !default;
 // scss-docs-end theme-border-subtle-map
 
@@ -59,7 +59,7 @@ $theme-colors-border-subtle-dark: null !default;
     'warning': $warning-text-emphasis-dark,
     'danger': $danger-text-emphasis-dark,
     'light': $light-text-emphasis-dark,
-    'dark': $dark-text-emphasis-dark,
+    'dark': $dark-text-emphasis-dark
   ) !default;
   // scss-docs-end theme-text-dark-map
 
@@ -72,7 +72,7 @@ $theme-colors-border-subtle-dark: null !default;
     'warning': $warning-bg-subtle-dark,
     'danger': $danger-bg-subtle-dark,
     'light': $light-bg-subtle-dark,
-    'dark': $dark-bg-subtle-dark,
+    'dark': $dark-bg-subtle-dark
   ) !default;
   // scss-docs-end theme-bg-subtle-dark-map
 
@@ -85,7 +85,7 @@ $theme-colors-border-subtle-dark: null !default;
     'warning': $warning-border-subtle-dark,
     'danger': $danger-border-subtle-dark,
     'light': $light-border-subtle-dark,
-    'dark': $dark-border-subtle-dark,
+    'dark': $dark-border-subtle-dark
   ) !default;
   // scss-docs-end theme-border-subtle-dark-map
 }
@@ -105,7 +105,7 @@ $utilities-text: map.merge(
   (
     'black': to-rgb($black),
     'white': to-rgb($white),
-    'body': to-rgb($body-color),
+    'body': to-rgb($body-color)
   )
 ) !default;
 $utilities-text-colors: map-loop(
@@ -123,7 +123,7 @@ $utilities-text-emphasis-colors: (
   'warning-emphasis': var(--#{$prefix}warning-text-emphasis),
   'danger-emphasis': var(--#{$prefix}danger-text-emphasis),
   'light-emphasis': var(--#{$prefix}light-text-emphasis),
-  'dark-emphasis': var(--#{$prefix}dark-text-emphasis),
+  'dark-emphasis': var(--#{$prefix}dark-text-emphasis)
 ) !default;
 // scss-docs-end utilities-text-colors
 
@@ -133,7 +133,7 @@ $utilities-bg: map.merge(
   (
     'black': to-rgb($black),
     'white': to-rgb($white),
-    'body': to-rgb($body-bg),
+    'body': to-rgb($body-bg)
   )
 ) !default;
 $utilities-bg-colors: map-loop(
@@ -151,7 +151,7 @@ $utilities-bg-subtle: (
   'warning-subtle': var(--#{$prefix}warning-bg-subtle),
   'danger-subtle': var(--#{$prefix}danger-bg-subtle),
   'light-subtle': var(--#{$prefix}light-bg-subtle),
-  'dark-subtle': var(--#{$prefix}dark-bg-subtle),
+  'dark-subtle': var(--#{$prefix}dark-bg-subtle)
 ) !default;
 // scss-docs-end utilities-bg-colors
 
@@ -160,7 +160,7 @@ $utilities-border: map.merge(
   $utilities-colors,
   (
     'black': to-rgb($black),
-    'white': to-rgb($white),
+    'white': to-rgb($white)
   )
 ) !default;
 $utilities-border-colors: map-loop(
@@ -178,7 +178,7 @@ $utilities-border-subtle: (
   'warning-subtle': var(--#{$prefix}warning-border-subtle),
   'danger-subtle': var(--#{$prefix}danger-border-subtle),
   'light-subtle': var(--#{$prefix}light-border-subtle),
-  'dark-subtle': var(--#{$prefix}dark-border-subtle),
+  'dark-subtle': var(--#{$prefix}dark-border-subtle)
 ) !default;
 // scss-docs-end utilities-border-colors
 

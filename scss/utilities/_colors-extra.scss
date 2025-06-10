@@ -15,7 +15,16 @@
       fill: $value;
     }
   }
+
+  @each $color, $value in $mono {
+    .fill-mono-#{$color} {
+      fill: $value;
+    }
+  }
+
 }
+
+@include generate-color-scale($mono, 'mono');
 
 @if $enable-gradients {
   @each $color, $value in $theme-colors {

@@ -7,7 +7,7 @@
 @use 'sass:string';
 
 /// Start off by loading all the Bootstrap Functions and then any additional HUI Functions
-@import 'bootstrap/scss/functions';
+@import '~bootstrap/scss/functions';
 
 ///   Superclass
 ///  --------------------

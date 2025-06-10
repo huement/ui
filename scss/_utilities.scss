@@ -308,7 +308,7 @@ $utilities: map.merge(('align': (property: vertical-align,
     $utilities
 );
 
-@import 'bootstrap/scss/utilities/api';
+@import '~bootstrap/scss/utilities/api';
 
 @import 'utilities/bs-helpers';
 @import 'utilities/colors-extra';
