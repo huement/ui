@@ -83,8 +83,10 @@ function init() {
 // tf.assembleFontFiles()
 init()
 
-if (resultList.length > 1) {
+if (resultList.length >= 1) {
   textUI.taskTxt(resultList.join(' ') + ' tasks ran')
+} else {
+  textUI.infoTxt('ZERO tasks ran')
 }
 
 // TODO: icon build

@@ -21,7 +21,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "bump": "node ./bin/bump.cjs && npm run stats",
-    "newVersion": "npm version patch && npx npm-run-all -l -s -c  build:icons build:js build deploy stats",
+    "newVersion": "npm version patch && npx npm-run-all -l -s -c build:js build deploy stats",
     "dev": "nodemon -x \"npm run build\"",
     "scss": "sass --verbose --quiet-deps --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css scss:dist && npm run bump",
     "build": "npx npm-run-all -lsc scss minify postfix",
@@ -31,7 +31,7 @@
     "build:colors": "node bin/cli.cjs color",
     "build:chords": "node bin/cli.cjs chord",
     "deployDO": "node bin/s3sync.cjs",
-    "deploy": "npm login && npm version patch && npm publish --access public",
+    "deploy": "npm login && npm publish --access public",
     "lint": "stylelint --fix scss/**/*.{css,scss} --formatter verbose --config .stylelintrc.json --cache --cache-location .cache/.stylelintcache",
     "lint:js": "eslint --fix --config .eslintrc.cjs js/*.js js/**/*.js",
     "postfix": "postcss --config postcss.config.cjs --replace dist/ui.min.css",

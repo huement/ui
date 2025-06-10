@@ -10,17 +10,13 @@
 
 > using Bootstrap 5 to create a 'visually pleasing' harmonic layout. Content focused with a neat typographic system.
 
-**@huement/ui** aka **hui**, really shines when used in a text heavy content setting, such as a blog page, where it can greatly improve the overall reading experience.
-
-**hui** is easily configured via `SCSS $_Variables`. You know the drill, load in your custom variables, then build with `npm run build:css` to produce a CSS file _(and optionally a custom SVG based icon font with build:icons)_. Simply load that resulting CSS file into whatever HTML5 based application you're developing and you're good to go! Alternatively before you run any code, you can install the precompiled CSS provided in the repo, or play around with the kitchensink HTML demo, either way are a great way to try things out first.
-
 ------------------------
 
-**SPECIAL NOTE**
+**Abstract**
 
-HUI is a passion project that has gone through a couple revisions. It finally has a roadmap to completion and is activly being worked into a state where other users might find it useful. Please check back soon, sometime after Q1 2025.
+**@huement/ui** aka **hui**, really shines when used in a text heavy content setting, such as a blog page, where it can greatly improve the overall reading experience.
 
-The current version 0.5.0 is getting close to being able to be used. When I do an actual release, it MIGHT be worth your time, until then, I would avoid using this for anything besides messing about because it is subject to breaking changes.
+**hui** is easily configured via SCSS `$_Variables`. You know the drill, load in your custom variables, then build with `npm run build` to produce a CSS file. Simply load that resulting CSS file into whatever HTML5 based application you're developing and you're good to go! Alternatively before you run any code, you can install the precompiled CSS provided in the repo, or play around with the kitchensink HTML demo, either way are a great way to try things out first.
 
 ------------------------
 
@@ -42,20 +38,22 @@ The current version 0.5.0 is getting close to being able to be used. When I do a
 
 hui is designed to be SIMPLE! The folder structure is a testament to that principle.
 
-1. **bin** ❱ command line scripts
-2. **dist** ❱ finalized output
-3. **public** ❱ static files
-4. **src** ❱ SCSS framework
-5. **tokens** ❱ design variables
-6. **web** ❱ documentation & demo content
+1. **bin** ❱ command line scripts used to build the library
+2. **dist** ❱ finalized output with built css & js
+3. **js** ❱ javascript portion of the framework
+4. **scss** ❱ SCSS stylesheet part of the framework
+5. **tokens** ❱ design tokens containing colors and fonts etc.
 
 > NOTES:
-> • Everything in the public folder is copied to the /dist/ folder on build.
 > • /dist/ is routinely deleted. Never attempt to make a permanent change to anything in that folder directly. Modify /scss/ and rebuild.
 
 ------------------------
 
 ## ━▶ INSTALLING
+
+```shell
+ $ npm install @huement/ui
+```
 
 > TODO: npm install (needs to be added to npm)
 > TODO: HTML snippets < link href='' />
@@ -109,6 +107,6 @@ By treating each screen size as a different chords, it helps you keep in mind no
 
 ```
  @huement/ui |  HUEMENT USER INTERFACE
-     version |  0.5.*
+     version |  0.8.*
     codename |  mojo
 ```
