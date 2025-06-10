@@ -27,7 +27,7 @@
 @import 'thirdparty/boxicons';
 // Manually include only the animations you want in this file
 // Then use the @include for the animation you want to use
-@import 'thirdparty/animate/animate';
+// @import 'thirdparty/animate/animate';
 
 @include debuggerUI();
 
@@ -66,6 +66,7 @@
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }

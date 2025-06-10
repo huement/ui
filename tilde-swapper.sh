@@ -41,13 +41,14 @@ echo -e "${GREEN}Running in ${YELLOW}${scriptMode}${GREEN} mode${NC}"
 echo -e "${GREEN}${scriptDetails}${NC}"
 echo -e "${BLUE}${SEPARATOR}${NC}"
 
+TOTAL=0
 
 # Find all .scss files recursively and process them
 find "$1" -type f -name "*.scss" | while read -r file; do
     echo -e "${BLUE}Processing:${NC} $file"
     
     # Check if the file contains the bootstrap import
-    if grep -q "@import 'bootstrap/scss" "$file"; then
+    if grep -q "bootstrap/scss" "$file"; then
         # Create a temporary file
         temp_file=$(mktemp)
         
@@ -62,12 +63,14 @@ find "$1" -type f -name "*.scss" | while read -r file; do
         mv "$temp_file" "$file"
         
         echo -e "${GREEN}✓ Updated:${NC} $file"
+        ((TOTAL++))
     else
         echo -e "${YELLOW}⚠ Skipped:${NC} $file (no bootstrap import found)"
     fi
 done
 
 echo -e "${BLUE}${SEPARATOR}${NC}"
-echo -e "${GREEN}Processing complete.${NC}"
+echo -e "${GREEN}FINSIHED | $TOTAL FILES CHANGED ${NC}"
+echo -e "${GREEN}MODE: $scriptMode${NC}"
 echo -e "${BLUE}${SEPARATOR}${NC}" 
 
