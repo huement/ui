@@ -3,12 +3,10 @@
 
 // Variables
 
-$body-bg-image: linear-gradient(
-  90deg,
-  shade-color($cyan, 10%),
-  shade-color($purple, 10%),
-  shade-color($pink, 5%)
-) !default;
+$body-bg-image: linear-gradient(90deg,
+    shade-color($cyan, 10%),
+    shade-color($purple, 10%),
+    shade-color($pink, 5%)) !default;
 $frosted-opacity: 0.7 !default;
 
 // Mixins
@@ -32,11 +30,9 @@ $frosted-opacity: 0.7 !default;
 
 @mixin frost($opacity: $frosted-opacity, $bg: $white) {
   background-color: transparent;
-  background-image: linear-gradient(
-    125deg,
-    rgba($bg, ($opacity)),
-    rgba($bg, ($opacity - 0.1)) 70%
-  );
+  background-image: linear-gradient(125deg,
+      rgba($bg, ($opacity)),
+      rgba($bg, ($opacity - 0.1)) 70%);
   backdrop-filter: blur(5px);
 }
 
@@ -76,13 +72,13 @@ $frosted-opacity: 0.7 !default;
   }
 }
 
-.btn-group > .btn:not(:first-child),
-.btn-group > .btn-group:not(:first-child) {
+.btn-group>.btn:not(:first-child),
+.btn-group>.btn-group:not(:first-child) {
   margin-left: 0;
 }
 
-.btn-group-vertical > .btn:not(:first-child),
-.btn-group-vertical > .btn-group:not(:first-child) {
+.btn-group-vertical>.btn:not(:first-child),
+.btn-group-vertical>.btn-group:not(:first-child) {
   margin-top: 0;
 }
 
@@ -95,11 +91,9 @@ $frosted-opacity: 0.7 !default;
 .input-group-text,
 .form-control::file-selector-button {
   background-color: transparent;
-  background-image: linear-gradient(
-    125deg,
-    rgba($white, 0.3),
-    rgba($white, 0.2) 70%
-  );
+  background-image: linear-gradient(125deg,
+      rgba($white, 0.3),
+      rgba($white, 0.2) 70%);
   backdrop-filter: blur(5px);
   border: none;
 }
@@ -114,17 +108,13 @@ $frosted-opacity: 0.7 !default;
     inset -1px -1px rgba($white, 0.1);
 }
 
-.input-group
-  > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(
-    .valid-feedback
-  ):not(.invalid-tooltip):not(.invalid-feedback) {
+.input-group> :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
   margin-left: 0;
   border-left: none;
 }
 
-.input-group:not(.has-validation)
-  > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
-.input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n + 3) {
+.input-group:not(.has-validation)> :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
+.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n + 3) {
   border-right: none;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -169,11 +159,11 @@ $frosted-opacity: 0.7 !default;
     }
   }
 
-  .nav-item:first-child > .nav-link {
+  .nav-item:first-child>.nav-link {
     border-radius: $border-radius 0 0 $border-radius;
   }
 
-  .nav-item:last-child > .nav-link {
+  .nav-item:last-child>.nav-link {
     border-radius: 0 $border-radius $border-radius 0;
   }
 
@@ -206,6 +196,10 @@ $frosted-opacity: 0.7 !default;
   }
 }
 
+.navbar.fixed-top {
+  position: fixed !important;
+}
+
 .navbar .nav-link {
   padding-top: 0.15rem;
   padding-bottom: 0.2rem;
@@ -215,13 +209,17 @@ $frosted-opacity: 0.7 !default;
 .navbar-nav {
   a {
     display: inline-flex;
-    align-items: center; /* Vertically center SVG and text */
-    white-space: nowrap; /* Prevent text wrapping */
+    align-items: center;
+    /* Vertically center SVG and text */
+    white-space: nowrap;
+    /* Prevent text wrapping */
   }
 
   a svg {
-    display: inline-block; /* Ensure SVG behaves as inline element */
-    vertical-align: middle; /* Align SVG with text */
+    display: inline-block;
+    /* Ensure SVG behaves as inline element */
+    vertical-align: middle;
+    /* Align SVG with text */
   }
 }
 
@@ -237,6 +235,7 @@ $frosted-opacity: 0.7 !default;
 
   @each $color, $value in $theme-colors {
     $opacity: 0.7;
+
     &-#{$color}::after {
       position: absolute;
       top: 0;
@@ -269,8 +268,7 @@ $frosted-opacity: 0.7 !default;
   @include glass();
 }
 
-.card-component {
-}
+.card-component {}
 
 .card {
   @include glass();
@@ -280,9 +278,11 @@ $frosted-opacity: 0.7 !default;
   background: $mono-300;
 
   @each $color, $value in $theme-colors {
-    @if ($color == secondary) {
+    @if ($color ==secondary) {
       --bs-secondary-rgb: transparent;
-    } @else {
+    }
+
+    @else {
       &.bg-#{$color} {
         background-image: none;
       }
@@ -296,6 +296,7 @@ $frosted-opacity: 0.7 !default;
 
   &.bg-light,
   &.text-bg-light {
+
     .card-header,
     .card-body {
       color: $gray-100;
@@ -311,7 +312,7 @@ $frosted-opacity: 0.7 !default;
           background-color: $value !important;
           border-bottom: none;
 
-          @if ($color == light) {
+          @if ($color ==light) {
             color: $gray-800;
           }
         }
@@ -343,8 +344,7 @@ $frosted-opacity: 0.7 !default;
   border: none;
 
   &:first-of-type {
-    > .accordion-header .accordion-button {
-    }
+    >.accordion-header .accordion-button {}
   }
 
   &:not(:first-of-type) {
@@ -352,8 +352,7 @@ $frosted-opacity: 0.7 !default;
   }
 }
 
-.accordion-body {
-}
+.accordion-body {}
 
 // .accordion-item {
 //   @include glass();
