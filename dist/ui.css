@@ -14405,226 +14405,6 @@ h6 a,
     line-height: 14.4px;
   }
 }
-.title,
-.subtitle {
-  font-feature-settings: "kern", "liga", "clig", "calt", "dlig";
-  font-kerning: normal;
-  font-variant-ligatures: common-ligatures, contextual, discretionary-ligatures;
-  word-break: break-word;
-  text-rendering: optimizelegibility;
-}
-.title em,
-.title span,
-.subtitle em,
-.subtitle span {
-  font-weight: inherit;
-}
-.title sub,
-.subtitle sub {
-  font-size: 75%;
-}
-.title sup,
-.subtitle sup {
-  font-size: 75%;
-}
-.title .tag,
-.subtitle .tag {
-  vertical-align: middle;
-}
-
-.title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: 0.5px;
-  font-family: "Jost";
-}
-.title strong {
-  font-weight: inherit;
-  letter-spacing: 0.75px;
-}
-.title.title-1 {
-  font-size: control-scale(5.05rem, 3.05rem);
-}
-.title.title-2 {
-  font-size: control-scale(4.44rem, 2.44rem);
-}
-.title.title-3 {
-  font-size: control-scale(3.95rem, 1.95rem);
-}
-.title.title-4 {
-  font-size: control-scale(3.56rem, 1.56rem);
-}
-.title.title-5 {
-  font-size: control-scale(3.25rem, 1.25rem);
-}
-.title.title-6 {
-  font-size: control-scale(3rem, 1rem);
-}
-
-.subtitle {
-  margin-top: -1.6rem;
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 1.6;
-  letter-spacing: 2px;
-  font-family: "Jost";
-}
-.subtitle.make-spaced {
-  margin-top: 0.5rem;
-  letter-spacing: 3.5px;
-}
-.subtitle strong {
-  font-weight: 500;
-}
-.subtitle.title-1 {
-  font-size: control-scale(3.55rem, 3.05rem);
-}
-.subtitle.title-2 {
-  font-size: control-scale(2.94rem, 2.44rem);
-}
-.subtitle.title-3 {
-  font-size: control-scale(2.45rem, 1.95rem);
-}
-.subtitle.title-4 {
-  font-size: control-scale(2.06rem, 1.56rem);
-}
-.subtitle.title-5 {
-  font-size: control-scale(1.75rem, 1.25rem);
-}
-.subtitle.title-6 {
-  font-size: control-scale(1.5rem, 1rem);
-}
-
-.display-1 {
-  font-size: 5rem;
-}
-
-.display-2 {
-  font-size: 4.5rem;
-}
-
-.display-3 {
-  font-size: 4rem;
-}
-
-.display-4 {
-  font-size: 3.5rem;
-}
-
-.display-5 {
-  font-size: 3rem;
-}
-
-.display-6 {
-  font-size: 2.5rem;
-}
-
-@media (min-width: 576px) {
-  .display-sm-1 {
-    font-size: 5.5rem;
-  }
-  .display-sm-2 {
-    font-size: 4.95rem;
-  }
-  .display-sm-3 {
-    font-size: 4.4rem;
-  }
-  .display-sm-4 {
-    font-size: 3.85rem;
-  }
-  .display-sm-5 {
-    font-size: 3.3rem;
-  }
-  .display-sm-6 {
-    font-size: 2.75rem;
-  }
-}
-@media (min-width: 768px) {
-  .display-md-1 {
-    font-size: 6rem;
-  }
-  .display-md-2 {
-    font-size: 5.4rem;
-  }
-  .display-md-3 {
-    font-size: 4.8rem;
-  }
-  .display-md-4 {
-    font-size: 4.2rem;
-  }
-  .display-md-5 {
-    font-size: 3.6rem;
-  }
-  .display-md-6 {
-    font-size: 3rem;
-  }
-}
-@media (min-width: 992px) {
-  .display-lg-1 {
-    font-size: 6.5rem;
-  }
-  .display-lg-2 {
-    font-size: 5.85rem;
-  }
-  .display-lg-3 {
-    font-size: 5.2rem;
-  }
-  .display-lg-4 {
-    font-size: 4.55rem;
-  }
-  .display-lg-5 {
-    font-size: 3.9rem;
-  }
-  .display-lg-6 {
-    font-size: 3.25rem;
-  }
-}
-@media (min-width: 1200px) {
-  .display-xl-1 {
-    font-size: 7rem;
-  }
-  .display-xl-2 {
-    font-size: 6.3rem;
-  }
-  .display-xl-3 {
-    font-size: 5.6rem;
-  }
-  .display-xl-4 {
-    font-size: 4.9rem;
-  }
-  .display-xl-5 {
-    font-size: 4.2rem;
-  }
-  .display-xl-6 {
-    font-size: 3.5rem;
-  }
-}
-@media (min-width: 1400px) {
-  .display-xx-1 {
-    font-size: 7.5rem;
-  }
-  .display-xx-2 {
-    font-size: 6.75rem;
-  }
-  .display-xx-3 {
-    font-size: 6rem;
-  }
-  .display-xx-4 {
-    font-size: 5.25rem;
-  }
-  .display-xx-5 {
-    font-size: 4.5rem;
-  }
-  .display-xx-6 {
-    font-size: 3.75rem;
-  }
-}
-[class^="display-*"] {
-  font-weight: 300;
-  line-height: 1;
-}
-
 /** Typography Extras */
 .fraction {
   font-feature-settings: "kern", "liga", "clig", "calt", "frac";
@@ -14742,6 +14522,166 @@ h6 a,
 
 .oldstyle-numerals {
   font-feature-settings: "onum" 1, "kern" 1;
+}
+
+:root {
+  --quote-text-color: #4f4f4f;
+  --quote-bg-color: #ededed;
+  --quote-border-color: #ccc;
+  --quote-accent-color: #78c0a8;
+}
+
+blockquote.styled {
+  position: relative;
+  width: 60%;
+  padding: 1.2rem;
+  margin: 3rem auto;
+  font-size: 1.4em;
+  line-height: 1.6;
+  color: var(--quote-text-color);
+}
+blockquote.styled cite {
+  display: block;
+  margin-top: 1em;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--quote-text-color);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+blockquote.styled.bubble {
+  padding: 1.2em 30px 1.2em 1.6em;
+  font-style: italic;
+  background: var(--quote-bg-color);
+  border-left: 1em solid var(--quote-accent-color);
+}
+blockquote.styled.bubble::before {
+  position: absolute;
+  top: 42%;
+  left: -0.42em;
+  z-index: 99;
+  width: 0.6em;
+  height: 0.6em;
+  font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 4em;
+  line-height: 1.1em;
+  color: #fff;
+  content: "“";
+  background: var(--quote-accent-color);
+  border-radius: 50%;
+}
+blockquote.styled.bubble::after {
+  content: "";
+}
+blockquote.styled.bubble cite {
+  color: #828282;
+}
+blockquote.styled.brackets {
+  position: relative;
+  display: block;
+  padding: 1em;
+  background-color: var(--quote-bg-color);
+  border: solid 1em #ccc;
+}
+blockquote.styled.brackets::before, blockquote.styled.brackets::after {
+  position: absolute;
+  right: 2em;
+  left: 2em;
+  z-index: 0;
+  height: 1em;
+  content: "";
+  background-color: #212121;
+}
+blockquote.styled.brackets::before {
+  top: -1em;
+  bottom: -1em;
+}
+blockquote.styled.brackets::after {
+  top: 100%;
+  bottom: -1em;
+}
+blockquote.styled.brackets cite {
+  display: block;
+  font-size: small;
+  font-style: normal;
+  color: #757575;
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.13rem;
+}
+blockquote.styled.brackets > * {
+  position: relative;
+  z-index: 1;
+}
+blockquote.styled.small {
+  font-size: 1em;
+}
+blockquote.styled.small cite {
+  font-size: 0.8em;
+}
+blockquote.styled.large {
+  font-size: 2.6em;
+  line-height: 1.6;
+}
+blockquote.styled.large cite {
+  font-size: 0.8em;
+  line-height: 1.6;
+  color: #828282;
+  letter-spacing: 0.1em;
+}
+blockquote.styled.type2 {
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+  background-color: #f5f5f5;
+  border-left: 5px solid #dbdbdb;
+  border-radius: 3px;
+}
+blockquote.styled.type2 p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+blockquote.styled.type2 cite {
+  opacity: 0.7;
+}
+
+.quote {
+  display: inline-block;
+  margin: 1em;
+  overflow: hidden;
+  font-family: "Space Grotesk";
+  font-weight: 300;
+}
+.quote blockquote {
+  position: relative;
+  display: inline-block;
+  padding: 1em;
+  margin: 0;
+  background-color: #212121;
+  border: solid 2px #050505;
+}
+.quote blockquote::before {
+  position: absolute;
+  top: -10%;
+  right: 0;
+  bottom: -10%;
+  left: 0;
+  content: "";
+  background-color: #212121;
+  transform: rotate(-15deg) skew(5deg);
+}
+.quote blockquote cite {
+  display: block;
+  font-style: italic;
+  text-align: right;
+}
+.quote blockquote cite::before {
+  content: "- ";
+}
+.quote blockquote > * {
+  position: relative;
+  z-index: 1;
 }
 
 code {

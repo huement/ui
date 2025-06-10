@@ -4,14 +4,11 @@ $quote-border-color: #ccc !default;
 $quote-accent-color: #78c0a8 !default;
 $page-bg: #fff;
 
-@include cssvars(
-  (
-    quote-text-color: $quote-text-color,
+@include cssvars((quote-text-color: $quote-text-color,
     quote-bg-color: $quote-bg-color,
     quote-border-color: $quote-border-color,
     quote-accent-color: $quote-accent-color,
-  )
-);
+  ));
 
 blockquote.styled {
   position: relative;
@@ -81,7 +78,7 @@ blockquote.styled {
       z-index: 0;
       height: 1em;
       content: "";
-      background-color: $body;
+      background-color: $body-bg;
     }
 
     &::before {
@@ -104,7 +101,7 @@ blockquote.styled {
       letter-spacing: .13rem;
     }
 
-    > * {
+    >* {
       position: relative;
       z-index: 1;
     }
@@ -153,12 +150,16 @@ blockquote.styled {
   display: inline-block;
   margin: 1em;
   overflow: hidden;
+
   @if global-variable-exists(CodeFont) {
     $preFont: map.get($CodeFont, family);
     font-family: $preFont;
-  } @else {
+  }
+
+  @else {
     font-family: $MonoStack;
   }
+
   font-weight: 300;
 
   blockquote {
@@ -166,8 +167,9 @@ blockquote.styled {
     display: inline-block;
     padding: 1em;
     margin: 0;
-    background-color: $body;
-    border: solid 2px $border;
+    background-color: $body-bg;
+    border: solid 2px $mono-100;
+
     &::before {
       position: absolute;
       top: -10%;
@@ -175,18 +177,21 @@ blockquote.styled {
       bottom: -10%;
       left: 0;
       content: "";
-      background-color: $body-dark;
+      background-color: $mono-200;
       transform: rotate(-15deg) skew(5deg);
     }
+
     cite {
       display: block;
       font-style: italic;
       text-align: right;
+
       &::before {
         content: "- ";
       }
     }
-    > * {
+
+    >* {
       position: relative;
       z-index: 1;
     }

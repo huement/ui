@@ -28,6 +28,7 @@
   &.w300 {
     font-weight: 300;
   }
+
   &.w700 {
     font-weight: 700;
   }
@@ -39,6 +40,7 @@
   &.w300 {
     font-weight: 300;
   }
+
   &.w700 {
     font-weight: 700;
   }
@@ -91,11 +93,11 @@ button {
 @import 'harmony/headings';
 @include Harmonic_Headings_Core();
 @include Harmonic_Headings_Breakpoints();
-@import 'harmony/title';
 
 /** Typography Extras */
 @import 'harmony/typesetting';
-// @import "harmony/quotes"; TODO: This needs HTML docs / examples to confirm working
+// Quotes Added
+@import "harmony/quotes";
 @import 'harmony/code';
 @import 'harmony/content';
 @import 'harmony/hero';
@@ -125,6 +127,7 @@ button {
 }
 
 $masterList: 1 2 3;
+
 @each $amount in $masterList {
   $i: list.index($masterList, $amount);
 
