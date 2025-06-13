@@ -19,27 +19,35 @@
 }
 
 @mixin rem-font-size($size) {
-  @if (unit($size) == 'rem') {
+  @if (unit($size)=='rem') {
     font-size: rem_px($size);
     font-size: $size;
-  } @else if (unit($size) == 'px') {
+  }
+
+  @else if (unit($size)=='px') {
     font-size: $size;
     font-size: px_rem($size);
-  } @else {
+  }
+
+  @else {
     @error "#{$size} is an invalid value for mixin `font-size`. Use `rem` or `px` only.";
   }
 }
 
 @mixin font-size-line-height($size, $important: false) {
   @if map-has-key($font-sizes, $size) and map-has-key($font-line-sizes, $size) {
-    @if ($important == true) {
+    @if ($important ==true) {
       font-size: map.get($font-sizes, $size) !important;
       line-height: map.get($font-line-sizes, $size) !important;
-    } @else {
+    }
+
+    @else {
       font-size: map.get($font-sizes, $size);
       line-height: map.get($font-line-sizes, $size);
     }
-  } @else {
+  }
+
+  @else {
     @error "Invalid font line-height size: '#{$size}'.";
   }
 }
@@ -47,12 +55,16 @@
 // Shortcut to quickly grab the corresponding font size for a given key from the global font-size map
 @mixin getFontSize($size, $important: false) {
   @if map-has-key($font-sizes, $size) {
-    @if ($important == true) {
+    @if ($important ==true) {
       font-size: map.get($font-sizes, $size) !important;
-    } @else {
+    }
+
+    @else {
       font-size: map.get($font-sizes, $size);
     }
-  } @else {
+  }
+
+  @else {
     @error "Invalid font size: '#{$size}'.";
   }
 }
@@ -61,19 +73,25 @@
 @function getFontSize($size) {
   @if map-has-key($font-sizes, $size) {
     @return map.get($font-sizes, $size);
-  } @else {
+  }
+
+  @else {
     @error "Invalid font size: '#{$size}'.";
   }
 }
 
 @mixin getFontLineSize($size, $important: false) {
   @if map-has-key($font-line-sizes, $size) {
-    @if ($important == true) {
+    @if ($important ==true) {
       line-height: map.get($font-line-sizes, $size) !important;
-    } @else {
+    }
+
+    @else {
       line-height: map.get($font-line-sizes, $size);
     }
-  } @else {
+  }
+
+  @else {
     @error "Invalid font line-height size: '#{$size}'.";
   }
 }
@@ -81,7 +99,9 @@
 @function getFontLineSize($size) {
   @if map-has-key($font-line-sizes, $size) {
     @return map.get($font-line-sizes, $size);
-  } @else {
+  }
+
+  @else {
     @error "Invalid font line-height size: '#{$size}'.";
   }
 }
@@ -93,15 +113,23 @@
 @function getFontFamily($fontType) {
   $fam: '';
 
-  @if ($fontType == 'code') or ($fontType == 'mono') {
+  @if ($fontType =='code') or ($fontType =='mono') {
     $fam: getFontData($CodeFont);
-  } @else if ($fontType == 'heading') {
+  }
+
+  @else if ($fontType =='heading') {
     $fam: getFontData($HeadingFont);
-  } @else if ($fontType == 'primary') {
+  }
+
+  @else if ($fontType =='primary') {
     $fam: getFontData($PrimaryFont);
-  } @else if ($fontType == 'ui') {
+  }
+
+  @else if ($fontType =='ui') {
     $fam: getFontData($UIFont);
-  } @else {
+  }
+
+  @else {
     @error "Invalid font param sent: #{$fontType}";
   }
 
@@ -113,15 +141,23 @@
   $fam: '';
   $stack: '';
 
-  @if ($fontType == 'code') or ($fontType == 'mono') {
+  @if ($fontType =='code') or ($fontType =='mono') {
     $stack: getFontData($CodeFont, 'stack');
-  } @else if ($fontType == 'heading') {
+  }
+
+  @else if ($fontType =='heading') {
     $stack: getFontData($HeadingFont, 'stack');
-  } @else if ($fontType == 'primary') {
+  }
+
+  @else if ($fontType =='primary') {
     $stack: getFontData($PrimaryFont, 'stack');
-  } @else if ($fontType == 'ui') {
+  }
+
+  @else if ($fontType =='ui') {
     $stack: getFontData($UIFont, 'stack');
-  } @else {
+  }
+
+  @else {
     @error "Invalid font param sent: #{$fontType}";
   }
 
@@ -140,7 +176,8 @@
 //  --------------------------------------------------
 //
 
-$fonts: () !default;
+$fonts: (
+  ) !default;
 
 // Generate a new fancy variable @font-face declaration
 // Also adds a standard font size for older browsers.
@@ -153,33 +190,36 @@ $fonts: () !default;
   //       is going to be a good experience on their admittedly older browser.
   //
 
-  $selector: map.get($font-data, selector);
-  $family: map.get($font-data, family);
-  $stack: map.get($font-data, stack);
-  $style: map.get($font-data, style);
-  $weight: map.get($font-data, weight);
-  $file: map.get($font-data, src);
-  $display: swap;
-  @if (variable-exists(map.get($font-data, display))) {
-    $display: map.get($font-data, display);
-  }
-  @font-face {
-    font-family: $family;
-    font-weight: $weight;
-    // Add font types here
-    src: url($font-path + $file) format('woff2-variations');
-    src: url($font-path + $file) format('woff2') tech('variations');
-    font-weight: 100 1000;
-    font-stretch: 25% 151%;
-  }
+  $selector: map.get($font-data, selector
+  );
+$family: map.get($font-data, family);
+$stack: map.get($font-data, stack);
+$style: map.get($font-data, style);
+$weight: map.get($font-data, weight);
+$file: map.get($font-data, src);
+$display: swap;
 
-  // #{$selector} {
-  //   font-family: $family, $stack;
-  //   font-family: cssvar(#{unquote($cssVar)});
-  //   font-style: $style;
-  //   font-weight: $weight;
-  // }
-  @debug 'Loaded Font Family #{$family}';
+@if (variable-exists(map.get($font-data, display))) {
+  $display: map.get($font-data, display);
+}
+
+@font-face {
+  font-family: $family;
+  font-weight: $weight;
+  // Add font types here
+  src: url($font-path + $file) format('woff2-variations');
+  src: url($font-path + $file) format('woff2') tech('variations');
+  font-weight: 100 1000;
+  font-stretch: 25% 151%;
+}
+
+// #{$selector} {
+//   font-family: $family, $stack;
+//   font-family: cssvar(#{unquote($cssVar)});
+//   font-style: $style;
+//   font-weight: $weight;
+// }
+// @debug 'Loaded Font Family #{$family}';
 }
 
 /// getMaxLineWidth : Optimal line width
@@ -197,8 +237,10 @@ $fonts: () !default;
 
   $width_rem: _rem($width);
 
-  @debug 'Max Line Width PX computed as #{$width}';
-  @debug 'Max Line Width REM computed as #{$width_rem}';
+  @if ($debug ==true) {
+    @debug 'Max Line Width PX computed as #{$width}';
+    @debug 'Max Line Width REM computed as #{$width_rem}';
+  }
 
   @return $width;
 }
@@ -206,19 +248,28 @@ $fonts: () !default;
 // @title   placeholder
 // @details Form input placeholder text
 @mixin placeholder {
+
   // scss-lint:disable VendorPrefix
   &::placeholder {
     @content;
-  } // Firefox 19+
+  }
+
+  // Firefox 19+
   &:input-placeholder {
     @content;
-  } // IE 10+
+  }
+
+  // IE 10+
   &::input-placeholder {
     @content;
-  } // Edge
+  }
+
+  // Edge
   &::input-placeholder {
     @content;
-  } // Safari and Chrome
+  }
+
+  // Safari and Chrome
 }
 
 @mixin text-hide($height: false, $width: false) {
@@ -226,10 +277,12 @@ $fonts: () !default;
   text-shadow: none;
   background-color: transparent;
   border: 0;
-  @if ($height != false) {
+
+  @if ($height !=false) {
     height: 0;
   }
-  @if ($width != false) {
+
+  @if ($width !=false) {
     width: 0;
   }
 }
@@ -238,39 +291,36 @@ $fonts: () !default;
   hyphens: $type;
 }
 
-@mixin text-shadow(
-  $distance: 2px,
+@mixin text-shadow($distance: 2px,
   $blur: 2px,
   $colour: fade-out(#000, 0.5),
-  $angle: 0
-) {
+  $angle: 0) {
   text-shadow: $angle $distance $blur $colour;
 }
 
 @mixin text-wrap($wrap: break-word) {
   word-wrap: $wrap;
   overflow-wrap: $wrap;
+
   @if $wrap==break-word {
     word-break: break-all;
-  } @else {
+  }
+
+  @else {
     word-break: $wrap;
   }
 }
 
 // whiteSpaceOverflow(white-space: nowrap, overflow: hidden, text-overflow: ellipsis, word-wrap: break-word)
-@mixin ellipsis-text(
-  $white-space: nowrap,
+@mixin ellipsis-text($white-space: nowrap,
   $overflow: hidden,
   $text-overflow: ellipsis,
-  $word-wrap: break-word
-) {
-  @include apply-props(
-    ($white-space, $overflow, $text-overflow, $word-wrap),
+  $word-wrap: break-word) {
+  @include apply-props(($white-space, $overflow, $text-overflow, $word-wrap),
     white-space,
     overflow,
     text-overflow,
-    word-wrap
-  );
+    word-wrap);
 }
 
 // @title   text-overflow
@@ -316,8 +366,7 @@ $fonts: () !default;
 /// @param {Number} $line-height [1] - `line-height` for dropcap
 /// @param {List} $bg [transparent] - `background` for dropcap
 /// @output Properties to create a dropcap
-@mixin Harmonic_Dropcap(
-  $float-position: left,
+@mixin Harmonic_Dropcap($float-position: left,
   $font-size: 4rem,
   $font-family: inherit,
   $text-indent: 0,
@@ -325,8 +374,7 @@ $fonts: () !default;
   $padding: 0 20px,
   $color: inherit,
   $line-height: 1,
-  $bg: transparent
-) {
+  $bg: transparent) {
   &::first-letter {
     float: $float-position;
     padding: $padding;

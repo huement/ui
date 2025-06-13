@@ -5,7 +5,9 @@
 /// TypographyBodyBase Loads the relative font size + line height combos
 /// for a given breakpoint.
 @mixin TypographyBodyBase($mMap) {
-  @debug "Setting Font Base for #{map.get($mMap, name)}";
+  @if ($debug ==true) {
+    @debug "Setting Font Base for #{map.get($mMap, name)}";
+  }
 
   $scale: map.get($mMap, scale);
   $lH: map.get($mMap, lineHeight);
@@ -67,9 +69,13 @@ $firstMap: map.get($chords, $minBP);
 
 //  Skip smallest breakpoint b/c size is 0.
 $maxBP: calc(length(map-keys($chords)) - 1);
-@debug "Total Breakpoints: #{$maxBP + 1}";
+
+@if ($debug ==true) {
+  @debug "Total Breakpoints: #{$maxBP + 1}";
+}
+
 @each $mapKey, $c in $chords {
-  @if (map.get($c, abrev) != $minBP) {
+  @if (map.get($c, abrev) !=$minBP) {
     @include media-breakpoint-up(map.get($c, abrev)) {
       @include TypographyBodyBase($c);
     }
@@ -112,6 +118,7 @@ a {
 // Fix button stylings
 a.btn {
   text-decoration: none;
+
   &:hover {
     text-decoration: none;
   }
@@ -144,11 +151,11 @@ p span {
   text-rendering: optimizelegibility;
 }
 
-p + p {
+p+p {
   text-indent: $main-indent;
 
   // No indent for drop caps
-  + .drop-cap {
+  +.drop-cap {
     text-indent: 0;
   }
 }
