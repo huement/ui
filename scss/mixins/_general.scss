@@ -1,3 +1,7 @@
+@use "sass:math";
+@use "sass:meta";
+@use "sass:list";
+
 @function isColorDark($color) {
   // Parse RGB by isolating each color
   $red: red($color);
@@ -5,12 +9,15 @@
   $blue: blue($color);
   // Compute the perceptive luminance, keeping
   // in mind that the human eye favors green.
-  $l: 1 - (0.299 * $red + 0.587 * $green + 0.114 * $blue) / 255;
+  $l: 1 - math.div(0.299 * $red + 0.587 * $green + 0.114 * $blue, 255);
+
   /* arguably this should be 0.50, but testing out various colors, this seemed to be the best so far. */
   @if ($l < 0.41) {
     // if the luminance is less than 0.5 return black
     @return #000000;
-  } @else {
+  }
+
+  @else {
     // if the luminance is more than 0.5 return white
     @return #ffffff;
   }
@@ -94,6 +101,7 @@
   @each $color, $value in $theme-colors {
     .sqbtn-#{$color} button {
       color: isColorDark($value);
+
       &:after {
         background-color: $value;
       }
@@ -131,14 +139,12 @@
     box-shadow:
       0 0 0 200px inset var(--s, #0000),
       0 0 0 var(--border) inset $btn-color;
-    clip-path: polygon(
-      0 0,
-      calc(100% - var(--slant)) 0,
-      100% var(--slant),
-      100% 100%,
-      var(--slant) 100%,
-      0 calc(100% - var(--slant))
-    );
+    clip-path: polygon(0 0,
+        calc(100% - var(--slant)) 0,
+        100% var(--slant),
+        100% 100%,
+        var(--slant) 100%,
+        0 calc(100% - var(--slant)));
     transition:
       color var(--t, 0.6s),
       background-size 0.3s;
@@ -152,8 +158,7 @@
 
     &:hover,
     &:active {
-      background-size: calc(var(--slant) + 1.3 * var(--border))
-        calc(var(--slant) + 1.3 * var(--border));
+      background-size: calc(var(--slant) + 1.3 * var(--border)) calc(var(--slant) + 1.3 * var(--border));
       color: #fff;
       --t: 0.2s 0.1s;
     }
@@ -212,6 +217,7 @@
       font-weight: bolder;
       transition: all 0.125s linear;
       opacity: 0.8;
+
       &:after,
       &:before {
         mix-blend-mode: multiply;
@@ -226,6 +232,7 @@
         left: 5px;
         transition: all 0.2s linear;
       }
+
       &:after {
         background: triad($btn-color, t1);
         top: -5px;
@@ -238,6 +245,7 @@
         left: 0px;
       }
     }
+
     &.aoibtn-sm {
       .button {
         padding: 5px 8px;
@@ -248,10 +256,12 @@
           top: 4px;
           left: 4px;
         }
+
         &:after {
           top: -4px;
           left: -4px;
         }
+
         // &:hover {
         //   text-decoration: underline;
         // }
@@ -267,11 +277,13 @@
   @each $color, $value in $theme-colors {
     .aoibtn-#{$color} {
       .button {
+
         &:after,
         &:before {
           transition: all 0.125s linear;
           background: triad($value, t2);
         }
+
         &:after {
           background: $value;
         }
@@ -281,11 +293,11 @@
 }
 
 @mixin catbutton() {
+
   // CAT BTN
   .pgbtn {
     display: inline-block;
-    padding: $input-btn-padding-y-lg $input-btn-padding-x-lg
-      $input-btn-padding-y-lg $input-btn-padding-x-lg;
+    padding: $input-btn-padding-y-lg $input-btn-padding-x-lg $input-btn-padding-y-lg $input-btn-padding-x-lg;
     text-decoration: none;
     color: isColorDark($gray-500);
     text-transform: uppercase;
@@ -296,6 +308,7 @@
     position: relative;
     transition: all 0.2s linear;
     z-index: 3;
+
     &::before {
       content: '';
       position: absolute;
@@ -308,6 +321,7 @@
       background-image: linear-gradient($gray-500, $gray-500);
       z-index: -1;
     }
+
     &::after {
       content: '';
       position: absolute;
@@ -321,17 +335,17 @@
       text-decoration: none;
       z-index: -2;
     }
+
     &:hover {
+
       // color: color.scale($gray-500, $lightness: -30%);
       &::before {
         // background: color.scale($gray-500, $lightness: -30%);
-        background-image: linear-gradient(
-          to left,
+        background-image: linear-gradient(to left,
           #{$gray-500},
           color.scale($gray-500, $lightness: -10%),
           color.scale($gray-500, $lightness: -20%),
-          color.scale($gray-500, $lightness: -30%)
-        );
+          color.scale($gray-500, $lightness: -30%));
       }
     }
   }
@@ -340,21 +354,22 @@
     .pgbtn-#{$color} {
       color: isColorDark($value);
       transition: background-image 0.3s linear;
+
       &::before {
         background: $value;
         background-image: linear-gradient(to left, $value, $value);
       }
+
       &:hover {
+
         // color: color.scale($value, $lightness: -30%);
         &::before {
           background: color.scale($value, $lightness: -30%);
-          background-image: linear-gradient(
-            to left,
+          background-image: linear-gradient(to left,
             #{$value},
             color.scale($value, $lightness: -10%),
             color.scale($value, $lightness: -20%),
-            color.scale($value, $lightness: -30%)
-          );
+            color.scale($value, $lightness: -30%));
         }
       }
     }
@@ -368,6 +383,7 @@
     &:hover {
       filter: drop-shadow(1px 1px rgba(255, 255, 255, 0.5));
     }
+
     .pgbtn {
       &::after {
         opacity: 0;
@@ -406,42 +422,37 @@
     width: auto;
     border: 1px solid transparent;
     filter: drop-shadow(rgba($gray-500, 0.8) 1px 1px 2px);
-    clip-path: polygon(
-      8.3% 0%,
-      85% 0%,
-      99.9% 0%,
-      100% 82%,
-      92.2% 100%,
-      15% 100%,
-      0% 100%,
-      0% 18%
-    );
+    clip-path: polygon(8.3% 0%,
+        85% 0%,
+        99.9% 0%,
+        100% 82%,
+        92.2% 100%,
+        15% 100%,
+        0% 100%,
+        0% 18%);
 
     &:hover {
       color: #000;
       filter: drop-shadow(0 0 8px rgba($gray-500, 0.33));
       border: 1px solid #000;
-      background-image: linear-gradient(
-        to left,
-        $gray-500,
-        color.scale($gray-500, $lightness: -10%),
-        color.scale($gray-500, $lightness: -20%)
-      );
+      background-image: linear-gradient(to left,
+          $gray-500,
+          color.scale($gray-500, $lightness: -10%),
+          color.scale($gray-500, $lightness: -20%));
     }
 
     &.v2 {
       border: none;
+
       &:hover {
         color: #666;
         border: none;
         filter: drop-shadow(2px 2px 5px rgba($gray-500, 0.66));
-        background-image: linear-gradient(
-          to left,
-          $gray-500,
-          color.scale($gray-500, $lightness: -10%),
-          color.scale($gray-500, $lightness: -20%),
-          color.scale($gray-500, $lightness: -30%)
-        );
+        background-image: linear-gradient(to left,
+            $gray-500,
+            color.scale($gray-500, $lightness: -10%),
+            color.scale($gray-500, $lightness: -20%),
+            color.scale($gray-500, $lightness: -30%));
       }
     }
 
@@ -464,20 +475,19 @@
 }
 
 @mixin HUIButtons() {
+
   // CYBER-BTN USES THE DEFAULT BOOTSTRAP BTN's
   .cyber-btn {
     transition: all 0.2s linear;
     filter: drop-shadow(rgba($btn-color, 0.8) 1px 1px 2px);
-    clip-path: polygon(
-      8.3% 0%,
-      85% 0%,
-      99.9% 0%,
-      100% 82%,
-      92.2% 100%,
-      15% 100%,
-      0% 100%,
-      0% 18%
-    );
+    clip-path: polygon(8.3% 0%,
+        85% 0%,
+        99.9% 0%,
+        100% 82%,
+        92.2% 100%,
+        15% 100%,
+        0% 100%,
+        0% 18%);
   }
 
   // ALL THE REST HAVE THEIR OWN CLASSES & MARKUP
@@ -526,21 +536,23 @@
 
 @mixin box-shadow($shadow...) {
   @if $enable-shadows {
-    $result: ();
+    $result: (
+    );
 
-    @each $value in $shadow {
-      @if $value != null {
-        $result: list.append($result, $value, 'comma');
-      }
-      @if $value == none and length($shadow) > 1 {
-        @warn "The keyword 'none' must be used as a single argument.";
-      }
+  @each $value in $shadow {
+    @if $value !=null {
+      $result: list.append($result, $value, 'comma');
     }
 
-    @if (length($result) > 0) {
-      box-shadow: $result;
+    @if $value ==none and length($shadow)>1 {
+      @warn "The keyword 'none' must be used as a single argument.";
     }
   }
+
+  @if (length($result) > 0) {
+    box-shadow: $result;
+  }
+}
 }
 
 @mixin box-sizing($type: border-box) {
@@ -551,16 +563,22 @@
 
 // Helper function to replace negative values with 0
 @function valid-radius($radius) {
-  $return: ();
-  @each $value in $radius {
-    @if meta.type-of($value) == number {
-      $return: list.append($return, max($value, 0));
-    } @else {
-      $return: list.append($return, $value);
-    }
+  $return: (
+  );
+
+@each $value in $radius {
+  @if meta.type-of($value)==number {
+    $return: list.append($return, max($value, 0));
   }
-  @return $return;
+
+  @else {
+    $return: list.append($return, $value);
+  }
 }
+
+@return $return;
+}
+
 // stylelint-disable property-disallowed-list
 // Single side border-radius
 
@@ -572,13 +590,11 @@
 
 @mixin gradient($startColor: #eee, $endColor: white) {
   background-color: $startColor;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from($startColor),
-    to($endColor)
-  );
+  background: -webkit-gradient(linear,
+      left top,
+      left bottom,
+      from($startColor),
+      to($endColor));
   background: -webkit-linear-gradient(top, $startColor, $endColor);
   background: -moz-linear-gradient(top, $startColor, $endColor);
   background: -ms-linear-gradient(top, $startColor, $endColor);
@@ -587,13 +603,11 @@
 
 @mixin horizontal-gradient($startColor: #eee, $endColor: white) {
   background-color: $startColor;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from($startColor),
-    to($endColor)
-  );
+  background-image: -webkit-gradient(linear,
+      left top,
+      right top,
+      from($startColor),
+      to($endColor));
   background-image: -webkit-linear-gradient(left, $startColor, $endColor);
   background-image: -moz-linear-gradient(left, $startColor, $endColor);
   background-image: -ms-linear-gradient(left, $startColor, $endColor);
@@ -670,6 +684,7 @@
 }
 
 @mixin reset-box-sizing($size: content-box) {
+
   &,
   *,
   *:before,
@@ -934,10 +949,12 @@
 @mixin center($width, $height: 0) {
   position: absolute;
 
-  @if $height != 0 {
+  @if $height !=0 {
     left: calc(50% - (#{$width} * 0.5));
     top: calc(50% - (#{$height} * 0.5));
-  } @else {
+  }
+
+  @else {
     left: calc(50% - (#{$width} * 0.5));
     top: calc(50% - (#{$width} * 0.5));
   }
