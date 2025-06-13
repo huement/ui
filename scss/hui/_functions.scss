@@ -7,7 +7,7 @@
 @use 'sass:string';
 
 /// Start off by loading all the Bootstrap Functions and then any additional HUI Functions
-@import '~bootstrap/scss/functions';
+@import 'bootstrap/scss/functions';
 
 ///   Superclass
 ///  --------------------
@@ -213,7 +213,7 @@ $_map: map.merge($_map,
   $index: str-index($string, $search);
 
   @if $index {
-    @return str-slice($string, 1, $index - 1)+$replace +str-replace(str-slice($string, $index + str-length($search)),
+    @return str-slice($string, 1, $index - 1)+$replace + str-replace(str-slice($string, $index + str-length($search)),
       $search,
       $replace );
   }
@@ -254,7 +254,7 @@ $_map: map.merge($_map,
   }
 
   @if meta.type-of($value1)==number and meta.type-of($value2)==number and math.compatible($value1, $value2) {
-    @return $value1 +$value2;
+    @return $value1 + $value2;
   }
 
   @return if($return-calc ==true,
@@ -377,23 +377,6 @@ $_map: map.merge($_map,
   @return $level;
 }
 
-@mixin debug-map($map) {
-  @at-root {
-    @debug-map {
-      __tostring__: inspect($map);
-      __length__: list.length($map);
-      __depth__: depth($map);
-      __keys__: map-keys($map);
-
-      __properties__ {
-        @each $key, $value in $map {
-          #{'(' + meta.type-of($value) + ') ' + $key}: inspect($value);
-        }
-      }
-    }
-  }
-}
-
 ///  map-deep-get
 /// @details Loop through a nested map to get keys that are lodged way up in there.
 @function map-deep-get($map, $keys...) {
@@ -466,7 +449,7 @@ $_map: map.merge($_map,
         }
 
         // If next index return next value or key based on $return
-        @if $i==$key-index +1 {
+        @if $i==$key-index + 1 {
           @if $return==key {
             @return $map-key;
           }
