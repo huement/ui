@@ -7,9 +7,9 @@
 
 @function isColorDark($color) {
   // Parse RGB by isolating each color
-  $red: red($color);
-  $green: green($color);
-  $blue: blue($color);
+  $red: color.channel($color, "red", $space: rgb);
+  $green: color.channel($color, "green", $space: rgb);
+  $blue: color.channel($color, "blue", $space: rgb);
   // Compute the perceptive luminance, keeping
   // in mind that the human eye favors green.
   $l: 1 - math.div(0.299 * $red + 0.587 * $green + 0.114 * $blue, 255);
@@ -203,7 +203,13 @@
 // Area of Interest Button
 // Complementary Color Animated Button.
 // supports small size & supports all theme colors
-@mixin aoibutton($btn-color: $red-500) {
+@mixin aoibutton($btn-color: #ff0054) {
+  @if ($debug ==true) {
+    @debug 'creating aoi button #{$btn-color}';
+  }
+
+  $triad: get-triad($btn-color);
+
   .aoibtn {
     text-decoration: none;
 
@@ -237,7 +243,7 @@
       }
 
       &:after {
-        background: triad($btn-color, t1);
+        background: nth($triad, 2);
         top: -5px;
         left: -5px;
       }
@@ -278,13 +284,19 @@
   }
 
   @each $color, $value in $theme-colors {
+    @if ($debug ==true) {
+      @debug 'creating themed aoi button  #{$value}';
+    }
+
+    $triad: get-triad($value);
+
     .aoibtn-#{$color} {
       .button {
 
         &:after,
         &:before {
           transition: all 0.125s linear;
-          background: triad($value, t2);
+          background: nth($triad, 2);
         }
 
         &:after {

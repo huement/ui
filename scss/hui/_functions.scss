@@ -213,7 +213,7 @@ $_map: map.merge($_map,
   $index: str-index($string, $search);
 
   @if $index {
-    @return str-slice($string, 1, $index - 1)+$replace + str-replace(str-slice($string, $index + str-length($search)),
+    @return str-slice($string, 1, $index - 1)+$replace +str-replace(str-slice($string, $index + str-length($search)),
       $search,
       $replace );
   }
@@ -254,7 +254,7 @@ $_map: map.merge($_map,
   }
 
   @if meta.type-of($value1)==number and meta.type-of($value2)==number and math.compatible($value1, $value2) {
-    @return $value1 + $value2;
+    @return $value1 +$value2;
   }
 
   @return if($return-calc ==true,
@@ -449,7 +449,7 @@ $_map: map.merge($_map,
         }
 
         // If next index return next value or key based on $return
-        @if $i==$key-index + 1 {
+        @if $i==$key-index +1 {
           @if $return==key {
             @return $map-key;
           }

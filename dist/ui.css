@@ -76,7 +76,7 @@
   --bs-light-border-subtle: #212121;
   --bs-dark-border-subtle: #757575;
   --bs-white-rgb: 255, 255, 255;
-  --bs-black-rgb: 0, 0, 0;
+  --bs-black-rgb: 15, 15, 15;
   --bs-font-sans-serif: "Jost", (-apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
   --bs-font-monospace: "Space Grotesk", (sfmono-regular, menlo, monaco, consolas, "Andale Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace);
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
@@ -121,9 +121,9 @@
     --bs-border-radius-xxl
   );
   --bs-border-radius-pill: 50rem;
-  --bs-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-  --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  --bs-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+  --bs-box-shadow: 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
+  --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(15, 15, 15, 0.075);
+  --bs-box-shadow-lg: 0 1rem 3rem rgba(15, 15, 15, 0.3);
   --bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
   --bs-focus-ring-width: 0.25rem;
   --bs-focus-ring-opacity: 0.25;
@@ -271,15 +271,15 @@
 }
 
 .shadow-sm {
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  box-shadow: 0 0.125rem 0.25rem rgba(15, 15, 15, 0.075) !important;
 }
 
 .shadow {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 0.5rem 1rem rgba(15, 15, 15, 0.2) !important;
 }
 
 .shadow-lg {
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 1rem 3rem rgba(15, 15, 15, 0.3) !important;
 }
 
 .shadow-none {
@@ -1301,7 +1301,7 @@
 }
 
 .text-black-50 {
-  color: rgba(0, 0, 0, 0.5) !important;
+  color: rgba(15, 15, 15, 0.5) !important;
 }
 
 .text-white-50 {
@@ -6033,7 +6033,7 @@ a.text-medium-dark:hover, a.text-medium-dark:focus {
 }
 
 .text-body-emphasis {
-  color: rgb(25.5, 25.5, 25.5) !important;
+  color: rgb(40.5, 40.5, 40.5) !important;
 }
 body.dark .text-body-emphasis {
   color: rgb(231.8181818182, 231.8181818182, 231.8181818182) !important;
@@ -6044,11 +6044,11 @@ body.dark .text-body-emphasis {
 }
 
 .text-black {
-  color: #000;
+  color: #0f0f0f;
 }
 
 .text-black:hover, .text-black:focus {
-  color: rgb(25.5, 25.5, 25.5);
+  color: rgb(40.5, 40.5, 40.5);
 }
 
 .text-muted {
@@ -6097,7 +6097,7 @@ body {
   text-align: var(--bs-body-text-align);
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(15, 15, 15, 0);
 }
 
 hr {
@@ -12972,7 +12972,7 @@ textarea.form-control-lg {
 }
 
 .bg-light .btn {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(15, 15, 15, 0.2);
 }
 
 .input-group-text,
@@ -13007,20 +13007,20 @@ textarea.form-control-lg {
   transition: border-color 0.15s ease-in-out;
 }
 .form-select:not([multiple]) option {
-  color: #000;
+  color: #0f0f0f;
 }
 
 .bg-light .form-control {
   color: #C9C9C9;
-  border-color: rgba(0, 0, 0, 0.2);
+  border-color: rgba(15, 15, 15, 0.2);
 }
 .bg-light .form-control::placeholder {
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(15, 15, 15, 0.2);
 }
 
 .dropdown-menu {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2) 70%);
   backdrop-filter: blur(5px);
@@ -13051,7 +13051,7 @@ textarea.form-control-lg {
 .nav-tabs .nav-item .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, white, rgba(255, 255, 255, 0.9) 70%);
   backdrop-filter: blur(5px);
@@ -13108,7 +13108,7 @@ textarea.form-control-lg {
 
 .alert {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13236,7 +13236,7 @@ textarea.form-control-lg {
 
 .list-group {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13250,7 +13250,7 @@ textarea.form-control-lg {
 
 .card {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13307,7 +13307,7 @@ textarea.form-control-lg {
 }
 .card.border-primary {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13324,7 +13324,7 @@ textarea.form-control-lg {
 }
 .card.border-secondary {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13341,7 +13341,7 @@ textarea.form-control-lg {
 }
 .card.border-success {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13358,7 +13358,7 @@ textarea.form-control-lg {
 }
 .card.border-info {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13375,7 +13375,7 @@ textarea.form-control-lg {
 }
 .card.border-warning {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13392,7 +13392,7 @@ textarea.form-control-lg {
 }
 .card.border-danger {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13409,7 +13409,7 @@ textarea.form-control-lg {
 }
 .card.border-light {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13427,7 +13427,7 @@ textarea.form-control-lg {
 }
 .card.border-dark {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13444,7 +13444,7 @@ textarea.form-control-lg {
 }
 .card.border-body {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13461,7 +13461,7 @@ textarea.form-control-lg {
 }
 .card.border-body-secondary {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13478,7 +13478,7 @@ textarea.form-control-lg {
 }
 .card.border-medium-dark {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13518,7 +13518,7 @@ textarea.form-control-lg {
 
 .toast {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13532,7 +13532,7 @@ textarea.form-control-lg {
 
 .popover {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13553,7 +13553,7 @@ textarea.form-control-lg {
 
 .modal-content {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -13567,7 +13567,7 @@ textarea.form-control-lg {
 
 .offcanvas {
   border: none;
-  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px #3D3D3D, inset -1px -1px rgba(255, 255, 255, 0.1), 0 0.5rem 1rem rgba(15, 15, 15, 0.2);
   background-color: transparent;
   background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6) 70%);
   backdrop-filter: blur(5px);
@@ -15130,6 +15130,768 @@ kbd kbd {
     max-height: none;
   }
 }
+.cyber-btn {
+  transition: all 0.2s linear;
+  filter: drop-shadow(rgba(var(--bs-body-color), 0.8) 1px 1px 2px);
+  clip-path: polygon(8.3% 0%, 85% 0%, 99.9% 0%, 100% 82%, 92.2% 100%, 15% 100%, 0% 100%, 0% 18%);
+}
+
+.sqbtn {
+  padding-top: 0;
+  margin: 2rem auto 2rem auto;
+  position: relative;
+  z-index: 2;
+  font-family: "Jura", -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: bold;
+}
+.sqbtn button {
+  border: 4px solid;
+  border-color: #fff;
+  padding: 0.5rem 1rem;
+  position: relative;
+  background-color: transparent;
+  transition: border-color 0.2s linear;
+  text-decoration: none;
+  line-height: 2;
+}
+.sqbtn button span {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.3125rem;
+  color: #000;
+  transition: color 0.2s linear;
+}
+.sqbtn button:after {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 100%;
+  width: 100%;
+  background-color: #ff0054;
+  content: "";
+  z-index: -1;
+  transition: transform 0.2s linear, width 0.2s ease-out 0.2s;
+}
+.sqbtn button:hover {
+  border-color: #e0e0e0;
+}
+.sqbtn button:hover span {
+  color: #000;
+}
+.sqbtn button:hover:after {
+  transform: translate(-10px, -10px);
+  width: 100%;
+}
+.sqbtn button:active:after {
+  width: 100%;
+}
+
+.sqbtn-primary button {
+  color: #ffffff;
+}
+.sqbtn-primary button:after {
+  background-color: #520099;
+}
+
+.sqbtn-secondary button {
+  color: #ffffff;
+}
+.sqbtn-secondary button:after {
+  background-color: #0fb2aa;
+}
+
+.sqbtn-success button {
+  color: #000000;
+}
+.sqbtn-success button:after {
+  background-color: #3bfc43;
+}
+
+.sqbtn-info button {
+  color: #ffffff;
+}
+.sqbtn-info button:after {
+  background-color: #1982c4;
+}
+
+.sqbtn-warning button {
+  color: #000000;
+}
+.sqbtn-warning button:after {
+  background-color: #fbff12;
+}
+
+.sqbtn-danger button {
+  color: #ffffff;
+}
+.sqbtn-danger button:after {
+  background-color: #ff0054;
+}
+
+.sqbtn-light button {
+  color: #000000;
+}
+.sqbtn-light button:after {
+  background-color: #E6E6E6;
+}
+
+.sqbtn-dark button {
+  color: #ffffff;
+}
+.sqbtn-dark button:after {
+  background-color: #050505;
+}
+
+.sqbtn-body button {
+  color: #ffffff;
+}
+.sqbtn-body button:after {
+  background-color: #050505;
+}
+
+.sqbtn-body-secondary button {
+  color: #000000;
+}
+.sqbtn-body-secondary button:after {
+  background-color: #C9C9C9;
+}
+
+.sqbtn-medium-dark button {
+  color: #ffffff;
+}
+.sqbtn-medium-dark button:after {
+  background-color: #3D3D3D;
+}
+
+.cpubtn {
+  --border: 2px;
+  --slant: 0.5em;
+  --color: $btn-color;
+  font-size: 2.25rem;
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1;
+  padding: 0.4em 1.2em;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: "Jura", -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #ffffff;
+  background: linear-gradient(to bottom left, #ff0054 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #ff0054 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #ff0054;
+  clip-path: polygon(0 0, calc(100% - var(--slant)) 0, 100% var(--slant), 100% 100%, var(--slant) 100%, 0 calc(100% - var(--slant)));
+  transition: color var(--t, 0.6s), background-size 0.3s;
+}
+.cpubtn:focus-visible {
+  outline-offset: calc(-1 * var(--border));
+  outline: var(--border) solid rgba(0, 0, 0, 0.8);
+  clip-path: none;
+  background-size: 0 0;
+}
+.cpubtn:hover, .cpubtn:active {
+  background-size: calc(var(--slant) + 1.3 * var(--border)) calc(var(--slant) + 1.3 * var(--border));
+  color: #fff;
+  --t: 0.2s 0.1s;
+}
+.cpubtn:active {
+  --s: #0005;
+  transition: none;
+}
+.cpubtn.cpubtn-sm {
+  font-size: 1rem;
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1;
+  padding: 0.375rem 0.75rem;
+}
+
+.cpubtn-blue {
+  --border: 2px;
+  --slant: 0.5em;
+  --color: $value;
+  color: #ffffff;
+  background: linear-gradient(to bottom left, #1982c4 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #1982c4 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #1982c4;
+}
+
+.cpubtn-indigo {
+  --border: 2px;
+  --slant: 0.5em;
+  --color: $value;
+  color: #ffffff;
+  background: linear-gradient(to bottom left, #520099 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #520099 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #520099;
+}
+
+.cpubtn-purple {
+  --border: 2px;
+  --slant: 0.5em;
+  --color: $value;
+  color: #ffffff;
+  background: linear-gradient(to bottom left, #A654ED 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #A654ED 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #A654ED;
+}
+
+.cpubtn-pink {
+  --border: 2px;
+  --slant: 0.5em;
+  --color: $value;
+  color: #ffffff;
+  background: linear-gradient(to bottom left, #FF548D 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #FF548D 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #FF548D;
+}
+
+.cpubtn-red {
+  --border: 2px;
+  --slant: 0.5em;
+  --color: $value;
+  color: #ffffff;
+  background: linear-gradient(to bottom left, #ff0054 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #ff0054 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #ff0054;
+}
+
+.cpubtn-orange {
+  --border: 2px;
+  --slant: 0.5em;
+  --color: $value;
+  color: #000000;
+  background: linear-gradient(to bottom left, #fd7e47 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #fd7e47 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #fd7e47;
+}
+
+.cpubtn-yellow {
+  --border: 2px;
+  --slant: 0.5em;
+  --color: $value;
+  color: #000000;
+  background: linear-gradient(to bottom left, #fbff12 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #fbff12 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #fbff12;
+}
+
+.cpubtn-green {
+  --border: 2px;
+  --slant: 0.5em;
+  --color: $value;
+  color: #000000;
+  background: linear-gradient(to bottom left, #3bfc43 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #3bfc43 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #3bfc43;
+}
+
+.cpubtn-teal {
+  --border: 2px;
+  --slant: 0.5em;
+  --color: $value;
+  color: #ffffff;
+  background: linear-gradient(to bottom left, #0fb2aa 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #0fb2aa 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #0fb2aa;
+}
+
+.cpubtn-cyan {
+  --border: 2px;
+  --slant: 0.5em;
+  --color: $value;
+  color: #000000;
+  background: linear-gradient(to bottom left, #00f5d4 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #00f5d4 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #00f5d4;
+}
+
+.cpubtn-black {
+  --border: 2px;
+  --slant: 0.5em;
+  --color: $value;
+  color: #ffffff;
+  background: linear-gradient(to bottom left, #000 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #000 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #000;
+}
+
+.cpubtn-white {
+  --border: 2px;
+  --slant: 0.5em;
+  --color: $value;
+  color: #000000;
+  background: linear-gradient(to bottom left, #fff 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #fff 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #fff;
+}
+
+.cpubtn-gray {
+  --border: 2px;
+  --slant: 0.5em;
+  --color: $value;
+  color: #ffffff;
+  background: linear-gradient(to bottom left, #919191 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #919191 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #919191;
+}
+
+.cpubtn-gray-dark {
+  --border: 2px;
+  --slant: 0.5em;
+  --color: $value;
+  color: #000000;
+  background: linear-gradient(to bottom left, #C9C9C9 50%, rgba(0, 0, 0, 0) 50.1%) top right, linear-gradient(to top right, #C9C9C9 50%, rgba(0, 0, 0, 0) 50.1%) bottom left;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 200px inset var(--s, rgba(0, 0, 0, 0)), 0 0 0 var(--border) inset #C9C9C9;
+}
+
+.pgbtn {
+  display: inline-block;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  text-decoration: none;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
+  font-family: "Jura", -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  letter-spacing: 1px;
+  position: relative;
+  transition: all 0.2s linear;
+  z-index: 3;
+}
+.pgbtn::before {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 9%, 100% 0, 96% 80%, 5% 100%);
+  background-image: linear-gradient(#757575, #757575);
+  z-index: -1;
+}
+.pgbtn::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: -3px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  clip-path: polygon(0 9%, 100% 0, 96% 80%, 5% 100%);
+  text-decoration: none;
+  z-index: -2;
+}
+.pgbtn:hover::before {
+  background-image: linear-gradient(to left, #757575, rgb(105.3, 105.3, 105.3), rgb(93.6, 93.6, 93.6), rgb(81.9, 81.9, 81.9));
+}
+
+.pgbtn-primary {
+  color: #ffffff;
+  transition: background-image 0.3s linear;
+}
+.pgbtn-primary::before {
+  background: #520099;
+  background-image: linear-gradient(to left, #520099, #520099);
+}
+.pgbtn-primary:hover::before {
+  background: rgb(57.4, 0, 107.1);
+  background-image: linear-gradient(to left, #520099, rgb(73.8, 0, 137.7), rgb(65.6, 0, 122.4), rgb(57.4, 0, 107.1));
+}
+
+.pgbtn-secondary {
+  color: #ffffff;
+  transition: background-image 0.3s linear;
+}
+.pgbtn-secondary::before {
+  background: #0fb2aa;
+  background-image: linear-gradient(to left, #0fb2aa, #0fb2aa);
+}
+.pgbtn-secondary:hover::before {
+  background: rgb(10.5, 124.6, 119);
+  background-image: linear-gradient(to left, #0fb2aa, rgb(13.5, 160.2, 153), rgb(12, 142.4, 136), rgb(10.5, 124.6, 119));
+}
+
+.pgbtn-success {
+  color: #000000;
+  transition: background-image 0.3s linear;
+}
+.pgbtn-success::before {
+  background: #3bfc43;
+  background-image: linear-gradient(to left, #3bfc43, #3bfc43);
+}
+.pgbtn-success:hover::before {
+  background: rgb(3.2819095477, 214.4180904523, 12.0336683417);
+  background-image: linear-gradient(to left, #3bfc43, rgb(28.3688442211, 251.5311557789, 37.6190954774), rgb(3.7507537688, 245.0492462312, 13.7527638191), rgb(3.2819095477, 214.4180904523, 12.0336683417));
+}
+
+.pgbtn-info {
+  color: #ffffff;
+  transition: background-image 0.3s linear;
+}
+.pgbtn-info::before {
+  background: #1982c4;
+  background-image: linear-gradient(to left, #1982c4, #1982c4);
+}
+.pgbtn-info:hover::before {
+  background: rgb(17.5, 91, 137.2);
+  background-image: linear-gradient(to left, #1982c4, rgb(22.5, 117, 176.4), rgb(20, 104, 156.8), rgb(17.5, 91, 137.2));
+}
+
+.pgbtn-warning {
+  color: #000000;
+  transition: background-image 0.3s linear;
+}
+.pgbtn-warning::before {
+  background: #fbff12;
+  background-image: linear-gradient(to left, #fbff12, #fbff12);
+}
+.pgbtn-warning:hover::before {
+  background: rgb(187.8746835443, 191.1, 0);
+  background-image: linear-gradient(to left, #fbff12, rgb(241.553164557, 245.7, 0), rgb(214.7139240506, 218.4, 0), rgb(187.8746835443, 191.1, 0));
+}
+
+.pgbtn-danger {
+  color: #ffffff;
+  transition: background-image 0.3s linear;
+}
+.pgbtn-danger::before {
+  background: #ff0054;
+  background-image: linear-gradient(to left, #ff0054, #ff0054);
+}
+.pgbtn-danger:hover::before {
+  background: rgb(178.5, 0, 58.8);
+  background-image: linear-gradient(to left, #ff0054, rgb(229.5, 0, 75.6), rgb(204, 0, 67.2), rgb(178.5, 0, 58.8));
+}
+
+.pgbtn-light {
+  color: #000000;
+  transition: background-image 0.3s linear;
+}
+.pgbtn-light::before {
+  background: #E6E6E6;
+  background-image: linear-gradient(to left, #E6E6E6, #E6E6E6);
+}
+.pgbtn-light:hover::before {
+  background: #a1a1a1;
+  background-image: linear-gradient(to left, #E6E6E6, #cfcfcf, #b8b8b8, #a1a1a1);
+}
+
+.pgbtn-dark {
+  color: #ffffff;
+  transition: background-image 0.3s linear;
+}
+.pgbtn-dark::before {
+  background: #050505;
+  background-image: linear-gradient(to left, #050505, #050505);
+}
+.pgbtn-dark:hover::before {
+  background: rgb(3.5, 3.5, 3.5);
+  background-image: linear-gradient(to left, #050505, rgb(4.5, 4.5, 4.5), #040404, rgb(3.5, 3.5, 3.5));
+}
+
+.pgbtn-body {
+  color: #ffffff;
+  transition: background-image 0.3s linear;
+}
+.pgbtn-body::before {
+  background: #050505;
+  background-image: linear-gradient(to left, #050505, #050505);
+}
+.pgbtn-body:hover::before {
+  background: rgb(3.5, 3.5, 3.5);
+  background-image: linear-gradient(to left, #050505, rgb(4.5, 4.5, 4.5), #040404, rgb(3.5, 3.5, 3.5));
+}
+
+.pgbtn-body-secondary {
+  color: #000000;
+  transition: background-image 0.3s linear;
+}
+.pgbtn-body-secondary::before {
+  background: #C9C9C9;
+  background-image: linear-gradient(to left, #C9C9C9, #C9C9C9);
+}
+.pgbtn-body-secondary:hover::before {
+  background: rgb(140.7, 140.7, 140.7);
+  background-image: linear-gradient(to left, #C9C9C9, rgb(180.9, 180.9, 180.9), rgb(160.8, 160.8, 160.8), rgb(140.7, 140.7, 140.7));
+}
+
+.pgbtn-medium-dark {
+  color: #ffffff;
+  transition: background-image 0.3s linear;
+}
+.pgbtn-medium-dark::before {
+  background: #3D3D3D;
+  background-image: linear-gradient(to left, #3D3D3D, #3D3D3D);
+}
+.pgbtn-medium-dark:hover::before {
+  background: rgb(42.7, 42.7, 42.7);
+  background-image: linear-gradient(to left, #3D3D3D, rgb(54.9, 54.9, 54.9), rgb(48.8, 48.8, 48.8), rgb(42.7, 42.7, 42.7));
+}
+
+.pgbtn-shadow {
+  display: inline-block;
+  transition: all 0.2s linear;
+  filter: drop-shadow(3px 3px white);
+}
+.pgbtn-shadow:hover {
+  filter: drop-shadow(1px 1px rgba(255, 255, 255, 0.5));
+}
+.pgbtn-shadow .pgbtn::after {
+  opacity: 0;
+}
+
+.aoibtn {
+  text-decoration: none;
+}
+.aoibtn .button {
+  position: relative;
+  display: inline-block;
+  padding: 1.1rem 1.25rem;
+  background: #000;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.1875rem;
+  z-index: 1;
+  border: 1px solid transparent;
+  font-weight: bolder;
+  transition: all 0.125s linear;
+  opacity: 0.8;
+}
+.aoibtn .button:after, .aoibtn .button:before {
+  mix-blend-mode: multiply;
+  content: "";
+  position: absolute;
+  display: block;
+  background: #ff0054;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 5px;
+  left: 5px;
+  transition: all 0.2s linear;
+}
+.aoibtn .button:after {
+  background: hsl(100.2352941176, 100%, 50%);
+  top: -5px;
+  left: -5px;
+}
+.aoibtn .button:hover:after, .aoibtn .button:hover:before {
+  top: 0px;
+  left: 0px;
+}
+.aoibtn.aoibtn-sm .button {
+  padding: 5px 8px;
+  letter-spacing: 0.5px;
+}
+.aoibtn.aoibtn-sm .button:after, .aoibtn.aoibtn-sm .button:before {
+  top: 4px;
+  left: 4px;
+}
+.aoibtn.aoibtn-sm .button:after {
+  top: -4px;
+  left: -4px;
+}
+.aoibtn.aoibtn-sm .button:hover:after, .aoibtn.aoibtn-sm .button:hover:before {
+  top: 0px;
+  left: 0px;
+}
+
+.aoibtn-primary .button:after, .aoibtn-primary .button:before {
+  transition: all 0.125s linear;
+  background: hsl(32.1568627451, 100%, 30%);
+}
+.aoibtn-primary .button:after {
+  background: #520099;
+}
+
+.aoibtn-secondary .button:after, .aoibtn-secondary .button:before {
+  transition: all 0.125s linear;
+  background: hsl(297.0552147239, 84.4559585492%, 37.8431372549%);
+}
+.aoibtn-secondary .button:after {
+  background: #0fb2aa;
+}
+
+.aoibtn-success .button:after, .aoibtn-success .button:before {
+  transition: all 0.125s linear;
+  background: hsl(242.4870466321, 96.9849246231%, 60.9803921569%);
+}
+.aoibtn-success .button:after {
+  background: #3bfc43;
+}
+
+.aoibtn-info .button:after, .aoibtn-info .button:before {
+  transition: all 0.125s linear;
+  background: hsl(323.1578947368, 77.3755656109%, 43.3333333333%);
+}
+.aoibtn-info .button:after {
+  background: #1982c4;
+}
+
+.aoibtn-warning .button:after, .aoibtn-warning .button:before {
+  transition: all 0.125s linear;
+  background: hsl(181.0126582278, 100%, 53.5294117647%);
+}
+.aoibtn-warning .button:after {
+  background: #fbff12;
+}
+
+.aoibtn-danger .button:after, .aoibtn-danger .button:before {
+  transition: all 0.125s linear;
+  background: hsl(100.2352941176, 100%, 50%);
+}
+.aoibtn-danger .button:after {
+  background: #ff0054;
+}
+
+.aoibtn-light .button:after, .aoibtn-light .button:before {
+  transition: all 0.125s linear;
+  background: hsl(120, 0%, 90.1960784314%);
+}
+.aoibtn-light .button:after {
+  background: #E6E6E6;
+}
+
+.aoibtn-dark .button:after, .aoibtn-dark .button:before {
+  transition: all 0.125s linear;
+  background: hsl(120, 0%, 1.9607843137%);
+}
+.aoibtn-dark .button:after {
+  background: #050505;
+}
+
+.aoibtn-body .button:after, .aoibtn-body .button:before {
+  transition: all 0.125s linear;
+  background: hsl(120, 0%, 1.9607843137%);
+}
+.aoibtn-body .button:after {
+  background: #050505;
+}
+
+.aoibtn-body-secondary .button:after, .aoibtn-body-secondary .button:before {
+  transition: all 0.125s linear;
+  background: hsl(120, 0%, 78.8235294118%);
+}
+.aoibtn-body-secondary .button:after {
+  background: #C9C9C9;
+}
+
+.aoibtn-medium-dark .button:after, .aoibtn-medium-dark .button:before {
+  transition: all 0.125s linear;
+  background: hsl(120, 0%, 23.9215686275%);
+}
+.aoibtn-medium-dark .button:after {
+  background: #3D3D3D;
+}
+
+.punkbtn {
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  outline: none;
+  background-image: linear-gradient(#757575, #757575);
+  transition: all 0.5s ease;
+  cursor: pointer;
+  padding: 1rem 0.5rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: inline-flex;
+  height: 2.5rem;
+  letter-spacing: 0.1875rem;
+  max-width: 100%;
+  min-height: 2.5rem;
+  position: relative;
+  font-family: "Jura", -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none solid #757575;
+  text-size-adjust: 100%;
+  text-transform: uppercase;
+  white-space: nowrap;
+  width: auto;
+  border: 1px solid transparent;
+  filter: drop-shadow(rgba(117, 117, 117, 0.8) 1px 1px 2px);
+  clip-path: polygon(8.3% 0%, 85% 0%, 99.9% 0%, 100% 82%, 92.2% 100%, 15% 100%, 0% 100%, 0% 18%);
+}
+.punkbtn:hover {
+  color: #000;
+  filter: drop-shadow(0 0 8px rgba(117, 117, 117, 0.33));
+  border: 1px solid #000;
+  background-image: linear-gradient(to left, #757575, rgb(105.3, 105.3, 105.3), rgb(93.6, 93.6, 93.6));
+}
+.punkbtn.v2 {
+  border: none;
+}
+.punkbtn.v2:hover {
+  color: #666;
+  border: none;
+  filter: drop-shadow(2px 2px 5px rgba(117, 117, 117, 0.66));
+  background-image: linear-gradient(to left, #757575, rgb(105.3, 105.3, 105.3), rgb(93.6, 93.6, 93.6), rgb(81.9, 81.9, 81.9));
+}
+.punkbtn.punkbtn-primary {
+  background-image: linear-gradient(#520099, #520099);
+}
+.punkbtn.punkbtn-secondary {
+  background-image: linear-gradient(#0fb2aa, #0fb2aa);
+}
+.punkbtn.punkbtn-success {
+  background-image: linear-gradient(#3bfc43, #3bfc43);
+}
+.punkbtn.punkbtn-info {
+  background-image: linear-gradient(#1982c4, #1982c4);
+}
+.punkbtn.punkbtn-warning {
+  background-image: linear-gradient(#fbff12, #fbff12);
+}
+.punkbtn.punkbtn-danger {
+  background-image: linear-gradient(#ff0054, #ff0054);
+}
+.punkbtn.punkbtn-light {
+  background-image: linear-gradient(#E6E6E6, #E6E6E6);
+}
+.punkbtn.punkbtn-dark {
+  background-image: linear-gradient(#050505, #050505);
+}
+.punkbtn.punkbtn-body {
+  background-image: linear-gradient(#050505, #050505);
+}
+.punkbtn.punkbtn-body-secondary {
+  background-image: linear-gradient(#C9C9C9, #C9C9C9);
+}
+.punkbtn.punkbtn-medium-dark {
+  background-image: linear-gradient(#3D3D3D, #3D3D3D);
+}
+
+.btn-hover-shadow-1 {
+  display: inline-block;
+  transition: all 0.3s linear;
+  filter: drop-shadow(3px 3px white);
+}
+.btn-hover-shadow-1:hover {
+  filter: drop-shadow(1px 1px rgba(255, 255, 255, 0.5));
+}
+
 .bx {
   display: inline-block;
   width: 30px;

@@ -8,9 +8,9 @@
   "license": "MPL-2.0",
   "author": "Derek Scott <derek@huement.com>",
   "homepage": "https://github.com/huement/ui",
-  "buildNumber": 622,
+  "buildNumber": 623,
   "buildDate": "Fri Jun 13 2025",
-  "buildSize": "344.63 KiB",
+  "buildSize": "365.77 KiB",
   "hui": {
     "mqResponsive": "true",
     "baseFontSize": "16px",

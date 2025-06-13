@@ -274,18 +274,33 @@ $darkContrast: contrast-ratio($color, black);
   }
 }
 
-@function triad($color, $change: n) {
-  @if $change ==n {
-    @return $color;
+// Function to compute the triadic colors for a given color
+@function get-triad($color) {
+
+  // Ensure $color is a valid color
+  @if type-of($color) !=color {
+    @error "Invalid color value: #{$color}";
   }
 
-  @if $change ==t1 {
-    @return color.adjust($color, $hue: 120deg, $space: hsl);
-  }
+  // Get the original color's hue
+  $hue: color.hue($color);
+  // Handle 'none' hue (e.g., grayscale colors like hsl(none 0% 90%))
+  $hue: if($hue ==none, 0deg, $hue);
 
-  @if $change ==t2 {
-    @return color.adjust($color, $hue: 240deg, $space: hsl);
-  }
+  // Calculate triadic hues: +120° and -120°
+  $triad-1-hue: $hue + 120deg;
+  $triad-2-hue: $hue - 120deg;
+
+  // Keep saturation and lightness the same
+  $saturation: color.saturation($color);
+  $lightness: color.lightness($color);
+
+  // Create triadic colors
+  $triad-1: hsl($triad-1-hue, $saturation, $lightness);
+  $triad-2: hsl($triad-2-hue, $saturation, $lightness);
+
+  // Return a list: [original, triad-1, triad-2]
+  @return ($color, $triad-1, $triad-2);
 }
 
 @function analogous($color, $change: n) {

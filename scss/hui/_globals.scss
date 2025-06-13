@@ -43,7 +43,7 @@ $position-values: (
 // Fonts
 //============================================================
 // prettier-ignore
-$SansStack:  -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$SansStack: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 // prettier-ignore
 $MonoStack: sfmono-regular, menlo, monaco, consolas, "Andale Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
@@ -138,4 +138,4 @@ $zindex-levels: (
 // =======================================================================
 // Extras
 // =======================================================================
-$debug: true;
+$debug: false;

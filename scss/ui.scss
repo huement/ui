@@ -20,6 +20,8 @@
 @import 'hui/bootswatch';
 @import 'hui/typography';
 
+@include HUIButtons();
+
 // TODO : work with this
 // @import 'thirdparty/modularscale';
 
@@ -29,7 +31,9 @@
 // Then use the @include for the animation you want to use
 // @import 'thirdparty/animate/animate';
 
-@include debuggerUI();
+@if $debugMode {
+  @include debuggerUI();
+}
 
 // @TODO put everything in here where it should go in the codebase
 .b-hug {

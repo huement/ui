@@ -26,10 +26,12 @@
 //   90: 90px,
 //   95: 95px,
 //   100: 100px
-// ) !default;
+// );
 
 // Grab the Defaults
 @import 'quartz';
+
+$debugMode: true;
 
 // Harmony
 $modular-ratio: $MAJOR_THIRD;
@@ -52,8 +54,8 @@ $body-bg: #212121;
 $wave-bg: #111111;
 $btm-bg: #131313;
 $dark-bg: #181818;
-$black: #0f0f0f !default;
-$post-bg: #030303 !default;
+$black: #0f0f0f;
+$post-bg: #030303;
 $box-shadow: 0 0.5rem 1rem rgba($black, 0.2);
 $box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075);
 $box-shadow-lg: 0 1rem 3rem rgba($black, 0.3);
@@ -97,7 +99,7 @@ $enable-fills: true;
 // Control the default styling of most Bootstrap elements by modifying these
 // variables. Mostly focused on spacing.
 // You can add more entries to the $spacers map, should you need more variation.
-$spacer: 1rem !default;
+$spacer: 1rem;
 $spacers: (
   0: 0,
   1: $spacer * 0.25,
@@ -137,11 +139,9 @@ $sz_60: 50rem;
 $sz_70: 60rem;
 $sz_80: 70rem;
 
-$negative-spacers: if(
-  $enable-negative-margins,
-  negativify-map($spacers),
-  null
-) !default;
+$negative-spacers: if($enable-negative-margins,
+    negativify-map($spacers),
+    null);
 
 $gutters: $spacers;
 
@@ -189,18 +189,14 @@ $display-font-style: null;
 $display-font-weight: 300;
 $display-line-height: 1.2;
 
-$display-font-sizes: if(
-  $enable-display-sizes,
-  (
-    1: 5rem,
-    2: 4.5rem,
-    3: 4rem,
-    4: 3.5rem,
-    5: 3rem,
-    6: 2.5rem
-  ),
-  null
-);
+$display-font-sizes: if($enable-display-sizes,
+    (1: 5rem,
+      2: 4.5rem,
+      3: 4rem,
+      4: 3.5rem,
+      5: 3rem,
+      6: 2.5rem),
+    null);
 
 // Optionally Load Fonts this way
 // Default theme will turn this off in the theme file unless you remove it
@@ -221,9 +217,12 @@ $google-fonts-import: 'https://fonts.googleapis.com/css?family=Poppins:300,400,5
 // $font-family-roboto-mono-first: 'Roboto Mono', Menlo, Monaco, Consolas,
 //  'Liberation Mono', 'Courier New', monospace;
 
-$font-family-ui: map.get($UIFont, 'family'), $SansStack;
-$font-family-system-first: map.get($PrimaryFont, 'family'), $SansStack;
-$font-family-mono-first: map.get($CodeFont, 'family'), $MonoStack;
+$font-family-ui: map.get($UIFont, 'family'),
+  $SansStack;
+$font-family-system-first: map.get($PrimaryFont, 'family'),
+  $SansStack;
+$font-family-mono-first: map.get($CodeFont, 'family'),
+  $MonoStack;
 $font-family-headings: map.get($HeadingFont, 'family'),
   map.get($HeadingFont, 'stack');
 
@@ -250,7 +249,9 @@ $font-size-lg: map.get($font-sizes, 'lg');
 $font-size-sm: map.get($font-sizes, 'xs');
 
 $font-weight-lighter: lighter;
-$font-weight-light: (map.get($PrimaryFont, 'weight') - 100);
+$font-weight-light: (
+  map.get($PrimaryFont, 'weight') - 100
+);
 $font-weight-normal: map.get($PrimaryFont, 'weight');
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
