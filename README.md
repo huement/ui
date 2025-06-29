@@ -55,6 +55,14 @@ hui is designed to be SIMPLE! The folder structure is a testament to that princi
  $ npm install @huement/ui
 ```
 
+### ━▶ Updating
+
+Updating the library involves pushing a new version to NPM. 
+
+```shell
+ $ npm install @huement/ui
+```
+
 > TODO: npm install (needs to be added to npm)
 > TODO: HTML snippets < link href='' />
 > TODO: SCSS import snippet

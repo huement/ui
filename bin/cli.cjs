@@ -16,23 +16,68 @@ const TokenFonts = require('./fonts.cjs')
 const _ = require('lodash')
 const cg = require('../package.json')
 const debugOutput = cg.debugMode || true
+const { exec } = require('child_process')
+const path = require('path')
 
 const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
-const argv = yargs(hideBin(process.argv)).argv
 
+// Display a cool banner message based on package.json data
+textUI.outputHeader(cg)
+
+const argv = yargs(hideBin(process.argv))
+  .command('$0', 'Run one or more optimization commands', (yargs) => {
+    return yargs
+      .option('imgopt', {
+        alias: 'i',
+        description: 'Target directory for image optimization',
+        type: 'string',
+      })
+      .option('color', {
+        alias: 'c',
+        description: 'Run color optimization',
+        type: 'boolean',
+        default: false,
+      })
+      .option('chords', {
+        alias: 'd',
+        description: 'Run design tokens (chords) optimization',
+        type: 'boolean',
+        default: false,
+      })
+      .option('data', {
+        alias: 't',
+        description: 'Run data optimization',
+        type: 'boolean',
+        default: false,
+      })
+      .check((argv) => {
+        // Ensure at least one command is specified
+        if (!argv.imgopt && !argv.color && !argv.chords && !argv.data) {
+          throw new Error('At least one command must be specified')
+        }
+        // If imgopt is specified, ensure it has a value
+        if (argv.imgopt === true) {
+          throw new Error('imgopt requires a directory path')
+        }
+        return true
+      })
+  })
+  .help().argv
+
+// Get the target directory from the imgopt parameter if specified
+const targetDir = argv.imgopt ? argv.imgopt : false
 // TODO Optionally have a selectable menu allowing users to select which cmd to run
 
 process.on('exit', function (code) {
   if (debugOutput) return console.log(`Exiting with code: ${code}`)
 })
 
-// Display a cool banner message based on package.json data
-textUI.outputHeader(cg)
-
 const colorList = 'tokens/color_tokens.json' // basic hex codes used to build theme from
 const colorSCSS = 'scss/hui/_palette.scss' // SCSS file w/ tokens + generated color stacks
 const colorJSON = 'dist/generated_colors.json' // List of all colors that were created
+const scriptDir = __dirname
+const bashScriptPath = path.join(scriptDir, 'web-image-optimize.sh')
 
 const resultList = []
 
@@ -43,36 +88,55 @@ function sleep(ms) {
 
 function init() {
   // TODO: By default running this script runs NO commands. Must pass a flag
-  if (argv['_'] && argv['_'][0]) {
-    for (let i = 0; i < argv['_'].length; i++) {
-      const theCmd = _.trim(argv['_'][i])
-      textUI.infoTxt('Input Command: ' + theCmd)
+  // Execute commands based on flags
+  if (argv.color) {
+    console.log('Running color optimization...')
+    const tc = new TokenColors(colorList, colorSCSS, colorJSON)
+    tc.assemblePalette()
+    sleep(2000)
+    tc.addDefaultSass()
+    resultList.push('color')
+  }
 
-      if (theCmd === 'data' || theCmd === 'data') {
-        const fm = new fileMGMT()
-        fm.scssDataFile()
-        resultList.push('data')
-      }
+  if (argv.chords) {
+    console.log('Running design tokens optimization...')
+    // Design Token Chords
+    // Pass in chords.json file path
+    // let chordList = gdb.chordTokens
+    const td = new TokenChords(cg.hui)
+    td.assmebleChordTokens()
+    // await sleep(2000)
+    td.addDefaultTagsSass()
+    resultList.push('chord')
+  }
 
-      if (theCmd === 'color' || theCmd === 'colors') {
-        const tc = new TokenColors(colorList, colorSCSS, colorJSON)
-        tc.assemblePalette()
-        sleep(2000)
-        tc.addDefaultSass()
-        resultList.push('color')
-      }
+  if (argv.data) {
+    console.log('Running data optimization...')
+    const fm = new fileMGMT()
+    fm.scssDataFile()
+    resultList.push('data')
+  }
 
-      if (theCmd === 'chord' || theCmd === 'chords') {
-        // Design Token Chords
-        // Pass in chords.json file path
-        // let chordList = gdb.chordTokens
-        const td = new TokenChords(cg.hui)
-        td.assmebleChordTokens()
-        // await sleep(2000)
-        td.addDefaultTagsSass()
-        resultList.push('chord')
+  if (targetDir) {
+    console.log(`Running image optimization on directory: ${targetDir}`)
+    // Execute the web-image-optimize.sh script with the target directory
+
+    const bashScriptPath = path.join(scriptDir, 'web-image-optimize.sh')
+    // Optimize any .jpg, .jpeg, or .png images for use on the web
+    textUI.infoTxt(`Optimizing Images In: ${targetDir}`)
+
+    exec(`"${bashScriptPath}" ${targetDir}`, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error executing script: ${error}`)
+        return
       }
-    }
+      if (stderr) {
+        console.error(`Script stderr: ${stderr}`)
+        return
+      }
+      console.log(`Script output: ${stdout}`)
+    })
+    resultList.push('imgopt')
   }
 }
 
