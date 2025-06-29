@@ -1,5 +1,5 @@
 //
-// Modified Input Group to support <div class="input-group"><input type="whatever"/></div>
+// Base styles
 //
 
 .input-group {
@@ -9,25 +9,46 @@
   align-items: stretch;
   width: 100%;
 
-  >.form-control,
-  >.form-select,
-  >.form-floating,
-  >input,
-  >select,
-  >textarea {
+  // Target .form-control as a wrapper, and style its child input, textarea, select
+  >.form-control {
     position: relative; // For focus state's z-index
     flex: 1 1 auto;
     width: 1%;
     min-width: 0; // https://stackoverflow.com/questions/36247140/why-dont-flex-items-shrink-past-content-size
+    display: flex;
+    align-items: center;
+    padding: 0; // Remove default padding from wrapper
+    background: none;
+    border: none;
+    box-shadow: none;
+
+    // Style the input/select/textarea inside the wrapper
+    >input,
+    >textarea,
+    >select {
+      flex: 1 1 auto;
+      width: 100%;
+      min-width: 0;
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: $input-padding-y $input-padding-x;
+      font-size: $input-font-size;
+      font-weight: $input-font-weight;
+      line-height: $input-line-height;
+      color: $input-color;
+      // Add any other .form-control input styles here
+    }
+
+    // If you want to keep border, background, etc. on the input, add them here
   }
 
   // Bring the "active" form control to the top of surrounding elements
-  >.form-control:focus,
+  >.form-control>input:focus,
+  >.form-control>textarea:focus,
+  >.form-control>select:focus,
   >.form-select:focus,
-  >.form-floating:focus-within,
-  >input:focus,
-  >select:focus,
-  >textarea:focus {
+  >.form-floating:focus-within {
     z-index: 5;
   }
 
@@ -71,34 +92,30 @@
 // Remix the default form control sizing classes into new ones for easier
 // manipulation.
 
-.input-group-lg>.form-control,
+.input-group-lg>.form-control>input,
+.input-group-lg>.form-control>textarea,
+.input-group-lg>.form-control>select,
 .input-group-lg>.form-select,
 .input-group-lg>.input-group-text,
-.input-group-lg>.btn,
-.input-group-lg>input,
-.input-group-lg>select,
-.input-group-lg>textarea {
+.input-group-lg>.btn {
   padding: $input-padding-y-lg $input-padding-x-lg;
   @include font-size($input-font-size-lg);
   @include border-radius($input-border-radius-lg);
 }
 
-.input-group-sm>.form-control,
+.input-group-sm>.form-control>input,
+.input-group-sm>.form-control>textarea,
+.input-group-sm>.form-control>select,
 .input-group-sm>.form-select,
 .input-group-sm>.input-group-text,
-.input-group-sm>.btn,
-.input-group-sm>input,
-.input-group-sm>select,
-.input-group-sm>textarea {
+.input-group-sm>.btn {
   padding: $input-padding-y-sm $input-padding-x-sm;
   @include font-size($input-font-size-sm);
   @include border-radius($input-border-radius-sm);
 }
 
 .input-group-lg>.form-select,
-.input-group-lg>select,
-.input-group-sm>.form-select,
-.input-group-sm>select {
+.input-group-sm>.form-select {
   padding-right: $form-select-padding-x + $form-select-indicator-padding;
 }
 
@@ -113,26 +130,20 @@
 .input-group {
   &:not(.has-validation) {
 
-    > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating):not(input):not(select):not(textarea),
+    > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating),
     >.dropdown-toggle:nth-last-child(n + 3),
-    >.form-floating:not(:last-child)>.form-control,
-    >.form-floating:not(:last-child)>.form-select,
-    >input:not(:last-child),
-    >select:not(:last-child),
-    >textarea:not(:last-child) {
+    >.form-floating:not(:last-child)>.form-control>input,
+    >.form-floating:not(:last-child)>.form-control>select {
       @include border-end-radius(0);
     }
   }
 
   &.has-validation {
 
-    > :nth-last-child(n + 3):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating):not(input):not(select):not(textarea),
+    > :nth-last-child(n + 3):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating),
     >.dropdown-toggle:nth-last-child(n + 4),
-    >.form-floating:nth-last-child(n + 3)>.form-control,
-    >.form-floating:nth-last-child(n + 3)>.form-select,
-    >input:nth-last-child(n + 3),
-    >select:nth-last-child(n + 3),
-    >textarea:nth-last-child(n + 3) {
+    >.form-floating:nth-last-child(n + 3)>.form-control>input,
+    >.form-floating:nth-last-child(n + 3)>.form-control>select {
       @include border-end-radius(0);
     }
   }
@@ -143,19 +154,15 @@
     $validation-messages: $validation-messages + ":not(." + unquote($state) + "-tooltip)" + ":not(." + unquote($state) + "-feedback)";
   }
 
-  > :not(:first-child):not(.dropdown-menu)#{$validation-messages},
-  >input:not(:first-child)#{$validation-messages},
-  >select:not(:first-child)#{$validation-messages},
-  >textarea:not(:first-child)#{$validation-messages} {
+  > :not(:first-child):not(.dropdown-menu)#{$validation-messages} {
     margin-left: calc(#{$input-border-width} * -1); // stylelint-disable-line function-disallowed-list
     @include border-start-radius(0);
   }
 
-  >.form-floating:not(:first-child)>.form-control,
-  >.form-floating:not(:first-child)>.form-select,
-  >input:not(:first-child),
-  >select:not(:first-child),
-  >textarea:not(:first-child) {
+  >.form-floating:not(:first-child)>.form-control>input,
+  >.form-floating:not(:first-child)>.form-control>select {
     @include border-start-radius(0);
   }
 }
+
+// Optionally, add a deprecation warning for direct .form-control on input, or keep legacy support if needed.
