@@ -25,6 +25,7 @@
 - [TABLE OF CONTENTS](#table-of-contents)
   - [━▶ SECTIONS OVERVIEW](#-sections-overview)
   - [━▶ INSTALLING](#-installing)
+    - [━▶ Updating](#-updating)
   - [━▶ SCSS Framework Building](#-scss-framework-building)
     - [STYLE + DESIGN TOKENS](#style--design-tokens)
   - [━▶ SVG Icon Font Tools](#-svg-icon-font-tools)
@@ -94,6 +95,10 @@ The `/bin/` directory in the root of the repository contains a number of scripts
 ```shell
  node bin/cli.cjs
 ```
+
+<div style="width:100%;padding:2rem 0;">
+  <img src="cli.png" alt="HUI CLI Screenshot" style="width:100%;display:block;margin:0 auto;" />
+</div>
 
 Running that main command will allow you to use a menu and easily access the other scripts and their parameters.
 
