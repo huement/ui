@@ -4,30 +4,6 @@
 @use 'sass:color';
 @use 'sass:map';
 
-// $spacers: (
-//   0: 0,
-//   5: 5px,
-//   10: 10px,
-//   15: 15px,
-//   20: 20px,
-//   25: 25px,
-//   30: 30px,
-//   35: 35px,
-//   40: 40px,
-//   45: 45px,
-//   50: 50px,
-//   55: 55px,
-//   60: 60px,
-//   65: 65px,
-//   70: 70px,
-//   75: 75px,
-//   80: 80px,
-//   85: 85px,
-//   90: 90px,
-//   95: 95px,
-//   100: 100px
-// );
-
 // Grab the Defaults
 @import 'quartz';
 
@@ -93,6 +69,12 @@ $enable-dark-mode: true; // dark is the new default
 $color-mode-type: data; // `data` or `media-query`
 
 $enable-fills: true;
+
+//
+// BRANDS
+//
+// Add in support for various brands colors. Will create a bg-{brand}, text-{brand} and btn-{brand} elements.
+$brands: facebook, linkedin, x, instagram, youtube, reddit, telegram, whatsapp;
 
 // Spacing
 //

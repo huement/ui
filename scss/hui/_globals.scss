@@ -53,49 +53,6 @@ $SerifStack: "Iowan Old Style", "Apple Garamond", baskerville, "Times New Roman"
 
 $not-integer-txt: ' value breaks vertical rhythm. Use an integer (whole number) for $lines.';
 
-// Social Media color codes for a lot of sites
-$SocialColors: (
-  adn: #504e54,
-  apple: #aeb5c5,
-  android: #a5c63b,
-  bitbucket: #036,
-  bitcoin: #f7931a,
-  css3: #1572b7,
-  dribbble: #f46899,
-  dropbox: #018bd3,
-  facebook: #3c599f,
-  flickr: #ff0084,
-  foursquare: #0086be,
-  github: #070709,
-  google: #cf3d2e,
-  html5: #e54d26,
-  instagram: #a1755c,
-  linkedin: #0085ae,
-  linux: #fbc002,
-  maxcdn: #f6ae1c,
-  pagelines: #241e20,
-  pinterest: #cc2127,
-  renren: #025dac,
-  skype: #01aef2,
-  stack-exchange: #245590,
-  stack-overflow: #ff7300,
-  trello: #265a7f,
-  tumblr: #314e6c,
-  twitter: #32ccfe,
-  vimeo: #229acc,
-  vk: #375474,
-  weibo: #d72b2b,
-  windows: #12b6f3,
-  xing: #00555c,
-  youtube: #c52f30
-);
-
-// only include the icons we want
-$icon-socials: facebook, twitter, linkedin, dribbble;
-
-// only enable if we have said we want at least one
-$enable-icons-social: if(list.length($icon-socials) > 0, true, false);
-
 //============================================================
 // UI Requires
 //============================================================

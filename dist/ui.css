@@ -15130,122 +15130,6 @@ kbd kbd {
     max-height: none;
   }
 }
-.input-group {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  width: 100%;
-}
-.input-group > .form-control {
-  position: relative;
-  flex: 1 1 auto;
-  width: 1%;
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  padding: 0;
-  background: none;
-  border: none;
-  box-shadow: none;
-}
-.input-group > .form-control > input,
-.input-group > .form-control > textarea,
-.input-group > .form-control > select {
-  flex: 1 1 auto;
-  width: 100%;
-  min-width: 0;
-  border: none;
-  outline: none;
-  background: transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--bs-body-color);
-}
-.input-group > .form-control > input:focus,
-.input-group > .form-control > textarea:focus,
-.input-group > .form-control > select:focus,
-.input-group > .form-select:focus,
-.input-group > .form-floating:focus-within {
-  z-index: 5;
-}
-.input-group .btn {
-  position: relative;
-  z-index: 2;
-}
-.input-group .btn:focus {
-  z-index: 5;
-}
-
-.input-group-text {
-  display: flex;
-  align-items: center;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--bs-body-color);
-  text-align: center;
-  white-space: nowrap;
-  background-color: var(--bs-tertiary-bg);
-  border: var(--bs-border-width) solid var(--bs-border-color);
-  border-radius: var(--bs-border-radius);
-}
-
-.input-group-lg > .form-control > input,
-.input-group-lg > .form-control > textarea,
-.input-group-lg > .form-control > select,
-.input-group-lg > .form-select,
-.input-group-lg > .input-group-text,
-.input-group-lg > .btn {
-  padding: 0.5rem 1rem;
-  font-size: 1.25rem;
-  border-radius: var(--bs-border-radius-lg);
-}
-
-.input-group-sm > .form-control > input,
-.input-group-sm > .form-control > textarea,
-.input-group-sm > .form-control > select,
-.input-group-sm > .form-select,
-.input-group-sm > .input-group-text,
-.input-group-sm > .btn {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
-  border-radius: var(--bs-border-radius-sm);
-}
-
-.input-group-lg > .form-select,
-.input-group-sm > .form-select {
-  padding-right: 3rem;
-}
-
-.input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating),
-.input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n+3),
-.input-group:not(.has-validation) > .form-floating:not(:last-child) > .form-control > input,
-.input-group:not(.has-validation) > .form-floating:not(:last-child) > .form-control > select {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.input-group.has-validation > :nth-last-child(n+3):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating),
-.input-group.has-validation > .dropdown-toggle:nth-last-child(n+4),
-.input-group.has-validation > .form-floating:nth-last-child(n+3) > .form-control > input,
-.input-group.has-validation > .form-floating:nth-last-child(n+3) > .form-control > select {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
-  margin-left: calc(var(--bs-border-width) * -1);
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.input-group > .form-floating:not(:first-child) > .form-control > input,
-.input-group > .form-floating:not(:first-child) > .form-control > select {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
 .cyber-btn {
   transition: all 0.2s linear;
   filter: drop-shadow(rgba(var(--bs-body-color), 0.8) 1px 1px 2px);
@@ -16008,20 +15892,179 @@ kbd kbd {
   filter: drop-shadow(1px 1px rgba(255, 255, 255, 0.5));
 }
 
-.bx {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
+.btn-x {
+  background-color: #000000;
+  color: #fff;
+  fill: #fff;
 }
 
-.bx-sm {
+.btn-reddit {
+  color: #fff;
+  background-color: #ff5700;
+}
+
+.btn-linkedin {
+  color: #fff;
+  fill: #fff;
+  background-color: #0a66c2;
+}
+
+.btn-whatsapp {
+  background-color: #075e54;
+  color: #ffffff;
+}
+
+.btn-telegram {
+  background-color: #0088cc;
+  color: #ffffff;
+}
+
+.text-facebook {
+  color: #1877f2 !important;
+}
+
+.bg-facebook {
+  background-color: #1877f2 !important;
+}
+
+.btn-facebook {
+  background-color: #1877f2 !important;
+  color: #fff !important;
+  border: none;
+}
+.btn-facebook:hover, .btn-facebook:focus {
+  filter: brightness(0.9);
+}
+
+.text-linkedin {
+  color: #0a66c2 !important;
+}
+
+.bg-linkedin {
+  background-color: #0a66c2 !important;
+}
+
+.btn-linkedin {
+  background-color: #0a66c2 !important;
+  color: #fff !important;
+  border: none;
+}
+.btn-linkedin:hover, .btn-linkedin:focus {
+  filter: brightness(0.9);
+}
+
+.text-x {
+  color: #000000 !important;
+}
+
+.bg-x {
+  background-color: #000000 !important;
+}
+
+.btn-x {
+  background-color: #000000 !important;
+  color: #fff !important;
+  border: none;
+}
+.btn-x:hover, .btn-x:focus {
+  filter: brightness(0.9);
+}
+
+.text-youtube {
+  color: #ff0000 !important;
+}
+
+.bg-youtube {
+  background-color: #ff0000 !important;
+}
+
+.btn-youtube {
+  background-color: #ff0000 !important;
+  color: #fff !important;
+  border: none;
+}
+.btn-youtube:hover, .btn-youtube:focus {
+  filter: brightness(0.9);
+}
+
+.text-reddit {
+  color: #ff5700 !important;
+}
+
+.bg-reddit {
+  background-color: #ff5700 !important;
+}
+
+.btn-reddit {
+  background-color: #ff5700 !important;
+  color: #fff !important;
+  border: none;
+}
+.btn-reddit:hover, .btn-reddit:focus {
+  filter: brightness(0.9);
+}
+
+.text-telegram {
+  color: #0088cc !important;
+}
+
+.bg-telegram {
+  background-color: #0088cc !important;
+}
+
+.btn-telegram {
+  background-color: #0088cc !important;
+  color: #fff !important;
+  border: none;
+}
+.btn-telegram:hover, .btn-telegram:focus {
+  filter: brightness(0.9);
+}
+
+.text-whatsapp {
+  color: #075e54 !important;
+}
+
+.bg-whatsapp {
+  background-color: #075e54 !important;
+}
+
+.btn-whatsapp {
+  background-color: #075e54 !important;
+  color: #fff !important;
+  border: none;
+}
+.btn-whatsapp:hover, .btn-whatsapp:focus {
+  filter: brightness(0.9);
+}
+
+.bx {
+  display: inline-block;
+}
+
+svg.bx-xs {
+  width: 1rem;
+  height: 1rem;
+}
+
+svg.bx-sm {
   width: 1.25rem;
   height: 1.25rem;
 }
 
-.bx-lg {
+svg.bx-md {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+svg.bx-lg {
   width: 3rem;
   height: 3rem;
+}
+
+svg.bx-xl {
+  width: 5rem;
+  height: 5rem;
 }
 
 .bx-xs {
@@ -16029,7 +16072,7 @@ kbd kbd {
 }
 
 .bx-sm {
-  font-size: 1.55rem !important;
+  font-size: 1.25rem !important;
 }
 
 .bx-md {
@@ -16040,219 +16083,331 @@ kbd kbd {
   font-size: 3rem !important;
 }
 
+.bx-xl {
+  font-size: 5rem !important;
+}
+
 h1 .bx, .h1 .bx {
-  width: 1.8rem;
   font-size: 1.8rem;
+}
+
+h1 svg.bx, .h1 svg.bx {
+  width: 1.8rem;
   height: 1.8rem;
 }
 
 h2 .bx, .h2 .bx {
-  width: 1.6rem;
   font-size: 1.6rem;
+}
+
+h2 svg.bx, .h2 svg.bx {
+  width: 1.6rem;
   height: 1.6rem;
 }
 
 h3 .bx, .h3 .bx {
-  width: 1.42rem;
   font-size: 1.42rem;
+}
+
+h3 svg.bx, .h3 svg.bx {
+  width: 1.42rem;
   height: 1.42rem;
 }
 
 h4 .bx, .h4 .bx {
-  width: 1.27rem;
   font-size: 1.27rem;
+}
+
+h4 svg.bx, .h4 svg.bx {
+  width: 1.27rem;
   height: 1.27rem;
 }
 
 h5 .bx, .h5 .bx {
-  width: 1.13rem;
   font-size: 1.13rem;
+}
+
+h5 svg.bx, .h5 svg.bx {
+  width: 1.13rem;
   height: 1.13rem;
 }
 
 h6 .bx, .h6 .bx {
-  width: 1rem;
   font-size: 1rem;
+}
+
+h6 svg.bx, .h6 svg.bx {
+  width: 1rem;
   height: 1rem;
 }
 
 h1 .bx, .h1 .bx {
-  width: 2.49rem;
   font-size: 2.49rem;
+}
+
+h1 svg.bx, .h1 svg.bx {
+  width: 2.49rem;
   height: 2.49rem;
 }
 
 h2 .bx, .h2 .bx {
-  width: 2.07rem;
   font-size: 2.07rem;
+}
+
+h2 svg.bx, .h2 svg.bx {
+  width: 2.07rem;
   height: 2.07rem;
 }
 
 h3 .bx, .h3 .bx {
-  width: 1.73rem;
   font-size: 1.73rem;
+}
+
+h3 svg.bx, .h3 svg.bx {
+  width: 1.73rem;
   height: 1.73rem;
 }
 
 h4 .bx, .h4 .bx {
-  width: 1.44rem;
   font-size: 1.44rem;
+}
+
+h4 svg.bx, .h4 svg.bx {
+  width: 1.44rem;
   height: 1.44rem;
 }
 
 h5 .bx, .h5 .bx {
-  width: 1.2rem;
   font-size: 1.2rem;
+}
+
+h5 svg.bx, .h5 svg.bx {
+  width: 1.2rem;
   height: 1.2rem;
 }
 
 h6 .bx, .h6 .bx {
-  width: 1rem;
   font-size: 1rem;
+}
+
+h6 svg.bx, .h6 svg.bx {
+  width: 1rem;
   height: 1rem;
 }
 
 h1 .bx, .h1 .bx {
-  width: 3.05rem;
   font-size: 3.05rem;
+}
+
+h1 svg.bx, .h1 svg.bx {
+  width: 3.05rem;
   height: 3.05rem;
 }
 
 h2 .bx, .h2 .bx {
-  width: 2.44rem;
   font-size: 2.44rem;
+}
+
+h2 svg.bx, .h2 svg.bx {
+  width: 2.44rem;
   height: 2.44rem;
 }
 
 h3 .bx, .h3 .bx {
-  width: 1.95rem;
   font-size: 1.95rem;
+}
+
+h3 svg.bx, .h3 svg.bx {
+  width: 1.95rem;
   height: 1.95rem;
 }
 
 h4 .bx, .h4 .bx {
-  width: 1.56rem;
   font-size: 1.56rem;
+}
+
+h4 svg.bx, .h4 svg.bx {
+  width: 1.56rem;
   height: 1.56rem;
 }
 
 h5 .bx, .h5 .bx {
-  width: 1.25rem;
   font-size: 1.25rem;
+}
+
+h5 svg.bx, .h5 svg.bx {
+  width: 1.25rem;
   height: 1.25rem;
 }
 
 h6 .bx, .h6 .bx {
-  width: 1rem;
   font-size: 1rem;
+}
+
+h6 svg.bx, .h6 svg.bx {
+  width: 1rem;
   height: 1rem;
 }
 
 h1 .bx, .h1 .bx {
-  width: 4.21rem;
   font-size: 4.21rem;
+}
+
+h1 svg.bx, .h1 svg.bx {
+  width: 4.21rem;
   height: 4.21rem;
 }
 
 h2 .bx, .h2 .bx {
-  width: 3.16rem;
   font-size: 3.16rem;
+}
+
+h2 svg.bx, .h2 svg.bx {
+  width: 3.16rem;
   height: 3.16rem;
 }
 
 h3 .bx, .h3 .bx {
-  width: 2.37rem;
   font-size: 2.37rem;
+}
+
+h3 svg.bx, .h3 svg.bx {
+  width: 2.37rem;
   height: 2.37rem;
 }
 
 h4 .bx, .h4 .bx {
-  width: 1.78rem;
   font-size: 1.78rem;
+}
+
+h4 svg.bx, .h4 svg.bx {
+  width: 1.78rem;
   height: 1.78rem;
 }
 
 h5 .bx, .h5 .bx {
-  width: 1.33rem;
   font-size: 1.33rem;
+}
+
+h5 svg.bx, .h5 svg.bx {
+  width: 1.33rem;
   height: 1.33rem;
 }
 
 h6 .bx, .h6 .bx {
-  width: 1rem;
   font-size: 1rem;
+}
+
+h6 svg.bx, .h6 svg.bx {
+  width: 1rem;
   height: 1rem;
 }
 
 h1 .bx, .h1 .bx {
-  width: 4.21rem;
   font-size: 4.21rem;
+}
+
+h1 svg.bx, .h1 svg.bx {
+  width: 4.21rem;
   height: 4.21rem;
 }
 
 h2 .bx, .h2 .bx {
-  width: 3.16rem;
   font-size: 3.16rem;
+}
+
+h2 svg.bx, .h2 svg.bx {
+  width: 3.16rem;
   height: 3.16rem;
 }
 
 h3 .bx, .h3 .bx {
-  width: 2.37rem;
   font-size: 2.37rem;
+}
+
+h3 svg.bx, .h3 svg.bx {
+  width: 2.37rem;
   height: 2.37rem;
 }
 
 h4 .bx, .h4 .bx {
-  width: 1.78rem;
   font-size: 1.78rem;
+}
+
+h4 svg.bx, .h4 svg.bx {
+  width: 1.78rem;
   height: 1.78rem;
 }
 
 h5 .bx, .h5 .bx {
-  width: 1.33rem;
   font-size: 1.33rem;
+}
+
+h5 svg.bx, .h5 svg.bx {
+  width: 1.33rem;
   height: 1.33rem;
 }
 
 h6 .bx, .h6 .bx {
-  width: 1rem;
   font-size: 1rem;
+}
+
+h6 svg.bx, .h6 svg.bx {
+  width: 1rem;
   height: 1rem;
 }
 
 h1 .bx, .h1 .bx {
-  width: 5.65rem;
   font-size: 5.65rem;
+}
+
+h1 svg.bx, .h1 svg.bx {
+  width: 5.65rem;
   height: 5.65rem;
 }
 
 h2 .bx, .h2 .bx {
-  width: 4rem;
   font-size: 4rem;
+}
+
+h2 svg.bx, .h2 svg.bx {
+  width: 4rem;
   height: 4rem;
 }
 
 h3 .bx, .h3 .bx {
-  width: 2.83rem;
   font-size: 2.83rem;
+}
+
+h3 svg.bx, .h3 svg.bx {
+  width: 2.83rem;
   height: 2.83rem;
 }
 
 h4 .bx, .h4 .bx {
-  width: 2rem;
   font-size: 2rem;
+}
+
+h4 svg.bx, .h4 svg.bx {
+  width: 2rem;
   height: 2rem;
 }
 
 h5 .bx, .h5 .bx {
-  width: 1.41rem;
   font-size: 1.41rem;
+}
+
+h5 svg.bx, .h5 svg.bx {
+  width: 1.41rem;
   height: 1.41rem;
 }
 
 h6 .bx, .h6 .bx {
-  width: 1rem;
   font-size: 1rem;
+}
+
+h6 svg.bx, .h6 svg.bx {
+  width: 1rem;
   height: 1rem;
 }
 
@@ -16764,11 +16919,6 @@ a .btn.mx-auto.d-block {
   box-shadow: 0 1px 1px hsla(0, 0%, 0%, 0.075), 0 2px 2px hsla(0, 0%, 0%, 0.075), 0 4px 4px hsla(0, 0%, 0%, 0.075), 0 8px 8px hsla(0, 0%, 0%, 0.075), 0 16px 16px hsla(0, 0%, 0%, 0.075);
 }
 
-.text-center {
-  text-align: center !important;
-  display: block !important;
-}
-
 .float-end {
   float: right;
 }
@@ -16780,33 +16930,6 @@ a .btn.mx-auto.d-block {
 .btn-facebook {
   color: #fff;
   background-color: #1877f2;
-}
-
-.btn-x {
-  background-color: #000000;
-  color: #fff;
-  fill: #fff;
-}
-
-.btn-reddit {
-  color: #fff;
-  background-color: #ff5700;
-}
-
-.btn-linkedin {
-  color: #fff;
-  fill: #fff;
-  background-color: #0a66c2;
-}
-
-.btn-whatsapp {
-  background-color: #075e54;
-  color: #ffffff;
-}
-
-.btn-telegram {
-  background-color: #0088cc;
-  color: #ffffff;
 }
 
 .btn-email,

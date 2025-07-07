@@ -23,6 +23,10 @@
 
 @include HUIButtons();
 
+@if (global-variable-exists(brands) and length($brands) > 0) {
+  @include brand-utilities;
+}
+
 // TODO : work with this
 // @import 'thirdparty/modularscale';
 
@@ -103,11 +107,6 @@ a .btn.mx-auto.d-block {
     0 16px 16px hsl(0deg 0% 0% / 0.075);
 }
 
-.text-center {
-  text-align: center !important;
-  display: block !important;
-}
-
 .float-end {
   float: right;
 }
@@ -119,33 +118,6 @@ a .btn.mx-auto.d-block {
 .btn-facebook {
   color: #fff;
   background-color: $facebook;
-}
-
-.btn-x {
-  background-color: $x;
-  color: #fff;
-  fill: #fff;
-}
-
-.btn-reddit {
-  color: #fff;
-  background-color: $reddit;
-}
-
-.btn-linkedin {
-  color: #fff;
-  fill: #fff;
-  background-color: $linkedin;
-}
-
-.btn-whatsapp {
-  background-color: $whatsapp;
-  color: #ffffff;
-}
-
-.btn-telegram {
-  background-color: $telegram;
-  color: #ffffff;
 }
 
 .btn-email,

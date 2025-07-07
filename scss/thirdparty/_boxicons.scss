@@ -1,37 +1,43 @@
-// Modified Boxicons for use with Laravel Blade Icons as raw SVGs instead of the Font version
+// BLADE BOXICONS 3+
+// Modified Boxicons v2-3 for use with Laravel Blade Icons as raw SVGs along side of the Font version
+// Also supports fluid heading sized icons annd few other tweaks
+
+@mixin bx-size($size) {
+  font-size: $size !important;
+}
+
+@mixin bx-svg-size($size) {
+  width: $size;
+  height: $size;
+}
+
+$bx-sizes: (
+  xs: 1rem,
+  sm: 1.25rem,
+  md: 2.25rem,
+  lg: 3rem,
+  xl: 5rem
+);
 
 .bx {
   display: inline-block;
-  width: 30px;
-  height: 30px;
 }
 
-.bx-sm {
-  width: 1.25rem;
-  height: 1.25rem;
+// SVG icon sizes
+@each $name, $size in $bx-sizes {
+  svg.bx-#{$name} {
+    @include bx-svg-size($size);
+  }
 }
 
-.bx-lg {
-  width: 3rem;
-  height: 3rem;
+// Font icon sizes
+@each $name, $size in $bx-sizes {
+  .bx-#{$name} {
+    @include bx-size($size);
+  }
 }
 
-.bx-xs {
-  font-size: 1rem !important;
-}
-
-.bx-sm {
-  font-size: 1.55rem !important;
-}
-
-.bx-md {
-  font-size: 2.25rem !important;
-}
-
-.bx-lg {
-  font-size: 3rem !important;
-}
-
+// Heading Icons
 @each $hKey, $hMap in $chords {
   $headingFontMap: map.get($hMap, 'headings_px');
   $bpFS: map.get($hMap, 'fontSize');
@@ -40,8 +46,11 @@
     $HFontSize: px_rem(decimal_round($hfm, 0), strip-units($bpFS), 2);
 
     #{$hfk} .bx {
-      width: $HFontSize;
       font-size: $HFontSize;
+    }
+
+    #{$hfk} svg.bx {
+      width: $HFontSize;
       height: $HFontSize;
     }
   }

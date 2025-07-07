@@ -511,6 +511,35 @@
   @include catbutton();
   @include aoibutton();
   @include punkbtn();
+
+
+
+  .btn-x {
+    background-color: $x;
+    color: #fff;
+    fill: #fff;
+  }
+
+  .btn-reddit {
+    color: #fff;
+    background-color: $reddit;
+  }
+
+  .btn-linkedin {
+    color: #fff;
+    fill: #fff;
+    background-color: $linkedin;
+  }
+
+  .btn-whatsapp {
+    background-color: $whatsapp;
+    color: #ffffff;
+  }
+
+  .btn-telegram {
+    background-color: $telegram;
+    color: #ffffff;
+  }
 }
 
 /// Generates a Cool Background Wave
@@ -972,5 +1001,33 @@
   @else {
     left: calc(50% - (#{$width} * 0.5));
     top: calc(50% - (#{$width} * 0.5));
+  }
+}
+
+@mixin brand-utilities {
+  @each $brand in $brands {
+    $brand-color: map.get($brand-colors, $brand);
+
+    @if $brand-color {
+      .text-#{$brand} {
+        color: $brand-color !important;
+      }
+
+      .bg-#{$brand} {
+        background-color: $brand-color !important;
+      }
+
+      .btn-#{$brand} {
+        background-color: $brand-color !important;
+        color: #fff !important;
+        border: none;
+
+        // Add more button styles as needed
+        &:hover,
+        &:focus {
+          filter: brightness(0.9);
+        }
+      }
+    }
   }
 }
