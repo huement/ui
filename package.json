@@ -8,7 +8,7 @@
   "license": "MPL-2.0",
   "author": "Derek Scott <derek@huement.com>",
   "homepage": "https://github.com/huement/ui",
-  "buildNumber": 638,
+  "buildNumber": 643,
   "buildDate": "Fri Jul 11 2025",
   "buildSize": "367.67 KiB",
   "hui": {
@@ -21,7 +21,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "bump": "node ./bin/bump.cjs && npm run stats",
-    "newVersion": "npm version patch && npx npm-run-all -l -s -c build:js build deploy stats",
+    "newVersion": "npx npm-run-all -l -s -c build:js scss minify postfix stats && git add * && git commit -m 'new version' && npm version patch",
     "dev": "nodemon -x \"npm run build\"",
     "scss": "sass --verbose --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css scss:dist && npm run bump",
     "build": "npx npm-run-all -lsc scss minify postfix",
