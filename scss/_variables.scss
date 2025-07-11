@@ -7,7 +7,7 @@
 // Grab the Defaults
 @import 'quartz';
 
-$debugMode: true;
+$debugMode: false;
 
 // Harmony
 $modular-ratio: $MAJOR_THIRD;
@@ -74,7 +74,7 @@ $enable-fills: true;
 // BRANDS
 //
 // Add in support for various brands colors. Will create a bg-{brand}, text-{brand} and btn-{brand} elements.
-$brands: facebook, linkedin, x, instagram, youtube, reddit, telegram, whatsapp;
+$brands: facebook, linkedin, x, instagram, youtube, reddit, telegram, whatsapp, codepen, discord;
 
 // Spacing
 //

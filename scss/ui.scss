@@ -9,7 +9,8 @@
 // Load Config & Variables
 @import 'hui';
 
-@include fileBanner('hui scss');
+@include fileBanner('hui scss'
+);
 
 // Responsive Font Size
 @import 'hui/root';
@@ -113,31 +114,6 @@ a .btn.mx-auto.d-block {
 
 .float-start {
   float: left;
-}
-
-.btn-facebook {
-  color: #fff;
-  background-color: $facebook;
-}
-
-.btn-email,
-.btn-copy {
-  background-color: #909090;
-  color: #ffffff;
-  border: 1px solid #f0f0f0;
-}
-
-.searchbardiv {
-  display: block;
-  position: fixed;
-  background: $mono-200;
-  top: calc(var(--navbar-size) + -1px);
-  right: 0px;
-  z-index: 1001;
-  width: 100%;
-  max-width: 100%;
-  padding: 10px;
-  margin: 0px;
 }
 
 /**
