@@ -14,26 +14,26 @@
     ]
   },
   {
-    "monochrome": [{ "mono": "757575" }, { "light": "999f9d" }]
+    "monochrome": [{ "mono": "757575" }, { "light": "999f9d" }, { "dark": "3D3D3D" }]
   },
   {
     "base16": [
       { "base00": "1f1f1f" },
-      { "base01": "232323" },
-      { "base02": "333333" },
-      { "base03": "4c4c4c" },
-      { "base04": "a0a0a0" },
-      { "base05": "bfbfbf" },
-      { "base06": "e0e0e0" },
-      { "base07": "f0f0f0" },
-      { "base08": "ec174c" },
-      { "base09": "24fc2d" },
-      { "base0a": "fbfe12" },
-      { "base0b": "41ead4" },
-      { "base0c": "3e0097" },
-      { "base0d": "028aa6" },
-      { "base0e": "fe445f" },
-      { "base0f": "fd8046" }
+      { "base01": "212121" },
+      { "base02": "3D3D3D" },
+      { "base03": "757575" },
+      { "base04": "999f9d" },
+      { "base05": "B5BAB8" },
+      { "base06": "D1D6D4" },
+      { "base07": "EDF2F1" },
+      { "base08": "ff0054" },
+      { "base09": "3bfc43" },
+      { "base0a": "fbff12" },
+      { "base0b": "00f5d4" },
+      { "base0c": "1982c4" },
+      { "base0d": "0fb2aa" },
+      { "base0e": "520099" },
+      { "base0f": "fd7e47" }
     ]
   }
 ]
