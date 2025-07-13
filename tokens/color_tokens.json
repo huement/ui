@@ -9,8 +9,8 @@
       { "ocean": "0fb2aa" },
       { "blue": "1982c4" },
       { "violet": "520099" },
-      { "primary": "2bb3cf" },
-      { "secondary": "f99157" }
+      { "primary": "520099" },
+      { "secondary": "0fb2aa" }
     ]
   },
   {
@@ -18,22 +18,22 @@
   },
   {
     "base16": [
-      { "base00": "1f1f1f" },
-      { "base01": "212121" },
-      { "base02": "3D3D3D" },
+      { "base00": "212121" },
+      { "base01": "3d3d3d" },
+      { "base02": "595959" },
       { "base03": "757575" },
-      { "base04": "999f9d" },
-      { "base05": "B5BAB8" },
-      { "base06": "D1D6D4" },
-      { "base07": "EDF2F1" },
+      { "base04": "919191" },
+      { "base05": "adadad" },
+      { "base06": "c9c9c9" },
+      { "base07": "e6e6e6" },
       { "base08": "ff0054" },
-      { "base09": "3bfc43" },
+      { "base09": "fd7e47" },
       { "base0a": "fbff12" },
-      { "base0b": "00f5d4" },
-      { "base0c": "1982c4" },
+      { "base0b": "3bfc43" },
+      { "base0c": "00f5d4" },
       { "base0d": "0fb2aa" },
-      { "base0e": "520099" },
-      { "base0f": "fd7e47" }
+      { "base0e": "1982c4" },
+      { "base0f": "520099" }
     ]
   }
 ]

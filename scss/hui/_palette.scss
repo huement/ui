@@ -2,8 +2,8 @@
 //
 //    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 //      _palette.scss
-//      JULY 12 2025
-//      VER 0.8.10
+//      JULY 13 2025
+//      VER 0.8.11
 //      @huement/ui generated file > npm run build:colors
 //    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //
@@ -232,60 +232,60 @@ light: #A654ED,
 dark: #250045
 ) !default;
 
-$primary-100: #004F5E !default;
-$primary-200: #00667A !default;
-$primary-300: #007D96 !default;
-$primary-400: #0F97B3 !default;
-$primary-500: #2bb3cf !default;
-$primary-600: #47CFEB !default;
-$primary-700: #63E5FF !default;
-$primary-800: #80EAFF !default;
-$primary-900: #9CEEFF !default;
+$primary-100: #160029 !default;
+$primary-200: #250045 !default;
+$primary-300: #340061 !default;
+$primary-400: #43007D !default;
+$primary-500: #520099 !default;
+$primary-600: #6E1CB5 !default;
+$primary-700: #8A38D1 !default;
+$primary-800: #A654ED !default;
+$primary-900: #BC70FF !default;
 
 $primarys: (
-100: #004F5E,
-200: #00667A,
-300: #007D96,
-400: #0F97B3,
-500: #2bb3cf,
-600: #47CFEB,
-700: #63E5FF,
-800: #80EAFF,
-900: #9CEEFF
+100: #160029,
+200: #250045,
+300: #340061,
+400: #43007D,
+500: #520099,
+600: #6E1CB5,
+700: #8A38D1,
+800: #A654ED,
+900: #BC70FF
 ) !default;
 
 $mojo-primary: (
-hex: #2bb3cf,
-light: #80EAFF,
-dark: #00667A
+hex: #520099,
+light: #A654ED,
+dark: #250045
 ) !default;
 
-$secondary-100: #8A3000 !default;
-$secondary-200: #A63C03 !default;
-$secondary-300: #C2581F !default;
-$secondary-400: #DE743B !default;
-$secondary-500: #f99157 !default;
-$secondary-600: #FFA473 !default;
-$secondary-700: #FFB68F !default;
-$secondary-800: #FFC8AB !default;
-$secondary-900: #FFDBC7 !default;
+$secondary-100: #00423F !default;
+$secondary-200: #005E5A !default;
+$secondary-300: #007A74 !default;
+$secondary-400: #00968F !default;
+$secondary-500: #0fb2aa !default;
+$secondary-600: #2BCFC6 !default;
+$secondary-700: #47EBE2 !default;
+$secondary-800: #63FFF7 !default;
+$secondary-900: #80FFF9 !default;
 
 $secondarys: (
-100: #8A3000,
-200: #A63C03,
-300: #C2581F,
-400: #DE743B,
-500: #f99157,
-600: #FFA473,
-700: #FFB68F,
-800: #FFC8AB,
-900: #FFDBC7
+100: #00423F,
+200: #005E5A,
+300: #007A74,
+400: #00968F,
+500: #0fb2aa,
+600: #2BCFC6,
+700: #47EBE2,
+800: #63FFF7,
+900: #80FFF9
 ) !default;
 
 $mojo-secondary: (
-hex: #f99157,
-light: #FFC8AB,
-dark: #A63C03
+hex: #0fb2aa,
+light: #63FFF7,
+dark: #005E5A
 ) !default;
 
 $mono-100: #050505 !default;
@@ -372,41 +372,41 @@ light: #919191,
 dark: #000000
 ) !default;
 
-$base00: #1f1f1f !default;
-$base01: #212121 !default;
-$base02: #3D3D3D !default;
+$base00: #212121 !default;
+$base01: #3d3d3d !default;
+$base02: #595959 !default;
 $base03: #757575 !default;
-$base04: #999f9d !default;
-$base05: #B5BAB8 !default;
-$base06: #D1D6D4 !default;
-$base07: #EDF2F1 !default;
+$base04: #919191 !default;
+$base05: #adadad !default;
+$base06: #c9c9c9 !default;
+$base07: #e6e6e6 !default;
 $base08: #ff0054 !default;
-$base09: #3bfc43 !default;
+$base09: #fd7e47 !default;
 $base0a: #fbff12 !default;
-$base0b: #00f5d4 !default;
-$base0c: #1982c4 !default;
+$base0b: #3bfc43 !default;
+$base0c: #00f5d4 !default;
 $base0d: #0fb2aa !default;
-$base0e: #520099 !default;
-$base0f: #fd7e47 !default;
+$base0e: #1982c4 !default;
+$base0f: #520099 !default;
 
 
 $Hexidecimal: (
-base00: #1f1f1f,
-base01: #212121,
-base02: #3D3D3D,
+base00: #212121,
+base01: #3d3d3d,
+base02: #595959,
 base03: #757575,
-base04: #999f9d,
-base05: #B5BAB8,
-base06: #D1D6D4,
-base07: #EDF2F1,
+base04: #919191,
+base05: #adadad,
+base06: #c9c9c9,
+base07: #e6e6e6,
 base08: #ff0054,
-base09: #3bfc43,
+base09: #fd7e47,
 base0a: #fbff12,
-base0b: #00f5d4,
-base0c: #1982c4,
+base0b: #3bfc43,
+base0c: #00f5d4,
 base0d: #0fb2aa,
-base0e: #520099,
-base0f: #fd7e47
+base0e: #1982c4,
+base0f: #520099
 ) !default;
 
 
