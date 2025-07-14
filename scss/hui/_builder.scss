@@ -18,6 +18,19 @@
   position: fixed !important;
 }
 
+.float-end {
+  float: right;
+}
+
+.float-start {
+  float: left;
+}
+
+.img-cap {
+  border-top-left-radius: 0.3125rem;
+  border-top-right-radius: 0.3125rem;
+}
+
 /**
  * = Shadows
  */
@@ -58,10 +71,9 @@
 }
 
 /* SCSS NUMBER LOOPS */
-$masterList: 0 1 5 10 20 25 30 50 60 75 100 150 200;
 
-@each $amount in $masterList {
-  $i: list.index($masterList, $amount);
+@each $amount in $default-ui-sizes {
+  $i: list.index($default-ui-sizes, $amount);
 
   // widths & heights
   .h-#{$amount}px {
@@ -88,5 +100,102 @@ $masterList: 0 1 5 10 20 25 30 50 60 75 100 150 200;
   .fill-color-mono-#{$key} {
     fill: $value;
     color: $value;
+  }
+}
+
+// Generate background opacity classes for specified values
+$opacities: 100, 90, 80, 75, 60, 50, 40, 25, 10, 0;
+
+@each $opacity in $opacities {
+  .bg-opacity-#{$opacity} {
+    opacity: $opacity / 100;
+  }
+}
+
+
+// Sections
+.section {
+  position: relative;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.section-header {
+  position: relative;
+  padding-top: 9rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 576px) {
+  .section {
+    position: relative;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .section-header {
+    position: relative;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  .section-header.section-sm {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+
+  .section-xl {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  .section-lg {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .section-sm {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .section {
+    position: relative;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .section-header {
+    position: relative;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+
+  .section-header.section-sm {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+
+  .section-xl {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+
+  .section-lg {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  .section-sm {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .section-hero {
+    height: 100vh;
   }
 }

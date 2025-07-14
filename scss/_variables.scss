@@ -38,6 +38,14 @@ $box-shadow: 0 0.5rem 1rem rgba($black, 0.2) !default;
 $box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075) !default;
 $box-shadow-lg: 0 1rem 3rem rgba($black, 0.3) !default;
 
+// Z-index supplementary values not present in BS5.
+$zindex-0: 1 !default;
+$zindex-1: 100 !default;
+$zindex-2: 200 !default;
+$zindex-3: 300 !default;
+$zindex-4: 400 !default;
+$zindex-navbar: 600 !default;
+$zindex-sticky: 900 !default;
 
 // Bootstrap Config
 $enable-rounded: true !default;
@@ -73,8 +81,12 @@ $enable-fills: true !default;
 // Add in support for various brands colors. Will create a bg-{brand}, text-{brand} and btn-{brand} elements.
 $brands: facebook, linkedin, x, instagram, youtube, reddit, telegram, whatsapp, codepen, discord !default;
 
+//
 // Spacing
 //
+// Controls icons size .i-50, .w-50px { width: 50px } etc
+$default-ui-sizes: 0 1 5 10 20 25 30 50 60 75 100 150 200 !default;
+
 // Control the default styling of most Bootstrap elements by modifying these
 // variables. Mostly focused on spacing.
 // You can add more entries to the $spacers map, should you need more variation.
@@ -131,6 +143,10 @@ $gutters: $spacers !default;
 
 // Typography Variables
 // ============================================================================
+
+// Map controls how many line limit classes will be generated
+// example .limit-lines-2 { line-clamp: 2 }
+$default-paragraph-line-limits: 1 2 3 !default;
 
 $base-font-map: map.get($chords, 'md') !default;
 
@@ -195,6 +211,21 @@ $type-line-sizes: (
   xl: map.get($type-sizes, 'xl') * $line-height-base,
   xx: map.get($type-sizes, 'xx') * $line-height-base) !default;
 
+// Various additional Text colors that are created in the builder. 
+// example: .text-indigo { color: $indigo-300 }
+$color-shades: (
+  'blue': $blue-700,
+  'indigo': $indigo-300,
+  'purple': $purple-300,
+  'pink': $pink-500,
+  'red': $red-500,
+  'orange': $orange-500,
+  'yellow': $yellow-500,
+  'green': $green-500,
+  'teal': $teal-500,
+  'cyan': $cyan-500,
+  'gray': $gray-700,
+  ) !default;
 
 //
 // Title, Subtitle, Display Font Variables

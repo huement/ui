@@ -126,10 +126,28 @@ button {
   fill: #fff;
 }
 
-$masterList: 1 2 3;
+@if (length($color-shades) > 0) {
+  @each $colorShadeName, $colorShadeValue in $color-shades {
+    .text-#{$colorShadeName} {
+      color: #{$colorShadeValue} !important;
 
-@each $amount in $masterList {
-  $i: list.index($masterList, $amount);
+      &.nav-link {
+        color: $mono-800 !important;
+
+        &:hover {
+          color: #{$colorShadeValue} !important;
+        }
+      }
+
+      &:hover {
+        color: color.scale($colorShadeValue, $lightness: 50%) !important;
+      }
+    }
+  }
+}
+
+@each $amount in $default-paragraph-line-limits {
+  $i: list.index($default-paragraph-line-limits, $amount);
 
   .limit-lines-#{$amount} {
     max-height: calc(1.125em * #{$amount});

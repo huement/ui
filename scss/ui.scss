@@ -9,14 +9,17 @@
 // Load Config & Variables
 @import 'hui';
 
-@include fileBanner('hui scss'
-);
+@include fileBanner('hui scss');
 
-// Responsive Font Size
+//============================================================
+// UI MAIN
+//============================================================
 @import 'hui/root';
 @import 'utilities';
 @import 'bs5';
+//============================================================
 // HUI AUGMENTATIONS
+//============================================================
 @import 'hui/builder';
 @import 'hui/bootswatch';
 @import 'hui/typography';
@@ -28,6 +31,9 @@
   @include brand-utilities;
 }
 
+//============================================================
+// ADDITIONAL LIBRARIES
+//============================================================
 // TODO : work with this
 // @import 'thirdparty/modularscale';
 
@@ -41,13 +47,15 @@
   @include debuggerUI();
 }
 
-// @TODO put everything in here where it should go in the codebase
+//============================================================
+// @TODO experimental section + patch missing &/or errors
+//============================================================
 .b-hug {
-  margin-bottom: -4px;
+  margin-bottom: -0.25rem;
 }
 
 .t-hug {
-  margin-top: -4px;
+  margin-top: -0.25rem;
 }
 
 .spacer {
@@ -67,7 +75,7 @@
   color: #a7a7a7 !important;
 }
 
-.fw-bold {
+.fw-bold.text-shadow {
   font-weight: bold;
   text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.6);
 }
@@ -106,106 +114,4 @@ a .btn.mx-auto.d-block {
     0 4px 4px hsl(0deg 0% 0% / 0.075),
     0 8px 8px hsl(0deg 0% 0% / 0.075),
     0 16px 16px hsl(0deg 0% 0% / 0.075);
-}
-
-.float-end {
-  float: right;
-}
-
-.float-start {
-  float: left;
-}
-
-/**
- * = Sections
- */
-.section {
-  position: relative;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-.section-header {
-  position: relative;
-  padding-top: 9rem;
-  padding-bottom: 3rem;
-}
-
-@media (min-width: 576px) {
-  .section {
-    position: relative;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
-
-  .section-header {
-    position: relative;
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-
-  .section-header.section-sm {
-    padding-top: 4rem;
-    padding-bottom: 3rem;
-  }
-
-  .section-xl {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-
-  .section-lg {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-
-  .section-sm {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .section {
-    position: relative;
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-
-  .section-header {
-    position: relative;
-    padding-top: 10rem;
-    padding-bottom: 10rem;
-  }
-
-  .section-header.section-sm {
-    padding-top: 4rem;
-    padding-bottom: 3rem;
-  }
-
-  .section-xl {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
-  }
-
-  .section-lg {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-
-  .section-sm {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .section-hero {
-    height: 100vh;
-  }
-}
-
-.img-cap {
-  border-top-left-radius: 0.3125rem;
-  border-top-right-radius: 0.3125rem;
 }
