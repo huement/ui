@@ -2,8 +2,8 @@
 //
 //    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 //      _palette.scss
-//      JULY 13 2025
-//      VER 0.8.11
+//      JULY 14 2025
+//      VER 0.9.0
 //      @huement/ui generated file > npm run build:colors
 //    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //
@@ -148,32 +148,32 @@ light: #54FFE8,
 dark: #00A18B
 ) !default;
 
-$ocean-100: #00423F !default;
-$ocean-200: #005E5A !default;
-$ocean-300: #007A74 !default;
-$ocean-400: #00968F !default;
-$ocean-500: #0fb2aa !default;
-$ocean-600: #2BCFC6 !default;
-$ocean-700: #47EBE2 !default;
-$ocean-800: #63FFF7 !default;
-$ocean-900: #80FFF9 !default;
+$ocean-100: #00373D !default;
+$ocean-200: #005059 !default;
+$ocean-300: #006A75 !default;
+$ocean-400: #008391 !default;
+$ocean-500: #1CA0AE !default;
+$ocean-600: #38BBC9 !default;
+$ocean-700: #54D7E6 !default;
+$ocean-800: #70F1FF !default;
+$ocean-900: #8CF4FF !default;
 
 $oceans: (
-100: #00423F,
-200: #005E5A,
-300: #007A74,
-400: #00968F,
-500: #0fb2aa,
-600: #2BCFC6,
-700: #47EBE2,
-800: #63FFF7,
-900: #80FFF9
+100: #00373D,
+200: #005059,
+300: #006A75,
+400: #008391,
+500: #1CA0AE,
+600: #38BBC9,
+700: #54D7E6,
+800: #70F1FF,
+900: #8CF4FF
 ) !default;
 
 $mojo-ocean: (
-hex: #0fb2aa,
-light: #63FFF7,
-dark: #005E5A
+hex: #1CA0AE,
+light: #70F1FF,
+dark: #005059
 ) !default;
 
 $blue-100: #003454 !default;
@@ -204,88 +204,88 @@ light: #6EC7FF,
 dark: #004570
 ) !default;
 
-$violet-100: #160029 !default;
-$violet-200: #250045 !default;
-$violet-300: #340061 !default;
-$violet-400: #43007D !default;
-$violet-500: #520099 !default;
-$violet-600: #6E1CB5 !default;
-$violet-700: #8A38D1 !default;
-$violet-800: #A654ED !default;
-$violet-900: #BC70FF !default;
+$violet-100: #260052 !default;
+$violet-200: #33006E !default;
+$violet-300: #40008A !default;
+$violet-400: #4D00A6 !default;
+$violet-500: #6210c2 !default;
+$violet-600: #7F2BDE !default;
+$violet-700: #9B47FA !default;
+$violet-800: #AC63FF !default;
+$violet-900: #BB80FF !default;
 
 $violets: (
-100: #160029,
-200: #250045,
-300: #340061,
-400: #43007D,
-500: #520099,
-600: #6E1CB5,
-700: #8A38D1,
-800: #A654ED,
-900: #BC70FF
+100: #260052,
+200: #33006E,
+300: #40008A,
+400: #4D00A6,
+500: #6210c2,
+600: #7F2BDE,
+700: #9B47FA,
+800: #AC63FF,
+900: #BB80FF
 ) !default;
 
 $mojo-violet: (
-hex: #520099,
-light: #A654ED,
-dark: #250045
+hex: #6210c2,
+light: #AC63FF,
+dark: #33006E
 ) !default;
 
-$primary-100: #160029 !default;
-$primary-200: #250045 !default;
-$primary-300: #340061 !default;
-$primary-400: #43007D !default;
-$primary-500: #520099 !default;
-$primary-600: #6E1CB5 !default;
-$primary-700: #8A38D1 !default;
-$primary-800: #A654ED !default;
-$primary-900: #BC70FF !default;
+$primary-100: #260052 !default;
+$primary-200: #33006E !default;
+$primary-300: #40008A !default;
+$primary-400: #4D00A6 !default;
+$primary-500: #6210c2 !default;
+$primary-600: #7F2BDE !default;
+$primary-700: #9B47FA !default;
+$primary-800: #AC63FF !default;
+$primary-900: #BB80FF !default;
 
 $primarys: (
-100: #160029,
-200: #250045,
-300: #340061,
-400: #43007D,
-500: #520099,
-600: #6E1CB5,
-700: #8A38D1,
-800: #A654ED,
-900: #BC70FF
+100: #260052,
+200: #33006E,
+300: #40008A,
+400: #4D00A6,
+500: #6210c2,
+600: #7F2BDE,
+700: #9B47FA,
+800: #AC63FF,
+900: #BB80FF
 ) !default;
 
 $mojo-primary: (
-hex: #520099,
-light: #A654ED,
-dark: #250045
+hex: #6210c2,
+light: #AC63FF,
+dark: #33006E
 ) !default;
 
-$secondary-100: #00423F !default;
-$secondary-200: #005E5A !default;
-$secondary-300: #007A74 !default;
-$secondary-400: #00968F !default;
-$secondary-500: #0fb2aa !default;
-$secondary-600: #2BCFC6 !default;
-$secondary-700: #47EBE2 !default;
-$secondary-800: #63FFF7 !default;
-$secondary-900: #80FFF9 !default;
+$secondary-100: #00373D !default;
+$secondary-200: #005059 !default;
+$secondary-300: #006A75 !default;
+$secondary-400: #008391 !default;
+$secondary-500: #1CA0AE !default;
+$secondary-600: #38BBC9 !default;
+$secondary-700: #54D7E6 !default;
+$secondary-800: #70F1FF !default;
+$secondary-900: #8CF4FF !default;
 
 $secondarys: (
-100: #00423F,
-200: #005E5A,
-300: #007A74,
-400: #00968F,
-500: #0fb2aa,
-600: #2BCFC6,
-700: #47EBE2,
-800: #63FFF7,
-900: #80FFF9
+100: #00373D,
+200: #005059,
+300: #006A75,
+400: #008391,
+500: #1CA0AE,
+600: #38BBC9,
+700: #54D7E6,
+800: #70F1FF,
+900: #8CF4FF
 ) !default;
 
 $mojo-secondary: (
-hex: #0fb2aa,
-light: #63FFF7,
-dark: #005E5A
+hex: #1CA0AE,
+light: #70F1FF,
+dark: #005059
 ) !default;
 
 $mono-100: #050505 !default;
@@ -385,9 +385,9 @@ $base09: #fd7e47 !default;
 $base0a: #fbff12 !default;
 $base0b: #3bfc43 !default;
 $base0c: #00f5d4 !default;
-$base0d: #0fb2aa !default;
+$base0d: #1CA0AE !default;
 $base0e: #1982c4 !default;
-$base0f: #520099 !default;
+$base0f: #6210c2 !default;
 
 
 $Hexidecimal: (
@@ -404,9 +404,9 @@ base09: #fd7e47,
 base0a: #fbff12,
 base0b: #3bfc43,
 base0c: #00f5d4,
-base0d: #0fb2aa,
+base0d: #1CA0AE,
 base0e: #1982c4,
-base0f: #520099
+base0f: #6210c2
 ) !default;
 
 

@@ -38,11 +38,6 @@ $box-shadow: 0 0.5rem 1rem rgba($black, 0.2) !default;
 $box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075) !default;
 $box-shadow-lg: 0 1rem 3rem rgba($black, 0.3) !default;
 
-// Typography
-$font-path: '/public/fonts/' !default;
-$font-family-sans-serif: 'Nunito', sans-serif !default;
-$font-size-base: 0.9rem !default;
-$line-height-base: 1.6 !default;
 
 // Bootstrap Config
 $enable-rounded: true !default;
@@ -129,24 +124,68 @@ $negative-spacers: if($enable-negative-margins,
 $gutters: $spacers !default;
 
 //
-// Typography Variables
-// Based on Breakpoint Sizes for the Key Values
+// Important Typography Section
+// ------------------------------------------------
+// @TODO: Optionally Load Fonts via an import rather than locally hosted
+// $google-fonts-import: 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600|Roboto+Mono' !default; // Includes: Poppins: Light, Regular, Medium, Semi-bold !default; Roboto Mono: Regular
 
+// Typography Variables
+// ============================================================================
+
+$base-font-map: map.get($chords, 'md') !default;
+
+$font-family-ui: map.get($UIFont, 'family'),
+  $SansStack !default;
+$font-family-system-first: map.get($PrimaryFont, 'family'),
+  $SansStack !default;
+$font-family-mono-first: map.get($CodeFont, 'family'),
+  $MonoStack !default;
+$font-family-headings: map.get($HeadingFont, 'family'),
+  map.get($HeadingFont, 'stack') !default;
+
+$font-family-sans-serif: $font-family-system-first !default;
+$font-family-monospace: $font-family-mono-first !default;
+$font-family-base: $font-family-sans-serif !default;
+
+// Font Config
+$font-path: '/public/fonts/' !default;
+$font-size-base: 1rem !default;
+
+$sm-font-map: map.get($chords, 'sm') !default;
+$lg-font-map: map.get($chords, 'lg') !default;
+
+$base-headings-map: map.get($base-font-map, 'headings') !default;
+$base-headingspx-map: map.get($base-font-map, 'headings_px') !default;
+$base-scale: map.get($base-font-map, 'scale') !default;
+
+$font-size-root: strip-units(map.get($base-font-map, 'fontSize')) !default;
+$font-size-base: 1rem !default;
+$font-size-lg: $font-size-base * $modular-ratio !default;
+$font-size-sm: $font-size-base / ($modular-ratio * $modular-ratio) !default;
+
+// Based on Breakpoint Sizes for the Key Values
 // Modular scale for type sizes
+// $type-sizes: (
+//   xs: 0.875rem,
+//   // 14px
+//   sm: 1rem,
+//   // 16px
+//   md: 1.25rem,
+//   // 30px
+//   lg: 1.5rem,
+//   // 24px
+//   xl: 2rem,
+//   // 32px
+//   xx: 3rem,
+//   // 48px
+//   ) !default;
 $type-sizes: (
-  xs: 0.875rem,
-  // 14px
-  sm: 1rem,
-  // 16px
-  md: 1.25rem,
-  // 30px
-  lg: 1.5rem,
-  // 24px
-  xl: 2rem,
-  // 32px
-  xx: 3rem,
-  // 48px
-  ) !default;
+  xs: $font-size-base / ($modular-ratio * $modular-ratio),
+  sm: $font-size-base / $modular-ratio,
+  md: $font-size-base,
+  lg: $font-size-base * $modular-ratio,
+  xl: $font-size-base * $modular-ratio * $modular-ratio,
+  xx: $font-size-base * $modular-ratio * $modular-ratio * $modular-ratio ) !default;
 
 $type-line-sizes: (
   xs: map.get($type-sizes, 'xs') * $line-height-base,
@@ -183,56 +222,9 @@ $display-font-sizes: if($enable-display-sizes,
       6: 2.5rem),
     null) !default;
 
-// Optionally Load Fonts this way
-// Default theme will turn this off in the theme file unless you remove it
-// which will then fallback to this.
-$google-fonts-import: 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600|Roboto+Mono' !default; // Includes: Poppins: Light, Regular, Medium, Semi-bold !default; Roboto Mono: Regular
 
-// $font-family-poppins-first:
-//   'Poppins',
-//   -apple-system,
-//   BlinkMacSystemFont,
-//   'Segoe UI',
-//   Roboto,
-//   'Helvetica Neue',
-//   Arial,
-//   sans-serif !default;
-// $font-family-system-first: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-//  'Helvetica Neue', Arial, sans-serif !default;
-// $font-family-roboto-mono-first: 'Roboto Mono', Menlo, Monaco, Consolas,
-//  'Liberation Mono', 'Courier New', monospace !default;
-
-$font-family-ui: map.get($UIFont, 'family'),
-  $SansStack !default;
-$font-family-system-first: map.get($PrimaryFont, 'family'),
-  $SansStack !default;
-$font-family-mono-first: map.get($CodeFont, 'family'),
-  $MonoStack !default;
-$font-family-headings: map.get($HeadingFont, 'family'),
-  map.get($HeadingFont, 'stack') !default;
-
-$font-family-sans-serif: $font-family-system-first !default;
-$font-family-monospace: $font-family-mono-first !default;
-$font-family-base: $font-family-sans-serif !default;
-
-// $font-family-base: "Jost" !default;
-// $font-family-code: "Space Mono" !default;
-
-// Typography Variables
-// ============================================================================
-// TODO: sort out the heading variables!!!
-$base-font-map: map.get($chords, 'md') !default;
-$base-headings-map: map.get($base-font-map, 'headings') !default;
-$base-headingspx-map: map.get($base-font-map, 'headings_px') !default;
-$base-scale: map.get($base-font-map, 'scale') !default;
-
-$font-weight-base: $font-weight-normal !default;
-
-$font-size-root: strip-units(map.get($font-sizes, 'sm')) !default;
-$font-size-base: map.get($font-sizes, 'sm') !default;
-$font-size-lg: map.get($font-sizes, 'lg') !default;
-$font-size-sm: map.get($font-sizes, 'xs') !default;
-
+// WEIGHTS
+$font-weight-base: $base-line-height !default;
 $font-weight-lighter: lighter !default;
 $font-weight-light: (
   map.get($PrimaryFont, 'weight') - 100) !default;
@@ -264,12 +256,12 @@ $font-weight-bold: 700 !default;
 
 $font-weight-base: $font-weight-normal !default;
 
-$h1-font-size: 3.052rem !default;
-$h2-font-size: 2.441rem !default;
-$h3-font-size: 1.953rem !default;
-$h4-font-size: 1.563rem !default;
-$h5-font-size: 1.25rem !default;
-$h6-font-size: 1rem !default;
+$h1-font-size: map.get($base-headings-map, 'h1') !default;
+$h2-font-size: map.get($base-headings-map, 'h2') !default;
+$h3-font-size: map.get($base-headings-map, 'h3') !default;
+$h4-font-size: map.get($base-headings-map, 'h4') !default;
+$h5-font-size: map.get($base-headings-map, 'h5') !default;
+$h6-font-size: map.get($base-headings-map, 'h6') !default;
 
 $headings-margin-bottom: 0.75rem !default;
 
@@ -278,12 +270,12 @@ $headings-font-weight: map.get($HeadingFont, 'weight') !default;
 $headings-color: $light !default;
 $headings-letter-spacing: -0.0625rem !default; // ~1px
 
-$h1-line-height: 3rem !default;
-$h2-line-height: 2.25rem !default;
-$h3-line-height: 2.25rem !default;
-$h4-line-height: 2rem !default;
-$h5-line-height: 1.5rem !default;
-$h6-line-height: 1.5rem !default;
+$h1-line-height: map.get($base-headings-map, 'h1') !default;
+$h2-line-height: map.get($base-headings-map, 'h2') !default;
+$h3-line-height: map.get($base-headings-map, 'h3') !default;
+$h4-line-height: map.get($base-headings-map, 'h4') !default;
+$h5-line-height: map.get($base-headings-map, 'h5') !default;
+$h6-line-height: map.get($base-headings-map, 'h6') !default;
 
 $display1-size: 7.451rem !default;
 $display2-size: 5.96rem !default;
@@ -306,7 +298,7 @@ $blockquote-footer-font-size: 1.125rem !default;
 $blockquote-margin-bottom: 0.75rem !default;
 
 $hr-border-color: rgba($dark, 0.1) !default;
-$hr-border-width: $border-width !default;
+$hr-border-width: 0.125rem !default;
 $hr-margin-y: 1.125rem !default;
 
 $mark-padding: 0.2em !default;
@@ -346,5 +338,3 @@ $thumbnail-border: none !default;
 $thumbnail-padding: 0 !default;
 $thumbnail-border-radius: $border-radius !default;
 $thumbnail-box-shadow: none !default;
-
-@import 'maps';

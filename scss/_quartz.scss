@@ -37,7 +37,7 @@ $blockquote-footer-color: $text-muted !default;
 
 $table-dark-bg: $dark !default;
 $table-dark-border-color: color.adjust($dark, $lightness: -5%) !default;
-$table-color: $mono-100;
+$table-color: $mono-900 !default;
 $table-bg-scale: 0% !default;
 
 // Buttons + Forms
@@ -172,7 +172,7 @@ $progress-bg: rgba($black, 0.2) !default;
 
 // List group
 
-$list-group-color: $white !default;
+$list-group-color: $mono-200 !default;
 $list-group-bg: transparent !default;
 $list-group-border-color: $border-color !default;
 $list-group-border-width: 0 !default;

@@ -6,15 +6,15 @@
       { "yellow": "fbff12" },
       { "green": "3bfc43" },
       { "cyan": "00f5d4" },
-      { "ocean": "0fb2aa" },
+      { "ocean": "1CA0AE" },
       { "blue": "1982c4" },
-      { "violet": "520099" },
-      { "primary": "520099" },
-      { "secondary": "0fb2aa" }
+      { "violet": "6210c2" },
+      { "primary": "6210c2" },
+      { "secondary": "1CA0AE" }
     ]
   },
   {
-    "monochrome": [{ "mono": "757575" }, { "light": "999f9d" }, { "dark": "3D3D3D" }]
+    "monochrome": [{ "mono": "757575" }, { "light": "999f9d" }, { "dark": "4c4c4c" }]
   },
   {
     "base16": [
@@ -31,9 +31,9 @@
       { "base0a": "fbff12" },
       { "base0b": "3bfc43" },
       { "base0c": "00f5d4" },
-      { "base0d": "0fb2aa" },
+      { "base0d": "1CA0AE" },
       { "base0e": "1982c4" },
-      { "base0f": "520099" }
+      { "base0f": "6210c2" }
     ]
   }
 ]
