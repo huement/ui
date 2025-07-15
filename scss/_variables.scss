@@ -5,9 +5,6 @@
 @use 'sass:map';
 @use 'sass:math';
 
-// Grab the Defaults
-@import 'quartz';
-
 $debugMode: false !default;
 $debug: $debugMode !default;
 
@@ -18,6 +15,9 @@ $block-spacing: 1.5rem !default;
 $vertical-unit: 0.5rem !default;
 $main-unit: rem !default;
 $main-indent: 0.24rem !default;
+
+// Grab the Defaults
+@import 'quartz';
 
 // GRID CONFIG
 $grid-columns: 12 !default;
@@ -93,12 +93,13 @@ $default-ui-sizes: 0 1 5 10 20 25 30 50 60 75 100 150 200 !default;
 $spacer: 1rem !default;
 $spacers: (
   0: 0,
-  1: $spacer * 0.25,
-  2: $spacer * 0.5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 3,
-  10: $spacer * 10) !default;
+  1: $spacer * 0.5,
+  2: $spacer,
+  3: $spacer * 1.5,
+  4: $spacer * 2,
+  5: $spacer * 2.5,
+  6: $spacer * 3,
+  10: $spacer * 5) !default;
 
 // Caution: Using a large number of various spacings will complicate having a
 // vertical or horizontal rhythm. consider adjusting the maps instead of trying
@@ -177,7 +178,7 @@ $base-scale: map.get($base-font-map, 'scale') !default;
 $font-size-root: strip-units(map.get($base-font-map, 'fontSize')) !default;
 $font-size-base: 1rem !default;
 $font-size-lg: $font-size-base * $modular-ratio !default;
-$font-size-sm: $font-size-base / ($modular-ratio * $modular-ratio) !default;
+$font-size-sm: $font-size-base * 0.875 !default;
 
 // Based on Breakpoint Sizes for the Key Values
 // Modular scale for type sizes

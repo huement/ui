@@ -108,7 +108,7 @@ $opacities: 100, 90, 80, 75, 60, 50, 40, 25, 10, 0;
 
 @each $opacity in $opacities {
   .bg-opacity-#{$opacity} {
-    opacity: $opacity / 100;
+    opacity: math.div($opacity, 100);
   }
 }
 

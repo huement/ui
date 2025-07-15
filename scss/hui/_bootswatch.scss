@@ -125,17 +125,17 @@ $frosted-opacity: 0.7 !default;
     inset -1px -1px rgba($white, 0.1);
 }
 
-.input-group> :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
-  margin-left: 0;
-  border-left: none;
-}
+// .input-group> :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+//   margin-left: 0;
+//   border-left: none;
+// }
 
-.input-group:not(.has-validation)> :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
-.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n + 3) {
-  border-right: none;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
+// .input-group:not(.has-validation)> :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
+// .input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n + 3) {
+//   border-right: none;
+//   border-top-left-radius: 5px;
+//   border-bottom-left-radius: 5px;
+// }
 
 .form-select:not([multiple]) {
   transition: border-color 0.15s ease-in-out;

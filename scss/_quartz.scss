@@ -26,7 +26,6 @@ $box-shadow: 1px 3px 24px -1px rgba($black, 0.15) !default;
 $box-shadow-sm: 0 1px 1px rgba($black, 0.1) !default;
 
 // Fonts
-
 $headings-font-weight: 700 !default;
 
 $text-muted: rgba($white, 0.7) !default;
@@ -40,12 +39,13 @@ $table-dark-border-color: color.adjust($dark, $lightness: -5%) !default;
 $table-color: $mono-900 !default;
 $table-bg-scale: 0% !default;
 
-// Buttons + Forms
-
-$input-btn-padding-y: 0.75rem !default;
-$input-btn-padding-x: 1.5rem !default;
-
 // Buttons
+$input-btn-padding-y: 0.75rem !default;
+$input-btn-padding-x: 1.125rem !default;
+$input-btn-padding-y-sm: 0.375rem !default;
+$input-btn-padding-x-sm: 0.75rem !default;
+$input-btn-padding-y-lg: 1rem !default;
+$input-btn-padding-x-lg: 1.5rem !default;
 
 $btn-box-shadow: $box-shadow !default;
 $btn-font-family: map.get($UIFont, 'family'), map.get($UIFont, 'stack');
