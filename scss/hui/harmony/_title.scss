@@ -1,5 +1,5 @@
-$title-family: getFontFamily('heading');
-$subtitle-family: getFontFamily('primary');
+$title-family: getfontfamily('heading');
+$subtitle-family: getfontfamily('primary');
 $title-line-height: $modular-ratio;
 $subtitle-line-height: $line-height-base;
 
@@ -57,7 +57,6 @@ $subtitle-line-height: $line-height-base;
 
 .subtitle {
   margin-top: -#{strip_units($subtitle-line-height) * 1rem};
-
   font-size: $subtitle-size;
   font-weight: $subtitle-weight;
   line-height: $subtitle-line-height;

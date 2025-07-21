@@ -17,7 +17,14 @@
   }
 }
 
-@mixin flipInX($count: $countDefault, $duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+@mixin flipInX(
+  $count: $countDefault,
+  $duration: $durationDefault,
+  $delay: $delayDefault,
+  $function: $functionDefault,
+  $fill: $fillDefault,
+  $visibility: $visibilityDefault
+) {
   @include animation-name(flipInX);
   @include count($count);
   @include duration($duration);

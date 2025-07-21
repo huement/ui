@@ -7,14 +7,12 @@ $hero-body-padding-tablet: 3rem 3rem !default;
 $hero-body-padding-small: 2rem 1.5rem !default;
 $hero-body-padding-medium: 9rem 4.5rem !default;
 $hero-body-padding-large: 18rem 6rem !default;
-
 $hero-title: 3.5rem !default;
 $hero-subtitle: 2.8rem !default;
 $hero-subtitle-sm: 2.4rem !default;
-
-$desktop: map-get($grid-breakpoints, "lg");
-$tablet: map-get($grid-breakpoints, "md");
-$mobile: map-get($grid-breakpoints, "sm");
+$desktop: map-get($grid-breakpoints, 'lg');
+$tablet: map-get($grid-breakpoints, 'md');
+$mobile: map-get($grid-breakpoints, 'sm');
 
 // Hero
 .hero {
@@ -35,14 +33,14 @@ $mobile: map-get($grid-breakpoints, "sm");
 
   .title,
   .subtitle {
-    @include block ();
+    @include block;
 
     sub {
-      font-size: .75em;
+      font-size: 0.75em;
     }
 
     sup {
-      font-size: .75em;
+      font-size: 0.75em;
     }
 
     .tag {
@@ -130,7 +128,7 @@ $mobile: map-get($grid-breakpoints, "sm");
 // Components
 
 .hero-video {
-  @include overlay ();
+  @include overlay;
 
   overflow: hidden;
 
@@ -145,7 +143,7 @@ $mobile: map-get($grid-breakpoints, "sm");
 
   // Modifiers
   &.video-transparent {
-    opacity: .3;
+    opacity: 0.3;
   }
 
   // Responsiveness
@@ -163,7 +161,7 @@ $mobile: map-get($grid-breakpoints, "sm");
       display: flex;
 
       &:not(:last-child) {
-        margin-bottom: .75rem;
+        margin-bottom: 0.75rem;
       }
     }
   }

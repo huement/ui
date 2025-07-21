@@ -17,13 +17,11 @@
 ///   outer scope from the lib effects
 
 @mixin superclass() {
-  @if $superclass and str-length($superclass)>0 {
+  @if $superclass and str-length($superclass) >0 {
     .#{$superclass} {
       @content;
     }
-  }
-
-  @else {
+  } @else {
     body {
       @content;
     }
@@ -67,17 +65,17 @@
   $prev-num: null;
 
   @each $key, $num in $map {
-    @if $prev-num ==null or math.unit($num)=='%' or math.unit($prev-num)=='%'
-
-      {
+    @if $prev-num
+      ==null or
+      math.unit($num) ==
+      '%' or
+      math.unit($prev-num) ==
+      '%'
+    {
       // Do nothing
-    }
-
-    @else if not math.compatible($prev-num, $num) {
+    } @else if not math.compatible($prev-num, $num) {
       @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
-    }
-
-    @else if $prev-num >=$num {
+    } @else if $prev-num >=$num {
       @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
     }
 
@@ -89,7 +87,7 @@
 // Starts at zero
 // Used to ensure the min-width of the lowest breakpoint starts at 0.
 @mixin _assert-starts-at-zero($map, $map-name: '$grid-breakpoints') {
-  @if list.length($map)>0 {
+  @if list.length($map) >0 {
     $values: map.values($map);
     $first-value: list.nth($values, 1);
 
@@ -102,47 +100,55 @@
 // Colors
 @function to-rgb($value) {
   @return color.channel($value, 'red', $space: rgb),
-  color.channel($value, 'green', $space: rgb),
-  color.channel($value, 'blue', $space: rgb);
+    color.channel($value, 'green', $space: rgb),
+    color.channel($value, 'blue', $space: rgb);
 }
 
 // stylelint-disable scss/dollar-variable-pattern
 @function rgba-css-var($identifier, $target) {
-  @if $identifier =='body' and $target =='bg' {
-    @return rgba(var(--#{$prefix}#{$identifier}-bg-rgb),
-      var(--#{$prefix}#{$target}-opacity));
+  @if $identifier == 'body' and $target == 'bg' {
+    @return rgba(
+      var(--#{$prefix}#{$identifier}-bg-rgb),
+      var(--#{$prefix}#{$target}-opacity)
+    );
   }
 
-  @if $identifier =='body' and $target =='text' {
-    @return rgba(var(--#{$prefix}#{$identifier}-color-rgb),
-      var(--#{$prefix}#{$target}-opacity));
-  }
-
-  @else {
-    @return rgba(var(--#{$prefix}#{$identifier}-rgb),
-      var(--#{$prefix}#{$target}-opacity));
+  @if $identifier == 'body' and $target == 'text' {
+    @return rgba(
+      var(--#{$prefix}#{$identifier}-color-rgb),
+      var(--#{$prefix}#{$target}-opacity)
+    );
+  } @else {
+    @return rgba(
+      var(--#{$prefix}#{$identifier}-rgb),
+      var(--#{$prefix}#{$target}-opacity)
+    );
   }
 }
 
 @function map-loop($map, $func, $args...) {
-  $_map: (
-  );
+  $_map: ();
 
-@each $key, $value in $map {
-  // allow to pass the $key and $value of the map as an function argument
-  $_args: (
-  );
+  @each $key, $value in $map {
+    // allow to pass the $key and $value of the map as an function argument
+    $_args: ();
 
-@each $arg in $args {
-  $_args: list.append($_args,
-      if($arg =='$key', $key, if($arg =='$value', $value, $arg)));
-}
+    @each $arg in $args {
+      $_args: list.append(
+        $_args,
+        if($arg == '$key', $key, if($arg == '$value', $value, $arg))
+      );
+    }
 
-$_map: map.merge($_map,
-    ($key: meta.call(meta.get-function($func), $_args...)));
-}
+    $_map: map.merge(
+      $_map,
+      (
+        $key: meta.call(meta.get-function($func), $_args...),
+      )
+    );
+  }
 
-@return $_map;
+  @return $_map;
 }
 
 // stylelint-enable scss/dollar-variable-pattern
@@ -160,45 +166,44 @@ $_map: map.merge($_map,
 // Internal Bootstrap function to turn maps into its negative variant.
 // It prefixes the keys with `n` and makes the value negative.
 @function negativify-map($map) {
-  $result: (
-  );
+  $result: ();
 
-@each $key, $value in $map {
-  @if $key !=0 {
-    $result: map.merge($result, ('n' + $key: (
-          -$value))
-    );
-}
-}
+  @each $key, $value in $map {
+    @if $key !=0 {
+      $result: map.merge($result, ('n' + $key: (-$value)));
+    }
+  }
 
-@return $result;
+  @return $result;
 }
 
 // Get multiple keys from a sass map
 @function map-get-multiple($map, $values) {
-  $result: (
-  );
+  $result: ();
 
-@each $key, $value in $map {
-  @if (index($values, $key) !=null) {
-    $result: map.merge($result,
-        ($key: $value ));
+  @each $key, $value in $map {
+    @if  index($values, $key) !=null {
+      $result: map.merge(
+        $result,
+        (
+          $key: $value,
+        )
+      );
+    }
   }
-}
 
-@return $result;
+  @return $result;
 }
 
 // Merge multiple maps
 @function map-merge-multiple($maps...) {
-  $merged-maps: (
-  );
+  $merged-maps: ();
 
-@each $map in $maps {
-  $merged-maps: map.merge($merged-maps, $map);
-}
+  @each $map in $maps {
+    $merged-maps: map.merge($merged-maps, $map);
+  }
 
-@return $merged-maps;
+  @return $merged-maps;
 }
 
 // Replace `$search` with `$replace` in `$string`
@@ -213,9 +218,12 @@ $_map: map.merge($_map,
   $index: str-index($string, $search);
 
   @if $index {
-    @return str-slice($string, 1, $index - 1)+$replace + str-replace(str-slice($string, $index + str-length($search)),
-      $search,
-      $replace );
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
   }
 
   @return $string;
@@ -228,13 +236,10 @@ $_map: map.merge($_map,
 @function escape-svg($string) {
   @if str-index($string, 'data:image/svg+xml') {
     @each $char, $encoded in $escaped-characters {
-
       // Do not escape the url brackets
-      @if str-index($string, 'url(')==1 {
+      @if str-index($string, 'url(') ==1 {
         $string: url('#{str-replace(str-slice($string, 6, -3), $char, $encoded)}');
-      }
-
-      @else {
+      } @else {
         $string: str-replace($string, $char, $encoded);
       }
     }
@@ -253,13 +258,20 @@ $_map: map.merge($_map,
     @return $value1;
   }
 
-  @if meta.type-of($value1)==number and meta.type-of($value2)==number and math.compatible($value1, $value2) {
+  @if meta.type-of($value1)
+    ==number and
+    meta.type-of($value2)
+    ==number and
+    math.compatible($value1, $value2)
+  {
     @return $value1 + $value2;
   }
 
-  @return if($return-calc ==true,
+  @return if(
+    $return-calc ==true,
     calc(#{$value1} + #{$value2}),
-    $value1 + string.unquote(' + ') + $value2 );
+    $value1 + string.unquote(' + ') + $value2
+  );
 }
 
 @function subtract($value1, $value2, $return-calc: true) {
@@ -275,7 +287,12 @@ $_map: map.merge($_map,
     @return $value1;
   }
 
-  @if meta.type-of($value1)==number and meta.type-of($value2)==number and math.compatible($value1, $value2) {
+  @if meta.type-of($value1)
+    ==number and
+    meta.type-of($value2)
+    ==number and
+    math.compatible($value1, $value2)
+  {
     @return $value1 - $value2;
   }
 
@@ -283,15 +300,19 @@ $_map: map.merge($_map,
     $value2: string.unquote('(') + $value2 + string.unquote(')');
   }
 
-  @return if($return-calc ==true,
+  @return if(
+    $return-calc ==true,
     calc(#{$value1} - #{$value2}),
-    $value1 + string.unquote(' - ') + $value2 );
+    $value1 + string.unquote(' - ') + $value2
+  );
 }
 
 @function divide($dividend, $divisor, $precision: 10) {
-  $sign: if($dividend > 0 and $divisor > 0 or $dividend < 0 and $divisor < 0,
-      1,
-      -1);
+  $sign: if(
+    $dividend > 0 and $divisor > 0 or $dividend < 0 and $divisor < 0,
+    1,
+    -1
+  );
   $dividend: abs($dividend);
   $divisor: abs($divisor);
 
@@ -307,10 +328,10 @@ $_map: map.merge($_map,
   $result: 0;
   $factor: 10;
 
-  @while ($remainder > 0 and $precision >=0) {
+  @while  $remainder > 0 and $precision >=0 {
     $quotient: 0;
 
-    @while ($remainder >=$divisor) {
+    @while  $remainder >=$divisor {
       $remainder: $remainder - $divisor;
       $quotient: $quotient + 1;
     }
@@ -320,7 +341,7 @@ $_map: map.merge($_map,
     $remainder: $remainder * 10;
     $precision: $precision - 1;
 
-    @if ($precision < 0 and $remainder >=$divisor * 5) {
+    @if  $precision < 0 and $remainder >=$divisor * 5 {
       $result: $result + 1;
     }
   }
@@ -332,14 +353,16 @@ $_map: map.merge($_map,
     'px': 1px,
     'rem': 1rem,
     'em': 1em,
-    '%': 1%
+    '%': 1%,
   );
 
-@if ($dividend-unit !=$divisor-unit and map-has-key($unit-map, $dividend-unit)) {
-  $result: $result * map.get($unit-map, $dividend-unit);
-}
+  @if (
+    $dividend-unit !=$divisor-unit and map-has-key($unit-map, $dividend-unit)
+  ) {
+    $result: $result * map.get($unit-map, $dividend-unit);
+  }
 
-@return $result;
+  @return $result;
 }
 
 /// HUI Additions
@@ -350,16 +373,12 @@ $_map: map.merge($_map,
   $keys: map-keys($targetMap); // A list of all keys in a $breakpoints map
 
   // @if index($keys, $index) {
-  @if ($index==0) {
+  @if  $index==0 {
     @warn "SCSS Indexes start at 1 not 0! Ya Dingus!";
     @return 'xs';
-  }
-
-  @else if ($index <=list.length($keys)) {
+  } @else if $index <=list.length($keys) {
     @return list.nth($keys, $index);
-  }
-
-  @else {
+  } @else {
     @warn "Requested Index is greater than total Keys";
     @return 'xl';
   }
@@ -369,7 +388,7 @@ $_map: map.merge($_map,
   $level: 1;
 
   @each $key, $value in $map {
-    @if meta.type-of($value)=='map' {
+    @if meta.type-of($value) == 'map' {
       $level: max(depth($value) + 1, $level);
     }
   }
@@ -427,14 +446,13 @@ $_map: map.merge($_map,
 ///   width: 1024px;
 /// }
 @function map-get-next($map, $key, $fallback: false, $return: value) {
-
   // Check if map is valid
-  @if meta.type-of($map)==map {
-
+  @if meta.type-of($map) ==map {
     // Check if key exists in map
     @if map-has-key($map, $key) {
       // Init index counter variable
       $i: 0;
+
       // Init key index
       $key-index: false;
 
@@ -452,9 +470,7 @@ $_map: map.merge($_map,
         @if $i==$key-index + 1 {
           @if $return==key {
             @return $map-key;
-          }
-
-          @else {
+          } @else {
             @return $map-value;
           }
         }
@@ -514,14 +530,15 @@ $_map: map.merge($_map,
 /// .bar {
 ///   width: 240px;
 /// }
-@function map-get-prev($map,
+@function map-get-prev(
+  $map,
   $key,
   $fallback: false,
   $return: value,
-  $debug: false) {
-
+  $debug: false
+) {
   // Check if map is valid
-  @if meta.type-of($map)==map {
+  @if meta.type-of($map) ==map {
     @if $debug {
       @debug 'Map exists #{$map}';
     }
@@ -534,6 +551,7 @@ $_map: map.merge($_map,
 
       // Init index counter variable
       $i: 1;
+
       // Init key index
       $key-index: false;
       $previous-index: false;
@@ -566,22 +584,17 @@ $_map: map.merge($_map,
         @if $previous-index < 1 {
           @warn "no previous item in map, returning fallback";
           @return $fallback;
-        }
-
-        @else {
-
+        } @else {
           // Traverse map for key
           @each $map-key, $map-value in $map {
             @if $i==$previous-index {
-              @if $return=='key' {
+              @if $return== 'key' {
                 @if $debug {
                   @debug 'found! returning map-key: #{$map-key}';
                 }
 
                 @return $map-key;
-              }
-
-              @else {
+              } @else {
                 @if $debug {
                   @debug 'found! returning map-value: #{$map-value}';
                 }
@@ -594,21 +607,15 @@ $_map: map.merge($_map,
             $i: $i + 1;
           }
         }
-      }
-
-      @else {
+      } @else {
         @warn "No previous map item for key #{$key}";
         @return $fallback;
       }
-    }
-
-    @else {
+    } @else {
       @warn "No valid key #{$key} in map";
       @return $fallback;
     }
-  }
-
-  @else {
+  } @else {
     @warn "No valid map";
     @return $fallback;
   }

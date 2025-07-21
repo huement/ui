@@ -5,8 +5,8 @@
 /// TypographyBodyBase Loads the relative font size + line height combos
 /// for a given breakpoint.
 @mixin TypographyBodyBase($mMap) {
-  @if ($debug ==true) {
-    @debug "Setting Font Base for #{map.get($mMap, name)}";
+  @if  $debug ==true {
+    @debug 'Setting Font Base for #{map.get($mMap, name)}';
   }
 
   $scale: map.get($mMap, scale);
@@ -35,17 +35,18 @@
 
     a {
       text-decoration: none;
-      margin-right: decimal_round(($whiteSpace * .5), 0);
+      margin-right: decimal_round(($whiteSpace * 0.5), 0);
+
       //line-height: #{$lH + "rem"};
-      margin-left: decimal_round(($whiteSpace * .5), 0);
+      margin-left: decimal_round(($whiteSpace * 0.5), 0);
     }
 
     &.lead {
-      margin-top: vr-block(.5);
+      margin-top: vr-block(0.5);
       margin-bottom: vr-block(1);
       font-size: $lead;
       line-height: $lead-line-height;
-      letter-spacing: -.05rem;
+      letter-spacing: -0.05rem;
     }
   }
 }
@@ -65,17 +66,18 @@
 // HTML+BODY Font Styles
 $minBP: nth(map-keys($chords), 1);
 $firstMap: map.get($chords, $minBP);
+
 @include TypographyBodyBase($firstMap);
 
 //  Skip smallest breakpoint b/c size is 0.
 $maxBP: calc(length(map-keys($chords)) - 1);
 
-@if ($debug ==true) {
-  @debug "Total Breakpoints: #{$maxBP + 1}";
+@if  $debug ==true {
+  @debug 'Total Breakpoints: #{$maxBP + 1}';
 }
 
 @each $mapKey, $c in $chords {
-  @if (map.get($c, abrev) !=$minBP) {
+  @if  map.get($c, abrev) !=$minBP {
     @include media-breakpoint-up(map.get($c, abrev)) {
       @include TypographyBodyBase($c);
     }
@@ -88,6 +90,7 @@ a {
   color: $link-color;
   text-decoration: none;
   outline-style: none;
+
   // @TODO Animate
 
   &.underline {
@@ -98,6 +101,7 @@ a {
     color: $link-hover;
     text-decoration: underline;
     cursor: pointer;
+
     @include animate-css(pulse);
   }
 
@@ -127,7 +131,7 @@ a.btn {
 //
 //  Paragraph Styles
 p {
-  font-feature-settings: "kern", "liga", "clig", "calt", "onum", "pnum";
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'onum', 'pnum';
   font-kerning: normal;
   font-variant-ligatures: common-ligatures, contextual;
   font-variant-numeric: oldstyle-nums, proportional-nums;
@@ -143,7 +147,8 @@ p {
 
 p abbr,
 p span {
-  font-feature-settings: "kern", "liga", "clig", "calt", "onum", "pnum", "smcp", "c2sc";
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'onum', 'pnum', 'smcp',
+    'c2sc';
   font-kerning: normal;
   font-variant-ligatures: common-ligatures, contextual;
   font-variant-caps: all-small-caps;
@@ -151,17 +156,18 @@ p span {
   text-rendering: optimizelegibility;
 }
 
-p+p {
+p + p {
   text-indent: $main-indent;
 
   // No indent for drop caps
-  +.drop-cap {
+  + .drop-cap {
     text-indent: 0;
   }
 }
 
 abbr {
-  font-feature-settings: "kern", "liga", "clig", "calt", "onum", "pnum", "smcp", "c2sc";
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'onum', 'pnum', 'smcp',
+    'c2sc';
   font-kerning: normal;
   font-variant-ligatures: common-ligatures, contextual;
   font-variant-caps: all-small-caps;
@@ -170,7 +176,7 @@ abbr {
 }
 
 td {
-  font-feature-settings: "kern", "liga", "clig", "calt", "lnum", "tnum";
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'lnum', 'tnum';
   font-kerning: normal;
   font-variant-ligatures: common-ligatures, contextual;
   font-variant-numeric: lining-nums, tabular-nums;
@@ -183,11 +189,11 @@ b {
 
 // Highlight
 mark {
-  padding: 0 .2rem;
+  padding: 0 0.2rem;
   color: $dark;
   background: $info;
 }
 
 disabled {
-  color: rgba($dark, .5);
+  color: rgba($dark, 0.5);
 }

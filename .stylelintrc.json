@@ -1,14 +1,17 @@
 {
-  "extends": [
-    "stylelint-config-twbs-bootstrap"
-  ],
-  "customSyntax": "postcss-scss",
+  "extends": ["stylelint-config-standard-scss"],
+  "plugins": [ "stylelint-scss", "stylelint-prettier"],
   "reportInvalidScopeDisables": true,
   "reportNeedlessDisables": true,
-  "plugins": [ "stylelint-scss" ],
   "rules": {
-    "at-rule-no-unknown": null,
+    "prettier/prettier": true,
+    "indentation": 2,
+    "number-leading-zero": "always",
+    "color-hex-length": "short",
     "scss/at-rule-no-unknown": true,
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9_-]*$",
+    "block-no-empty": true,
+    "at-rule-no-unknown": null,
     "scss/selector-no-redundant-nesting-selector": true
   },
   "overrides": [

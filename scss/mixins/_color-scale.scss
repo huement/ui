@@ -1,11 +1,12 @@
 // Mixin to generate color scale
+// Its best to send a label otherwise it makes an attempt to make one
 @mixin generate-color-scale($color-map, $label: null) {
-  // If no label provided, derive from map variable name
   $map-name: str-slice(inspect($color-map), 2, -1); // Get map name
   $derived-label: str-slice($map-name, 1, -2); // Remove 's' from end
-  $final-label: if($label, $label, $derived-label);
+  $final-label: if($label, $label, $derived-label); // If no label, use the one we built
 
   @each $key, $value in $color-map {
+
     // Text color class
     .text-#{$final-label}-#{$key} {
       color: $value;

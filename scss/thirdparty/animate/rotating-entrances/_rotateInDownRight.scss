@@ -13,7 +13,14 @@
   }
 }
 
-@mixin rotateInDownRight($count: $countDefault, $duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+@mixin rotateInDownRight(
+  $count: $countDefault,
+  $duration: $durationDefault,
+  $delay: $delayDefault,
+  $function: $functionDefault,
+  $fill: $fillDefault,
+  $visibility: $visibilityDefault
+) {
   @include animation-name(rotateInDownRight);
   @include count($count);
   @include duration($duration);

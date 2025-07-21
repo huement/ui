@@ -5,7 +5,7 @@
     color: $color !important;
   }
   a#{$parent} {
-    @include hover-focus() {
+    @include hover-focus {
       color: color.scale($color, $lightness: -10%) !important;
     }
   }
@@ -31,6 +31,7 @@
 
 @mixin reset-text {
   font-family: $font-family-base;
+
   // We deliberately do NOT reset font-size or word-wrap.
   font-style: normal;
   font-weight: $font-weight-normal;

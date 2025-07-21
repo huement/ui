@@ -1,20 +1,27 @@
 @use '../properties' as *;
 
 @include keyframes(bounceOutRight) {
-    0% {
-      @include transform(translateX(0));
-    }
-   20% {
-     opacity: 1;
-     @include transform(translateX(-20px));
-    }
+  0% {
+    @include transform(translateX(0));
+  }
+  20% {
+    opacity: 1;
+    @include transform(translateX(-20px));
+  }
   100% {
     opacity: 0;
     @include transform(translateX(2000px));
   }
 }
 
-@mixin bounceOutRight($count: $countDefault, $duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+@mixin bounceOutRight(
+  $count: $countDefault,
+  $duration: $durationDefault,
+  $delay: $delayDefault,
+  $function: $functionDefault,
+  $fill: $fillDefault,
+  $visibility: $visibilityDefault
+) {
   @include animation-name(bounceOutRight);
   @include count($count);
   @include duration($duration);

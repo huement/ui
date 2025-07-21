@@ -1,7 +1,6 @@
 @use '../properties' as *;
 
 @include keyframes(fadeOutRight) {
-
   0% {
     opacity: 1;
     @include transform(translateX(0));
@@ -12,7 +11,14 @@
   }
 }
 
-@mixin fadeOutRight($count: $countDefault, $duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+@mixin fadeOutRight(
+  $count: $countDefault,
+  $duration: $durationDefault,
+  $delay: $delayDefault,
+  $function: $functionDefault,
+  $fill: $fillDefault,
+  $visibility: $visibilityDefault
+) {
   @include animation-name(fadeOutRight);
   @include count($count);
   @include duration($duration);

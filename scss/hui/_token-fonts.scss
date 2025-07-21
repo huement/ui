@@ -4,7 +4,6 @@
 @use 'sass:color';
 @use 'sass:meta';
 @use 'sass:string';
-
 @import 'globals';
 
 //============================================================
@@ -12,17 +11,17 @@
 //============================================================
 
 $google-fonts-import: false !default;
-
 $PrimaryFont: (
   family: 'Jost',
   src: 'Jost-VariableFont_wght.woff2',
   weight: 300,
-  varWeight: 100 1000,
+  varweight: 100 1000,
   stretch: 25% 151%,
   style: normal,
   selector: 'html, body, p, li, b, i, strong, mark, td, th',
   stack: $SansStack,
-  display: swap) !default;
+  display: swap,
+) !default;
 
 // $HeadingFont: (
 //   family: 'Saira',
@@ -31,31 +30,33 @@ $HeadingFont: (
   family: 'Jost',
   src: 'Jost-VariableFont_wght.woff2',
   weight: 700,
-  varWeight: 100 1000,
+  varweight: 100 1000,
   stretch: 25% 151%,
   style: bold,
   selector: 'h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6',
   stack: $SansStack,
-  display: swap) !default;
-
+  display: swap,
+) !default;
 $UIFont: (
   family: 'Jura',
   src: 'Jura-VariableFont_wght.woff2',
   weight: 400,
-  varWeight: 100 1000,
+  varweight: 100 1000,
   stretch: 25% 151%,
   style: normal,
-  selector: '.btn, a, button',
+  selector: '.btn, a, button, .nav-link, .navbar, .alert, .badge',
   stack: $SansStack,
-  display: swap) !default;
-
+  display: swap,
+) !default;
 $CodeFont: (
   family: 'Space Grotesk',
   src: 'SpaceGrotesk-VariableFont_wght.woff2',
   weight: 300,
-  varWeight: 100 1000,
+  varweight: 100 1000,
   stretch: 25% 151%,
   style: normal,
-  selector: 'code, pre, samp, kbd, caption, blockquote, cite, .code-block, .code-block p, aside, label, legend, .quote',
+  selector:
+    'code, pre, samp, kbd, caption, blockquote, cite, .code-block, .code-block p, aside, label, legend, .quote',
   stack: $MonoStack,
-  display: swap) !default;
+  display: swap,
+) !default;

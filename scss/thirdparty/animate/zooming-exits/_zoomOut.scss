@@ -6,14 +6,21 @@
   }
   50% {
     opacity: 0;
-    @include transform(scale3d(.3, .3, .3));
+    @include transform(scale3d(0.3, 0.3, 0.3));
   }
   100% {
     opacity: 0;
   }
 }
 
-@mixin zoomOut($count: $countDefault, $duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+@mixin zoomOut(
+  $count: $countDefault,
+  $duration: $durationDefault,
+  $delay: $delayDefault,
+  $function: $functionDefault,
+  $fill: $fillDefault,
+  $visibility: $visibilityDefault
+) {
   @include animation-name(zoomOut);
   @include count($count);
   @include duration($duration);

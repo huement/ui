@@ -8,9 +8,9 @@
   "license": "MPL-2.0",
   "author": "Derek Scott <derek@huement.com>",
   "homepage": "https://github.com/huement/ui",
-  "buildNumber": 656,
-  "buildDate": "Tue Jul 15 2025",
-  "buildSize": "377.95 KiB",
+  "buildNumber": 659,
+  "buildDate": "Fri Jul 18 2025",
+  "buildSize": "376.24 KiB",
   "hui": {
     "mqResponsive": "true",
     "baseFontSize": "16px",
@@ -38,7 +38,11 @@
     "lint:js": "eslint --fix --config .eslintrc.cjs js/*.js js/**/*.js",
     "postfix": "postcss --config postcss.config.cjs --replace dist/ui.min.css",
     "minify": "cleancss -O01 --output dist/ui.min.css --format 'breaks:afterBlockBegins=on;spaces:aroundSelectorRelation=on' dist/ui.css",
-    "scss:jolly": "sass --quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css jollybar/debugger.scss dist/jollybar/jollybar.css"
+    "scss:jolly": "sass --quiet --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css jollybar/debugger.scss dist/jollybar/jollybar.css",
+    "format": "prettier --write \"**/*.scss\"",
+    "lint:scss": "stylelint \"**/*.scss\" --fix",
+    "format:check": "prettier --check \"**/*.scss\"",
+    "lint:scss:check": "stylelint \"**/*.scss\""
   },
   "files": [
     "dist/js/*.js",
@@ -125,7 +129,7 @@
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^16.1.1",
     "postcss-preset-env": "^10.2.4",
-    "prettier": "^3.2.5",
+    "prettier": "^3.6.2",
     "prettier-eslint": "^16.3.0",
     "prettier-stylelint": "^0.4.2",
     "quartz": "^0.0.1",
@@ -134,6 +138,7 @@
     "rhythm-fns": "^1.0.0",
     "rimraf": "^5.0.5",
     "rollup": "^4.9.1",
+    "stylelint-prettier": "^5.0.3",
     "terminal-img": "^2.0.24",
     "trash": "^8.1.1",
     "wallace-cli": "^3.0.0",

@@ -52,8 +52,8 @@
   position: relative;
   margin: 0 0 calc(var(--size) / 2) 0;
 
-  &:after {
-    content: "";
+  &::after {
+    content: '';
     position: absolute;
     top: var(--quarter-size);
     left: calc(var(--quarter-size) * -1);
@@ -77,13 +77,10 @@
   color: $text;
   text-align: center;
 
-  &:before {
-    content: "";
+  &::before {
+    content: '';
     position: absolute;
-    top: 10%;
-    bottom: 10%;
-    right: -5%;
-    left: -5%;
+    inset: 10% -5%;
     background: inherit;
     border-radius: 5% / 50%;
   }

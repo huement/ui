@@ -30,6 +30,7 @@
 .container-fluid.no-gutters {
   padding-left: 0;
   padding-right: 0;
+
   --bs-gutter-x: 0rem;
 }
 
@@ -58,7 +59,9 @@
 @import 'bootstrap/scss/modal';
 @import 'bootstrap/scss/tooltip';
 @import 'bootstrap/scss/popover';
+
 // @import 'bootstrap/scss/carousel';
 @import 'bootstrap/scss/spinners';
 @import 'bootstrap/scss/offcanvas';
+
 // @import 'bootstrap/scss/placeholders';

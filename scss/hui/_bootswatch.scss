@@ -17,6 +17,7 @@ $frosted-opacity: 0.7 !default;
     inset 1px 1px $border-color,
     inset -1px -1px rgba($white, 0.1),
     $box-shadow;
+
   @include frost($opacity, $bg);
 
   a {
@@ -74,17 +75,17 @@ $frosted-opacity: 0.7 !default;
   }
 
   &-outline-dark {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgb(255 255 255 / 10%);
   }
 
   &.disabled {
     opacity: 0.5;
     cursor: not-allowed;
     user-select: none;
-    color: rgba(220, 220, 220, 0.85);
+    color: rgb(220 220 220 / 85%);
 
     &.btn-light {
-      color: #777777;
+      color: #777;
     }
   }
 }
@@ -115,7 +116,7 @@ $frosted-opacity: 0.7 !default;
   border: none;
 }
 
-.form-control:hover:not(:disabled):not([readonly])::file-selector-button {
+.form-control:hover:not(:disabled, [readonly])::file-selector-button {
   background-color: rgba($white, 0.1);
 }
 
@@ -198,6 +199,7 @@ $frosted-opacity: 0.7 !default;
   .nav-item .nav-link.active,
   .nav-item.show .nav-link {
     @include glass(1, $white);
+
     border-radius: $border-radius;
     transform: scale(1.1);
 
@@ -270,23 +272,41 @@ $frosted-opacity: 0.7 !default;
 }
 
 // Force Icons and SVG to stay on the same lines
-.navbar-nav {
+.navbar.navbar-nav {
   a {
     display: inline-flex;
     align-items: center;
+
     /* Vertically center SVG and text */
     white-space: nowrap;
+
     /* Prevent text wrapping */
   }
 
   a svg {
     display: inline-block;
+
     /* Ensure SVG behaves as inline element */
     vertical-align: middle;
+
     /* Align SVG with text */
+  }
+
+  .navbar-dark {
+    a.nav-link.dropdown-toggle {
+      color: $mono-900;
+    }
   }
 }
 
+// Force Icons and SVG to stay on the same lines
+.navbar {
+  .navbar-dark {
+    a.nav-link.dropdown-toggle {
+      color: $mono-900;
+    }
+  }
+}
 
 // Indicators
 
@@ -296,6 +316,7 @@ $frosted-opacity: 0.7 !default;
     inset 1px 1px $border-color,
     inset -1px -1px rgba($white, 0.1),
     $box-shadow;
+
   @include frost(0.59, $white, 2px);
 
   a {
@@ -332,6 +353,21 @@ $frosted-opacity: 0.7 !default;
   }
 }
 
+[data-bs-theme='dark'] {
+  .alert {
+    background-image: linear-gradient(125deg,
+        rgb(0 0 0 / 59%),
+        rgb(55 55 55 / 49%) 70%);
+    color: $mono-900;
+
+    &.alert-light {
+      .alert-link {
+        --bs-alert-link-color: #eee !important;
+      }
+    }
+  }
+}
+
 .badge {
   letter-spacing: 0.03rem;
 
@@ -357,27 +393,28 @@ $frosted-opacity: 0.7 !default;
 
   .btn-close {
     --bs-btn-close-color: $mono-100;
+
     fill: $mono-100;
   }
 }
 
-
-
 // Containers
 
 .list-group {
-  @include glass();
+  @include glass;
 }
 
 .card {
-  @include glass();
+  @include glass;
+
   --bs-card-cap-color: $mono-100;
   --bs-card-color: $mono-100;
+
   border-color: $mono-100;
   background: $mono-300;
 
   @each $color, $value in $theme-colors {
-    @if ($color ==secondary) {
+    @if $color ==secondary {
       --bs-secondary-rgb: transparent;
     }
 
@@ -405,13 +442,13 @@ $frosted-opacity: 0.7 !default;
   &.border {
     @each $color, $value in $theme-colors {
       &-#{$color} {
-        @include glass();
+        @include glass;
 
         .card-header {
           background-color: $value !important;
           border-bottom: none;
 
-          @if ($color ==light) {
+          @if $color ==light {
             color: $gray-800;
           }
         }
@@ -427,7 +464,7 @@ $frosted-opacity: 0.7 !default;
 // Accordions
 .accordion-button {
   &:not(.collapsed) {
-    background-color: map.get($violets, 400);
+    background-color: map.get($hui-violets, 400);
     color: $mono-900;
     font-weight: bold;
   }
@@ -442,16 +479,10 @@ $frosted-opacity: 0.7 !default;
   background-color: $mono-900;
   border: none;
 
-  &:first-of-type {
-    >.accordion-header .accordion-button {}
-  }
-
   &:not(:first-of-type) {
     border-top: 0;
   }
 }
-
-.accordion-body {}
 
 // .accordion-item {
 //   @include glass();
@@ -459,11 +490,11 @@ $frosted-opacity: 0.7 !default;
 // }
 
 .toast {
-  @include glass();
+  @include glass;
 }
 
 .popover {
-  @include glass();
+  @include glass;
 
   &-header {
     border-bottom-color: $border-color;
@@ -474,12 +505,26 @@ $frosted-opacity: 0.7 !default;
   backdrop-filter: blur(5px);
 }
 
+.modal-title,
+.modal-body {
+  color: $mono-300;
+}
+
+@include color-mode(dark) {
+
+  .modal-title,
+  .modal-body {
+    color: $mono-100;
+  }
+}
+
 .modal-content {
-  @include glass();
+  @include glass;
 }
 
 .offcanvas {
-  @include glass();
+  @include glass;
+
   color: $mono-100;
 
   .offcanvas-body,
@@ -490,7 +535,6 @@ $frosted-opacity: 0.7 !default;
 }
 
 .card-box {
-  -o-perspective: 900px;
   perspective: 900px;
   width: 250px;
   position: relative;
@@ -530,9 +574,8 @@ $frosted-opacity: 0.7 !default;
   left: 0;
   width: 100%;
   overflow: hidden;
-  box-shadow: 0 1rem 3rem rgba(13, 20, 49, 0.175);
+  box-shadow: 0 1rem 3rem rgb(13 20 49 / 17.5%);
   border-radius: 0.5rem;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: rotateY(24deg);
 }
@@ -542,7 +585,7 @@ $frosted-opacity: 0.7 !default;
 }
 
 .card-box .page-card {
-  box-shadow: 0 1rem 3rem rgba(13, 20, 49, 0.175);
+  box-shadow: 0 1rem 3rem rgb(13 20 49 / 17.5%);
   border-radius: 0.5rem;
 }
 
@@ -550,7 +593,7 @@ $frosted-opacity: 0.7 !default;
   cursor: pointer;
 }
 
-@media (max-width: 991.98px) {
+@media (width <=991.98px) {
   .card-box {
     width: 200px;
   }

@@ -22,7 +22,7 @@
     }
   }
   a#{$parent} {
-    @include hover-focus () {
+    @include hover-focus {
       background-color: color.scale($color, $lightness: -10%) !important;
     }
   }
@@ -30,6 +30,7 @@
 
 @mixin bg-gradient-variant($parent, $color) {
   #{$parent} {
-    background: $color linear-gradient(180deg, color.mix($body-bg, $color, 15%), $color) repeat-x !important;
+    background: $color
+      linear-gradient(180deg, color.mix($body-bg, $color, 15%), $color) repeat-x !important;
   }
 }

@@ -3,7 +3,7 @@
 //   @include bg-variant('.bg-#{$color}', $value);
 // }
 
-@if $enable-fills {
+@if $hui-enable-fills {
   @each $color, $value in $theme-colors {
     .fill-#{$color} {
       fill: $value;
@@ -21,10 +21,15 @@
       fill: $value;
     }
   }
-
 }
 
-@include generate-color-scale($mono, 'mono');
+@if $hui-enable-mono-scale {
+  @include generate-color-scale($mono, 'mono');
+}
+
+@if $hui-enable-theme-scale {
+  @include generate-color-scale($hui-reds, 'red');
+}
 
 @if $enable-gradients {
   @each $color, $value in $theme-colors {

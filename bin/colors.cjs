@@ -109,10 +109,7 @@ class TokenColors {
             var cVal = `${cvalue}`
             var cleanColor = cVal.replace(/^#/, '')
 
-            var cScale = ColorScale({
-              color: '#' + cleanColor,
-              variance: 11,
-            })
+            var cScale = ColorScale({ color: '#' + cleanColor, variance: 11 })
 
             // var colorKey = `${ckey}`
             var mKey = `${ckey}`
@@ -148,7 +145,7 @@ class TokenColors {
             let sassData = json2scss(numberObj)
 
             let blankObj = {}
-            let pluralKey = mKey === 'mono' ? 'mono' : `${mKey}s`
+            let pluralKey = mKey === 'mono' ? 'mono' : `hui-${mKey}s`
             blankObj[pluralKey] = mapC
             let sassDataMap = json2scss(blankObj)
 

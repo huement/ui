@@ -5,7 +5,7 @@
     @include transform(scale(1));
   }
   25% {
-    @include transform(scale(.95));
+    @include transform(scale(0.95));
   }
   50% {
     opacity: 1;
@@ -13,11 +13,18 @@
   }
   100% {
     opacity: 0;
-    @include transform(scale(.3));
+    @include transform(scale(0.3));
   }
 }
 
-@mixin bounceOut($count: $countDefault, $duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+@mixin bounceOut(
+  $count: $countDefault,
+  $duration: $durationDefault,
+  $delay: $delayDefault,
+  $function: $functionDefault,
+  $fill: $fillDefault,
+  $visibility: $visibilityDefault
+) {
   @include animation-name(bounceOut);
   @include count($count);
   @include duration($duration);

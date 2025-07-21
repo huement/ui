@@ -5,10 +5,15 @@
 @use 'sass:meta';
 @use 'sass:string';
 
-//
-// Load Config & Variables
+//============================================================
+// LOAD FRAMEWORK & CONFIGS
+//============================================================
+// Bootswatch Quartz 5.3.3
+$theme: 'quartz' !default;
+
 @import 'hui';
 
+// Start of output
 @include fileBanner('hui scss');
 
 //============================================================
@@ -17,6 +22,7 @@
 @import 'hui/root';
 @import 'utilities';
 @import 'bs5';
+
 //============================================================
 // HUI AUGMENTATIONS
 //============================================================
@@ -24,10 +30,9 @@
 @import 'hui/bootswatch';
 @import 'hui/typography';
 @import 'hui/forms';
+@include HUIButtons;
 
-@include HUIButtons();
-
-@if (global-variable-exists(brands) and length($brands) > 0) {
+@if global-variable-exists(brands) and length($brands)>0 {
   @include brand-utilities;
 }
 
@@ -39,12 +44,13 @@
 
 // Boxicons | minimal blade version
 @import 'thirdparty/boxicons';
+
 // Manually include only the animations you want in this file
 // Then use the @include for the animation you want to use
 // @import 'thirdparty/animate/animate';
 
 @if $debugMode {
-  @include debuggerUI();
+  @include debuggerUI;
 }
 
 //============================================================
@@ -77,7 +83,7 @@
 
 .fw-bold.text-shadow {
   font-weight: bold;
-  text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.6);
+  text-shadow: -1px 1px 1px rgb(0 0 0 / 60%);
 }
 
 @keyframes fadeOut {
@@ -109,9 +115,9 @@ a .btn.mx-auto.d-block {
 
 .nice-shadow {
   box-shadow:
-    0 1px 1px hsl(0deg 0% 0% / 0.075),
-    0 2px 2px hsl(0deg 0% 0% / 0.075),
-    0 4px 4px hsl(0deg 0% 0% / 0.075),
-    0 8px 8px hsl(0deg 0% 0% / 0.075),
-    0 16px 16px hsl(0deg 0% 0% / 0.075);
+    0 1px 1px hsl(0deg 0% 0% / 7.5%),
+    0 2px 2px hsl(0deg 0% 0% / 7.5%),
+    0 4px 4px hsl(0deg 0% 0% / 7.5%),
+    0 8px 8px hsl(0deg 0% 0% / 7.5%),
+    0 16px 16px hsl(0deg 0% 0% / 7.5%);
 }

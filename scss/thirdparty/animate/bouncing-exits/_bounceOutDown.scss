@@ -9,12 +9,19 @@
     @include transform(translateY(-20px));
   }
   100% {
-    opacity: 0; 
+    opacity: 0;
     @include transform(translateY(2000px));
   }
 }
 
-@mixin bounceOutDown($count: $countDefault, $duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+@mixin bounceOutDown(
+  $count: $countDefault,
+  $duration: $durationDefault,
+  $delay: $delayDefault,
+  $function: $functionDefault,
+  $fill: $fillDefault,
+  $visibility: $visibilityDefault
+) {
   @include animation-name(bounceOutDown);
   @include count($count);
   @include duration($duration);

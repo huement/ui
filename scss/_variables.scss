@@ -5,7 +5,7 @@
 @use 'sass:map';
 @use 'sass:math';
 
-$debugMode: false !default;
+$debugMode: true !default;
 $debug: $debugMode !default;
 
 // Harmony
@@ -13,10 +13,13 @@ $modular-ratio: $MAJOR_THIRD !default;
 $line-height-base: 1.5 !default;
 $block-spacing: 1.5rem !default;
 $vertical-unit: 0.5rem !default;
-$main-unit: rem !default;
 $main-indent: 0.24rem !default;
+$default-paragraph-line-limits: 1 2 3 !default;
+$font-size-base: 1rem !default;
+$font-size-lg: $font-size-base * $modular-ratio !default;
+$font-size-sm: $font-size-base * 0.875 !default;
 
-// Grab the Defaults
+// Setup Bootswatch Theme, custom styles, or set to false to skip
 @import 'quartz';
 
 // GRID CONFIG
@@ -27,9 +30,9 @@ $container-padding-x: $grid-gutter-width !default;
 $break-point-limit: 'medium' !default;
 $tile-spacing: 0.75rem !default;
 
-// Body
+// Colors & Shadows
 $body-bg: #212121 !default;
-$wave-bg: #111111 !default;
+$wave-bg: #111 !default;
 $btm-bg: #131313 !default;
 $dark-bg: #181818 !default;
 $black: #0f0f0f !default;
@@ -37,6 +40,12 @@ $post-bg: #030303 !default;
 $box-shadow: 0 0.5rem 1rem rgba($black, 0.2) !default;
 $box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075) !default;
 $box-shadow-lg: 0 1rem 3rem rgba($black, 0.3) !default;
+
+$hui-enable-color-stacks: true !default; // add additional classes for each color, ie .bg-red-400
+$hui-enable-fills: true !default; // add extra fill classes for colors and greyscale .fill-mono-100
+$hui-enable-mono-scale: true !default; // generate monotone color-scale
+$hui-enable-theme-scale: false !default; // generate monotone color-scale
+
 
 // Z-index supplementary values not present in BS5.
 $zindex-0: 1 !default;
@@ -55,7 +64,6 @@ $enable-transitions: true !default;
 $enable-hover-media-query: false !default; // Deprecated, no longer affects any compiled CSS
 $enable-fonts-import: true !default;
 $enable-caret: true !default;
-
 $enable-reduced-motion: true !default;
 $enable-smooth-scroll: true !default;
 $enable-grid-classes: true !default;
@@ -69,23 +77,22 @@ $enable-deprecation-messages: true !default;
 $enable-important-utilities: true !default;
 $enable-display-sizes: true !default;
 $include-column-box-sizing: true !default;
-
 $enable-dark-mode: true !default; // dark is the new default
 $color-mode-type: data !default; // `data` or `media-query`
-
 $enable-fills: true !default;
 
 //
 // BRANDS
 //
 // Add in support for various brands colors. Will create a bg-{brand}, text-{brand} and btn-{brand} elements.
-$brands: facebook, linkedin, x, instagram, youtube, reddit, telegram, whatsapp, codepen, discord !default;
+$brands: facebook, linkedin, x, instagram, github, youtube, reddit, telegram,
+  whatsapp, codepen, discord !default;
 
 //
 // Spacing
 //
 // Controls icons size .i-50, .w-50px { width: 50px } etc
-$default-ui-sizes: 0 1 5 10 20 25 30 50 60 75 100 150 200 !default;
+$default-ui-sizes: 5 10 20 25 30 50 60 75 100 150 200 !default;
 
 // Control the default styling of most Bootstrap elements by modifying these
 // variables. Mostly focused on spacing.
@@ -99,120 +106,83 @@ $spacers: (
   4: $spacer * 2,
   5: $spacer * 2.5,
   6: $spacer * 3,
-  10: $spacer * 5) !default;
+  10: $spacer * 5,
+  ) !default;
 
-// Caution: Using a large number of various spacings will complicate having a
-// vertical or horizontal rhythm. consider adjusting the maps instead of trying
-// to keep track of what sizes are in play.
-$sz_1: 0.25rem !default;
-$sz_2: 0.5rem !default;
-$sz_3: 0.75rem !default;
-$sz_4: 1rem !default;
-$sz_5: 1.25rem !default;
-$sz_6: 1.5rem !default;
-$sz_7: 1.75rem !default;
-$sz_8: 2rem !default;
-$sz_9: 2.5rem !default;
-$sz_10: 2.75rem !default;
-$sz_11: 3rem !default;
-$sz_12: 3.5rem !default;
-$sz_13: 4rem !default;
-$sz_14: 5rem !default;
-$sz_16: 6rem !default;
-$sz_17: 7rem !default;
-$sz_18: 8rem !default;
-$sz_19: 9rem !default;
-$sz_20: 10rem !default;
-$sz_30: 20rem !default;
-$sz_40: 30rem !default;
-$sz_50: 40rem !default;
-$sz_60: 50rem !default;
-$sz_70: 60rem !default;
-$sz_80: 70rem !default;
-
+// Quick and easy way to grab the spacer values w/o using a map.
+$sz_1: $spacer * 0.5 !default;
+$sz_2: $spacer !default;
+$sz_3: $spacer * 1.5 !default;
+$sz_4: $spacer * 2 !default;
+$sz_5: $spacer * 2.5 !default;
+$sz_6: $spacer * 3 !default;
+$sz_7: $spacer * 3.5 !default;
+$sz_8: $spacer * 4 !default;
+$sz_9: $spacer * 4.5 !default;
+$sz_10: $spacer * 5 !default;
+$sz_11: $spacer * 5.5 !default;
+$sz_12: $spacer * 6 !default;
+$sz_13: $spacer * 6.5 !default;
+$sz_14: $spacer * 7 !default;
+$sz_15: $spacer * 7.5 !default;
+$sz_20: $spacer * 10 !default;
 $negative-spacers: if($enable-negative-margins,
     negativify-map($spacers),
     null) !default;
-
 $gutters: $spacers !default;
 
-//
-// Important Typography Section
-// ------------------------------------------------
+//============================================================
+// TYPOGRAPHY SETTINGS & CONFIGURATIONS
+//============================================================
+// Font File Config
+$font-path: '/public/fonts/' !default;
+
+// @TODO: currently hui is expecting locally hosted fonts.
 // @TODO: Optionally Load Fonts via an import rather than locally hosted
-// $google-fonts-import: 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600|Roboto+Mono' !default; // Includes: Poppins: Light, Regular, Medium, Semi-bold !default; Roboto Mono: Regular
+// @TODO: something like $google-fonts-import: 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600|Roboto+Mono' !default; // Includes: Poppins: Light, Regular, Medium, Semi-bold !default; Roboto Mono: Regular
 
 // Typography Variables
 // ============================================================================
+// Because hui uses modular scales, most font sizes are automatically generated in the 'chords' file.
 
 // Map controls how many line limit classes will be generated
 // example .limit-lines-2 { line-clamp: 2 }
-$default-paragraph-line-limits: 1 2 3 !default;
-
 $base-font-map: map.get($chords, 'md') !default;
-
+$sm-font-map: map.get($chords, 'sm') !default;
+$lg-font-map: map.get($chords, 'lg') !default;
 $font-family-ui: map.get($UIFont, 'family'),
-  $SansStack !default;
+  map.get($UIFont, 'stack') !default;
 $font-family-system-first: map.get($PrimaryFont, 'family'),
-  $SansStack !default;
+  map.get($PrimaryFont, 'stack') !default;
 $font-family-mono-first: map.get($CodeFont, 'family'),
-  $MonoStack !default;
+  map.get($CodeFont, 'stack') !default;
 $font-family-headings: map.get($HeadingFont, 'family'),
   map.get($HeadingFont, 'stack') !default;
-
 $font-family-sans-serif: $font-family-system-first !default;
 $font-family-monospace: $font-family-mono-first !default;
 $font-family-base: $font-family-sans-serif !default;
-
-// Font Config
-$font-path: '/public/fonts/' !default;
-$font-size-base: 1rem !default;
-
-$sm-font-map: map.get($chords, 'sm') !default;
-$lg-font-map: map.get($chords, 'lg') !default;
-
 $base-headings-map: map.get($base-font-map, 'headings') !default;
 $base-headingspx-map: map.get($base-font-map, 'headings_px') !default;
 $base-scale: map.get($base-font-map, 'scale') !default;
-
 $font-size-root: strip-units(map.get($base-font-map, 'fontSize')) !default;
-$font-size-base: 1rem !default;
-$font-size-lg: $font-size-base * $modular-ratio !default;
-$font-size-sm: $font-size-base * 0.875 !default;
 
-// Based on Breakpoint Sizes for the Key Values
-// Modular scale for type sizes
 // $type-sizes: (
-//   xs: 0.875rem,
-//   // 14px
-//   sm: 1rem,
-//   // 16px
-//   md: 1.25rem,
-//   // 30px
-//   lg: 1.5rem,
-//   // 24px
-//   xl: 2rem,
-//   // 32px
-//   xx: 3rem,
-//   // 48px
-//   ) !default;
-$type-sizes: (
-  xs: $font-size-base / ($modular-ratio * $modular-ratio),
-  sm: $font-size-base / $modular-ratio,
-  md: $font-size-base,
-  lg: $font-size-base * $modular-ratio,
-  xl: $font-size-base * $modular-ratio * $modular-ratio,
-  xx: $font-size-base * $modular-ratio * $modular-ratio * $modular-ratio ) !default;
+//   xs: $font-size-base / ($modular-ratio * $modular-ratio),
+//   sm: $font-size-base / $modular-ratio,
+//   md: $font-size-base,
+//   lg: $font-size-base * $modular-ratio,
+//   xl: $font-size-base * $modular-ratio * $modular-ratio,
+//   xx: $font-size-base * $modular-ratio * $modular-ratio * $modular-ratio ) !default;
 
-$type-line-sizes: (
-  xs: map.get($type-sizes, 'xs') * $line-height-base,
-  sm: map.get($type-sizes, 'sm') * $line-height-base,
-  md: map.get($type-sizes, 'md') * $line-height-base,
-  lg: map.get($type-sizes, 'lg') * $line-height-base,
-  xl: map.get($type-sizes, 'xl') * $line-height-base,
-  xx: map.get($type-sizes, 'xx') * $line-height-base) !default;
+// $type-line-sizes: (
+//   xs: map.get($type-sizes, 'xs') * $line-height-base,
+//   sm: map.get($type-sizes, 'sm') * $line-height-base,
+//   md: map.get($type-sizes, 'md') * $line-height-base,
+//   lg: map.get($type-sizes, 'lg') * $line-height-base,
+//   xl: map.get($type-sizes, 'xl') * $line-height-base,
+//   xx: map.get($type-sizes, 'xx') * $line-height-base) !default;
 
-// Various additional Text colors that are created in the builder. 
+// Various additional Text colors that are created in the builder.
 // example: .text-indigo { color: $indigo-300 }
 $color-shades: (
   'blue': $blue-700,
@@ -235,25 +205,22 @@ $color-shades: (
 $title-size: 3.5rem !default;
 $title-weight: 700 !default;
 $title-strong-weight: inherit !default;
-
 $subtitle-size: 2rem !default;
 $subtitle-weight: 400 !default;
 $subtitle-strong-weight: 500 !default;
-
 $display-font-family: null !default;
 $display-font-style: null !default;
 $display-font-weight: 300 !default;
 $display-line-height: 1.2 !default;
-
 $display-font-sizes: if($enable-display-sizes,
     (1: 5rem,
       2: 4.5rem,
       3: 4rem,
       4: 3.5rem,
       5: 3rem,
-      6: 2.5rem),
+      6: 2.5rem,
+    ),
     null) !default;
-
 
 // WEIGHTS
 $font-weight-base: $base-line-height !default;
@@ -265,7 +232,6 @@ $font-weight-medium: 500 !default;
 $font-weight-semibold: 600 !default;
 $font-weight-bold: 700 !default;
 $font-weight-bolder: bolder !default;
-
 $font-weight-base: $font-weight-normal !default;
 
 // $h1-font-size: $font-size-base * 2.5 !default;
@@ -281,22 +247,18 @@ $font-sizes: (
   3: map.get($base-headings-map, 'h3'),
   4: map.get($base-headings-map, 'h4'),
   5: map.get($base-headings-map, 'h5'),
-  6: map.get($base-headings-map, 'h6')) !default;
-
+  6: map.get($base-headings-map, 'h6'),
+  ) !default;
 $font-weight-normal: map.get($PrimaryFont, 'weight') !default;
 $font-weight-bold: 700 !default;
-
 $font-weight-base: $font-weight-normal !default;
-
 $h1-font-size: map.get($base-headings-map, 'h1') !default;
 $h2-font-size: map.get($base-headings-map, 'h2') !default;
 $h3-font-size: map.get($base-headings-map, 'h3') !default;
 $h4-font-size: map.get($base-headings-map, 'h4') !default;
 $h5-font-size: map.get($base-headings-map, 'h5') !default;
 $h6-font-size: map.get($base-headings-map, 'h6') !default;
-
 $headings-margin-bottom: 0.75rem !default;
-
 $headings-font-family: $font-family-headings !default;
 $headings-font-weight: map.get($HeadingFont, 'weight') !default;
 $headings-color: $light !default;
@@ -308,33 +270,24 @@ $h3-line-height: map.get($base-headings-map, 'h3') !default;
 $h4-line-height: map.get($base-headings-map, 'h4') !default;
 $h5-line-height: map.get($base-headings-map, 'h5') !default;
 $h6-line-height: map.get($base-headings-map, 'h6') !default;
-
-$display1-size: 7.451rem !default;
-$display2-size: 5.96rem !default;
-$display3-size: 4.768rem !default;
-$display4-size: 3.815rem !default;
-
+// $display1-size: 7.451rem !default;
+// $display2-size: 5.96rem !default;
+// $display3-size: 4.768rem !default;
+// $display4-size: 3.815rem !default;
 $display-line-height: 1 !default;
 $display-margin-bottom: 0.75rem !default;
-
 $paragraphs-margin-bottom: 1.75rem !default;
-
 $lead-line-height: 1.875rem !default;
-
 $small-font-size: 80% !default;
-
 $text-muted: $gray-600 !default;
-
 $blockquote-font-size: 1.5rem !default;
 $blockquote-footer-font-size: 1.125rem !default;
 $blockquote-margin-bottom: 0.75rem !default;
-
 $hr-border-color: rgba($dark, 0.1) !default;
 $hr-border-width: 0.125rem !default;
 $hr-margin-y: 1.125rem !default;
-
 $mark-padding: 0.2em !default;
-$mark-bg: #fff09e !default;
+$mark-bg: $yellow-700 !default;
 
 // Code
 $code-color: map.get($mojo-red, light) !default;
@@ -342,8 +295,7 @@ $code-font-size: 0.75rem !default;
 $code-line-height: 1.375rem !default;
 $code-padding-y: 0.1875rem !default;
 $code-padding-x: 0.8125rem !default;
-$code-background-color: rgba(19, 19, 19, 0.8) !default;
-
+$code-background-color: rgb(19 19 19 / 80%) !default;
 $kbd-font-size: 0.75rem !default;
 $kbd-border-radius: 0.625rem !default;
 $kbd-box-shadow: none !default;
@@ -351,9 +303,7 @@ $kbd-padding-y: $code-padding-y !default;
 $kbd-padding-x: $code-padding-x !default;
 $kbd-color: $white !default;
 $kbd-bg: $gray-900 !default;
-
 $nested-kbd-font-weight: $font-weight-bold !default;
-
 $pre-color: $gray-900 !default;
 $pre-scrollable-max-height: 340px !default;
 $pre-code-border-radius: 4px !default;

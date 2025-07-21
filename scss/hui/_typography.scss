@@ -23,7 +23,7 @@
 @include fontFaceSelector($UIFont);
 
 .jura {
-  font-family: 'Jura';
+  font-family: Jura;
 
   &.w300 {
     font-weight: 300;
@@ -35,7 +35,7 @@
 }
 
 .jost {
-  font-family: 'Jost';
+  font-family: Jost;
 
   &.w300 {
     font-weight: 300;
@@ -91,13 +91,14 @@ button {
 
 /** HUI Typography */
 @import 'harmony/headings';
-@include Harmonic_Headings_Core();
-@include Harmonic_Headings_Breakpoints();
+@include Harmonic_Headings_Core;
+@include Harmonic_Headings_Breakpoints;
 
 /** Typography Extras */
 @import 'harmony/typesetting';
+
 // Quotes Added
-@import "harmony/quotes";
+@import 'harmony/quotes';
 @import 'harmony/code';
 @import 'harmony/content';
 @import 'harmony/hero';
@@ -126,7 +127,7 @@ button {
   fill: #fff;
 }
 
-@if (length($color-shades) > 0) {
+@if  length($color-shades) > 0 {
   @each $colorShadeName, $colorShadeValue in $color-shades {
     .text-#{$colorShadeName} {
       color: #{$colorShadeValue} !important;

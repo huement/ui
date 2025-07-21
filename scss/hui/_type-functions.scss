@@ -19,12 +19,12 @@
 }
 
 @mixin rem-font-size($size) {
-  @if (unit($size)=='rem') {
+  @if unit($size)=='rem' {
     font-size: rem_px($size);
     font-size: $size;
   }
 
-  @else if (unit($size)=='px') {
+  @else if unit($size)=='px' {
     font-size: $size;
     font-size: px_rem($size);
   }
@@ -34,99 +34,23 @@
   }
 }
 
-@mixin font-size-line-height($size, $important: false) {
-  @if map-has-key($type-sizes, $size) and map-has-key($type-line-sizes, $size) {
-    @if ($important ==true) {
-      font-size: map.get($type-sizes, $size) !important;
-      line-height: map.get($type-line-sizes, $size) !important;
-    }
-
-    @else {
-      font-size: map.get($type-sizes, $size);
-      line-height: map.get($type-line-sizes, $size);
-    }
-  }
-
-  @else {
-    @error "Invalid font line-height size: '#{$size}'.";
-  }
-}
-
-// Shortcut to quickly grab the corresponding font size for a given key from the global font-size map
-@mixin getFontSize($size, $important: false) {
-  @if map-has-key($type-sizes, $size) {
-    @if ($important ==true) {
-      font-size: map.get($type-sizes, $size) !important;
-    }
-
-    @else {
-      font-size: map.get($type-sizes, $size);
-    }
-  }
-
-  @else {
-    @error "Invalid font size: '#{$size}'.";
-  }
-}
-
-// TODO UPDATE THE DATA THIS IS GETTING
-@function getFontSize($size) {
-  @if map-has-key($type-sizes, $size) {
-    @return map.get($type-sizes, $size);
-  }
-
-  @else {
-    @error "Invalid font size: '#{$size}'.";
-  }
-}
-
-@mixin getFontLineSize($size, $important: false) {
-  @if map-has-key($type-line-sizes, $size) {
-    @if ($important ==true) {
-      line-height: map.get($type-line-sizes, $size) !important;
-    }
-
-    @else {
-      line-height: map.get($type-line-sizes, $size);
-    }
-  }
-
-  @else {
-    @error "Invalid font line-height size: '#{$size}'.";
-  }
-}
-
-@function getFontLineSize($size) {
-  @if map-has-key($type-line-sizes, $size) {
-    @return map.get($type-line-sizes, $size);
-  }
-
-  @else {
-    @error "Invalid font line-height size: '#{$size}'.";
-  }
-}
-
-@function getLineScale($value) {
-  @return $value * $ModularRatio;
-}
-
 @function getFontFamily($fontType) {
   $fam: '';
 
   @if ($fontType =='code') or ($fontType =='mono') {
-    $fam: getFontData($CodeFont);
+    $fam: getfontdata($CodeFont);
   }
 
-  @else if ($fontType =='heading') {
-    $fam: getFontData($HeadingFont);
+  @else if $fontType =='heading' {
+    $fam: getfontdata($HeadingFont);
   }
 
-  @else if ($fontType =='primary') {
-    $fam: getFontData($PrimaryFont);
+  @else if $fontType =='primary' {
+    $fam: getfontdata($PrimaryFont);
   }
 
-  @else if ($fontType =='ui') {
-    $fam: getFontData($UIFont);
+  @else if $fontType =='ui' {
+    $fam: getfontdata($UIFont);
   }
 
   @else {
@@ -142,19 +66,19 @@
   $stack: '';
 
   @if ($fontType =='code') or ($fontType =='mono') {
-    $stack: getFontData($CodeFont, 'stack');
+    $stack: getfontdata($CodeFont, 'stack');
   }
 
-  @else if ($fontType =='heading') {
-    $stack: getFontData($HeadingFont, 'stack');
+  @else if $fontType =='heading' {
+    $stack: getfontdata($HeadingFont, 'stack');
   }
 
-  @else if ($fontType =='primary') {
-    $stack: getFontData($PrimaryFont, 'stack');
+  @else if $fontType =='primary' {
+    $stack: getfontdata($PrimaryFont, 'stack');
   }
 
-  @else if ($fontType =='ui') {
-    $stack: getFontData($UIFont, 'stack');
+  @else if $fontType =='ui' {
+    $stack: getfontdata($UIFont, 'stack');
   }
 
   @else {
@@ -169,57 +93,47 @@
 /// @param {*} $fontMap global fontmap ie PrimaryFont or HeadingFont map
 @function getFontData($fontMap, $element: family) {
   $fontElement: map.get($fontMap, $element);
+
   @return $fontElement;
 }
 
 //  BASIC @FONT-FACE MIXIN
 //  --------------------------------------------------
+// The backup / standard way of including a custom @font-face
+// NOTE: there are other ways to accomplish this that can do more if you want to load in multiple font files
+//       for a single family. IE font.woff, font-bold.woff, font-light.woff etc.
+//       however since this is a fallback for older browsers, I dont think asking them to load a bunch of fonts
+//       is going to be a good experience on their admittedly older browser.
 //
-
 $fonts: (
   ) !default;
 
 // Generate a new fancy variable @font-face declaration
 // Also adds a standard font size for older browsers.
 @mixin fontFaceSelector($font-data) {
-  //
-  // The backup / standard way of including a custom @font-face
-  // NOTE: there are other ways to accomplish this that can do more if you want to load in multiple font files
-  //       for a single family. IE font.woff, font-bold.woff, font-light.woff etc.
-  //       however since this is a fallback for older browsers, I dont think asking them to load a bunch of fonts
-  //       is going to be a good experience on their admittedly older browser.
-  //
-
-  $selector: map.get($font-data, selector
+  $display: swap;
+  $family: map.get($font-data, family
   );
-$family: map.get($font-data, family);
 $stack: map.get($font-data, stack);
 $style: map.get($font-data, style);
 $weight: map.get($font-data, weight);
 $file: map.get($font-data, src);
-$display: swap;
+$selector: map.get($font-data, selector);
 
-@if (variable-exists(map.get($font-data, display))) {
+@if variable-exists(map.get($font-data, display)) {
   $display: map.get($font-data, display);
 }
 
 @font-face {
   font-family: $family;
   font-weight: $weight;
+
   // Add font types here
   src: url($font-path + $file) format('woff2-variations');
   src: url($font-path + $file) format('woff2') tech('variations');
   font-weight: 100 1000;
   font-stretch: 25% 151%;
 }
-
-// #{$selector} {
-//   font-family: $family, $stack;
-//   font-family: cssvar(#{unquote($cssVar)});
-//   font-style: $style;
-//   font-weight: $weight;
-// }
-// @debug 'Loaded Font Family #{$family}';
 }
 
 /// getMaxLineWidth : Optimal line width
@@ -234,10 +148,9 @@ $display: swap;
   $line-height: strip_units($line-height);
   $font-height: decimal_round(math.div($font-size, $line-height), 2);
   $width: $CPL * $font-height;
-
   $width_rem: _rem($width);
 
-  @if ($debug ==true) {
+  @if $debug ==true {
     @debug 'Max Line Width PX computed as #{$width}';
     @debug 'Max Line Width REM computed as #{$width_rem}';
   }
@@ -278,11 +191,11 @@ $display: swap;
   background-color: transparent;
   border: 0;
 
-  @if ($height !=false) {
+  @if $height !=false {
     height: 0;
   }
 
-  @if ($width !=false) {
+  @if $width !=false {
     width: 0;
   }
 }
@@ -336,6 +249,7 @@ $display: swap;
 
 @mixin reset-text() {
   font-family: $font-family-base;
+
   // We deliberately do NOT reset font-size or word-wrap.
   font-style: normal;
   font-weight: $font-weight-normal;

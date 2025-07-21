@@ -34,9 +34,7 @@ $tile-breakpoint: getbreakpoint($break-point-limit) !default;
 
 .tile {
   display: block;
-  flex-basis: 0;
-  flex-grow: 1;
-  flex-shrink: 1;
+  flex: 1 1 0;
   align-items: stretch;
   min-height: min-content;
 
@@ -91,6 +89,7 @@ $tile-breakpoint: getbreakpoint($break-point-limit) !default;
 .img-responsive {
   // Part 1: Set a maximum relative to the parent
   max-width: 100%;
+
   // Part 2: Override the height to auto, otherwise images will be stretched
   // when setting a width and height attribute on the img element.
   height: auto;

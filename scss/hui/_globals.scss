@@ -25,17 +25,17 @@ $MAJOR_TENTH: 2.5;
 $MAJOR_ELEVENTH: 2.667;
 $MAJOR_TWELFTH: 3;
 $DOUBLE_OCTAVE: 4;
-
 $aspect-ratios: (
   '1x1': 100%,
   '4x3': calc(3 / 4 * 100%),
   '16x9': calc(9 / 16 * 100%),
-  '21x9': calc(9 / 21 * 100%)) !default;
-
+  '21x9': calc(9 / 21 * 100%),
+) !default;
 $position-values: (
   0: 0,
   50: 50%,
-  100: 100%) !default;
+  100: 100%,
+) !default;
 
 //============================================================
 // Fonts
@@ -75,5 +75,4 @@ $SerifStack: "Iowan Old Style",
   "Apple Color Emoji",
   "Segoe UI Emoji",
   "Segoe UI Symbol";
-
 $not-integer-txt: ' value breaks vertical rhythm. Use an integer (whole number) for $lines.' !default;

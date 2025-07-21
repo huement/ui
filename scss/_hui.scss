@@ -5,6 +5,11 @@
 @use 'sass:meta';
 @use 'sass:string';
 
+//
+// HUI FRAMEWORK
+//============================================================
+// Everything in this file is loading configs, mixins, variables etc. Not outputting any code.
+//
 @import 'hui/globals';
 @import 'hui/functions';
 @import 'hui/color-functions';

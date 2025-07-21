@@ -1,5 +1,5 @@
 //
-// Optional Mixin to customize form controls to work with a wrapper instead of applying the class directly to the input. 
+// Optional Mixin to customize form controls to work with a wrapper instead of applying the class directly to the input.
 // Helpful when a framework autogenterates the input controls like with Statamic
 //
 @mixin customForms() {
@@ -11,7 +11,7 @@
     width: 100%;
 
     // Target .form-control as a wrapper, and style its child input, textarea, select
-    >.form-control {
+    > .form-control {
       position: relative; // For focus state's z-index
       flex: 1 1 auto;
       width: 1%;
@@ -24,9 +24,9 @@
       box-shadow: none;
 
       // Style the input/select/textarea inside the wrapper
-      >input,
-      >textarea,
-      >select {
+      > input,
+      > textarea,
+      > select {
         flex: 1 1 auto;
         width: 100%;
         min-width: 0;
@@ -38,6 +38,7 @@
         font-weight: $input-font-weight;
         line-height: $input-line-height;
         color: $input-color;
+
         // Add any other .form-control input styles here
       }
 
@@ -45,11 +46,11 @@
     }
 
     // Bring the "active" form control to the top of surrounding elements
-    >.form-control>input:focus,
-    >.form-control>textarea:focus,
-    >.form-control>select:focus,
-    >.form-select:focus,
-    >.form-floating:focus-within {
+    > .form-control > input:focus,
+    > .form-control > textarea:focus,
+    > .form-control > select:focus,
+    > .form-select:focus,
+    > .form-floating:focus-within {
       z-index: 5;
     }
 
@@ -66,7 +67,6 @@
     }
   }
 
-
   // Textual addons
   //
   // Serves as a catch-all element for any text or radio/checkbox input you wish
@@ -76,7 +76,9 @@
     display: flex;
     align-items: center;
     padding: $input-group-addon-padding-y $input-group-addon-padding-x;
+
     @include font-size($input-font-size); // Match inputs
+
     font-weight: $input-group-addon-font-weight;
     line-height: $input-line-height;
     color: $input-group-addon-color;
@@ -84,42 +86,43 @@
     white-space: nowrap;
     background-color: $input-group-addon-bg;
     border: $input-border-width solid $input-group-addon-border-color;
+
     @include border-radius($input-border-radius);
   }
-
 
   // Sizing
   //
   // Remix the default form control sizing classes into new ones for easier
   // manipulation.
 
-  .input-group-lg>.form-control>input,
-  .input-group-lg>.form-control>textarea,
-  .input-group-lg>.form-control>select,
-  .input-group-lg>.form-select,
-  .input-group-lg>.input-group-text,
-  .input-group-lg>.btn {
+  .input-group-lg > .form-control > input,
+  .input-group-lg > .form-control > textarea,
+  .input-group-lg > .form-control > select,
+  .input-group-lg > .form-select,
+  .input-group-lg > .input-group-text,
+  .input-group-lg > .btn {
     padding: $input-padding-y-lg $input-padding-x-lg;
+
     @include font-size($input-font-size-lg);
     @include border-radius($input-border-radius-lg);
   }
 
-  .input-group-sm>.form-control>input,
-  .input-group-sm>.form-control>textarea,
-  .input-group-sm>.form-control>select,
-  .input-group-sm>.form-select,
-  .input-group-sm>.input-group-text,
-  .input-group-sm>.btn {
+  .input-group-sm > .form-control > input,
+  .input-group-sm > .form-control > textarea,
+  .input-group-sm > .form-control > select,
+  .input-group-sm > .form-select,
+  .input-group-sm > .input-group-text,
+  .input-group-sm > .btn {
     padding: $input-padding-y-sm $input-padding-x-sm;
+
     @include font-size($input-font-size-sm);
     @include border-radius($input-border-radius-sm);
   }
 
-  .input-group-lg>.form-select,
-  .input-group-sm>.form-select {
+  .input-group-lg > .form-select,
+  .input-group-sm > .form-select {
     padding-right: $form-select-padding-x + $form-select-indicator-padding;
   }
-
 
   // Rounded corners
   //
@@ -130,38 +133,45 @@
   // stylelint-disable-next-line no-duplicate-selectors
   .input-group {
     &:not(.has-validation) {
-
-      > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating),
-      >.dropdown-toggle:nth-last-child(n + 3),
-      >.form-floating:not(:last-child)>.form-control>input,
-      >.form-floating:not(:last-child)>.form-control>select {
+      > :not(:last-child, .dropdown-toggle, .dropdown-menu, .form-floating),
+      > .dropdown-toggle:nth-last-child(n + 3),
+      > .form-floating:not(:last-child) > .form-control > input,
+      > .form-floating:not(:last-child) > .form-control > select {
         @include border-end-radius(0);
       }
     }
 
     &.has-validation {
-
-      > :nth-last-child(n + 3):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating),
-      >.dropdown-toggle:nth-last-child(n + 4),
-      >.form-floating:nth-last-child(n + 3)>.form-control>input,
-      >.form-floating:nth-last-child(n + 3)>.form-control>select {
+      > :nth-last-child(n + 3):not(.dropdown-toggle, .dropdown-menu, .form-floating),
+      > .dropdown-toggle:nth-last-child(n + 4),
+      > .form-floating:nth-last-child(n + 3) > .form-control > input,
+      > .form-floating:nth-last-child(n + 3) > .form-control > select {
         @include border-end-radius(0);
       }
     }
 
-    $validation-messages: "";
+    $validation-messages: '';
 
     @each $state in map-keys($form-validation-states) {
-      $validation-messages: $validation-messages + ":not(." + unquote($state) + "-tooltip)" + ":not(." + unquote($state) + "-feedback)";
+      $validation-messages: $validation-messages +
+        ':not(.' +
+        unquote($state) +
+        '-tooltip)' +
+        ':not(.' +
+        unquote($state) +
+        '-feedback)';
     }
 
     > :not(:first-child):not(.dropdown-menu)#{$validation-messages} {
-      margin-left: calc(#{$input-border-width} * -1); // stylelint-disable-line function-disallowed-list
+      margin-left: calc(
+        #{$input-border-width} * -1
+      ); // stylelint-disable-line function-disallowed-list
+
       @include border-start-radius(0);
     }
 
-    >.form-floating:not(:first-child)>.form-control>input,
-    >.form-floating:not(:first-child)>.form-control>select {
+    > .form-floating:not(:first-child) > .form-control > input,
+    > .form-floating:not(:first-child) > .form-control > select {
       @include border-start-radius(0);
     }
   }

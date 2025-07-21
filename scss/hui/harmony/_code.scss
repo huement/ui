@@ -18,7 +18,6 @@ pre {
   width: 100%;
   max-height: $pre-max-height;
   padding: $pre-padding;
-
   margin-bottom: $pre-margin-bottom;
   overflow: auto;
   font-size: $code-font-size;
@@ -27,6 +26,7 @@ pre {
   word-wrap: break-word;
   white-space: pre;
   background-color: $pre-code-background-color;
+
   @include border-radius($border-radius);
 
   code {
@@ -55,6 +55,7 @@ kbd {
   font-size: $kbd-font-size;
   color: $kbd-color;
   background-color: $kbd-bg;
+
   @include border-radius($kbd-border-radius);
   @include box-shadow($kbd-box-shadow);
 

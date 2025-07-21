@@ -6,7 +6,8 @@
     @include transform(rotate(0));
     @include transform-origin(top left);
   }
-  20%, 60% {
+  20%,
+  60% {
     animation-timing-function: ease-in-out;
     @include transform(rotate(80deg));
     @include transform-origin(top left);
@@ -28,7 +29,14 @@
   }
 }
 
-@mixin hinge($count: $countDefault, $duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
+@mixin hinge(
+  $count: $countDefault,
+  $duration: $durationDefault,
+  $delay: $delayDefault,
+  $function: $functionDefault,
+  $fill: $fillDefault,
+  $visibility: $visibilityDefault
+) {
   @include animation-name(hinge);
   @include count($count);
   @include duration($duration);

@@ -10,6 +10,7 @@
 .font-weight-normal {
   font-weight: $font-weight-normal;
 }
+
 .font-weight-bold {
   font-weight: $font-weight-bold;
 }
@@ -33,7 +34,7 @@
 
 // Anchor white text hover adjustment
 .text-white {
-  @include hover-focus() {
+  @include hover-focus {
     color: color.adjust($white, $blackness: 10%);
   }
 }
@@ -45,7 +46,7 @@
 
 // Anchor black text hover adjustment
 .text-black {
-  @include hover-focus() {
+  @include hover-focus {
     color: color.adjust($black, $lightness: 10%);
   }
 }
