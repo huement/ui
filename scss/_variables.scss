@@ -80,6 +80,7 @@ $include-column-box-sizing: true !default;
 $enable-dark-mode: true !default; // dark is the new default
 $color-mode-type: data !default; // `data` or `media-query`
 $enable-fills: true !default;
+$enable-pixel-values: false !default; // .mt-10px { margin-top: 10px } etc
 
 //
 // BRANDS
@@ -290,7 +291,7 @@ $mark-padding: 0.2em !default;
 $mark-bg: $yellow-700 !default;
 
 // Code
-$code-color: map.get($mojo-red, light) !default;
+$code-color: map.get($hui-red, light) !default;
 $code-font-size: 0.75rem !default;
 $code-line-height: 1.375rem !default;
 $code-padding-y: 0.1875rem !default;

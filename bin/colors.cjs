@@ -21,7 +21,7 @@ class TokenColors {
     textUI.headerLog('Color Palette Generation LOADING')
     this.tokenFile = tokenFile
     this.resultFile = outputFile
-    this.codeName = cg.codeName || 'mojo'
+    this.codeName = cg.codeName || 'hui'
     this.jsonColorFile = outputJSONFile
     this.MasterJSON = {}
   }
@@ -125,7 +125,7 @@ class TokenColors {
             numberObj[`${ckey}-800`] = cScale(3)
             numberObj[`${ckey}-900`] = cScale(4)
 
-            var mojoColor = {
+            var huiColor = {
               hex: '#' + cleanColor,
               light: cScale(3),
               dark: cScale(-3),
@@ -149,16 +149,16 @@ class TokenColors {
             blankObj[pluralKey] = mapC
             let sassDataMap = json2scss(blankObj)
 
-            let blankMojo = {}
-            blankMojo[`${this.codeName}-${ckey}`] = mojoColor
-            let mojoDataMap = json2scss(blankMojo)
+            let blankHUI = {}
+            blankHUI[`hui-${ckey}`] = huiColor
+            let huiDataMap = json2scss(blankHUI)
 
             //console.log(sassData);
             jetpack.append(targetFile, sassData)
             jetpack.append(targetFile, '\r\n')
             jetpack.append(targetFile, sassDataMap)
             jetpack.append(targetFile, '\r\n')
-            jetpack.append(targetFile, mojoDataMap)
+            jetpack.append(targetFile, huiDataMap)
             jetpack.append(targetFile, '\r\n')
 
             this.MasterJSON[ckey] = mapC

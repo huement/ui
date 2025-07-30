@@ -26,16 +26,16 @@ $white: #fff !default;
 $black: #000 !default;
 $color-contrast-dark: $black !default;
 $color-contrast-light: $white !default;
-$blue: map.get($mojo-blue, hex) !default;
-$indigo: map.get($mojo-violet, hex) !default;
-$purple: map.get($mojo-violet, light) !default;
-$pink: map.get($mojo-red, light) !default;
-$red: map.get($mojo-red, hex) !default;
-$orange: map.get($mojo-coral, hex) !default;
-$yellow: map.get($mojo-yellow, hex) !default;
-$green: map.get($mojo-green, hex) !default;
-$teal: map.get($mojo-ocean, hex) !default;
-$cyan: map.get($mojo-cyan, hex) !default;
+$blue: map.get($hui-blue, hex) !default;
+$indigo: map.get($hui-violet, hex) !default;
+$purple: map.get($hui-violet, light) !default;
+$pink: map.get($hui-red, light) !default;
+$red: map.get($hui-red, hex) !default;
+$orange: map.get($hui-coral, hex) !default;
+$yellow: map.get($hui-yellow, hex) !default;
+$green: map.get($hui-green, hex) !default;
+$teal: map.get($hui-ocean, hex) !default;
+$cyan: map.get($hui-cyan, hex) !default;
 
 // fusv-disable
 $blue-100: tint-color($blue, 80%) !default;
@@ -138,7 +138,7 @@ $blues: (
   'blue-700': $blue-700,
   'blue-800': $blue-800,
   'blue-900': $blue-900,
-) !default;
+  ) !default;
 $indigos: (
   'indigo-100': $indigo-100,
   'indigo-200': $indigo-200,
@@ -149,7 +149,7 @@ $indigos: (
   'indigo-700': $indigo-700,
   'indigo-800': $indigo-800,
   'indigo-900': $indigo-900,
-) !default;
+  ) !default;
 $purples: (
   'purple-100': $purple-100,
   'purple-200': $purple-200,
@@ -160,7 +160,7 @@ $purples: (
   'purple-700': $purple-700,
   'purple-800': $purple-800,
   'purple-900': $purple-900,
-) !default;
+  ) !default;
 $pinks: (
   'pink-100': $pink-100,
   'pink-200': $pink-200,
@@ -171,7 +171,7 @@ $pinks: (
   'pink-700': $pink-700,
   'pink-800': $pink-800,
   'pink-900': $pink-900,
-) !default;
+  ) !default;
 $reds: (
   'red-100': $red-100,
   'red-200': $red-200,
@@ -182,7 +182,7 @@ $reds: (
   'red-700': $red-700,
   'red-800': $red-800,
   'red-900': $red-900,
-) !default;
+  ) !default;
 $oranges: (
   'orange-100': $orange-100,
   'orange-200': $orange-200,
@@ -193,7 +193,7 @@ $oranges: (
   'orange-700': $orange-700,
   'orange-800': $orange-800,
   'orange-900': $orange-900,
-) !default;
+  ) !default;
 $yellows: (
   'yellow-100': $yellow-100,
   'yellow-200': $yellow-200,
@@ -204,7 +204,7 @@ $yellows: (
   'yellow-700': $yellow-700,
   'yellow-800': $yellow-800,
   'yellow-900': $yellow-900,
-) !default;
+  ) !default;
 $greens: (
   'green-100': $green-100,
   'green-200': $green-200,
@@ -215,7 +215,7 @@ $greens: (
   'green-700': $green-700,
   'green-800': $green-800,
   'green-900': $green-900,
-) !default;
+  ) !default;
 $teals: (
   'teal-100': $teal-100,
   'teal-200': $teal-200,
@@ -226,7 +226,7 @@ $teals: (
   'teal-700': $teal-700,
   'teal-800': $teal-800,
   'teal-900': $teal-900,
-) !default;
+  ) !default;
 $cyans: (
   'cyan-100': $cyan-100,
   'cyan-200': $cyan-200,
@@ -237,7 +237,7 @@ $cyans: (
   'cyan-700': $cyan-700,
   'cyan-800': $cyan-800,
   'cyan-900': $cyan-900,
-) !default;
+  ) !default;
 
 // fusv-enable
 
@@ -266,7 +266,7 @@ $grays: (
   '700': $gray-700,
   '800': $gray-800,
   '900': $gray-900,
-) !default;
+  ) !default;
 
 // scss-docs-end gray-colors-map
 // fusv-enable
@@ -287,16 +287,16 @@ $colors: (
   'white': $white,
   'gray': $gray-600,
   'gray-dark': $gray-800,
-) !default;
+  ) !default;
 
 // scss-docs-end colors-map
 
 $primary: $indigo !default;
 $secondary: $teal !default;
-$success: map.get($mojo-green, hex) !default;
-$info: map.get($mojo-blue, hex) !default;
-$warning: map.get($mojo-yellow, hex) !default;
-$danger: map.get($mojo-red, hex) !default;
+$success: map.get($hui-green, hex) !default;
+$info: map.get($hui-blue, hex) !default;
+$warning: map.get($hui-yellow, hex) !default;
+$danger: map.get($hui-red, hex) !default;
 $light: map.get($mono, 900) !default;
 $dark: map.get($mono, 100) !default;
 $min-contrast-ratio: 3 !default;
@@ -314,6 +314,6 @@ $theme-colors: (
   'body': $gray-100,
   'body-secondary': $gray-800,
   'medium-dark': $gray-300,
-) !default;
+  ) !default;
 
 // scss-docs-end theme-colors-map

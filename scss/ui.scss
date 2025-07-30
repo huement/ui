@@ -6,7 +6,7 @@
 @use 'sass:string';
 
 //============================================================
-// LOAD FRAMEWORK & CONFIGS
+// LOAD FRAMEWORK & CONFIGS & DEFAUL VARIABLES
 //============================================================
 // Bootswatch Quartz 5.3.3
 $theme: 'quartz' !default;
@@ -17,14 +17,14 @@ $theme: 'quartz' !default;
 @include fileBanner('hui scss');
 
 //============================================================
-// UI MAIN
+// UI MAIN | Bulk of the library and all of Bootstrap
 //============================================================
 @import 'hui/root';
 @import 'utilities';
 @import 'bs5';
 
 //============================================================
-// HUI AUGMENTATIONS
+// HUI AUGMENTATIONS | Addons and components theme
 //============================================================
 @import 'hui/builder';
 @import 'hui/bootswatch';
@@ -32,6 +32,8 @@ $theme: 'quartz' !default;
 @import 'hui/forms';
 @include HUIButtons;
 
+// Set which brands colors you want included 
+// creates .bg-#{$brand} .text-#{$brand} .fill-#{$brand}
 @if global-variable-exists(brands) and length($brands)>0 {
   @include brand-utilities;
 }
@@ -55,7 +57,10 @@ $theme: 'quartz' !default;
 
 //============================================================
 // @TODO experimental section + patch missing &/or errors
+// Everything below this will be put where it belongs if kept
+// otherwise it will be deleted if it doesnt make the cut
 //============================================================
+
 .b-hug {
   margin-bottom: -0.25rem;
 }

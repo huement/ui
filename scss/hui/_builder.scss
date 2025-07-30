@@ -93,6 +93,73 @@
   .z-#{$amount} {
     z-index: #{$amount} !important;
   }
+
+  @if $enable-pixel-values {
+
+    // padding classes
+    .pt-#{$amount} {
+      padding-top: #{$amount}px !important;
+    }
+
+    .pb-#{$amount} {
+      padding-bottom: #{$amount}px !important;
+    }
+
+    .pl-#{$amount} {
+      padding-left: #{$amount}px !important;
+    }
+
+    .pr-#{$amount} {
+      padding-right: #{$amount}px !important;
+    }
+
+    // margin classes
+    .mt-#{$amount} {
+      margin-top: #{$amount}px !important;
+    }
+
+    .mb-#{$amount} {
+      margin-bottom: #{$amount}px !important;
+    }
+
+    .ml-#{$amount} {
+      margin-left: #{$amount}px !important;
+    }
+
+    .mr-#{$amount} {
+      margin-right: #{$amount}px !important;
+    }
+
+    .mx-#{$amount} {
+      margin-left: #{$amount}px !important;
+      margin-right: #{$amount}px !important;
+    }
+
+    .my-#{$amount} {
+      margin-top: #{$amount}px !important;
+      margin-bottom: #{$amount}px !important;
+    }
+
+    .m-#{$amount} {
+      margin: #{$amount}px !important;
+    }
+
+    .p-#{$amount} {
+      padding: #{$amount}px !important;
+    }
+
+    .py-#{$amount} {
+      padding-top: #{$amount}px !important;
+      padding-bottom: #{$amount}px !important;
+    }
+
+    .px-#{$amount} {
+      padding-left: #{$amount}px !important;
+      padding-right: #{$amount}px !important;
+    }
+
+  }
+
 }
 
 /* Mono Fill Classes */
@@ -125,7 +192,7 @@ $opacities: 100, 90, 80, 75, 60, 50, 40, 25, 10, 0;
   padding-bottom: 3rem;
 }
 
-@media (width >= 576px) {
+@media (width >=576px) {
   .section {
     position: relative;
     padding-top: 5rem;
