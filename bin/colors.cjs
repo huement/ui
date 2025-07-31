@@ -77,7 +77,7 @@ class TokenColors {
     for (const [key, value] of Object.entries(obj)) {
       textUI.statusTxt(`${key}` + ' processing')
 
-      if (key == 'base16') {
+      if (key === 'base16') {
         textUI.statusTxt('custom base16 coloring....')
         let Hex = { Hexidecimal: {} }
 

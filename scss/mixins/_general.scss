@@ -208,7 +208,7 @@
 // supports small size & supports all theme colors
 @mixin aoibutton($btn-color: #ff0054) {
   @if $debug ==true {
-    @debug 'creating aoi button #{$btn-color}';
+    @debug 'creating aoi buttons';
   }
 
   $triad: get-triad($btn-color);
@@ -286,11 +286,11 @@
     }
   }
 
-  @each $color, $value in $theme-colors {
-    @if $debug ==true {
-      @debug 'creating themed aoi button  #{$value}';
-    }
+  @if $debug ==true {
+    @debug 'adding aoi button themes';
+  }
 
+  @each $color, $value in $theme-colors {
     $triad: get-triad($value);
 
     .aoibtn-#{$color} {

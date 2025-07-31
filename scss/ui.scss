@@ -9,7 +9,6 @@
 // LOAD FRAMEWORK & CONFIGS & DEFAUL VARIABLES
 //============================================================
 // Bootswatch Quartz 5.3.3
-$theme: 'quartz' !default;
 
 @import 'hui';
 
@@ -30,7 +29,10 @@ $theme: 'quartz' !default;
 @import 'hui/bootswatch';
 @import 'hui/typography';
 @import 'hui/forms';
-@include HUIButtons;
+
+@if global-variable-exists(hui-enable-extra-buttons) and $hui-enable-extra-buttons {
+  @include HUIButtons;
+}
 
 // Set which brands colors you want included 
 // creates .bg-#{$brand} .text-#{$brand} .fill-#{$brand}

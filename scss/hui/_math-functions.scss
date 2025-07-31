@@ -25,7 +25,9 @@
     @for $i from 1 through $exponent {
       $return: $return * $baseNum;
     }
-  } @else {
+  }
+
+  @else {
     @warn "Negative exponents NOT supported!";
   }
 
@@ -36,7 +38,7 @@
 ///
 /// @param {*} $number
 @function is-int($number) {
-  @return type-of($number) ==number and floor(abs($number)) ==abs($number);
+  @return type-of($number)==number and floor(abs($number))==abs($number);
 }
 
 /// Resolve values to a multiple of our base
@@ -48,26 +50,34 @@
   $newVal: math.div($value, $kb);
   $r: 0;
 
-  @if  $roundup==false {
-    $r: ($value - $newVal);
-  } @else if $roundup==true {
-    $x: ($kb - $newVal);
-    $r: ($value + $x);
-  }
-
-  @return $r;
+  @if $roundup==false {
+    $r: (
+      $value - $newVal
+    );
 }
 
-@function resolveMultiple(
-  $value: 0,
+@else if $roundup==true {
+  $x: (
+    $kb - $newVal
+  );
+$r: (
+  $value + $x
+);
+}
+
+@return $r;
+}
+
+@function resolveMultiple($value: 0,
   $rootSize: $font-size-root,
-  $mainLine: $line-height-base
-) {
+  $mainLine: $line-height-base) {
   $kb: ceil($rootSize * $mainLine);
   $newVal: math.div($value, $kb);
-  $r: ($value - $newVal);
+  $r: (
+    $value - $newVal
+  );
 
-  @return $r;
+@return $r;
 }
 
 //============================================================
@@ -86,13 +96,13 @@
 /// @param {Number} $value - Value to convert to be unitless. Acceptable units are `rem`, `px`, and `%`.
 /// @return {Number} Value converted into unitless
 /// @example
-///   _to-unitless(100%)
+///   _to-math.is-unitless(100%)
 ///   => 1
 /// @example
-///   _to-unitless(1rem)
+///   _to-math.is-unitless(1rem)
 ///   => 1
 /// @example
-///   _to-unitless(16px)
+///   _to-math.is-unitless(16px)
 ///   => 1
 @function strip-units($value, $newUnit: '') {
   //https://www.sitepoint.com/understanding-sass-units/
@@ -125,18 +135,18 @@
     'dpi': 0dpi,
   );
 
-  //https://css-tricks.com/snippets/sass/strip-unit-function/
-  $number: math.div($value, ($value * 0 + 1));
+//https://css-tricks.com/snippets/sass/strip-unit-function/
+$number: math.div($value, ($value * 0 + 1));
 
-  @if  $newUnit== '' {
-    @return $number;
-  }
+@if $newUnit=='' {
+  @return $number;
+}
 
-  @if map-has-key($units, $newUnit) {
-    @return map.get($units, $newUnit) + $number;
-  }
+@if map-has-key($units, $newUnit) {
+  @return map.get($units, $newUnit)+$number;
+}
 
-  @error "Unknown unit `#{$newUnit}`.";
+@error "Unknown unit `#{$newUnit}`.";
 }
 
 /// Convert value to `rem`s
@@ -152,16 +162,24 @@
 ///   _rem(100%)
 ///   => 1rem
 @function _rem($value) {
-  @if  unit($value) == 'rem' {
+  @if unit($value)=='rem' {
     @return $value;
-  } @else if unit($value) == 'px' {
+  }
+
+  @else if unit($value)=='px' {
     @return px_rem($value);
-  } @else if unit($value) == '%' {
+  }
+
+  @else if unit($value)=='%' {
     @return percent_rem($value);
-  } @else if unitless($value) {
+  }
+
+  @else if math.is-unitless($value) {
     @warn "Assuming #{$value} to be in `rem`s";
     @return $value * 1rem; // assume rem if unitless
-  } @else {
+  }
+
+  @else {
     @error "#{$value} is an invalid value for function `_rem`. Use `rem`, `px`, `%`, or an unitless number instead.";
   }
 }
@@ -179,16 +197,24 @@
 ///   _px(100%)
 ///   => 16px
 @function _px($value) {
-  @if  unit($value) == 'rem' {
+  @if unit($value)=='rem' {
     @return rem_px($value);
-  } @else if unit($value) == 'px' {
+  }
+
+  @else if unit($value)=='px' {
     @return $value;
-  } @else if unit($value) == '%' {
+  }
+
+  @else if unit($value)=='%' {
     @return percent_px($value);
-  } @else if unitless($value) {
+  }
+
+  @else if math.is-unitless($value) {
     @warn "Assuming #{$value} to be in `rem`s";
     @return rem_px($value); // assume rem if unitless
-  } @else {
+  }
+
+  @else {
     @error "#{$value} is an invalid value for function `_px`. Use `rem`, `px`, `%`, or an unitless number instead.";
   }
 }
@@ -206,16 +232,24 @@
 ///   _percent(16px)
 ///   => 100%
 @function _percent($value) {
-  @if  unit($value) == 'rem' {
+  @if unit($value)=='rem' {
     @return percent_px($value);
-  } @else if unit($value) == 'px' {
+  }
+
+  @else if unit($value)=='px' {
     @return percent_px($value);
-  } @else if unit($value) == '%' {
+  }
+
+  @else if unit($value)=='%' {
     @return $value;
-  } @else if unitless($value) {
+  }
+
+  @else if math.is-unitless($value) {
     @warn "Assuming #{$value} to be in `rem`s";
     @return rem_percent($value); // assume rem if unitless
-  } @else {
+  }
+
+  @else {
     @error "#{$value} is an invalid value for function `_percent`. Use `rem`, `px`, `%`, or an unitless number instead.";
   }
 }
@@ -255,9 +289,9 @@
     ms: 0ms,
     s: 0s,
   );
-  $result: map.get($valid-units, $unit) + $value;
+$result: map.get($valid-units, $unit) + $value;
 
-  @return $result;
+@return $result;
 }
 
 //============================================================
@@ -294,7 +328,7 @@
 ///   rem(32)
 ///   =>2rem
 @function px_rem($value, $base-font-size: $font-size-root, $round: false) {
-  @if not unitless($base-font-size) {
+  @if not math.is-unitless($base-font-size) {
     @error "_RootFontSize should always be unitless!";
   }
 
@@ -303,7 +337,7 @@
   $result: math.div($val, $base-font-size);
   $finalResult: $result * 1rem;
 
-  @if  $round !=false {
+  @if $round !=false {
     $finalResult: decimal_round($finalResult, $round);
   }
 
@@ -320,9 +354,11 @@
 @function percent_rem($value) {
   $converted-value: math.div(strip_units($value), 100);
 
-  @if  $converted-value==0 {
+  @if $converted-value==0 {
     @return 0;
-  } @else {
+  }
+
+  @else {
     @return $converted-value * 1px;
   }
 }
@@ -336,9 +372,11 @@
 @function rem_px($value) {
   $converted-value: strip_units($value) * $font-size-root;
 
-  @if  $converted-value==0 {
+  @if $converted-value==0 {
     @return 0;
-  } @else {
+  }
+
+  @else {
     @return $converted-value * 1px;
   }
 }
@@ -352,9 +390,11 @@
 @function percent_px($value) {
   $converted-value: math.div(strip_units($value), 100) * $font-size-root;
 
-  @if  $converted-value==0 {
+  @if $converted-value==0 {
     @return 0;
-  } @else {
+  }
+
+  @else {
     @return $converted-value * 1px;
   }
 }
@@ -368,10 +408,12 @@
 @function rem_percent($value) {
   $converted-value: strip_units($value) * 100;
 
-  @if  $converted-value==0 {
+  @if $converted-value==0 {
     @return 0;
-  } @else {
-    @return $converted-value + 0%;
+  }
+
+  @else {
+    @return $converted-value +0%;
   }
 }
 
@@ -385,10 +427,12 @@
   $val: $font-size-root * 100;
   $converted-value: math.div(strip_units($value), $val);
 
-  @if  $converted-value==0 {
+  @if $converted-value==0 {
     @return 0;
-  } @else {
-    @return $converted-value + 0%;
+  }
+
+  @else {
+    @return $converted-value +0%;
   }
 }
 
@@ -412,7 +456,9 @@
   @if type-of($digits) !=number {
     @warn "#{$digits} is not a number.";
     @return $number;
-  } @else if not unitless($digits) {
+  }
+
+  @else if not math.is-unitless($digits) {
     @warn "#{$digits} has a unit.";
     @return $number;
   }
@@ -423,11 +469,17 @@
 
   @if $mode==round {
     @return math.div(round($number * $n), $n);
-  } @else if $mode==ceil {
+  }
+
+  @else if $mode==ceil {
     @return math.div(ceil($number * $n), $n);
-  } @else if $mode==floor {
+  }
+
+  @else if $mode==floor {
     @return math.div(floor($number * $n), $n);
-  } @else {
+  }
+
+  @else {
     @warn "#{$mode} is undefined keyword.";
     @return $number;
   }

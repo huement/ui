@@ -5,6 +5,9 @@
 @use 'sass:map';
 @use 'sass:math';
 
+// Theme configuration
+$theme: 'classic' !default;
+
 $debugMode: true !default;
 $debug: $debugMode !default;
 
@@ -19,8 +22,9 @@ $font-size-base: 1rem !default;
 $font-size-lg: $font-size-base * $modular-ratio !default;
 $font-size-sm: $font-size-base * 0.875 !default;
 
-// Setup Bootswatch Theme, custom styles, or set to false to skip
-@import 'quartz';
+// Pick a suit to maximize the style of the framework
+// Or set to false to run around naked and use the defaults
+@import 'suit/classic';
 
 // GRID CONFIG
 $grid-columns: 12 !default;
@@ -81,6 +85,9 @@ $enable-dark-mode: true !default; // dark is the new default
 $color-mode-type: data !default; // `data` or `media-query`
 $enable-fills: true !default;
 $enable-pixel-values: false !default; // .mt-10px { margin-top: 10px } etc
+
+// HUI Components Config
+$hui-enable-extra-buttons: true !default;
 
 //
 // BRANDS
