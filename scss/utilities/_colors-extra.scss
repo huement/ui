@@ -27,9 +27,10 @@
   @include generate-color-scale($mono, 'mono');
 }
 
-@if $hui-enable-theme-scale {
-  @include generate-color-scale($hui-reds, 'red');
-}
+// @TODO add theme scale back in to get things like "bg-red-500 and text-red-500"
+// @if $hui-enable-theme-scale {
+//   @include generate-color-scale($red-stack, 'red');
+// }
 
 @if $enable-gradients {
   @each $color, $value in $theme-colors {
