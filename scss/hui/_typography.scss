@@ -22,28 +22,24 @@
 @include fontFaceSelector($PrimaryFont);
 @include fontFaceSelector($UIFont);
 
+.w300 {
+  font-weight: 300;
+}
+
+.w400 {
+  font-weight: 400;
+}
+
+.w700 {
+  font-weight: 700;
+}
+
 .jura {
   font-family: Jura;
-
-  &.w300 {
-    font-weight: 300;
-  }
-
-  &.w700 {
-    font-weight: 700;
-  }
 }
 
 .jost {
   font-family: Jost;
-
-  &.w300 {
-    font-weight: 300;
-  }
-
-  &.w700 {
-    font-weight: 700;
-  }
 }
 
 html,
@@ -103,31 +99,7 @@ button {
 @import 'harmony/content';
 @import 'harmony/hero';
 
-.text-sm {
-  font-size: 0.8rem;
-}
-
-.text-gray-100 {
-  color: $mono-100;
-}
-
-.text-gray-600 {
-  color: $mono-600;
-}
-
-.text-gray-800 {
-  color: $mono-800;
-}
-
-.fs-15 {
-  font-size: 1.5rem;
-}
-
-.fill-white {
-  fill: #fff;
-}
-
-@if  length($color-shades) > 0 {
+@if length($color-shades)>0 {
   @each $colorShadeName, $colorShadeValue in $color-shades {
     .text-#{$colorShadeName} {
       color: #{$colorShadeValue} !important;

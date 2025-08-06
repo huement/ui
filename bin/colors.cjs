@@ -77,8 +77,36 @@ class TokenColors {
     for (const [key, value] of Object.entries(obj)) {
       textUI.statusTxt(`${key}` + ' processing')
 
-      if (key === 'base16') {
-        textUI.statusTxt('custom base16 coloring....')
+      if (key === 'theme') {
+        textUI.statusTxt('adding theme colors to scss....')
+        let theme = {}
+        let themeMap = {}
+        value.forEach((element) => {
+          for (const [ckey, cvalue] of Object.entries(element)) {
+            var cScale = ColorScale({ color: '#' + cvalue, variance: 11 })
+            var lightKey = `${ckey}-light`
+            var darkKey = `${ckey}-dark`
+            var hKey = `hui-${ckey}`
+            theme[ckey] = '#' + cvalue
+            themeMap[hKey] = {
+              hex: '#' + cvalue,
+              light: cScale(2),
+              dark: cScale(-2),
+            }
+          }
+        })
+
+        let hexData = json2scss(theme)
+        jetpack.append(targetFile, '\r\n')
+        jetpack.append(targetFile, hexData)
+        jetpack.append(targetFile, '\r\n')
+
+        let hexExtraData = json2scss(themeMap)
+        jetpack.append(targetFile, '\r\n')
+        jetpack.append(targetFile, hexExtraData)
+        jetpack.append(targetFile, '\r\n')
+      } else if (key === 'base16') {
+        textUI.statusTxt('adding base16 theme to scss....')
         let Hex = { Hexidecimal: {} }
 
         value.forEach((element) => {
@@ -104,6 +132,8 @@ class TokenColors {
         jetpack.append(targetFile, '\r\n')
       } else {
         //colorGroups.push({ key: key, value: value });
+        textUI.statusTxt('Building Color Scales from Tokens....')
+
         value.forEach((element) => {
           for (const [ckey, cvalue] of Object.entries(element)) {
             var cVal = `${cvalue}`
@@ -145,7 +175,7 @@ class TokenColors {
             let sassData = json2scss(numberObj)
 
             let blankObj = {}
-            let pluralKey = mKey === 'mono' ? 'mono' : `hui-${mKey}s`
+            let pluralKey = mKey === 'mono' ? 'mono' : `${mKey}-stack`
             blankObj[pluralKey] = mapC
             let sassDataMap = json2scss(blankObj)
 

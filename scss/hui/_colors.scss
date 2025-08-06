@@ -27,14 +27,14 @@ $black: #000 !default;
 $color-contrast-dark: $black !default;
 $color-contrast-light: $white !default;
 $blue: map.get($hui-blue, hex) !default;
-$indigo: map.get($hui-violet, hex) !default;
-$purple: map.get($hui-violet, light) !default;
+$indigo: map.get($hui-purple, hex) !default;
+$purple: map.get($hui-purple, light) !default;
 $pink: map.get($hui-red, light) !default;
 $red: map.get($hui-red, hex) !default;
-$orange: map.get($hui-coral, hex) !default;
+$orange: map.get($hui-orange, hex) !default;
 $yellow: map.get($hui-yellow, hex) !default;
 $green: map.get($hui-green, hex) !default;
-$teal: map.get($hui-ocean, hex) !default;
+$teal: map.get($hui-teal, hex) !default;
 $cyan: map.get($hui-cyan, hex) !default;
 
 // fusv-disable

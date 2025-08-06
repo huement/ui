@@ -2,167 +2,11 @@
 //
 //    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 //      _palette.scss
-//      JULY 22 2025
-//      VER 0.9.3
+//      AUG 06 2025
+//      VER 0.9.5
 //      @huement/ui generated file > npm run build:colors
 //    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //
-
-$red-100: #8F0030 !default;
-$red-200: #AB0039 !default;
-$red-300: #C70042 !default;
-$red-400: #E3004C !default;
-$red-500: #ff0054 !default;
-$red-600: #FF1C68 !default;
-$red-700: #FF387A !default;
-$red-800: #FF548D !default;
-$red-900: #FF70A0 !default;
-
-$hui-reds: (
-  100: #8F0030,
-  200: #AB0039,
-  300: #C70042,
-  400: #E3004C,
-  500: #ff0054,
-  600: #FF1C68,
-  700: #FF387A,
-  800: #FF548D,
-  900: #FF70A0) !default;
-
-$hui-red: (
-  hex: #ff0054,
-  light: #FF548D,
-  dark: #AB0039) !default;
-
-$coral-100: #8C2A00 !default;
-$coral-200: #A83200 !default;
-$coral-300: #C4460F !default;
-$coral-400: #E0622B !default;
-$coral-500: #fd7e47 !default;
-$coral-600: #FF9263 !default;
-$coral-700: #FFA680 !default;
-$coral-800: #FFB99C !default;
-$coral-900: #FFCDB8 !default;
-
-$hui-corals: (
-  100: #8C2A00,
-  200: #A83200,
-  300: #C4460F,
-  400: #E0622B,
-  500: #fd7e47,
-  600: #FF9263,
-  700: #FFA680,
-  800: #FFB99C,
-  900: #FFCDB8) !default;
-
-$hui-coral: (
-  hex: #fd7e47,
-  light: #FFB99C,
-  dark: #A83200) !default;
-
-$yellow-100: #8C8F00 !default;
-$yellow-200: #A8AB00 !default;
-$yellow-300: #C4C700 !default;
-$yellow-400: #DFE300 !default;
-$yellow-500: #fbff12 !default;
-$yellow-600: #FCFF2E !default;
-$yellow-700: #FCFF4A !default;
-$yellow-800: #FCFF66 !default;
-$yellow-900: #FDFF82 !default;
-
-$hui-yellows: (
-  100: #8C8F00,
-  200: #A8AB00,
-  300: #C4C700,
-  400: #DFE300,
-  500: #fbff12,
-  600: #FCFF2E,
-  700: #FCFF4A,
-  800: #FCFF66,
-  900: #FDFF82) !default;
-
-$hui-yellow: (
-  hex: #fbff12,
-  light: #FCFF66,
-  dark: #A8AB00) !default;
-
-$green-100: #008C05 !default;
-$green-200: #00A806 !default;
-$green-300: #03C409 !default;
-$green-400: #1FE025 !default;
-$green-500: #3bfc43 !default;
-$green-600: #57FF5C !default;
-$green-700: #73FF77 !default;
-$green-800: #8FFF93 !default;
-$green-900: #ABFFAE !default;
-
-$hui-greens: (
-  100: #008C05,
-  200: #00A806,
-  300: #03C409,
-  400: #1FE025,
-  500: #3bfc43,
-  600: #57FF5C,
-  700: #73FF77,
-  800: #8FFF93,
-  900: #ABFFAE) !default;
-
-$hui-green: (
-  hex: #3bfc43,
-  light: #8FFF93,
-  dark: #00A806) !default;
-
-$cyan-100: #008573 !default;
-$cyan-200: #00A18B !default;
-$cyan-300: #00BDA4 !default;
-$cyan-400: #00D9BC !default;
-$cyan-500: #00f5d4 !default;
-$cyan-600: #1CFFE1 !default;
-$cyan-700: #38FFE4 !default;
-$cyan-800: #54FFE8 !default;
-$cyan-900: #70FFEC !default;
-
-$hui-cyans: (
-  100: #008573,
-  200: #00A18B,
-  300: #00BDA4,
-  400: #00D9BC,
-  500: #00f5d4,
-  600: #1CFFE1,
-  700: #38FFE4,
-  800: #54FFE8,
-  900: #70FFEC) !default;
-
-$hui-cyan: (
-  hex: #00f5d4,
-  light: #54FFE8,
-  dark: #00A18B) !default;
-
-$ocean-100: #00373D !default;
-$ocean-200: #005059 !default;
-$ocean-300: #006A75 !default;
-$ocean-400: #008391 !default;
-$ocean-500: #1CA0AE !default;
-$ocean-600: #38BBC9 !default;
-$ocean-700: #54D7E6 !default;
-$ocean-800: #70F1FF !default;
-$ocean-900: #8CF4FF !default;
-
-$hui-oceans: (
-  100: #00373D,
-  200: #005059,
-  300: #006A75,
-  400: #008391,
-  500: #1CA0AE,
-  600: #38BBC9,
-  700: #54D7E6,
-  800: #70F1FF,
-  900: #8CF4FF) !default;
-
-$hui-ocean: (
-  hex: #1CA0AE,
-  light: #70F1FF,
-  dark: #005059) !default;
 
 $blue-100: #003454 !default;
 $blue-200: #004570 !default;
@@ -174,99 +18,423 @@ $blue-700: #52BBFC !default;
 $blue-800: #6EC7FF !default;
 $blue-900: #8AD2FF !default;
 
-$hui-blues: (
-  100: #003454,
-  200: #004570,
-  300: #00568C,
-  400: #0068A8,
-  500: #1982c4,
-  600: #369FE0,
-  700: #52BBFC,
-  800: #6EC7FF,
-  900: #8AD2FF) !default;
+$blue-stack: (
+100: #003454,
+200: #004570,
+300: #00568C,
+400: #0068A8,
+500: #1982c4,
+600: #369FE0,
+700: #52BBFC,
+800: #6EC7FF,
+900: #8AD2FF
+) !default;
 
 $hui-blue: (
-  hex: #1982c4,
-  light: #6EC7FF,
-  dark: #004570) !default;
+hex: #1982c4,
+light: #6EC7FF,
+dark: #004570
+) !default;
 
-$violet-100: #260052 !default;
-$violet-200: #33006E !default;
-$violet-300: #40008A !default;
-$violet-400: #4D00A6 !default;
-$violet-500: #6210c2 !default;
-$violet-600: #7F2BDE !default;
-$violet-700: #9B47FA !default;
-$violet-800: #AC63FF !default;
-$violet-900: #BB80FF !default;
+$indigo-100: #140036 !default;
+$indigo-200: #1E0052 !default;
+$indigo-300: #28006E !default;
+$indigo-400: #32008A !default;
+$indigo-500: #4f1ba6 !default;
+$indigo-600: #6B38C2 !default;
+$indigo-700: #8754DE !default;
+$indigo-800: #A370FA !default;
+$indigo-900: #B68CFF !default;
 
-$hui-violets: (
-  100: #260052,
-  200: #33006E,
-  300: #40008A,
-  400: #4D00A6,
-  500: #6210c2,
-  600: #7F2BDE,
-  700: #9B47FA,
-  800: #AC63FF,
-  900: #BB80FF) !default;
+$indigo-stack: (
+100: #140036,
+200: #1E0052,
+300: #28006E,
+400: #32008A,
+500: #4f1ba6,
+600: #6B38C2,
+700: #8754DE,
+800: #A370FA,
+900: #B68CFF
+) !default;
 
-$hui-violet: (
-  hex: #6210c2,
-  light: #AC63FF,
-  dark: #33006E) !default;
+$hui-indigo: (
+hex: #4f1ba6,
+light: #A370FA,
+dark: #1E0052
+) !default;
 
-$primary-100: #260052 !default;
-$primary-200: #33006E !default;
-$primary-300: #40008A !default;
-$primary-400: #4D00A6 !default;
-$primary-500: #6210c2 !default;
-$primary-600: #7F2BDE !default;
-$primary-700: #9B47FA !default;
-$primary-800: #AC63FF !default;
-$primary-900: #BB80FF !default;
+$purple-100: #260038 !default;
+$purple-200: #3A0054 !default;
+$purple-300: #4D0070 !default;
+$purple-400: #60008C !default;
+$purple-500: #7405a9 !default;
+$purple-600: #9121C4 !default;
+$purple-700: #AD3DE0 !default;
+$purple-800: #C959FC !default;
+$purple-900: #D375FF !default;
 
-$hui-primarys: (
-  100: #260052,
-  200: #33006E,
-  300: #40008A,
-  400: #4D00A6,
-  500: #6210c2,
-  600: #7F2BDE,
-  700: #9B47FA,
-  800: #AC63FF,
-  900: #BB80FF) !default;
+$purple-stack: (
+100: #260038,
+200: #3A0054,
+300: #4D0070,
+400: #60008C,
+500: #7405a9,
+600: #9121C4,
+700: #AD3DE0,
+800: #C959FC,
+900: #D375FF
+) !default;
+
+$hui-purple: (
+hex: #7405a9,
+light: #C959FC,
+dark: #3A0054
+) !default;
+
+$pink-100: #8F0043 !default;
+$pink-200: #AB0050 !default;
+$pink-300: #C71266 !default;
+$pink-400: #E32E82 !default;
+$pink-500: #ff4b9f !default;
+$pink-600: #FF66AD !default;
+$pink-700: #FF82BC !default;
+$pink-800: #FF9ECB !default;
+$pink-900: #FFBADA !default;
+
+$pink-stack: (
+100: #8F0043,
+200: #AB0050,
+300: #C71266,
+400: #E32E82,
+500: #ff4b9f,
+600: #FF66AD,
+700: #FF82BC,
+800: #FF9ECB,
+900: #FFBADA
+) !default;
+
+$hui-pink: (
+hex: #ff4b9f,
+light: #FF9ECB,
+dark: #AB0050
+) !default;
+
+$red-100: #8F0030 !default;
+$red-200: #AB0039 !default;
+$red-300: #C70042 !default;
+$red-400: #E3004C !default;
+$red-500: #ff0054 !default;
+$red-600: #FF1C68 !default;
+$red-700: #FF387A !default;
+$red-800: #FF548D !default;
+$red-900: #FF70A0 !default;
+
+$red-stack: (
+100: #8F0030,
+200: #AB0039,
+300: #C70042,
+400: #E3004C,
+500: #ff0054,
+600: #FF1C68,
+700: #FF387A,
+800: #FF548D,
+900: #FF70A0
+) !default;
+
+$hui-red: (
+hex: #ff0054,
+light: #FF548D,
+dark: #AB0039
+) !default;
+
+$orange-100: #8C2A00 !default;
+$orange-200: #A83200 !default;
+$orange-300: #C4460F !default;
+$orange-400: #E0622B !default;
+$orange-500: #fd7e47 !default;
+$orange-600: #FF9263 !default;
+$orange-700: #FFA680 !default;
+$orange-800: #FFB99C !default;
+$orange-900: #FFCDB8 !default;
+
+$orange-stack: (
+100: #8C2A00,
+200: #A83200,
+300: #C4460F,
+400: #E0622B,
+500: #fd7e47,
+600: #FF9263,
+700: #FFA680,
+800: #FFB99C,
+900: #FFCDB8
+) !default;
+
+$hui-orange: (
+hex: #fd7e47,
+light: #FFB99C,
+dark: #A83200
+) !default;
+
+$yellow-100: #8C8F00 !default;
+$yellow-200: #A8AB00 !default;
+$yellow-300: #C4C700 !default;
+$yellow-400: #DFE300 !default;
+$yellow-500: #fbff12 !default;
+$yellow-600: #FCFF2E !default;
+$yellow-700: #FCFF4A !default;
+$yellow-800: #FCFF66 !default;
+$yellow-900: #FDFF82 !default;
+
+$yellow-stack: (
+100: #8C8F00,
+200: #A8AB00,
+300: #C4C700,
+400: #DFE300,
+500: #fbff12,
+600: #FCFF2E,
+700: #FCFF4A,
+800: #FCFF66,
+900: #FDFF82
+) !default;
+
+$hui-yellow: (
+hex: #fbff12,
+light: #FCFF66,
+dark: #A8AB00
+) !default;
+
+$green-100: #008C05 !default;
+$green-200: #00A806 !default;
+$green-300: #03C409 !default;
+$green-400: #1FE025 !default;
+$green-500: #3bfc43 !default;
+$green-600: #57FF5C !default;
+$green-700: #73FF77 !default;
+$green-800: #8FFF93 !default;
+$green-900: #ABFFAE !default;
+
+$green-stack: (
+100: #008C05,
+200: #00A806,
+300: #03C409,
+400: #1FE025,
+500: #3bfc43,
+600: #57FF5C,
+700: #73FF77,
+800: #8FFF93,
+900: #ABFFAE
+) !default;
+
+$hui-green: (
+hex: #3bfc43,
+light: #8FFF93,
+dark: #00A806
+) !default;
+
+$teal-100: #00373D !default;
+$teal-200: #005059 !default;
+$teal-300: #006A75 !default;
+$teal-400: #008391 !default;
+$teal-500: #1CA0AE !default;
+$teal-600: #38BBC9 !default;
+$teal-700: #54D7E6 !default;
+$teal-800: #70F1FF !default;
+$teal-900: #8CF4FF !default;
+
+$teal-stack: (
+100: #00373D,
+200: #005059,
+300: #006A75,
+400: #008391,
+500: #1CA0AE,
+600: #38BBC9,
+700: #54D7E6,
+800: #70F1FF,
+900: #8CF4FF
+) !default;
+
+$hui-teal: (
+hex: #1CA0AE,
+light: #70F1FF,
+dark: #005059
+) !default;
+
+$cyan-100: #008573 !default;
+$cyan-200: #00A18B !default;
+$cyan-300: #00BDA4 !default;
+$cyan-400: #00D9BC !default;
+$cyan-500: #00f5d4 !default;
+$cyan-600: #1CFFE1 !default;
+$cyan-700: #38FFE4 !default;
+$cyan-800: #54FFE8 !default;
+$cyan-900: #70FFEC !default;
+
+$cyan-stack: (
+100: #008573,
+200: #00A18B,
+300: #00BDA4,
+400: #00D9BC,
+500: #00f5d4,
+600: #1CFFE1,
+700: #38FFE4,
+800: #54FFE8,
+900: #70FFEC
+) !default;
+
+$hui-cyan: (
+hex: #00f5d4,
+light: #54FFE8,
+dark: #00A18B
+) !default;
+
+$gray-100: #050505 !default;
+$gray-200: #212121 !default;
+$gray-300: #3D3D3D !default;
+$gray-400: #595959 !default;
+$gray-500: #757575 !default;
+$gray-600: #919191 !default;
+$gray-700: #ADADAD !default;
+$gray-800: #C9C9C9 !default;
+$gray-900: #E6E6E6 !default;
+
+$gray-stack: (
+100: #050505,
+200: #212121,
+300: #3D3D3D,
+400: #595959,
+500: #757575,
+600: #919191,
+700: #ADADAD,
+800: #C9C9C9,
+900: #E6E6E6
+) !default;
+
+$hui-gray: (
+hex: #757575,
+light: #C9C9C9,
+dark: #212121
+) !default;
+
+$black-100: #000000 !default;
+$black-200: #000000 !default;
+$black-300: #000000 !default;
+$black-400: #050505 !default;
+$black-500: #212121 !default;
+$black-600: #3D3D3D !default;
+$black-700: #595959 !default;
+$black-800: #757575 !default;
+$black-900: #919191 !default;
+
+$black-stack: (
+100: #000000,
+200: #000000,
+300: #000000,
+400: #050505,
+500: #212121,
+600: #3D3D3D,
+700: #595959,
+800: #757575,
+900: #919191
+) !default;
+
+$hui-black: (
+hex: #212121,
+light: #757575,
+dark: #000000
+) !default;
+
+$white-100: #8F8F8F !default;
+$white-200: #ABABAB !default;
+$white-300: #C7C7C7 !default;
+$white-400: #E3E3E3 !default;
+$white-500: #FEFEFE !default;
+$white-600: #FFFFFF !default;
+$white-700: #FFFFFF !default;
+$white-800: #FFFFFF !default;
+$white-900: #FFFFFF !default;
+
+$white-stack: (
+100: #8F8F8F,
+200: #ABABAB,
+300: #C7C7C7,
+400: #E3E3E3,
+500: #FEFEFE,
+600: #FFFFFF,
+700: #FFFFFF,
+800: #FFFFFF,
+900: #FFFFFF
+) !default;
+
+$hui-white: (
+hex: #FEFEFE,
+light: #FFFFFF,
+dark: #ABABAB
+) !default;
+
+
+$primary: #6210c2 !default;
+$secondary: #1CA0AE !default;
+$success: #3bfc43 !default;
+$warning: #fbff12 !default;
+$danger: #ff0054 !default;
+$info: #00f5d4 !default;
+$light: #999f9d !default;
+$dark: #4c4c4c !default;
+$black: #0F0F0F !default;
+$white: #FFFFFF !default;
+
 
 $hui-primary: (
-  hex: #6210c2,
-  light: #AC63FF,
-  dark: #33006E) !default;
-
-$secondary-100: #00373D !default;
-$secondary-200: #005059 !default;
-$secondary-300: #006A75 !default;
-$secondary-400: #008391 !default;
-$secondary-500: #1CA0AE !default;
-$secondary-600: #38BBC9 !default;
-$secondary-700: #54D7E6 !default;
-$secondary-800: #70F1FF !default;
-$secondary-900: #8CF4FF !default;
-
-$hui-secondarys: (
-  100: #00373D,
-  200: #005059,
-  300: #006A75,
-  400: #008391,
-  500: #1CA0AE,
-  600: #38BBC9,
-  700: #54D7E6,
-  800: #70F1FF,
-  900: #8CF4FF) !default;
-
+hex: #6210c2,
+light: #9B47FA,
+dark: #40008A
+) !default;
 $hui-secondary: (
-  hex: #1CA0AE,
-  light: #70F1FF,
-  dark: #005059) !default;
+hex: #1CA0AE,
+light: #54D7E6,
+dark: #006A75
+) !default;
+$hui-success: (
+hex: #3bfc43,
+light: #73FF77,
+dark: #03C409
+) !default;
+$hui-warning: (
+hex: #fbff12,
+light: #FCFF4A,
+dark: #C4C700
+) !default;
+$hui-danger: (
+hex: #ff0054,
+light: #FF387A,
+dark: #C70042
+) !default;
+$hui-info: (
+hex: #00f5d4,
+light: #38FFE4,
+dark: #00BDA4
+) !default;
+$hui-light: (
+hex: #999f9d,
+light: #D1D6D4,
+dark: #616664
+) !default;
+$hui-dark: (
+hex: #4c4c4c,
+light: #858585,
+dark: #141414
+) !default;
+$hui-black: (
+hex: #0F0F0F,
+light: #474747,
+dark: #000000
+) !default;
+$hui-white: (
+hex: #FFFFFF,
+light: #FFFFFF,
+dark: #C7C7C7
+) !default;
 
 $mono-100: #050505 !default;
 $mono-200: #212121 !default;
@@ -279,20 +447,22 @@ $mono-800: #C9C9C9 !default;
 $mono-900: #E6E6E6 !default;
 
 $mono: (
-  100: #050505,
-  200: #212121,
-  300: #3D3D3D,
-  400: #595959,
-  500: #757575,
-  600: #919191,
-  700: #ADADAD,
-  800: #C9C9C9,
-  900: #E6E6E6) !default;
+100: #050505,
+200: #212121,
+300: #3D3D3D,
+400: #595959,
+500: #757575,
+600: #919191,
+700: #ADADAD,
+800: #C9C9C9,
+900: #E6E6E6
+) !default;
 
 $hui-mono: (
-  hex: #757575,
-  light: #C9C9C9,
-  dark: #212121) !default;
+hex: #757575,
+light: #C9C9C9,
+dark: #212121
+) !default;
 
 $light-100: #292E2C !default;
 $light-200: #454A48 !default;
@@ -304,21 +474,23 @@ $light-700: #D1D6D4 !default;
 $light-800: #EDF2F1 !default;
 $light-900: #FFFFFF !default;
 
-$hui-lights: (
-  100: #292E2C,
-  200: #454A48,
-  300: #616664,
-  400: #7D8280,
-  500: #999f9d,
-  600: #B5BAB8,
-  700: #D1D6D4,
-  800: #EDF2F1,
-  900: #FFFFFF) !default;
+$light-stack: (
+100: #292E2C,
+200: #454A48,
+300: #616664,
+400: #7D8280,
+500: #999f9d,
+600: #B5BAB8,
+700: #D1D6D4,
+800: #EDF2F1,
+900: #FFFFFF
+) !default;
 
 $hui-light: (
-  hex: #999f9d,
-  light: #EDF2F1,
-  dark: #454A48) !default;
+hex: #999f9d,
+light: #EDF2F1,
+dark: #454A48
+) !default;
 
 $dark-100: #000000 !default;
 $dark-200: #000000 !default;
@@ -330,21 +502,23 @@ $dark-700: #858585 !default;
 $dark-800: #A1A1A1 !default;
 $dark-900: #BDBDBD !default;
 
-$hui-darks: (
-  100: #000000,
-  200: #000000,
-  300: #141414,
-  400: #303030,
-  500: #4c4c4c,
-  600: #696969,
-  700: #858585,
-  800: #A1A1A1,
-  900: #BDBDBD) !default;
+$dark-stack: (
+100: #000000,
+200: #000000,
+300: #141414,
+400: #303030,
+500: #4c4c4c,
+600: #696969,
+700: #858585,
+800: #A1A1A1,
+900: #BDBDBD
+) !default;
 
 $hui-dark: (
-  hex: #4c4c4c,
-  light: #A1A1A1,
-  dark: #000000) !default;
+hex: #4c4c4c,
+light: #A1A1A1,
+dark: #000000
+) !default;
 
 $base00: #212121 !default;
 $base01: #3d3d3d !default;
@@ -365,19 +539,22 @@ $base0f: #6210c2 !default;
 
 
 $Hexidecimal: (
-  base00: #212121,
-  base01: #3d3d3d,
-  base02: #595959,
-  base03: #757575,
-  base04: #919191,
-  base05: #adadad,
-  base06: #c9c9c9,
-  base07: #e6e6e6,
-  base08: #ff0054,
-  base09: #fd7e47,
-  base0a: #fbff12,
-  base0b: #3bfc43,
-  base0c: #00f5d4,
-  base0d: #1CA0AE,
-  base0e: #1982c4,
-  base0f: #6210c2) !default;
+base00: #212121,
+base01: #3d3d3d,
+base02: #595959,
+base03: #757575,
+base04: #919191,
+base05: #adadad,
+base06: #c9c9c9,
+base07: #e6e6e6,
+base08: #ff0054,
+base09: #fd7e47,
+base0a: #fbff12,
+base0b: #3bfc43,
+base0c: #00f5d4,
+base0d: #1CA0AE,
+base0e: #1982c4,
+base0f: #6210c2
+) !default;
+
+

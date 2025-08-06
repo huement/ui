@@ -18,13 +18,12 @@ $debug-zindex: 999999 !default;
 }
 
 @mixin gridPaperBackground() {
+
   /* GRID PAPER BACKGROUND */
   body {
     background-color: #111;
-    background-image: linear-gradient(
-        rgb(255 255 255 / 7%) 2px,
-        transparent 2px
-      ),
+    background-image: linear-gradient(rgb(255 255 255 / 7%) 2px,
+        transparent 2px),
       linear-gradient(90deg, rgb(255 255 255 / 7%) 2px, transparent 2px),
       linear-gradient(rgb(255 255 255 / 6%) 1px, transparent 1px),
       linear-gradient(90deg, rgb(255 255 255 / 6%) 1px, transparent 1px);
@@ -42,7 +41,7 @@ $debug-zindex: 999999 !default;
 }
 
 @mixin debuggerUI($gridBG: false) {
-  @if $gridBG == true {
+  @if $gridBG ==true {
     @include gridPaperBackground;
   }
 
@@ -74,8 +73,8 @@ $debug-zindex: 999999 !default;
   // Apply the mixin for each breakpoint
   @include mediaqDebug(xs, $red-500, '[XS] <= 575');
 
-  @media (width >= 576px) {
-    @include mediaqDebug(sm, $coral-500, '[SM] 576 - 767');
+  @media (width >=576px) {
+    @include mediaqDebug(sm, $orange-500, '[SM] 576 - 767');
   }
 
   @include media-breakpoint-up(md) {
@@ -86,11 +85,11 @@ $debug-zindex: 999999 !default;
     @include mediaqDebug(lg, $green-500, '[LG] 992 - 1199');
   }
 
-  @media (width >= 1200px) {
+  @media (width >=1200px) {
     @include mediaqDebug(xl, $blue-500, '[XL] 1200 - 1399');
   }
 
-  @media (width >= 1400px) {
-    @include mediaqDebug(xxl, $violet-700, '[XXL] 1400+');
+  @media (width >=1400px) {
+    @include mediaqDebug(xxl, $purple-700, '[XXL] 1400+');
   }
 }

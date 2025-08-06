@@ -92,8 +92,8 @@ $form-range-track-bg: rgba($black, 0.2) !default;
 // Navs
 
 $navbar-light-color: $primary !default;
-$navbar-light-hover-color: map.get($hui-primary, 'light') !default;
-$navbar-light-active-color: map.get($hui-primary, 'dark') !default;
+$navbar-light-hover-color: map.get($hui-purple, 'light') !default;
+$navbar-light-active-color: map.get($hui-purple, 'dark') !default;
 $navbar-light-disabled-color: $mono-500 !default;
 $navbar-light-icon-color: $primary !default;
 $navbar-light-brand-color: $primary !default;

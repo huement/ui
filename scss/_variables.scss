@@ -174,28 +174,12 @@ $base-headingspx-map: map.get($base-font-map, 'headings_px') !default;
 $base-scale: map.get($base-font-map, 'scale') !default;
 $font-size-root: strip-units(map.get($base-font-map, 'fontSize')) !default;
 
-// $type-sizes: (
-//   xs: $font-size-base / ($modular-ratio * $modular-ratio),
-//   sm: $font-size-base / $modular-ratio,
-//   md: $font-size-base,
-//   lg: $font-size-base * $modular-ratio,
-//   xl: $font-size-base * $modular-ratio * $modular-ratio,
-//   xx: $font-size-base * $modular-ratio * $modular-ratio * $modular-ratio ) !default;
-
-// $type-line-sizes: (
-//   xs: map.get($type-sizes, 'xs') * $line-height-base,
-//   sm: map.get($type-sizes, 'sm') * $line-height-base,
-//   md: map.get($type-sizes, 'md') * $line-height-base,
-//   lg: map.get($type-sizes, 'lg') * $line-height-base,
-//   xl: map.get($type-sizes, 'xl') * $line-height-base,
-//   xx: map.get($type-sizes, 'xx') * $line-height-base) !default;
-
 // Various additional Text colors that are created in the builder.
 // example: .text-indigo { color: $indigo-300 }
 $color-shades: (
-  'blue': $blue-700,
-  'indigo': $indigo-300,
-  'purple': $purple-300,
+  'blue': $blue-400,
+  'indigo': $indigo-400,
+  'purple': $purple-400,
   'pink': $pink-500,
   'red': $red-500,
   'orange': $orange-500,
@@ -278,10 +262,6 @@ $h3-line-height: map.get($base-headings-map, 'h3') !default;
 $h4-line-height: map.get($base-headings-map, 'h4') !default;
 $h5-line-height: map.get($base-headings-map, 'h5') !default;
 $h6-line-height: map.get($base-headings-map, 'h6') !default;
-// $display1-size: 7.451rem !default;
-// $display2-size: 5.96rem !default;
-// $display3-size: 4.768rem !default;
-// $display4-size: 3.815rem !default;
 $display-line-height: 1 !default;
 $display-margin-bottom: 0.75rem !default;
 $paragraphs-margin-bottom: 1.75rem !default;
@@ -303,10 +283,10 @@ $code-font-size: 0.75rem !default;
 $code-line-height: 1.375rem !default;
 $code-padding-y: 0.1875rem !default;
 $code-padding-x: 0.8125rem !default;
-$code-background-color: rgb(19 19 19 / 80%) !default;
+$code-background-color: rgba(19, 19, 19, 0.8) !default;
 $kbd-font-size: 0.75rem !default;
 $kbd-border-radius: 0.625rem !default;
-$kbd-box-shadow: none !default;
+$kbd-box-shadow: 0 .125rem .25rem rgba($black, .075) !default;
 $kbd-padding-y: $code-padding-y !default;
 $kbd-padding-x: $code-padding-x !default;
 $kbd-color: $white !default;
@@ -327,4 +307,4 @@ $thumbnail-bg: $body-bg !default;
 $thumbnail-border: none !default;
 $thumbnail-padding: 0 !default;
 $thumbnail-border-radius: $border-radius !default;
-$thumbnail-box-shadow: none !default;
+// $thumbnail-box-shadow: null !default;
