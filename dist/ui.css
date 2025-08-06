@@ -15658,42 +15658,42 @@ kbd kbd {
 }
 
 .text-blue {
-  color: #52BBFC !important;
+  color: #0068A8 !important;
 }
 .text-blue.nav-link {
   color: #C9C9C9 !important;
 }
 .text-blue.nav-link:hover {
-  color: #52BBFC !important;
+  color: #0068A8 !important;
 }
 .text-blue:hover {
-  color: rgb(168.5, 221, 253.5) !important;
+  color: rgb(84, 189.8571428571, 255) !important;
 }
 
 .text-indigo {
-  color: #28006E !important;
+  color: #32008A !important;
 }
 .text-indigo.nav-link {
   color: #C9C9C9 !important;
 }
 .text-indigo.nav-link:hover {
-  color: #28006E !important;
+  color: #32008A !important;
 }
 .text-indigo:hover {
-  color: rgb(127.7272727273, 55, 255) !important;
+  color: rgb(136.3913043478, 69, 255) !important;
 }
 
 .text-purple {
-  color: #4D0070 !important;
+  color: #60008C !important;
 }
 .text-purple.nav-link {
   color: #C9C9C9 !important;
 }
 .text-purple.nav-link:hover {
-  color: #4D0070 !important;
+  color: #60008C !important;
 }
 .text-purple:hover {
-  color: rgb(192.8125, 56, 255) !important;
+  color: rgb(196.8571428571, 70, 255) !important;
 }
 
 .text-pink {
