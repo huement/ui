@@ -3,7 +3,7 @@
 //    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 //      _palette.scss
 //      AUG 14 2025
-//      VER 0.9.9
+//      VER 0.9.10
 //      @huement/ui generated file > npm run build:colors
 //    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //
@@ -373,8 +373,8 @@ dark: #ABABAB
 ) !default;
 
 
-$primary: #7405a9 !default;
-$secondary: #0fb2aa !default;
+$primary: #6210c2 !default;
+$secondary: #1CA0AE !default;
 $success: #34fc35 !default;
 $warning: #fbff12 !default;
 $danger: #ff0054 !default;
@@ -386,14 +386,14 @@ $white: #FEFEFE !default;
 
 
 $hui-primary: (
-hex: #7405a9,
-light: #AD3DE0,
-dark: #4D0070
+hex: #6210c2,
+light: #9B47FA,
+dark: #40008A
 ) !default;
 $hui-secondary: (
-hex: #0fb2aa,
-light: #47EBE2,
-dark: #007A74
+hex: #1CA0AE,
+light: #54D7E6,
+dark: #006A75
 ) !default;
 $hui-success: (
 hex: #34fc35,
