@@ -1,0 +1,131 @@
+//
+// Prism.js theme mixin
+// --------------------
+// This generates a Prism.js theme based on the base16 theme colors.
+// Its not included in the default build, but can be added to your project.
+//
+@mixin prism-theme() {
+  // Base variables
+  $font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !default;
+  $font-size: 1em !default;
+  $line-height: 1.5 !default;
+  $tab-size: 4 !default;
+  $padding: 1.2em !default;
+  $margin: 0.75em 0 !default;
+  $inline-padding: 0.1em !default;
+  $border-radius: 0.3em !default;
+
+  code[class*='language-'],
+  pre[class*='language-'] {
+    color: $base07;
+    background: none;
+    font-family: $font-family;
+    font-size: $font-size;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: $line-height;
+    -moz-tab-size: $tab-size;
+    -o-tab-size: $tab-size;
+    tab-size: $tab-size;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  /* Code blocks */
+  pre[class*='language-'] {
+    padding: $padding;
+    margin: $margin;
+    overflow: auto;
+    background: $base00;
+  }
+
+  :not(pre)>code[class*='language-'] {
+    padding: $inline-padding;
+    border-radius: $border-radius;
+    white-space: normal;
+    background: $base00;
+  }
+
+  .token {
+
+    &.comment,
+    &.block-comment,
+    &.prolog,
+    &.doctype,
+    &.cdata {
+      color: $base02;
+    }
+
+    &.punctuation {
+      color: $base07;
+    }
+
+    &.tag,
+    &.attr-name,
+    &.namespace,
+    &.deleted {
+      color: $base08;
+    }
+
+    &.function-name {
+      color: $base0e;
+    }
+
+    &.boolean,
+    &.number,
+    &.function {
+      color: $base09;
+    }
+
+    &.property,
+    &.class-name,
+    &.constant,
+    &.symbol {
+      color: $base0a;
+    }
+
+    &.selector,
+    &.important,
+    &.atrule,
+    &.keyword,
+    &.builtin {
+      color: $base0f;
+    }
+
+    &.string,
+    &.char,
+    &.attr-value,
+    &.regex,
+    &.variable {
+      color: $base0d;
+    }
+
+    &.operator,
+    &.entity,
+    &.url {
+      color: $base0c;
+    }
+
+    &.important,
+    &.bold {
+      font-weight: bold;
+    }
+
+    &.italic {
+      font-style: italic;
+    }
+
+    &.entity {
+      cursor: help;
+    }
+
+    &.inserted {
+      color: $base0b;
+    }
+  }
+}

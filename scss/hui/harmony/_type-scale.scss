@@ -1,0 +1,252 @@
+// ------------------------------
+// | MODULAR TYPE SCALE MIXIN
+// | ------------------------------
+// | Creates a type scale for H1-H6 with fluid margins and responsive font size and weights.
+// | You include the root mixin in the root of your scss file and then include the type scale mixin where ever you want to use it. .content { ... } or in the root if you want to use it globally.
+// |
+// | This allows you to have a smaller fluid stack for your post content as opposed to the page content
+// |
+// |
+// | BASE VALUES:
+// | - Font Size: 16px / 1rem
+// | - Line Height: 24px / 1.5rem
+// | - Letter Spacing: 3.5% / 0.035em
+// |
+// | SCALES:
+// | - Large screens (≥576px): Major Third (1.26)
+// | - Small screens (<576px): Minor Third (1.19)
+// |
+// | MARGINS:
+// | - H1-H4: Fluid, proportional to font size (0.5em top, 0.25em bottom)
+// | - H5-H6: Fixed at 1rem top and bottom
+// |
+// | FONT WEIGHTS:
+// | - H1-H3: 700 on large screens, scaling to 500 on small screens
+// | - H4-H6: Fixed at 600
+// |
+// | LINE GRID:
+// | - Grid Unit: 4px / 0.25rem
+// |
+// ------------------------------
+
+// Custom responsive margin mixin (similar to rfs but for margins)
+@mixin responsive-margin($property, $value, $unit: rem) {
+  #{$property}: $value + $unit;
+
+  @media (min-width: 576px) {
+    #{$property}: ($value * 0.8) + $unit;
+  }
+
+  @media (min-width: 768px) {
+    #{$property}: ($value * 0.9) + $unit;
+  }
+
+  @media (min-width: 992px) {
+    #{$property}: $value + $unit;
+  }
+
+  @media (min-width: 1200px) {
+    #{$property}: ($value * 1.1) + $unit;
+  }
+
+  @media (min-width: 1400px) {
+    #{$property}: ($value * 1.2) + $unit;
+  }
+}
+
+
+// Fluid Margin Mixin
+@mixin fluid-margin($property, $min-value, $max-value, $min-width: 320px, $max-width: 1200px) {
+  #{$property}: $min-value;
+
+  @media (min-width: $min-width) {
+    #{$property}: calc(#{$min-value} + (#{$max-value} - #{$min-value}) * ((100vw - #{$min-width}) / (#{$max-width} - #{$min-width})));
+  }
+
+  @media (min-width: $max-width) {
+    #{$property}: $max-value;
+  }
+}
+
+// Typography Mixin
+// Targets PLAIN HTML. So H1 w/o classes etc. Like how a Statamic or Wordpress site would output it.
+@mixin huement-type-scale-root($large-scale-ratio: 1.26, $small-scale-ratio: 1.19) {
+  // Base values
+  $base-font-size: 1.2rem;
+  $base-line-height: 1.5;
+  $base-letter-spacing: 0.035em;
+
+  // Font sizes for large screens (Major Third, 1.26)
+  :root {
+    // Below base
+    --font-size-2b-large: #{$base-font-size / ($large-scale-ratio * $large-scale-ratio)};
+    --font-size-1b-large: #{$base-font-size / $large-scale-ratio};
+    --font-size-large: #{$base-font-size};
+    --font-size-1-large: #{$base-font-size * $large-scale-ratio};
+    --font-size-2-large: #{$base-font-size * pow($large-scale-ratio, 2)};
+    --font-size-3-large: #{$base-font-size * pow($large-scale-ratio, 3)};
+    --font-size-4-large: #{$base-font-size * pow($large-scale-ratio, 4)};
+    --font-size-5-large: #{$base-font-size * pow($large-scale-ratio, 5)};
+    --font-size-6-large: #{$base-font-size * pow($large-scale-ratio, 6)};
+
+    // Font sizes for small screens (Minor Third, 1.19)
+    --font-size-2b-small: #{$base-font-size / ($small-scale-ratio * $small-scale-ratio)};
+    --font-size-1b-small: #{$base-font-size / $small-scale-ratio};
+    --font-size-small: #{$base-font-size};
+    --font-size-1-small: #{$base-font-size * $small-scale-ratio};
+    --font-size-2-small: #{$base-font-size * pow($small-scale-ratio, 2)};
+    --font-size-3-small: #{$base-font-size * pow($small-scale-ratio, 3)};
+    --font-size-4-small: #{$base-font-size * pow($small-scale-ratio, 4)};
+    --font-size-5-small: #{$base-font-size * pow($small-scale-ratio, 5)};
+    --font-size-6-small: #{$base-font-size * pow($small-scale-ratio, 6)};
+  }
+
+  // Line heights (same for both scales, adjusted to font size)
+  :root {
+    --line-height-2b: 2;
+    --line-height-1b: 1.5385;
+    --line-height: #{$base-line-height};
+    --line-height-1: 1.4;
+    --line-height-2: 1.28;
+    --line-height-3: 1.25;
+    --line-height-4: 1.2;
+    --line-height-5: 1.1765;
+    --line-height-6: 1.125;
+  }
+
+  // Letter spacings (same for both scales, tightening with larger sizes)
+  :root {
+    --letter-space-2b: 0.074em;
+    --letter-space-1b: 0.05em;
+    --letter-space: #{$base-letter-spacing};
+    --letter-space-1: 0.022em;
+    --letter-space-2: 0.0116em;
+    --letter-space-3: 0.0025em;
+    --letter-space-4: -0.004em;
+    --letter-space-5: -0.0096em;
+    --letter-space-6: -0.0137em;
+  }
+
+}
+
+@mixin huement-type-scale($large-scale-ratio: 1.26, $small-scale-ratio: 1.19) {
+
+  // Base body text
+  p:not([class]) {
+    font-weight: 300;
+    font-size: var(--font-size-small);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-space);
+
+    @include media-breakpoint-up(md) {
+      font-size: var(--font-size-large);
+    }
+
+    a {
+      color: $blue-700 !important;
+      text-decoration: underline;
+
+      &:hover {
+        color: $blue-500 !important;
+        text-decoration: none;
+      }
+    }
+  }
+
+  h1:not([class]),
+  h1:not([class]) strong {
+    font-size: var(--font-size-1-large);
+    line-height: var(--line-height-4);
+    letter-spacing: var(--letter-space-4);
+    font-weight: 500;
+    @include fluid-margin(margin-top, calc(var(--font-size-4-small) * 0.5), calc(var(--font-size-4-large) * 0.5));
+    @include fluid-margin(margin-bottom, calc(var(--font-size-4-small) * 0.25), calc(var(--font-size-4-large) * 0.25));
+
+    @include media-breakpoint-up(md) {
+      font-size: var(--font-size-4-large);
+      font-weight: 700;
+    }
+  }
+
+  h2:not([class]),
+  h2:not([class]) strong {
+    font-size: var(--font-size-3-small);
+    line-height: var(--line-height-3);
+    letter-spacing: var(--letter-space-3);
+    font-weight: 500;
+    @include fluid-margin(margin-top, calc(var(--font-size-3-small) * 0.5), calc(var(--font-size-3-large) * 0.5));
+    @include fluid-margin(margin-bottom, calc(var(--font-size-3-small) * 0.25), calc(var(--font-size-3-large) * 0.25));
+
+    @include media-breakpoint-up(md) {
+      font-size: var(--font-size-3-large);
+      font-weight: 700;
+    }
+  }
+
+  h3:not([class]),
+  h3:not([class]) strong {
+    font-size: var(--font-size-2-small);
+    line-height: var(--line-height-2);
+    letter-spacing: var(--letter-space-2);
+    font-weight: 500;
+    @include fluid-margin(margin-top, calc(var(--font-size-2-small) * 0.5), calc(var(--font-size-2-large) * 0.5));
+    @include fluid-margin(margin-bottom, calc(var(--font-size-2-small) * 0.25), calc(var(--font-size-2-large) * 0.25));
+
+    @include media-breakpoint-up(md) {
+      font-size: var(--font-size-2-large);
+      font-weight: 700;
+    }
+  }
+
+  h4:not([class]),
+  h4:not([class]) strong {
+    font-size: var(--font-size-1-small);
+    line-height: var(--line-height-1);
+    letter-spacing: var(--letter-space-1);
+    @include fluid-margin(margin-top, calc(var(--font-size-1-small) * 0.5), calc(var(--font-size-1-large) * 0.5));
+    @include fluid-margin(margin-bottom, calc(var(--font-size-1-small) * 0.25), calc(var(--font-size-1-large) * 0.25));
+
+    @include media-breakpoint-up(md) {
+      font-size: var(--font-size-1-large);
+    }
+  }
+
+  h5:not([class]),
+  h5:not([class]) strong,
+  h6:not([class]),
+  h6:not([class]) strong {
+    font-size: var(--font-size-2b-small);
+    line-height: var(--line-height-2b);
+    letter-spacing: var(--letter-space-2b);
+    @include fluid-margin(margin-top, 1rem, 1rem);
+    @include fluid-margin(margin-bottom, 1rem, 1rem);
+
+    @include media-breakpoint-up(md) {
+      font-size: var(--font-size-2b-large);
+    }
+  }
+
+  h6:not([class]),
+  h6:not([class]) strong {
+    font-size: var(--font-size-1b-small);
+    line-height: var(--line-height-1b);
+    letter-spacing: var(--letter-space-1b);
+
+    @include media-breakpoint-up(md) {
+      font-size: var(--font-size-1b-large);
+    }
+  }
+
+  h1:not([class]) strong,
+  h2:not([class]) strong,
+  h3:not([class]) strong,
+  h4:not([class]) strong,
+  h5:not([class]) strong,
+  h6:not([class]) strong {
+    font-weight: 500;
+
+    @include media-breakpoint-up(md) {
+      font-weight: 700;
+    }
+  }
+}

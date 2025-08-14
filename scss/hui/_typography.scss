@@ -86,6 +86,9 @@ button {
 }
 
 /** HUI Typography */
+@import 'harmony/type-scale';
+// @include huement-type-scale-root;
+
 @import 'harmony/headings';
 @include Harmonic_Headings_Core;
 @include Harmonic_Headings_Breakpoints;
