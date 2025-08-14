@@ -28,7 +28,6 @@
     - [━▶ Updating](#-updating)
   - [━▶ SCSS Framework Building](#-scss-framework-building)
     - [STYLE + DESIGN TOKENS](#style--design-tokens)
-  - [━▶ SVG Icon Font Tools](#-svg-icon-font-tools)
   - [━▶ Command Line Tool](#-command-line-tool)
     - [⬦ Colors](#-colors)
     - [⬦ Typography Chords](#-typography-chords)
@@ -75,7 +74,9 @@ Updating the library involves pushing a new version to NPM.
 
 ## ━▶ SCSS Framework Building
 
-> TODO: this part needs a lot of work
+The components and everything you love from Bootstrap are all topped off and ready to run
+
+![hui preview](hui-preview.png)
 
 ### STYLE + DESIGN TOKENS
 
@@ -83,12 +84,36 @@ Updating the library involves pushing a new version to NPM.
 2. **tokens/chords.json** ❱ TODO explain how to generate this
 3. **stack.json + color_tokens.json** ❱ TODO sort out the token color files
 
----
+Token files are easily created and when used in conjuction with the CLI, you can quickly create stunning themes in a second! This includes entire 'stacks'
 
-## ━▶ SVG Icon Font Tools
+```json
+"theme": [
+  {"primary": "7405a9"},
+  {"secondary": "0fb2aa"},
+  {"success": "34fc35"},
+  {"warning": "fbff12"},
+  {"danger": "ff0054"},
+  {"info": "1982c4"},
+  {"light": "C7C7C7"},
+  {"dark": "4c4c4c"},
+  {"black": "0F0F0F"},
+  {"white": "FEFEFE"}
+]
+```
 
-> TODO: this part needs a lot of work
+Creates a `_palette.scss` file that is filled with all your colors. 
 
+```scss
+
+$blue-100: #003454 !default;
+$blue-200: #004570 !default;
+$blue-300: #00568C !default;
+$blue-400: #0068A8 !default;
+$blue-500: #1982c4 !default;
+...
+// etc etc more colors 
+
+```
 ---
 
 ## ━▶ Command Line Tool
@@ -161,7 +186,7 @@ HUI is under active development! Here’s a look at what’s coming in future ve
 
 ```
  @huement/ui |  HUEMENT USER INTERFACE
-     version |  0.8.*
+     version |  0.9.*
     codename |  mojo
 ```
 

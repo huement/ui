@@ -18,8 +18,8 @@
 @import 'hui/colors';
 @import 'hui/tokens';
 @import 'hui/token-fonts';
-@import 'variables';
-@import 'bs5Config';
+@import 'variables'; // hui variables
+@import 'bs5Config'; // bootstrap variables variables-bs5.scss etc
 @import 'maps';
 @import 'mixins';
 @import 'thirdparty/rfs';

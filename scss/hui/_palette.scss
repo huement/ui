@@ -2,8 +2,8 @@
 //
 //    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 //      _palette.scss
-//      AUG 06 2025
-//      VER 0.9.5
+//      AUG 14 2025
+//      VER 0.9.8
 //      @huement/ui generated file > npm run build:colors
 //    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //
@@ -204,32 +204,32 @@ light: #FCFF66,
 dark: #A8AB00
 ) !default;
 
-$green-100: #008C05 !default;
-$green-200: #00A806 !default;
-$green-300: #03C409 !default;
-$green-400: #1FE025 !default;
-$green-500: #3bfc43 !default;
-$green-600: #57FF5C !default;
-$green-700: #73FF77 !default;
-$green-800: #8FFF93 !default;
-$green-900: #ABFFAE !default;
+$green-100: #008C00 !default;
+$green-200: #00A800 !default;
+$green-300: #00C400 !default;
+$green-400: #17E017 !default;
+$green-500: #34fc35 !default;
+$green-600: #4FFF4F !default;
+$green-700: #6BFF6B !default;
+$green-800: #87FF87 !default;
+$green-900: #A3FFA3 !default;
 
 $green-stack: (
-100: #008C05,
-200: #00A806,
-300: #03C409,
-400: #1FE025,
-500: #3bfc43,
-600: #57FF5C,
-700: #73FF77,
-800: #8FFF93,
-900: #ABFFAE
+100: #008C00,
+200: #00A800,
+300: #00C400,
+400: #17E017,
+500: #34fc35,
+600: #4FFF4F,
+700: #6BFF6B,
+800: #87FF87,
+900: #A3FFA3
 ) !default;
 
 $hui-green: (
-hex: #3bfc43,
-light: #8FFF93,
-dark: #00A806
+hex: #34fc35,
+light: #87FF87,
+dark: #00A800
 ) !default;
 
 $teal-100: #00373D !default;
@@ -373,32 +373,32 @@ dark: #ABABAB
 ) !default;
 
 
-$primary: #6210c2 !default;
-$secondary: #1CA0AE !default;
-$success: #3bfc43 !default;
+$primary: #7405a9 !default;
+$secondary: #0fb2aa !default;
+$success: #34fc35 !default;
 $warning: #fbff12 !default;
 $danger: #ff0054 !default;
-$info: #00f5d4 !default;
-$light: #999f9d !default;
+$info: #1982c4 !default;
+$light: #C7C7C7 !default;
 $dark: #4c4c4c !default;
 $black: #0F0F0F !default;
-$white: #FFFFFF !default;
+$white: #FEFEFE !default;
 
 
 $hui-primary: (
-hex: #6210c2,
-light: #9B47FA,
-dark: #40008A
+hex: #7405a9,
+light: #AD3DE0,
+dark: #4D0070
 ) !default;
 $hui-secondary: (
-hex: #1CA0AE,
-light: #54D7E6,
-dark: #006A75
+hex: #0fb2aa,
+light: #47EBE2,
+dark: #007A74
 ) !default;
 $hui-success: (
-hex: #3bfc43,
-light: #73FF77,
-dark: #03C409
+hex: #34fc35,
+light: #6BFF6B,
+dark: #00C400
 ) !default;
 $hui-warning: (
 hex: #fbff12,
@@ -411,14 +411,14 @@ light: #FF387A,
 dark: #C70042
 ) !default;
 $hui-info: (
-hex: #00f5d4,
-light: #38FFE4,
-dark: #00BDA4
+hex: #1982c4,
+light: #52BBFC,
+dark: #00568C
 ) !default;
 $hui-light: (
-hex: #999f9d,
-light: #D1D6D4,
-dark: #616664
+hex: #C7C7C7,
+light: #FFFFFF,
+dark: #8F8F8F
 ) !default;
 $hui-dark: (
 hex: #4c4c4c,
@@ -431,7 +431,7 @@ light: #474747,
 dark: #000000
 ) !default;
 $hui-white: (
-hex: #FFFFFF,
+hex: #FEFEFE,
 light: #FFFFFF,
 dark: #C7C7C7
 ) !default;
@@ -464,59 +464,59 @@ light: #C9C9C9,
 dark: #212121
 ) !default;
 
-$light-100: #292E2C !default;
-$light-200: #454A48 !default;
-$light-300: #616664 !default;
-$light-400: #7D8280 !default;
-$light-500: #999f9d !default;
-$light-600: #B5BAB8 !default;
-$light-700: #D1D6D4 !default;
-$light-800: #EDF2F1 !default;
+$light-100: #757575 !default;
+$light-200: #919191 !default;
+$light-300: #ADADAD !default;
+$light-400: #C9C9C9 !default;
+$light-500: #e6e6e6 !default;
+$light-600: #FFFFFF !default;
+$light-700: #FFFFFF !default;
+$light-800: #FFFFFF !default;
 $light-900: #FFFFFF !default;
 
 $light-stack: (
-100: #292E2C,
-200: #454A48,
-300: #616664,
-400: #7D8280,
-500: #999f9d,
-600: #B5BAB8,
-700: #D1D6D4,
-800: #EDF2F1,
+100: #757575,
+200: #919191,
+300: #ADADAD,
+400: #C9C9C9,
+500: #e6e6e6,
+600: #FFFFFF,
+700: #FFFFFF,
+800: #FFFFFF,
 900: #FFFFFF
 ) !default;
 
 $hui-light: (
-hex: #999f9d,
-light: #EDF2F1,
-dark: #454A48
+hex: #e6e6e6,
+light: #FFFFFF,
+dark: #919191
 ) !default;
 
 $dark-100: #000000 !default;
 $dark-200: #000000 !default;
-$dark-300: #141414 !default;
-$dark-400: #303030 !default;
-$dark-500: #4c4c4c !default;
-$dark-600: #696969 !default;
-$dark-700: #858585 !default;
-$dark-800: #A1A1A1 !default;
-$dark-900: #BDBDBD !default;
+$dark-300: #050505 !default;
+$dark-400: #212121 !default;
+$dark-500: #3D3D3D !default;
+$dark-600: #595959 !default;
+$dark-700: #757575 !default;
+$dark-800: #919191 !default;
+$dark-900: #ADADAD !default;
 
 $dark-stack: (
 100: #000000,
 200: #000000,
-300: #141414,
-400: #303030,
-500: #4c4c4c,
-600: #696969,
-700: #858585,
-800: #A1A1A1,
-900: #BDBDBD
+300: #050505,
+400: #212121,
+500: #3D3D3D,
+600: #595959,
+700: #757575,
+800: #919191,
+900: #ADADAD
 ) !default;
 
 $hui-dark: (
-hex: #4c4c4c,
-light: #A1A1A1,
+hex: #3D3D3D,
+light: #919191,
 dark: #000000
 ) !default;
 
@@ -532,10 +532,10 @@ $base08: #ff0054 !default;
 $base09: #fd7e47 !default;
 $base0a: #fbff12 !default;
 $base0b: #3bfc43 !default;
-$base0c: #00f5d4 !default;
-$base0d: #1CA0AE !default;
+$base0c: #02e5ac !default;
+$base0d: #0fb4f0 !default;
 $base0e: #1982c4 !default;
-$base0f: #6210c2 !default;
+$base0f: #9B47FA !default;
 
 
 $Hexidecimal: (
@@ -551,10 +551,10 @@ base08: #ff0054,
 base09: #fd7e47,
 base0a: #fbff12,
 base0b: #3bfc43,
-base0c: #00f5d4,
-base0d: #1CA0AE,
+base0c: #02e5ac,
+base0d: #0fb4f0,
 base0e: #1982c4,
-base0f: #6210c2
+base0f: #9B47FA
 ) !default;
 
 

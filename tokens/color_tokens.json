@@ -23,7 +23,7 @@
         "yellow": "fbff12"
       },
       {
-        "green": "3bfc43"
+        "green": "34fc35"
       },
       {
         "teal": "1CA0AE"
@@ -43,13 +43,13 @@
     ],
     "theme": [
       {
-        "primary": "6210c2"
+        "primary": "7405a9"
       },
       {
-        "secondary": "1CA0AE"
+        "secondary": "0fb2aa"
       },
       {
-        "success": "3bfc43"
+        "success": "34fc35"
       },
       {
         "warning": "fbff12"
@@ -58,10 +58,10 @@
         "danger": "ff0054"
       },
       {
-        "info": "00f5d4"
+        "info": "1982c4"
       },
       {
-        "light": "999f9d"
+        "light": "C7C7C7"
       },
       {
         "dark": "4c4c4c"
@@ -70,7 +70,7 @@
         "black": "0F0F0F"
       },
       {
-        "white": "FFFFFF"
+        "white": "FEFEFE"
       }
     ]
   },
@@ -80,10 +80,10 @@
         "mono": "757575"
       },
       {
-        "light": "999f9d"
+        "light": "e6e6e6"
       },
       {
-        "dark": "4c4c4c"
+        "dark": "3D3D3D"
       }
     ]
   },
@@ -126,16 +126,16 @@
         "base0b": "3bfc43"
       },
       {
-        "base0c": "00f5d4"
+        "base0c": "02e5ac"
       },
       {
-        "base0d": "1CA0AE"
+        "base0d": "0fb4f0"
       },
       {
         "base0e": "1982c4"
       },
       {
-        "base0f": "6210c2"
+        "base0f": "9B47FA"
       }
     ]
   }

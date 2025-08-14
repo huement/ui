@@ -97,15 +97,25 @@ $gradient: linear-gradient(180deg,
 // You can add more entries to the $spacers map, should you need more variation.
 
 // scss-docs-start spacer-variables-maps
+// OLD VERSION
+// $spacers: (
+//   0: 0,
+//   1: $spacer * 0.25,
+//   2: $spacer * 0.5,
+//   3: $spacer,
+//   4: $spacer * 1.5,
+//   5: $spacer * 3,
+//   ) !default;
 $spacer: 1rem !default;
 $spacers: (
   0: 0,
-  1: $spacer * 0.25,
-  2: $spacer * 0.5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 3,
-  ) !default;
+  1: $spacer * 0.5,
+  2: $spacer,
+  3: $spacer * 1.5,
+  4: $spacer * 2,
+  5: $spacer * 2.5,
+  6: $spacer * 3,
+  10: $spacer * 5) !default;
 
 // scss-docs-end spacer-variables-maps
 
@@ -1086,8 +1096,8 @@ $accordion-button-focus-border-color: $input-focus-border-color !default; // Dep
 // fusv-enable
 $accordion-button-focus-box-shadow: $btn-focus-box-shadow !default;
 $accordion-icon-width: 1.25rem !default;
-$accordion-icon-color: $body-color !default;
-$accordion-icon-active-color: $primary-text-emphasis !default;
+$accordion-icon-color: "#EFEFEF" !default;
+$accordion-icon-active-color: "#5f5f5f" !default;
 $accordion-icon-transition: transform 0.2s ease-in-out !default;
 $accordion-icon-transform: rotate(-180deg) !default;
 $accordion-button-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-color}' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>") !default;

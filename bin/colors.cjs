@@ -14,7 +14,6 @@ const path = require('path')
 const jetpack = require('fs-jetpack')
 const ColorScale = require('color-scale')
 const json2scss = require('json2scss')
-const json2scssMap = require('json2scss-map')
 
 class TokenColors {
   constructor(tokenFile, outputFile, outputJSONFile) {
@@ -84,8 +83,6 @@ class TokenColors {
         value.forEach((element) => {
           for (const [ckey, cvalue] of Object.entries(element)) {
             var cScale = ColorScale({ color: '#' + cvalue, variance: 11 })
-            var lightKey = `${ckey}-light`
-            var darkKey = `${ckey}-dark`
             var hKey = `hui-${ckey}`
             theme[ckey] = '#' + cvalue
             themeMap[hKey] = {
@@ -143,7 +140,6 @@ class TokenColors {
 
             // var colorKey = `${ckey}`
             var mKey = `${ckey}`
-            var n = 0
             const numberObj = {}
             numberObj[`${ckey}-100`] = cScale(-4)
             numberObj[`${ckey}-200`] = cScale(-3)
