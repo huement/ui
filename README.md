@@ -20,6 +20,21 @@
 
 ---
 
+### TODO LIST
+
+This is everything I want to get done before I would consider this usable. 
+
++ add in vertical units for each viewport size
+  + V1 = $chord['vertical'] x $chord['scale'] x 1 
+  + V2 = $chord['vertical'] x $chord['scale'] x 2 
+  + through to V10 for each viewport
++ Get blog site changes added
++ Finalize CLI Tools for token generation
++ Finalize ICON toolkit
++ FontFace Variable Font Support
+
+_____
+
 # TABLE OF CONTENTS
 
 - [TABLE OF CONTENTS](#table-of-contents)
